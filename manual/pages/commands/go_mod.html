@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Fora do $GOPATH</title>
+    <title>Go Bootcamp - go mod</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,81 +58,93 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Fora do $GOPATH</div>
+                    <div class="main-title">go mod</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Agora podemos fazer nossos projetos sem estar em $GOPATH, podemos, por exemplo, fazer em qualquer diretório.
+                            Um módulo é uma coleção de pacotes Go relacionados. Módulos são a unidade de intercâmbio e 
+                            controle de versão do código-fonte. O comando go tem suporte direto para trabalhar com módulos, 
+                            incluindo gravação e resolução de dependências em outros módulos. Os módulos substituem a antiga 
+                            abordagem baseada em GOPATH para especificar quais arquivos de origem são usados em uma determinada construção.
                         </p>
                         <pre><code class="language-go">
-$ export GOPATH=$HOME/go
-$ mkdir $HOME/2019/project1
-$ mkdir $HOME/2019/project1/my-pkg
-$ mkdir $HOME/2019/project1/my-cmd
-$ mkdir $HOME/2019/project1/my-logs
-$ mkdir $HOME/2019/project1/my-models
-$ mkdir $HOME/2019/project1/my-repo
-$ mkdir $HOME/2019/project1/my-handler
+go mod <command> [arguments]
+                        </code></pre>
+                        <p>
+                            Um módulo é definido por uma árvore de arquivos de origem Go com um arquivo go.mod no diretório 
+                            raiz da árvore. O diretório que contém o arquivo go.mod é chamado de raiz do módulo. Normalmente, 
+                            a raiz do módulo também corresponderá a uma raiz do repositório de código-fonte 
+                            (mas em geral não é necessário). O módulo é o conjunto de todos os pacotes Go na raiz do 
+                            módulo e seus subdiretórios, mas excluindo subárvores com seus próprios arquivos go.mod.
+                        </p>
+                        <p>
+                            O "caminho do módulo" é o prefixo do caminho de importação correspondente à raiz do módulo. 
+                            O arquivo go.mod define o caminho do módulo e lista as versões específicas de outros módulos 
+                            que devem ser usados ao resolver importações durante uma compilação, fornecendo seus caminhos 
+                            e versões de módulo.
+                        </p>
+                        <p>
+                            Por exemplo, este go.mod declara que o diretório que o contém é a raiz do módulo com o caminho 
+                            example.com/m e também declara que o módulo depende de versões específicas de golang.org/x/text e 
+                            gopkg.in /yaml.v2:
+                        </p>
+                        <pre><code class="language-go">
+go mod init github.com/user/gomyproject
 
-$HOME/
-  |-2019
-    |-github.com/user/project1/
-      |-cmd
-        |-main.go
-      |-vendor
-      |-logs
-      |-models
-      |-repo
-      |-handler
+require (
+  golang.org/x/text v0.3.0
+  gopkg.in/yaml.v2 v2.1.0
+)
                         </code></pre>
                         <p>
-                            Podemos colocar nosso projeto em qualquer diretório agora.
+                            O arquivo go.mod também pode especificar substituições e versões excluídas que se aplicam apenas 
+                            ao construir o módulo diretamente; eles são ignorados quando o módulo é incorporado a uma 
+                            construção maior. Para obter mais informações sobre o arquivo go.mod, consulte 'go help go.mod'.
+                        </p>
+                        <p>
+                            Para iniciar um novo módulo, basta criar um arquivo go.mod na raiz da árvore de diretórios do módulo, 
+                            contendo apenas uma instrução do módulo. O comando 'go mod init' pode ser usado para fazer isso:
                         </p>
                         <pre><code class="language-go">
-$HOME/
-  |-any-directory
-    |-github.com/user/project1/
-      |-cmd
-        |-main.go
-      |-vendor
-      |-logs
-      |-models
-      |-repo
-      |-handler
+go mod init github.com/user/gomyproject
                         </code></pre>
                         <p>
-                            Para o cenário acima, teremos que usar o go mod em nosso projeto para que todos os 
-                            pacotes externos possam funcionar corretamente, desta forma poderemos gerenciá-los 
-                            corretamente e sua versão. Mais informações podem ser encontradas aqui: <a href="https://github.com/golang/go/wiki/Modules">Wiki Go Modules</a>
-                        </p>
-                        <pre><code class="language-go">
-$ go mod init github.com/user/project1
-                        </code></pre>
-                        <p>
-                            Nota: Quando usarmos o mod go em $GOPATH, teremos que habilitar o uso de 
-                            GO111MODULE=on, para que ele possa funcionar dentro da estrutura $GOPATH. 
-                            Portanto, nosso programa pode ser compilado com sucesso.
-                        </p>
-                        <pre><code class="language-go">
-$ GO111MODULE=on go run cmd/main.go
-$ GO111MODULE=on go build -o project1 cmd/main.go
-                        </code></pre>
+                            Em um projeto que já usa uma ferramenta de gerenciamento de dependência existente como godep, 
+                            glide ou dep, 'go mod init' também adicionará instruções de requerimento correspondentes à 
+                            configuração existente.
 
+                            Uma vez que o arquivo go.mod existe, nenhuma etapa adicional é necessária: 
+                            comandos go como 'go build', 'go test' ou mesmo 'go list' irão adicionar automaticamente 
+                            novas dependências conforme necessário para satisfazer as importações.
+                        </p>
+                        <p>
+                            Os comandos são:
+                        </p>
+                        <pre><code class="language-go">
+download    download modules to local cache
+edit        edit go.mod from tools or scripts
+graph       print module requirement graph
+init        initialize new module in current directory
+tidy        add missing and remove unused modules
+vendor      make vendored copy of dependencies
+verify      verify dependencies have expected content
+why         explain why packages or modules are needed
+                        </code></pre>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="workspace.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Workspace</span>
+                        <a class="pages-menu-link link-back" href="go_doc.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>go doc</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="func_main.html">
-                            <span>Função Main</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="go_test.html">
+                            <span>go test</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -143,9 +155,9 @@ $ GO111MODULE=on go build -o project1 cmd/main.go
                 <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">without_gopath</div>
+                    <div class="code-filename">go doc</div>
 
-                    <img src="../../../gif/gopher.gif" alt="Golang" style="width: 60% !important">
+                    <img src="../../../gif/jumping.webp" alt="Golang" style="width: 100%">
 
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
 

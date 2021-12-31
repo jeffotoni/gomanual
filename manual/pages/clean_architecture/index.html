@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - $GOPATH</title>
+    <title>Go Bootcamp - Clean Architecture</title>
 
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -58,50 +58,71 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">$GOPATH</div>
+                    <div class="main-title">Clean Architecture</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            $GOPATH é o golang em seu $HOME, isso é necessário para que seus projetos 
-                            usem o pacote e construam corretamente. Isso era obrigatório para todas as 
-                            versões anteriores à 1.11. O legal é que a partir de agora não teremos mais 
-                            que criar projetos em $GOPATH, podemos criar em qualquer outro diretório 
-                            que não esteja em $GOPATH.
+                            O termo surgiu quando o livro "Clean Architecture: A Craftsman's Guide to Software Structure and Design" 
+                            foi publicado em 2017 por Robert C. Martin que visa apresentar o que ele chama de regras universais 
+                            que são aplicadas nas arquiteturas atuais que você pode melhorar drasticamente durante a vida de qualquer 
+                            sistema de software. São eles:
                         </p>
+                        <ul>
+                            <li>Independente de frameworks.</li>
+                            <li>Testável.</li>
+                            <li>Independente da IU.</li>
+                            <li>Independente de banco de dados.</li>
+                            <li>Independente de qualquer agência externa.</li>
+                        </ul>
                         <p>
-                            Aqui está o link para a proposta da versão: 
-                            <a href="https://go.googlesource.com/proposal/+/master/design/24301-versioned-go.md/">
-                                Versioned Go Modules
-                            </a>
-                            ou
-                            <a href="https://github.com/golang/go/wiki/Modules/">
-                                Go 1.11 Modules
-                            </a>
+                            Dividimos nossa arquitetura em 4 camadas:
                         </p>
+                        <ul>
+                            <li>Entities.</li>
+                            <li>Use cases.</li>
+                            <li>Controller.</li>
+                            <li>Framework & Driver.</li>
+                        </ul>
                         <p>
-                            Comandos para Linux:
+                            A estrutura seria semelhante a abaixo como Arquitetura Limpa:
                         </p>
                         <pre><code class="language-go">
-$ sudo rm -rf /usr/local/go
-$ wget https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz
-$ sudo tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
+$HOME/
+  |-any-directory
+    |-github.com/user/project/
+      |-cmd
+      |-models
+      |-repository
+      |-service
+      |-vendor
+      |-Makefile
                         </code></pre>
-
+                        <p>
+                            Podemos ler um artigo que se tornou popular na internet:
+                            <a href="https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html">The Clean Architecture</a>
+                        </p>
+                        <p>
+                            O legal desse tema é que você pode aplicar diretamente aos nossos projetos usando Golang.
+                            Podemos organizar nossos diretórios de acordo com a Arquitetura Limpa. Existem alguns modelos de 
+                            organização que já são muito comuns nos projetos de Golang, que podem nos ajudar a organizar nossos 
+                            projetos de forma saudável. Neste link, você encontrará uma boa abordagem sobre o padrões de projetos:
+                            <a href="https://github.com/golang-standards/project-layout">Standards Project</a>.
+                        </p>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="index.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Instalação</span>
+                        <a class="pages-menu-link link-back" href="../../index.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Homepage</span>
                         </a>
 
                         <img src="../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="test.html">
-                            <span>Testando</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="dir_organization.html">
+                            <span>Organização dos Diretórios</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -112,9 +133,9 @@ $ sudo tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
                 <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">go_path</div>
+                    <div class="code-filename">clean_architecture</div>
 
-                    <img src="../../gif/gopher-2.gif" alt="Golang" style="width: 60% !important">
+                    <img src="../../img/CleanArchitecture.jpg" alt="CleanArchitecture" style="width: 100%">
 
                     <img class="gopher-column-code" src="../../img/gopher-docker-cut.png" alt="" />
 

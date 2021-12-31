@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - $GOPATH</title>
+    <title>Go Bootcamp - Tipos de Sistemas</title>
 
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
@@ -58,50 +58,59 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">$GOPATH</div>
+                    <div class="main-title">Tipos de Sistemas</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
+                        <ul>
+                            <li>Systems to serve web front-end</li>
+                            <li>Systems to serve web back-end</li>
+                            <li>Microservices</li>
+                            <li>Functions as a service</li>
+                            <li>Creating APIs using rEST in General</li>
+                            <li>Creating APIs using GraphQL in General</li>
+                            <li>Creating APIs using SOAP in General</li>
+                            <li>Creation of protocols in General</li>
+                            <li>Creating and Using Sockets in General</li>
+                            <li>Embedded systems</li>
+                            <li>Systems for automation</li>
+                            <li>Packages to be consumed (libs)</li>
+                            <li>Creation of new programming languages</li>
+                            <li>Monitoring systems</li>
+                            <li>Games</li>
+                            <li>Integration with UI of various types</li>
+                            <li>Webassembly</li>
+                            <li>Systems for terminals</li>
+                        </ul>
                         <p>
-                            $GOPATH é o golang em seu $HOME, isso é necessário para que seus projetos 
-                            usem o pacote e construam corretamente. Isso era obrigatório para todas as 
-                            versões anteriores à 1.11. O legal é que a partir de agora não teremos mais 
-                            que criar projetos em $GOPATH, podemos criar em qualquer outro diretório 
-                            que não esteja em $GOPATH.
+                            Há uma infinidade de maneiras diferentes de organizar sua estrutura em Golang. O que devemos 
+                            fazer é sempre usar boas práticas e isso independe do tipo de projeto e da sua finalidade.
                         </p>
                         <p>
-                            Aqui está o link para a proposta da versão: 
-                            <a href="https://go.googlesource.com/proposal/+/master/design/24301-versioned-go.md/">
-                                Versioned Go Modules
-                            </a>
-                            ou
-                            <a href="https://github.com/golang/go/wiki/Modules/">
-                                Go 1.11 Modules
-                            </a>
+                            Os cenários mais comuns que usam Clean Architecture são projetos voltados para microsserviços e para a web.
                         </p>
                         <p>
-                            Comandos para Linux:
+                            Estes artigos nos mostram umas das maneiras de organizar nossos códigos em Golang:
                         </p>
-                        <pre><code class="language-go">
-$ sudo rm -rf /usr/local/go
-$ wget https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz
-$ sudo tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
-                        </code></pre>
-
+                        <ul>
+                            <li><a href="https://blog.golang.org/organizing-go-code">Organizing Go code 2012</a></li>
+                            <li><a href="https://talks.golang.org/2014/organizeio.slide">Slide 2014 presentation</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=oL6JBUk6tj0">GopherCon 2018: Kat Zien - How Do You Structure Your Go Apps</a></li>
+                        </ul>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="index.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Instalação</span>
+                        <a class="pages-menu-link link-back" href="dir_organization.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Organização dos Diretórios</span>
                         </a>
 
                         <img src="../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="test.html">
-                            <span>Testando</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="samples.html">
+                            <span>Exemplos</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -112,9 +121,9 @@ $ sudo tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
                 <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">go_path</div>
+                    <div class="code-filename">directory_organization</div>
 
-                    <img src="../../gif/gopher-2.gif" alt="Golang" style="width: 60% !important">
+                    <img src="../../img/directory.png" alt="directory_organization" style="width: 100%">
 
                     <img class="gopher-column-code" src="../../img/gopher-docker-cut.png" alt="" />
 

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Workspace</title>
+    <title>Go Bootcamp - go get</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,84 +58,72 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Workspace</div>
+                    <div class="main-title">go get</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            O workspace é o nosso local de trabalho, onde organizaremos os nossos diretórios 
-                            com os nossos projetos. Conforme mostrado acima, até a versão 1.11 do Go, éramos forçados 
-                            a fazer tudo na área de trabalho.
-                        </p>
-                        <p>
-                            Exemplo de Hello World:
+                            O comando 'go get' muda o comportamento dependendo se o comando go está sendo executado no 
+                            modo de reconhecimento de módulo ou no modo legado GOPATH. Este texto de ajuda, acessível 
+                            como 'go help module-get' mesmo no modo legado GOPATH, descreve 'go get' enquanto opera no 
+                            modo com reconhecimento de módulo.
                         </p>
                         <pre><code class="language-go">
-$ export GOPATH=$HOME/go
-$ mkdir $HOME/go
-$ mkdir $HOME/go/src
-$ mkdir $HOME/go/src/hello
-$ vim $HOME/go/src/hello/hello.go
-
-$GOPATH/
-  |-src
-    |-hello
-      |-hello.go
+go get [-d] [-m] [-u] [-v] [-insecure] [build flags] [packages]
                         </code></pre>
                         <p>
-                            Exemplo de projeto:
-                        </p>
-                        <pre><code class="language-go">
-$ export GOPATH=$HOME/go
-$ mkdir $HOME/go/src/project1
-$ mkdir $HOME/go/src/project1/my-pkg
-$ mkdir $HOME/go/src/project1/my-cmd
-$ mkdir $HOME/go/src/project1/my-vendor
-$ mkdir $HOME/go/src/project1/my-logs
-$ mkdir $HOME/go/src/project1/my-models
-$ mkdir $HOME/go/src/project1/my-repo
-$ mkdir $HOME/go/src/project1/my-handler
+                            Get baixa os pacotes nomeados pelos caminhos de importação, junto com suas dependências. 
+                            Em seguida, ele instala os pacotes nomeados, como 'vá instalar'.
 
-$GOPATH/
-  |-src
-    |-github.com/user/project1/
-        |-cmd (of project1)
-          |-main.go
-        |-vendor
-        |-logs
-        |-models
-        |-repo
-        |-handler
-    |-github.com/user/project2/
-      ....
-      ....
-                        </code></pre>
-                        <p>
-                            A variável de ambiente $GOPATH informa à ferramenta Go onde está localizada sua área de trabalho.
-                        </p>
-                        <pre><code class="language-go">
-$ go get github.com/user/project1
-                        </code></pre>
-                        <p>
-                            O comando go get busca repositórios de código-fonte na Internet e os coloca em sua área de 
-                            trabalho. Os caminhos dos pacotes são importantes para a ferramenta Go. 
-                            Usar "github.com/..." significa que a ferramenta sabe como buscar seu repositório.
-                        </p>
+                            O sinalizador -d instrui para parar após o download dos pacotes; ou seja, ele instrui 
+                            o get para não instalar os pacotes.
 
+                            O sinalizador -f, válido apenas quando -u é definido, força get -u a não verificar se 
+                            cada pacote foi retirado do repositório de controle de origem implícito em seu caminho 
+                            de importação. Isso pode ser útil se a fonte for uma bifurcação local do original.
+
+                            O sinalizador -fix instrui o get para executar a ferramenta de correção nos pacotes baixados 
+                            antes de resolver dependências ou construir o código.
+
+                            O sinalizador -insecure permite buscar em repositórios e resolver domínios customizados 
+                            usando esquemas inseguros como HTTP. Use com cuidado.
+
+                            O sinalizador -t instrui o get também a baixar os pacotes necessários para construir os 
+                            testes para os pacotes especificados.
+
+                            O sinalizador -u instrui o uso da rede para atualizar os pacotes nomeados e suas dependências. 
+                            Por padrão, get usa a rede para verificar pacotes ausentes, mas não a usa para procurar 
+                            atualizações para pacotes existentes.
+
+                            O sinalizador -v ativa o progresso detalhado e a saída de depuração.
+
+                            Ao fazer check-out de um novo pacote, get cria o diretório de destino GOPATH / src /. Se o GOPATH 
+                            contiver várias entradas, get usa a primeira. Para mais detalhes veja: 'go help gopath'.
+
+                            Ao fazer check-out ou atualizar um pacote, get procura por um branch ou tag que corresponda à 
+                            versão do Go instalada localmente. A regra mais importante é que se a instalação local estiver 
+                            executando a versão "go1", busque um branch ou tag com o nome "go1". Se essa versão não existir, 
+                            ele recupera a ramificação padrão do pacote.
+
+                            Quando go get verifica ou atualiza um repositório Git, ele também atualiza quaisquer submódulos 
+                            git referenciados pelo repositório.
+
+                            O Get never check-out ou atualiza o código armazenado nos diretórios do fornecedor.
+                        </p>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="test.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Testando</span>
+                        <a class="pages-menu-link link-back" href="../../index.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Homepage</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="outside_go_path.html">
-                            <span>Fora do $GOPATH</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="go_tool.html">
+                            <span>go tool</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -146,9 +134,9 @@ $ go get github.com/user/project1
                 <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">workspace</div>
+                    <div class="code-filename">go get</div>
 
-                    <img src="../../../gif/jumping.webp" alt="Golang" style="width: 60% !important">
+                    <img src="../../../gif/jumping.webp" alt="Golang" style="width: 100%">
 
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
 
