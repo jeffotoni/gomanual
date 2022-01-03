@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Closures</title>
+    <title>Go Bootcamp - Range</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,29 +58,32 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Closures</div>
+                    <div class="main-title">Slices - Range</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Uma <i>closure</i> ocorre quando uma função anônima em Go tem acesso aos seus arredores. 
-                            Então, ele pode manter um estado único e próprio. O estado então fica isolado à medida 
-                            que criamos novas instâncias da função.
+                            A palavra-chave range é usada em conjunto for loop para iterar os itens de uma coleção.
                         </p>
+                        <p>
+                            O intervalo pode ser usado com um array, string, map ou canais. Durante cada iteração, 
+                            intervalo pode retornar um ou dois valores com base no tipo de coleção que você está iterando.
+                        </p>
+                        <p>No caso de arrays, range retorna o index e o elemento a cada iteração.</p>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="function_as_param.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Passando Funções como Parâmetros</span>
+                        <a class="pages-menu-link link-back" href="append.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Append</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="recursion.html">
-                            <span>Recursão</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="slices_of_slices.html">
+                            <span>Slices Multidimensionais</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -91,29 +94,18 @@
                 <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">closures.go</div>
+                    <div class="code-filename">range.go</div>
 
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="closures.go">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="range.go">
 package main
 
 import "fmt"
 
 func main() {
-    contador := contar()
+    a := []int{10, 20, 30, 40}
 
-    fmt.Println(contador())
-    fmt.Println(contador())
-    fmt.Println(contador())
-    fmt.Println(contador())
-    fmt.Println(contador())
-}
-
-func contar() func() int{
-    var i int
-
-    return func() int {
-        i++
-        return i
+    for index, elemento := range a {
+        fmt.Println(index, elemento)
     }
 }
                     </textarea>

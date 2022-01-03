@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Closures</title>
+    <title>Go Bootcamp - Redimensionar</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,29 +58,29 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Closures</div>
+                    <div class="main-title">Arrays - Redimensionar</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Uma <i>closure</i> ocorre quando uma função anônima em Go tem acesso aos seus arredores. 
-                            Então, ele pode manter um estado único e próprio. O estado então fica isolado à medida 
-                            que criamos novas instâncias da função.
+                            A desvantagem de uma array é que eles vêm com a restrição de que o comprimento é fixo em Go. 
+                            Portanto, é impossível aumentar o comprimento de um array, pois isso implicaria em 
+                            alterar o seu tipo. Porém, Go oferece uma forma de criar listas dinâmicas de dados, chamados slices.
                         </p>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="function_as_param.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Passando Funções como Parâmetros</span>
+                        <a class="pages-menu-link link-back" href="accessing_elements.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Acessando Elementos</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="recursion.html">
-                            <span>Recursão</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="../slices/index.html">
+                            <span>Slices - Introdução</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -91,30 +91,18 @@
                 <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">closures.go</div>
+                    <div class="code-filename">resize.go</div>
 
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="closures.go">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="resize.go">
 package main
 
 import "fmt"
 
 func main() {
-    contador := contar()
+    a := [5]int{0, 10, 20, 30, 40}
+    fmt.Println(a)
 
-    fmt.Println(contador())
-    fmt.Println(contador())
-    fmt.Println(contador())
-    fmt.Println(contador())
-    fmt.Println(contador())
-}
-
-func contar() func() int{
-    var i int
-
-    return func() int {
-        i++
-        return i
-    }
+    a[5] = 50 // Irá causar um erro
 }
                     </textarea>
 

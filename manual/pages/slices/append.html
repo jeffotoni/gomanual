@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Closures</title>
+    <title>Go Bootcamp - Append</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,29 +58,35 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Closures</div>
+                    <div class="main-title">Slices - Append</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Uma <i>closure</i> ocorre quando uma função anônima em Go tem acesso aos seus arredores. 
-                            Então, ele pode manter um estado único e próprio. O estado então fica isolado à medida 
-                            que criamos novas instâncias da função.
+                            Go fornece a função <i>append()</i> que pode ser usada para elementos ao final de um slice.
+                        </p>
+                        <pre><code class="language-go">
+func append(slice []Type, elems ...Type) []Type
+                        </code></pre>
+                        <p>
+                            O primeiro argumento é o próprio slice, e <i>elemens</i> é um parâmetro que aceita n valores que serão
+                            adicionados sequecialmente no final do slice.
+                            Essa função retorna um slice, não um ponteiro, pois ela não altera o valor do slice original.
                         </p>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="function_as_param.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Passando Funções como Parâmetros</span>
+                        <a class="pages-menu-link link-back" href="make.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Make</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="recursion.html">
-                            <span>Recursão</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="range.html">
+                            <span>Range</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -91,30 +97,22 @@
                 <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">closures.go</div>
+                    <div class="code-filename">append.go</div>
 
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="closures.go">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="append.go">
 package main
 
 import "fmt"
 
 func main() {
-    contador := contar()
-
-    fmt.Println(contador())
-    fmt.Println(contador())
-    fmt.Println(contador())
-    fmt.Println(contador())
-    fmt.Println(contador())
-}
-
-func contar() func() int{
-    var i int
-
-    return func() int {
-        i++
-        return i
-    }
+    a := make([]int, 5)
+    fmt.Println(a)
+    a = append(a, 10, 20, 30)
+    fmt.Println(a)
+    a[0] = 10
+    a[1] = 20
+    a[2] = 30
+    fmt.Println(a)
 }
                     </textarea>
 
