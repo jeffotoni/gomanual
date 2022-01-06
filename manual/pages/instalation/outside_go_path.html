@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Fora do $GOPATH</title>
+    <title>Go Bootcamp - Instalação - Fora do $GOPATH</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,7 +58,7 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Fora do $GOPATH</div>
+                    <div class="main-title">Instalação - Fora do $GOPATH</div>
                     <!--- Page title Fim --->
 
 
@@ -90,6 +90,32 @@ $HOME/
                         <p>
                             Podemos colocar nosso projeto em qualquer diretório agora.
                         </p>
+                    </div>
+
+
+                    <div class="pages-menu">
+
+                        <a class="pages-menu-link link-back" href="workspace.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Instalação - Workspace</span>
+                        </a>
+
+                        <img src="../../../img/gopher-docker.png" alt="" />
+
+                        <a class="pages-menu-link link-forward" href="func_main.html">
+                            <span>Instalação - Função Main</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+                <!--- Coluna Esquerda Fim --->
+
+                <!--- Coluna Direita --->
+                <div class="col-12 col-lg-6 column-text px-0">
+
+                    <div class="code-filename">without_gopath</div>
+
+                    <div class="content-height">
                         <pre><code class="language-go">
 $HOME/
   |-any-directory
@@ -105,7 +131,8 @@ $HOME/
                         <p>
                             Para o cenário acima, teremos que usar o go mod em nosso projeto para que todos os 
                             pacotes externos possam funcionar corretamente, desta forma poderemos gerenciá-los 
-                            corretamente e sua versão. Mais informações podem ser encontradas aqui: <a href="https://github.com/golang/go/wiki/Modules">Wiki Go Modules</a>
+                            corretamente e sua versão. Mais informações podem ser encontradas aqui: 
+                            <a href="https://github.com/golang/go/wiki/Modules" target="_blank">Wiki Go Modules</a>
                         </p>
                         <pre><code class="language-go">
 $ go mod init github.com/user/project1
@@ -119,39 +146,9 @@ $ go mod init github.com/user/project1
 $ GO111MODULE=on go run cmd/main.go
 $ GO111MODULE=on go build -o project1 cmd/main.go
                         </code></pre>
-
                     </div>
-
-
-                    <div class="pages-menu">
-
-                        <a class="pages-menu-link link-back" href="workspace.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Workspace</span>
-                        </a>
-
-                        <img src="../../../img/gopher-docker.png" alt="" />
-
-                        <a class="pages-menu-link link-forward" href="func_main.html">
-                            <span>Função Main</span> &nbsp; <i class="fa fa-chevron-right"></i>
-                        </a>
-
-                    </div>
-
-                </div>
-                <!--- Coluna Esquerda Fim --->
-
-                <!--- Coluna Direita --->
-                <div class="col-12 col-lg-6 column-code">
-
-                    <div class="code-filename">without_gopath</div>
-
-                    <img src="../../../gif/gopher.gif" alt="Golang" style="width: 60% !important">
-
-                    <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
-
-                </div>
                 <!--- Coluna Direita Fim --->
-
+                </div>
             </div>
         </div>
     </main>
