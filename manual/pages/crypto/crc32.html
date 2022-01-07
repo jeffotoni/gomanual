@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Goroutines - Tickers</title>
+    <title>Go Bootcamp - Criptografia - CRC32</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,35 +58,28 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Goroutines - Tickers</div>
+                    <div class="main-title">Criptografia - CRC32</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Os timers são para quando você deseja fazer algo uma vez no futuro - os 
-                            tickers são para quando você deseja fazer algo repetidamente em intervalos regulares.
-                        </p>
-                        <p>
-                            Os tickers usam um mecanismo semelhante aos timers: um canal que envia valores.
-                        </p>
-                        <p>
-                            Os tickers podem ser interrompidos como temporizadores. Uma vez que um ticker é interrompido, 
-                            ele não receberá mais nenhum valor em seu canal.
+                            MD5 é uma função hash amplamente utilizada que produz um valor de hash de 
+                            128 bits expresso em 32 caracteres.
                         </p>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="timers.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Goroutines - Timers</span>
+                        <a class="pages-menu-link link-back" href="md5.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Criptografia - MD5</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="wait_groups.html">
-                            <span>Goroutines - Wait Groups</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="../net_http_server/index.html">
+                            <span>net/http Server - Introdução</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -96,37 +89,10 @@
 
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">tickers.go</div>
+                    <div class="code-filename">crc32.go</div>
 
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="tickers.go">
-package main
-
-import (
-    "fmt"
-    "time"
-)
-
-func main() {
-
-    ticker := time.NewTicker(500 * time.Millisecond)
-    done := make(chan bool)
-
-    go func() {
-        for {
-            select {
-            case <-done:
-                return
-            case t := <-ticker.C:
-                fmt.Println("Tick at", t)
-            }
-        }
-    }()
-
-    time.Sleep(1600 * time.Millisecond)
-    ticker.Stop()
-    done <- true
-    fmt.Println("Ticker parado")
-}
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="crc32.go">
+// Adicionar exemplo
                     </textarea>
 
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />

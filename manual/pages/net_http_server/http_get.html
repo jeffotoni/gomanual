@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Goroutines - Tickers</title>
+    <title>Go Bootcamp - net/http Client - Get</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,35 +58,53 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Goroutines - Tickers</div>
+                    <div class="main-title">net/http Client - Get</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
+                        <pre><code class="language-go">
+func (c * Client) Get (url string) (resp * Response, err error)
+                        </code></pre>
                         <p>
-                            Os timers são para quando você deseja fazer algo uma vez no futuro - os 
-                            tickers são para quando você deseja fazer algo repetidamente em intervalos regulares.
+                            Obtenha questões um GET para o URL especificado. Se a resposta for um dos seguintes códigos 
+                            de redirecionamento, Get segue o redirecionamento depois de chamar a função CheckRedirect do cliente:
+                        </p>
+                        <pre><code class="language-go">
+301 (Moved Permanently)
+302 (Found)
+303 (See Other)
+307 (Temporary Redirect)
+308 (Permanent Redirect)
+                        </code></pre>
+                        <p>
+                            Um erro será retornado se a função CheckRedirect do Cliente falhar ou se houver um erro de 
+                            protocolo HTTP. Uma resposta diferente de 2xx não causa erro. Qualquer erro retornado será 
+                            do tipo * url.Error. O método Timeout do valor url.Error relatará verdadeiro se a solicitação 
+                            expirar.
                         </p>
                         <p>
-                            Os tickers usam um mecanismo semelhante aos timers: um canal que envia valores.
+                            Quando err é nulo, resp sempre contém um resp.Body não nulo. O chamador deve fechar o 
+                            resp.Body quando terminar de ler.
                         </p>
                         <p>
-                            Os tickers podem ser interrompidos como temporizadores. Uma vez que um ticker é interrompido, 
-                            ele não receberá mais nenhum valor em seu canal.
+                            Para fazer uma solicitação com cabeçalhos personalizados, use NewRequest e Client.Do.
+
+                            Para fazer uma solicitação com um context.Context especificado, use NewRequestWithContext e Client.Do. 
                         </p>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="timers.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Goroutines - Timers</span>
+                        <a class="pages-menu-link link-back" href="client.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>net/http Client - Introdução</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="wait_groups.html">
-                            <span>Goroutines - Wait Groups</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="http_post.html">
+                            <span>http/net Client - Post</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -96,37 +114,10 @@
 
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">tickers.go</div>
+                    <div class="code-filename">get.go</div>
 
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="tickers.go">
-package main
-
-import (
-    "fmt"
-    "time"
-)
-
-func main() {
-
-    ticker := time.NewTicker(500 * time.Millisecond)
-    done := make(chan bool)
-
-    go func() {
-        for {
-            select {
-            case <-done:
-                return
-            case t := <-ticker.C:
-                fmt.Println("Tick at", t)
-            }
-        }
-    }()
-
-    time.Sleep(1600 * time.Millisecond)
-    ticker.Stop()
-    done <- true
-    fmt.Println("Ticker parado")
-}
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="get.go">
+// Adicionar exemplo
                     </textarea>
 
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />

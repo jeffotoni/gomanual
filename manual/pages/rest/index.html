@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Goroutines - Tickers</title>
+    <title>Go Bootcamp - API REST - Introdução</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,35 +58,35 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Goroutines - Tickers</div>
+                    <div class="main-title">API REST - Introdução</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Os timers são para quando você deseja fazer algo uma vez no futuro - os 
-                            tickers são para quando você deseja fazer algo repetidamente em intervalos regulares.
+                            API REST, também chamada de API RESTful, é uma interface de programação de aplicações 
+                            (API ou API web) que está em conformidade com as restrições do estilo de arquitetura REST, 
+                            permitindo a interação com serviços web RESTful. REST é a sigla em inglês para 
+                            "Representational State Transfer", que em português significa tansferência de estado 
+                            representacional. Essa arquitetura foi criada pelo cientista da computação Roy Fielding.
                         </p>
                         <p>
-                            Os tickers usam um mecanismo semelhante aos timers: um canal que envia valores.
-                        </p>
-                        <p>
-                            Os tickers podem ser interrompidos como temporizadores. Uma vez que um ticker é interrompido, 
-                            ele não receberá mais nenhum valor em seu canal.
+                            REST não é um protocolo ou padrão, mas sim um conjunto de restrições de arquitetura. Os 
+                            desenvolvedores de API podem implementar a arquitetura REST de maneiras variadas.
                         </p>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="timers.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Goroutines - Timers</span>
+                        <a class="pages-menu-link link-back" href="../net_http_server/http_new_request.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>net/http Client - NewRequest</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="wait_groups.html">
-                            <span>Goroutines - Wait Groups</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="../rest/index.html">
+                            <span>API REST - Introdução</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -94,40 +94,27 @@
                 </div>
                 <!--- Coluna Esquerda Fim --->
 
-                <div class="col-12 col-lg-6 column-code">
+                <div class="col-12 col-lg-6 column-text px-0">
 
-                    <div class="code-filename">tickers.go</div>
+                    <div class="code-filename">rest_api</div>
 
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="tickers.go">
-package main
-
-import (
-    "fmt"
-    "time"
-)
-
-func main() {
-
-    ticker := time.NewTicker(500 * time.Millisecond)
-    done := make(chan bool)
-
-    go func() {
-        for {
-            select {
-            case <-done:
-                return
-            case t := <-ticker.C:
-                fmt.Println("Tick at", t)
-            }
-        }
-    }()
-
-    time.Sleep(1600 * time.Millisecond)
-    ticker.Stop()
-    done <- true
-    fmt.Println("Ticker parado")
-}
-                    </textarea>
+                    <div class="content-height">
+                        <p>
+                            Quando um cliente faz uma solicitação usando uma API RESTful, essa API transfere uma 
+                            representação do estado do recurso ao solicitante ou endpoint. Essa informação 
+                            (ou representação) é entregue via HTTP utilizando um dos vários formatos possíveis: 
+                            Javascript Object Notation (JSON), HTML, XLT, Python, PHP ou texto sem formatação. O 
+                            formato JSON é a linguagem de programação mais usada porque, apesar de seu nome, é 
+                            independente de qualquer outra linguagem e pode ser lido por máquinas e humanos. 
+                        </p>
+                        <p>
+                            Lembre-se também de que cabeçalhos e parâmetros são importantes nos métodos HTTP de uma 
+                            solicitação HTTP de API RESTful porque contêm informações relevantes sobre o identificador, 
+                            bem como metadados, autorização, Uniform Resource Identifier (URI), cache, cookies e outras 
+                            informações da solicitação. Há os cabeçalhos da solicitação e os cabeçalhos da resposta, cada 
+                            um contendo as informações de suas respectivas conexões HTTP e códigos de status.
+                        </p>
+                    </div>
 
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
 

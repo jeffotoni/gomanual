@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Goroutines - Tickers</title>
+    <title>Go Bootcamp - File - Deletando</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,35 +58,28 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Goroutines - Tickers</div>
+                    <div class="main-title">File - Deletando</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Os timers são para quando você deseja fazer algo uma vez no futuro - os 
-                            tickers são para quando você deseja fazer algo repetidamente em intervalos regulares.
-                        </p>
-                        <p>
-                            Os tickers usam um mecanismo semelhante aos timers: um canal que envia valores.
-                        </p>
-                        <p>
-                            Os tickers podem ser interrompidos como temporizadores. Uma vez que um ticker é interrompido, 
-                            ele não receberá mais nenhum valor em seu canal.
+                            Para remover um arquivo, precisamos importar o pacote os. Ele 
+                            contém as funções Remove () e RemoveAll.
                         </p>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="timers.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Goroutines - Timers</span>
+                        <a class="pages-menu-link link-back" href="writting.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>File - Escrevendo</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="wait_groups.html">
-                            <span>Goroutines - Wait Groups</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="../crypto/sha1.html">
+                            <span>Criptografia - SHA1</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -96,36 +89,23 @@
 
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">tickers.go</div>
+                    <div class="code-filename">deleting.go</div>
 
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="tickers.go">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="deleting.go">
+// Execute este código localmente
+
 package main
-
+ 
 import (
+    "os"
     "fmt"
-    "time"
 )
-
+ 
 func main() {
-
-    ticker := time.NewTicker(500 * time.Millisecond)
-    done := make(chan bool)
-
-    go func() {
-        for {
-            select {
-            case <-done:
-                return
-            case t := <-ticker.C:
-                fmt.Println("Tick at", t)
-            }
-        }
-    }()
-
-    time.Sleep(1600 * time.Millisecond)
-    ticker.Stop()
-    done <- true
-    fmt.Println("Ticker parado")
+    err := os.Remove("test.txt")  // remove um único arquivo
+    if err != nil {
+        fmt.Println(err)
+    }
 }
                     </textarea>
 
@@ -136,7 +116,7 @@ func main() {
             </div>
         </div>
     </main>
-
+v
     <!-- Rodape -->
     <footer class="footer">
         <div class="main-footer">
