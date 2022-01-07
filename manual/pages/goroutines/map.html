@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Instalação - Instalando Go</title>
+    <title>Go Bootcamp - Goroutines - Map</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,39 +58,71 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Instalação - Instalando Go</div>
+                    <div class="main-title">Goroutines - Map</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Vamos baixar o arquivo, descompactá-lo e instalá-lo em <i>/usr/local/go</i>, 
-                            se já tivermos o golang instalado na máquina teremos que remover o existente 
-                            para deixar nossa instalação como única. Vamos criar nosso diretório em nosso 
-                            espaço de trabalho e testar para ver se tudo correu bem.
-                        </p>
-                        <p>
-                            Comandos para Linux:
+                            Os seguintes métodos estão disponíveis para trabalhar com sync.Map:
                         </p>
                         <pre><code class="language-go">
-$ sudo rm -rf /usr/local/go
-$ wget https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz
-$ sudo tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
+Load(key interface{}) (value interface{}, ok bool)
+Store(key, value interface{})
+Delete(key interface{})
+Range(f func(key, value interface{}) bool)
+LoadOrStore(key, value interface{}) (actual interface{}, loaded bool)
                         </code></pre>
+                        <p>
+                            Isso cobre todos os casos de uso de mapas - inserir, ler, excluir, iterar. Também existe o 
+                            método de bônus LoadOrStore, que permite definir o valor por chave se o valor não for definido antes.
+                        </p>
+                        <p>
+                            Para executar a iteração, existe uma função de recebimento de intervalo que é chamada em cada 
+                            elemento do mapa. Se essa função retornar falso, a iteração será interrompida.
+                        </p>
+                        <p>
+                            Ao ver o nome sync.Map, pode-se imaginar que sync.Map é um map simples com alguns recursos 
+                            do pacote de sincronização. Mas, na verdade, sync.Map é muito mais complexo. 
+                        </p>
+                        <p>
+                            A estrutura sync.Map tem a seguinte aparência:
+                        </p>
+                        <pre><code class="language-go">
+type Map struct {
+	mu sync.Mutex
 
+	read atomic.Value
+	dirty map[interface{}]*entry
+	misses int
+}
+
+type readOnly struct {
+	m       map[interface{}]*entry
+	amended bool 
+}
+                        </code></pre>
+                        <p>
+                            sync.Map é uma estrutura complexa, geralmente composta por dois mapas - um para leitura e outro 
+                            para novos elementos. sync.Map não está apenas perto de map + sync.RWMutex nas métricas de 
+                            velocidade, mas também pode ser o melhor no caso de leitura. Quando houver leitura e atualização, 
+                            o sync.Map terá o elemento read e dirty. Nesse caso, sync.Map tem desempenho pior do que 
+                            map + sync.RWMutex devido à leitura de dois mapas internos. Também existe um contador 
+                            que precisa ser atualizado ao acessar o dirty.
+                        </p>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="../index.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Overview Go</span>
+                        <a class="pages-menu-link link-back" href="mutex.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Goroutines - Mutex</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="go_path.html">
-                            <span>Instalação - $GOPATH</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="once.html">
+                            <span>Goroutines - Once</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -98,18 +130,18 @@ $ sudo tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
                 </div>
                 <!--- Coluna Esquerda Fim --->
 
-                <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">installing_go</div>
+                    <div class="code-filename">map.go</div>
 
-                    <img src="../../../gif/boxe.gif" alt="Golang" style="width: 60% !important">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="map.go">
+// Adicionar exemplo
+                    </textarea>
 
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
 
                 </div>
                 <!--- Coluna Direita Fim --->
-
             </div>
         </div>
     </main>
@@ -140,6 +172,13 @@ $ sudo tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
 
     <!-- Custom js -->
     <script src="../../../js/custom.js"></script>
+
+    <!-- Go Playground -->
+    <script src="../../../js/go-playground/codemirror.js"></script>
+    <script src="../../../js/go-playground/codemirror-go.js"></script>
+    <script src="../../../js/go-playground/playground.js"></script>
+    <script src="../../../js/go-playground/snippets.js"></script>
+    <script src="../../../js/go-playground/jquery-linedtextarea.js"></script>
 
     <!-- Prism Syntax Highlighting -->
     <script src="../../../plugins/prism/prism.js"></script>

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Instalação - Instalando Go</title>
+    <title>Go Bootcamp - Overview Go</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,39 +58,49 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Instalação - Instalando Go</div>
+                    <div class="main-title">Go Bootcamp - Overview Go</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Vamos baixar o arquivo, descompactá-lo e instalá-lo em <i>/usr/local/go</i>, 
-                            se já tivermos o golang instalado na máquina teremos que remover o existente 
-                            para deixar nossa instalação como única. Vamos criar nosso diretório em nosso 
-                            espaço de trabalho e testar para ver se tudo correu bem.
+                            A linguagem Go foi lançada em 2009 com propósito de facilitar a resolução de problemas 
+                            quando o assunto é desenvolvimento em camadas de rede, escalabilidade, desempenho, 
+                            produtividade e o mais importante concorrência. Os criadores Rob Pike, Ken Thompson 
+                            e Robert Griesemer e mantiveram a sintaxe de Go semelhante ao C. No final de 2008 Russ 
+                            Cox juntou-se a equipe e ajudou a mudar a linguagem e as bibliotecas de protótipo para realidade.
                         </p>
                         <p>
-                            Comandos para Linux:
+                            Go teve influências de diversas linguagens de programação e paradigmas diferentes dentre elas 
+                            Occam,Oberon,Erlang,Newsqueak,ConcurrentML,Alef, Limbo e é claro C, se sobressaiu ao juntar o 
+                            que tinham de melhor nestas linguagens e criou algo novo e enxuto.
                         </p>
-                        <pre><code class="language-go">
-$ sudo rm -rf /usr/local/go
-$ wget https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz
-$ sudo tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
-                        </code></pre>
-
+                        <p>
+                            Um dos pontos mais relevantes e importantes é o trabalho com concorrência, ele inovou ao 
+                            quebrar o modelo tradicional de threads e sua forma de utilização ao criar um novo modelo, 
+                            as goroutines. As goroutines são responsáveis por realizar execuções em Go de forma assíncrona. 
+                            São muito poderosas e uma simples máquina de 1G de Ram poderá subir milhares delas.
+                        </p>
+                        <p>
+                            Outro ponto lindo em Go que até o momento as versões disponibilizadas para os desenvolvedores 
+                            Go possuem retro compatibilidade isto significa que não teremos deprecated.
+                        </p>
+                        <p>
+                            Go é uma linguagem compilada, um like de C, muito focada na produtividade.
+                        </p>
                     </div>
 
 
                     <div class="pages-menu">
 
                         <a class="pages-menu-link link-back" href="../index.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Overview Go</span>
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Homepage</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="go_path.html">
-                            <span>Instalação - $GOPATH</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="./instalation/index.html">
+                            <span>Instalação - Instalando Go</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -98,18 +108,46 @@ $ sudo tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
                 </div>
                 <!--- Coluna Esquerda Fim --->
 
-                <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">installing_go</div>
+                    <div class="code-filename">overview.go</div>
 
-                    <img src="../../../gif/boxe.gif" alt="Golang" style="width: 60% !important">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="overview.go">
+package main
+
+import (
+    "fmt"
+    "log"
+    "net/http"
+)
+
+func Hello(w http.ResponseWriter, r *http.Request) {
+    w.WriteHeader(http.StatusOK)
+    w.Write([]byte("Hello, welcome to the world, Go!"))
+}
+
+func main() {
+
+    mux := http.NewServeMux()
+    mux.Handle("/api/hello", http.HandlerFunc(Hello))
+
+    server :=
+        &http.Server{
+            Addr:    ":8080",
+            Handler: mux,
+        }
+
+    fmt.Printf("Server Run port: 8080\n")
+    if err := server.ListenAndServe(); err != nil {
+        log.Printf("Eror while serving metrics: %s", err)
+    }
+}
+                    </textarea>
 
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
 
                 </div>
                 <!--- Coluna Direita Fim --->
-
             </div>
         </div>
     </main>
@@ -140,6 +178,13 @@ $ sudo tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
 
     <!-- Custom js -->
     <script src="../../../js/custom.js"></script>
+
+    <!-- Go Playground -->
+    <script src="../../../js/go-playground/codemirror.js"></script>
+    <script src="../../../js/go-playground/codemirror-go.js"></script>
+    <script src="../../../js/go-playground/playground.js"></script>
+    <script src="../../../js/go-playground/snippets.js"></script>
+    <script src="../../../js/go-playground/jquery-linedtextarea.js"></script>
 
     <!-- Prism Syntax Highlighting -->
     <script src="../../../plugins/prism/prism.js"></script>

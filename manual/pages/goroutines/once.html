@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Instalação - Instalando Go</title>
+    <title>Go Bootcamp - Goroutines - Once</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,39 +58,28 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Instalação - Instalando Go</div>
+                    <div class="main-title">Goroutines - Once</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Vamos baixar o arquivo, descompactá-lo e instalá-lo em <i>/usr/local/go</i>, 
-                            se já tivermos o golang instalado na máquina teremos que remover o existente 
-                            para deixar nossa instalação como única. Vamos criar nosso diretório em nosso 
-                            espaço de trabalho e testar para ver se tudo correu bem.
+                            O valor sync.Once é usado para garantir que uma parte do código não seja executada por 
+                            vários goroutines.
                         </p>
-                        <p>
-                            Comandos para Linux:
-                        </p>
-                        <pre><code class="language-go">
-$ sudo rm -rf /usr/local/go
-$ wget https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz
-$ sudo tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
-                        </code></pre>
-
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="../index.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Overview Go</span>
+                        <a class="pages-menu-link link-back" href="map.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Goroutines - Map</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="go_path.html">
-                            <span>Instalação - $GOPATH</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="pool.html">
+                            <span>Goroutines - Pool</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -98,18 +87,18 @@ $ sudo tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
                 </div>
                 <!--- Coluna Esquerda Fim --->
 
-                <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">installing_go</div>
+                    <div class="code-filename">once.go</div>
 
-                    <img src="../../../gif/boxe.gif" alt="Golang" style="width: 60% !important">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="once.go">
+// Adicionar exemplo
+                    </textarea>
 
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
 
                 </div>
                 <!--- Coluna Direita Fim --->
-
             </div>
         </div>
     </main>
@@ -140,6 +129,13 @@ $ sudo tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
 
     <!-- Custom js -->
     <script src="../../../js/custom.js"></script>
+
+    <!-- Go Playground -->
+    <script src="../../../js/go-playground/codemirror.js"></script>
+    <script src="../../../js/go-playground/codemirror-go.js"></script>
+    <script src="../../../js/go-playground/playground.js"></script>
+    <script src="../../../js/go-playground/snippets.js"></script>
+    <script src="../../../js/go-playground/jquery-linedtextarea.js"></script>
 
     <!-- Prism Syntax Highlighting -->
     <script src="../../../plugins/prism/prism.js"></script>

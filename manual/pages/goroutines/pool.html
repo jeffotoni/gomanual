@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Instalação - Instalando Go</title>
+    <title>Go Bootcamp - Goroutines - Pool</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,39 +58,41 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Instalação - Instalando Go</div>
+                    <div class="main-title">Goroutines - Pool</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Vamos baixar o arquivo, descompactá-lo e instalá-lo em <i>/usr/local/go</i>, 
-                            se já tivermos o golang instalado na máquina teremos que remover o existente 
-                            para deixar nossa instalação como única. Vamos criar nosso diretório em nosso 
-                            espaço de trabalho e testar para ver se tudo correu bem.
+                            Sync.Pool pode ser usado para armazenar objetos em cache, pois o uso frequente de 
+                            memória heap pode causar muito trabalho para o GC.
                         </p>
                         <p>
-                            Comandos para Linux:
+                            sync.Pool pode ser recuperado sem aviso prévio para aliviar a pressão do GC.
                         </p>
-                        <pre><code class="language-go">
-$ sudo rm -rf /usr/local/go
-$ wget https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz
-$ sudo tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
-                        </code></pre>
-
+                        <p>
+                            Para inicializar o pool, a única coisa que você precisa é configurar a função New 
+                            para que quando o método Get for chamado, se o pool tiver um objeto em cache, ele 
+                            retorne o objeto em cache diretamente e, se não tiver, a função New é chamado para 
+                            criar um novo objeto. 
+                        </p>
+                        <p>
+                            Os pools são adequados para cenários em que há muita memória e muita simultaneidade, 
+                            mas quando há pouca memória e pouca simultaneidade, o uso de pools é contraproducente.
+                        </p>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="../index.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Overview Go</span>
+                        <a class="pages-menu-link link-back" href="once.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Goroutines - Once</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="go_path.html">
-                            <span>Instalação - $GOPATH</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="web_crawler.html">
+                            <span>Goroutines - Web Crawler</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -98,18 +100,44 @@ $ sudo tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
                 </div>
                 <!--- Coluna Esquerda Fim --->
 
-                <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">installing_go</div>
+                    <div class="code-filename">pool.go</div>
 
-                    <img src="../../../gif/boxe.gif" alt="Golang" style="width: 60% !important">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="pool.go">
+package main
+
+import "sync"
+
+var intPool *sync.Pool = &sync.Pool {
+    New: func() interface{} {
+        var b []int = make([]int, 8)
+        return &b
+    },
+}
+
+func main() {    // get the obj and do not put it back
+    for i := 1; i < 4; i = i + 1 {
+        var obj *[]int = intPool.Get().(*[]int)
+        (*obj)[i] = i
+        println(obj)
+    }    
+    
+    println("=======")    // get the obj and put it back
+    
+    for i := 1; i < 4; i = i + 1 {
+        var obj *[]int = intPool.Get().(*[]int)
+        (*obj)[i] = i
+        println(obj)
+        intPool.Put(obj)
+    }
+}
+                    </textarea>
 
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
 
                 </div>
                 <!--- Coluna Direita Fim --->
-
             </div>
         </div>
     </main>
@@ -140,6 +168,13 @@ $ sudo tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
 
     <!-- Custom js -->
     <script src="../../../js/custom.js"></script>
+
+    <!-- Go Playground -->
+    <script src="../../../js/go-playground/codemirror.js"></script>
+    <script src="../../../js/go-playground/codemirror-go.js"></script>
+    <script src="../../../js/go-playground/playground.js"></script>
+    <script src="../../../js/go-playground/snippets.js"></script>
+    <script src="../../../js/go-playground/jquery-linedtextarea.js"></script>
 
     <!-- Prism Syntax Highlighting -->
     <script src="../../../plugins/prism/prism.js"></script>
