@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - API REST - ZeroHero</title>
+    <title>Go Bootcamp - API REST - Docker</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,66 +58,95 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">API REST - ZeroHero</div>
+                    <div class="main-title">API REST - Docker</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Este é um simples exemplo que fizemos em um evento online para comunidade de desenvolvedores.
-                            Foi criado uma <strong>API rEST</strong> do zero ao vivo 😍. Legal não é ? 🤗
-                        </p>
-                        <p>
-                            Todo trabalho encontra-se em: 
+                            Docker é um conjunto de produtos de plataformas como serviço (PaaS) que usam a visualização 
+                            em nível de sistema operacional para entregar software em pacotes chamados contêineres. Os 
+                            contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e 
+                            arquivos de configuração; eles podem se comunicar uns com os outros por meio de canais bem 
+                            definidos. Todos os contêineres são executados por um único kernel do sistema operacional e, 
+                            portanto, usam menos recursos do que uma máquina virtual.
                         </p>
                         <ul>
                             <li>
-                                <a href="https://github.com/jeffotoni/gobootcamp/tree/main/zerohero" target="_blank">github/zerohero</a>
+                                Os Docker Containers contêm binários, bibliotecas e arquivos de configuração junto com 
+                                o próprio aplicativo.
                             </li>
                             <li>
-                                <a href="https://zerohero.web.s3apis.com/" target="_blank">zerohero.web.s3apis</a>
+                                Eles não contêm um sistema operacional convidado para cada contêiner e dependem do 
+                                kernel do sistema operacional subjacente, o que torna os contêineres leves.
                             </li>
                             <li>
-                                <a href="https://www.youtube.com/watch?v=7HCwOBvp6jA&t=3s" target="_blank">Youtube Live</a>
+                                Os contêineres compartilham recursos com outros contêineres no mesmo sistema 
+                                operacional host e fornecem isolamento de processo no nível do sistema operacional. 
                             </li>
                         </ul>
                         <p>
-                            Este projeto é meramente didático e prático e foi desenvolvido para o evento do Bootcamp, fiquem a vontade em enviar Pull Request 😍.
+                            Intalando Docker Engine:
                         </p>
-
-                        <!-- <p>
-                            legal não é 😍?. O objetivo é entender a construção de uma API Go usando somente a strand library. Na pasta json temos alguns supererois para que possamos brincar em nossa base. Exemplo de Json do Odin.
-                        </p> -->
-
-                        <p>
-                            ZeroHero é uma api que carrega uma base com os supereróis e permite pesquisas por biography, powerstats, connections , image, work e appearance.
-                        </p>
-
                         <pre><code class="language-go">
-mux := http.NewServeMux()
-mux.HandleFunc("/", Service)
-
-handler := cors.Default().Handler(mux)
-
-s := &http.Server{
-    Addr:           "0.0.0.0:8080",
-    Handler:        handler,
-}
-log.Fatal(s.ListenAndServe())
-.....
+sudo apt-get update
+$ sudo apt-get install \
+   apt-transport-https \
+   ca-certificates \
+   curl \
+   gnupg-agent \
+   software-properties-common
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ sudo apt-key fingerprint 0EBFCD88
+$ sudo add-apt-repository \
+  "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) \
+  stable nightly test"
+$ sudo apt-get update
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io
                         </code></pre>
+                        <p>
+                            Verifique se a intalação foi feita com sucesso:
+                        </p>
+                        <pre><code class="language-go">
+sudo docker run hello-world
+                        </code></pre>
+                        <p>
+                            Crie um arquivo chamado Dockerfile, copie o código ao lado para ele e cria uma imagem docker:
+                        </p>
+                        <pre><code class="language-go">
+docker build --no-cache -f Dockerfile -t growth/<lang>:latest .
+                        </code></pre>
+                        <p>
+                            Agora, execute-a com este comando:
+                        </p>
+                        <pre><code class="language">
+                            docker run --rm -it -p 8080:8080 growth/<lang>
+                        </code></pre>
+                        <p>
+                            Isso fará com que a imagem docker que você criou seja executada.
+                        </p>
+                        <p>
+                            Também é possível baixar uma imagem pronta pelo site docker.hub com o comando:
+                        </p>
+                        <pre><code class="language-go">
+docker pull jeffotoni/zeroherost
+                        </code></pre>
+                        <p>
+                            Link da imagem: <a href="https://hub.docker.com/r/jeffotoni/zeroherost">jeffotoni/zeroherost</a>
+                        </p>
                     </div>
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="index.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>API REST - Introdução</span>
+                        <a class="pages-menu-link link-back" href="echo.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>API REST - Echo</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="standard_library.html">
-                            <span>API REST - Standard Library</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="../../index.html">
+                            <span>Homepage</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -130,42 +159,33 @@ log.Fatal(s.ListenAndServe())
                     <div class="code-filename">Exemplo Server Go: apirest.go</div>
 
                     <div class="content-height">
-                        <p>
-                            <pre><code class="language-go">
-$ curl -i -XGET -H "Content-Type:application/json" https://zerohero.s3apis.com/api/loki
-{
-    "response":"success",
-    "id":"414",
-    "uuid":"bbd34698-925d-4191-b60c-068926b0b9a2",
-    "name":"loki",
-    "powerstats":{
-       "intelligence":"88",
-       "strength":"63",
-       "speed":"46",
-       "durability":"85",
-       "power":"100",
-       "combat":"60"
-    },
-    "biography":{
-       "full-name":"Loki Laufeyson",
-       "aliases":[
-          "God of Mischief",
-          "Gem-Keeper",
-          "Walter Lawson",
-          "Lester",
-          "Loren Olsen",
-       ],
-       "publisher":"Marvel Comics",
-       "alignment":"bad"
-    },
-    "image":{
-       "url":"https://www.superherodb.com/pictures2/portraits/10/100/928.jpg"
-    }
- }
-</pre></code>
-                        </p>
+                        <pre><code class="language-go">
+#################################################
+# Go + Strach + Muiltistage
+#################################################
+FROM golang:1.17.0 AS builder
+WORKDIR /go/src/main
+COPY . .
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w -X main.ambiente=cloudrun" -o zerohero
+
+FROM alpine:latest as builder2
+RUN apk add --no-cache upx
+COPY --from=builder /go/src/main /go/src/main
+WORKDIR /go/src/main
+RUN upx zerohero
+
+FROM alpine:latest AS final
+RUN apk update
+RUN apk add --no-cache tzdata
+RUN apk add --no-cache ca-certificates
+ENV TZ="America/Sao_Paulo"
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+COPY --from=builder2 /go/src/main /
+CMD ["/zerohero"]
+                        </code></pre>
                     </div>
 
+                    <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
                 </div>
                 <!--- Coluna Direita Fim --->
             </div>

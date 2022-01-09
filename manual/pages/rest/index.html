@@ -64,15 +64,30 @@
 
                     <div class="content-height">
                         <p>
-                            API REST, também chamada de API RESTful, é uma interface de programação de aplicações 
-                            (API ou API web) que está em conformidade com as restrições do estilo de arquitetura REST, 
-                            permitindo a interação com serviços web RESTful. REST é a sigla em inglês para 
-                            "Representational State Transfer", que em português significa tansferência de estado 
-                            representacional. Essa arquitetura foi criada pelo cientista da computação Roy Fielding.
+                            A história da APIs é um pouco antiga. O termo aparece pela primeira vez no artigo de Ira W. Cotton “Estruturas e técnicas de dados para computação remota” publicado em 1968. Dá para imaginar a quantidade de tipos e formas de APIs existentes que foram
+                            surgindo ao longo destas décadas.</p>
+
+                        <p>Nosso contexto para discussão são APIs utilizando protocolo HTTP (Hypertext Transfer Protocol) e utilizando o famigerado REST "Transferência de Estado Representacional" (Representational State Transfer) que é o design de arquitetura
+                            de software construído para servir aplicações em rede.</p>
+
+                        <p>A aplicação mais comum de REST é a própria World Wide Web, que utilizou REST como base para o desenvolvimento do HTTP 1.1. REST foi mencionado pela primeira vez no ano 2000 por Roy Fielding em sua tese de doutoramento na qual ele
+                            descreve um design de arquitetura de software construído para servir aplicações em rede. </p>
+                        <pre><code class="language-go">
+http.Handle("/one", fooHandler)
+
+http.HandleFunc("/two", func(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
+})
+log.Fatal(http.ListenAndServe(":8080", nil))
+                        </code></pre>
+                        <p>Meados de 2000 ao ano de 2014 podemos dizer que tivemos a primeira geração de APIs sendo aplicadas em grande escala em diversos cenários e setores da tecnologia. Em 2009 estava nascendo uma das mais populares ferramentas para organização
+                            e gerenciamento de APIs, nasceu como um Hub unificado e em 2015 finalmente foi lançado o projeto de código aberto chamado Kong e em 2019 ela adquiriu nada mais e nada menos que a plataforma de testes de APIs Insomnia.
+                        </p>
+                        <p>Com a evolução do protocolo HTTP/1.1 para HTTP/2.0 e HTTP/3.0 temos hoje uma diversidade muito grande quando o assunto é APIs para Web.
+
                         </p>
                         <p>
-                            REST não é um protocolo ou padrão, mas sim um conjunto de restrições de arquitetura. Os 
-                            desenvolvedores de API podem implementar a arquitetura REST de maneiras variadas.
+                            REST não é um protocolo ou padrão, mas sim um conjunto de restrições de arquitetura. Os desenvolvedores de API podem implementar a arquitetura REST de maneiras variadas.
                         </p>
                     </div>
 
@@ -85,8 +100,8 @@
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="../rest/index.html">
-                            <span>API REST - Introdução</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="crud_zerohero.html">
+                            <span>API REST - ZeroHero</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -96,28 +111,41 @@
 
                 <div class="col-12 col-lg-6 column-text px-0">
 
-                    <div class="code-filename">rest_api</div>
+                    <div class="code-filename">Exemplo Server Go: apirest.go</div>
 
                     <div class="content-height">
-                        <p>
-                            Quando um cliente faz uma solicitação usando uma API RESTful, essa API transfere uma 
-                            representação do estado do recurso ao solicitante ou endpoint. Essa informação 
-                            (ou representação) é entregue via HTTP utilizando um dos vários formatos possíveis: 
-                            Javascript Object Notation (JSON), HTML, XLT, Python, PHP ou texto sem formatação. O 
-                            formato JSON é a linguagem de programação mais usada porque, apesar de seu nome, é 
-                            independente de qualquer outra linguagem e pode ser lido por máquinas e humanos. 
-                        </p>
-                        <p>
-                            Lembre-se também de que cabeçalhos e parâmetros são importantes nos métodos HTTP de uma 
-                            solicitação HTTP de API RESTful porque contêm informações relevantes sobre o identificador, 
-                            bem como metadados, autorização, Uniform Resource Identifier (URI), cache, cookies e outras 
-                            informações da solicitação. Há os cabeçalhos da solicitação e os cabeçalhos da resposta, cada 
-                            um contendo as informações de suas respectivas conexões HTTP e códigos de status.
-                        </p>
+                        <pre><code class="language-go">
+func main() {
+    mux := http.NewServeMux() // server mux
+
+    mux.HandleFunc("/ping",
+        func(w http.ResponseWriter, r *http.Request) {
+            // middleware
+            log.Println("ping [success]")
+            w.WriteHeader(http.StatusOK)
+            w.Write([]byte("pong😍"))
+        })  // route ping
+
+    // rotas Methods => PUT,POST,GET,DELETE
+    mux.HandleFunc("/", 
+        func (w http.ResponseWriter, r *http.Request){
+            w.WriteHeader(http.StatusNotFound)
+        })
+    mux.HandleFunc("/api/one", One)
+    mux.HandleFunc("/api/two", Two)
+    mux.HandleFunc("/api/three", Three)
+
+    s := &http.Server{
+        Addr:         "0.0.0.0:8080",
+        Handler:      mux,
+        ReadTimeout:  10 * time.Second,
+        WriteTimeout: 1 * time.Second,
+        MaxHeaderBytes: 1024,
+    }
+    s.ListenAndServe()
+}
+                        </pre></code>
                     </div>
-
-                    <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
-
                 </div>
                 <!--- Coluna Direita Fim --->
             </div>

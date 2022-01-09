@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - net/http Server - Introdução</title>
+    <title>Go Bootcamp - API REST - Echo</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,30 +58,30 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">net/http Server - Introdução</div>
+                    <div class="main-title">API REST - Echo</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Criar serviços HTTP no Go não é complexo. O pacote HTTP nos economiza muito tempo ao fazer isso. Nesta postagem, trabalharemos com o pacote HTTP para criar um servidor HTTP em Go.
+                            Echo é uma microestrutura PHP semelhante ao Lumen. Ele tem muitos recursos e está bem 
+                            documentado para criar aplicativos da web rápidos e fáceis com o GO. Você pode criar 
+                            uma API restful sem usar uma estrutura. no entanto, as estruturas têm seu próprio conjunto 
+                            de recursos que tornam o desenvolvimento da web mais seguro e rápido.
                         </p>
-                        <p>
-                            Para trabalhar com HTTP, precisamos importar o pacote HTTP. Ele contém implementação de cliente e servidor para HTTP.
-                        </p>
-                    </div>
 
+                    </div>
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="../crypto/crc32.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Criptografia - CRC32</span>
+                        <a class="pages-menu-link link-back" href="gin.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>API REST - Gin</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="http_handle.html">
-                            <span>http/net Server - Handle</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="gin.html">
+                            <span>API REST - Gin</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -89,33 +89,124 @@
                 </div>
                 <!--- Coluna Esquerda Fim --->
 
-                <div class="col-12 col-lg-6 column-code">
+                <div class="col-12 col-lg-6 column-text px-0">
 
-                    <div class="code-filename">server.go</div>
-
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="server.go">
-// Execute localmente
+                    <div class="code-filename">Exemplo Server Go: apirest.go</div>
                     
+                    <div class="content-height">
+                        <pre><code class="language-go">
 package main
- 
+
 import (
-    "fmt"
-    "net/http"
+	"net/http"
+
+	"github.com/labstack/echo/v4"
+	"github.com/labstack/gommon/log"
 )
- 
-func main() {
-    // handle route using handler function
-    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        fmt.Fprintf(w, "Welcome to new server!")
-    })
- 
-    // listen to port
-    http.ListenAndServe(":5050", nil)
+
+type Response struct {
+	Msg string `json:"msg"`
 }
-                    </textarea>
 
-                    <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
+type ZeroHero struct {
+	Response    string      `json:"response"`
+	ID          string      `json:"id"`
+	UUID        string      `json:"uuid,omitempty" bson:"_id"`
+	Name        string      `json:"name"`
+	Powerstats  Powerstats  `json:"powerstats"`
+	Biography   Biography   `json:"biography"`
+	Appearance  Appearance  `json:"appearance"`
+	Work        Work        `json:"work"`
+	Connections Connections `json:"connections"`
+	Image       Image       `json:"image"`
+}
+type Powerstats struct {
+	Intelligence string `json:"intelligence"`
+	Strength     string `json:"strength"`
+	Speed        string `json:"speed"`
+	Durability   string `json:"durability"`
+	Power        string `json:"power"`
+	Combat       string `json:"combat"`
+}
+type Biography struct {
+	FullName        string   `json:"full-name"`
+	AlterEgos       string   `json:"alter-egos"`
+	Aliases         []string `json:"aliases"`
+	PlaceOfBirth    string   `json:"place-of-birth"`
+	FirstAppearance string   `json:"first-appearance"`
+	Publisher       string   `json:"publisher"`
+	Alignment       string   `json:"alignment"`
+}
+type Appearance struct {
+	Gender    string   `json:"gender"`
+	Race      string   `json:"race"`
+	Height    []string `json:"height"`
+	Weight    []string `json:"weight"`
+	EyeColor  string   `json:"eye-color"`
+	HairColor string   `json:"hair-color"`
+}
+type Work struct {
+	Occupation string `json:"occupation"`
+	Base       string `json:"base"`
+}
+type Connections struct {
+	GroupAffiliation string `json:"group-affiliation"`
+	Relatives        string `json:"relatives"`
+}
+type Image struct {
+	URL string `json:"url"`
+}
 
+func main() {
+	e := echo.New()
+	e.GET("/ping", Ping)
+	e.POST("/api", Post)
+	e.PUT("/api/:name", Put)
+	e.DELETE("/api/:name", Delete)
+	e.GET("/api/:name", Get)
+	e.GET("/api/:name/:fatia", Get)
+
+	e.Logger.SetLevel(log.INFO)
+	e.Start("0.0.0.0:8080")
+}
+
+func Ping(c echo.Context) (err error) {
+	return c.JSON(http.StatusCreated, Response{
+		Msg: `ping😍`,
+	})
+
+}
+
+func Post(c echo.Context) (err error) {
+	var zh ZeroHero
+	if err := c.Bind(&zh); err != nil {
+		return err
+	}
+	return c.JSON(http.StatusCreated, &zh)
+}
+
+func Put(c echo.Context) (err error) {
+	return c.JSON(http.StatusCreated, Response{
+		Msg: `put`,
+	})
+}
+
+func Delete(c echo.Context) (err error) {
+	return c.JSON(http.StatusCreated, Response{
+		Msg: `delete`,
+	})
+}
+
+func Get(c echo.Context) (err error) {
+	name := c.Param("name")
+	fatia := c.Param("fatia")
+	println("name:", name, " fatia:", fatia)
+	return c.JSON(http.StatusCreated, Response{
+		Msg: `get`,
+	})
+}
+                        </code></pre>
+                    </div>
                 </div>
                 <!--- Coluna Direita Fim --->
             </div>
