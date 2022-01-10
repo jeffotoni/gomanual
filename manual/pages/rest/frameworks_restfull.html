@@ -72,28 +72,28 @@
                         </p>
                         <ul>
                             <li>
-                                <a href="" target="_blank">gin</a>
+                                <a href="gin.html" target="_blank">gin</a>
                             </li>
                             <li>
-                                <a href="" target="_blank">echo</a>
+                                <a href="echo.html" target="_blank">echo</a>
                             </li>
                             <li>
-                                <a href="" target="_blank">Beego</a>
+                                <a href="beego.html" target="_blank">Beego</a>
                             </li>
                             <li>
-                                <a href="" target="_blank">Macaron</a>
+                                <a href="macaron.html" target="_blank">Macaron</a>
                             </li>
                             <li>
-                                <a href="" target="_blank">chi</a>
+                                <a href="chi.html" target="_blank">chi</a>
                             </li>
                         </ul>
                         <p>Frameworks RestFull usando pkg fasthttp</p>
                         <ul>
                             <li>
-                                <a href="" target="_blank">fiber</a>
+                                <a href="fiber.html" target="_blank">fiber</a>
                             </li>
                             <li>
-                                <a href="" target="_blank">gramework</a>
+                                <a href="gramework.html" target="_blank">gramework</a>
                             </li>
                         </ul>
                         <p>
@@ -109,14 +109,17 @@
                             universo.
                         </p>
                         <p>
+                            <a href="https://github.com/smallnest/go-web-framework-benchmark" target="_blank">Benchmarks comparandos as frameworks web</a>
+                        </p>
+                        <p>
                             <b>Frameworks para microservices:</b>
                         </p>
                         <ul>
                             <li>
-                                <a href="https://gokit.io/" target="_blank">go-kit</a>
+                                go-kit
                             </li>
                             <li>
-                                <a href="https://micro.mu/" target="_blank">go micro</a>
+                                go micro
                             </li>
                         </ul>
 
@@ -141,42 +144,36 @@
 
                 <div class="col-12 col-lg-6 column-text px-0">
 
-                    <div class="code-filename">Exemplo Server Go: apirest.go</div>
+                    <div class="code-filename">frameworks_restfull.go</div>
                     
                     <div class="content-height">
                         <pre><code class="language-go">
-.....
-func main() {
-    e := echo.New()
-    e.GET("/ping", Ping)
-    e.POST("/api", Post)  
-    e.Logger.SetLevel(log.INFO)
-    e.Start("0.0.0.0:8080")
-}
+r := gin.Default()
+r.GET("/v1/api", func)
+r.Run("localhost:8000") // Gin
+           
+e := echo.New()
+e.GET("/v1/api", func)
+e.Logger.Fatal(e.Start(":8000")) // Echo
 
-.....
-func main() {
-    app := fiber.New(
-        fiber.Config{
-        BodyLimit: 10 * 1024 * 1024,
-        })
-    app.Get("/ping", h.Ping)
-    app.Post("/api", h.Post)
-    app.Get("/api/:name", h.Get)
-    app.Listen("0.0.0.0:8080")
-}
+web.Router("/v1/api", func)
+web.Run("localhost:8000") // Beego
 
-.....
-func main() {
-    router := gin.Default()
-    router.GET("/ping", Ping)
-    router.POST("/api", Post)
-    router.PUT("/api/:name", Put)
-    router.DELETE("/api/:name", Delete)
-    router.GET("/api/:name", Get)
-    router.Run("0.0.0.0:8080")
-}
-.....
+m := macaron.Classic()
+m.Get("/v1/api", func)
+m.Run("localhost:8000") // Macaron
+
+r := chi.NewRouter()
+r.Get("/v1/api", func)
+http.ListenAndServe(":8000", r) // Chi
+
+app := fiber.New()
+app.Get("/v1/api", func)
+log.Fatal(app.Listen(":8000")) // Fiber
+
+app := gramework.New()
+app.GET("/v1/api", func
+app.ListenAndServe("localhost:8000") // Gramework
                         </code></pre>
                     </div>
                 </div>

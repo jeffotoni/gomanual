@@ -69,7 +69,33 @@
                             uma API restful sem usar uma estrutura. no entanto, as estruturas têm seu próprio conjunto 
                             de recursos que tornam o desenvolvimento da web mais seguro e rápido.
                         </p>
-
+                        <ul>
+                            <li>
+                                Roteador HTTP altamente otimizado com zero alocação de memória dinâmica que prioriza 
+                                rotas de forma inteligente.
+                            </li>
+                            <li>
+                                Construa uma API RESTful robusta e escalonável, facilmente organizada em grupos.
+                            </li>
+                            <li>
+                                Instalar automaticamente certificados TLS do Let's Encrypt.
+                            </li>
+                            <li>
+                                O suporte HTTP / 2 melhora a velocidade e fornece uma melhor experiência do usuário.
+                            </li>
+                            <li>
+                                Muitos middleware embutido para usar ou definir o seu próprio. O middleware pode ser 
+                                definido em nível de raiz, grupo ou rota.
+                            </li>
+                            <li>
+                                Vinculação de dados para carga útil de solicitação HTTP, incluindo JSON, XML ou 
+                                dados de formulário.
+                            </li>
+                            <li>
+                                API para enviar uma variedade de respostas HTTP, incluindo JSON, XML, HTML, 
+                                Arquivo, Anexo, Inline, Fluxo ou Blob.
+                            </li>
+                        </ul>
                     </div>
 
                     <div class="pages-menu">
@@ -80,8 +106,8 @@
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="gin.html">
-                            <span>API REST - Gin</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="beego.html">
+                            <span>API REST - Beego</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -91,7 +117,7 @@
 
                 <div class="col-12 col-lg-6 column-text px-0">
 
-                    <div class="code-filename">Exemplo Server Go: apirest.go</div>
+                    <div class="code-filename">echo.go</div>
                     
                     <div class="content-height">
                         <pre><code class="language-go">
@@ -99,112 +125,30 @@ package main
 
 import (
 	"net/http"
-
+	
 	"github.com/labstack/echo/v4"
-	"github.com/labstack/gommon/log"
 )
-
-type Response struct {
-	Msg string `json:"msg"`
-}
-
-type ZeroHero struct {
-	Response    string      `json:"response"`
-	ID          string      `json:"id"`
-	UUID        string      `json:"uuid,omitempty" bson:"_id"`
-	Name        string      `json:"name"`
-	Powerstats  Powerstats  `json:"powerstats"`
-	Biography   Biography   `json:"biography"`
-	Appearance  Appearance  `json:"appearance"`
-	Work        Work        `json:"work"`
-	Connections Connections `json:"connections"`
-	Image       Image       `json:"image"`
-}
-type Powerstats struct {
-	Intelligence string `json:"intelligence"`
-	Strength     string `json:"strength"`
-	Speed        string `json:"speed"`
-	Durability   string `json:"durability"`
-	Power        string `json:"power"`
-	Combat       string `json:"combat"`
-}
-type Biography struct {
-	FullName        string   `json:"full-name"`
-	AlterEgos       string   `json:"alter-egos"`
-	Aliases         []string `json:"aliases"`
-	PlaceOfBirth    string   `json:"place-of-birth"`
-	FirstAppearance string   `json:"first-appearance"`
-	Publisher       string   `json:"publisher"`
-	Alignment       string   `json:"alignment"`
-}
-type Appearance struct {
-	Gender    string   `json:"gender"`
-	Race      string   `json:"race"`
-	Height    []string `json:"height"`
-	Weight    []string `json:"weight"`
-	EyeColor  string   `json:"eye-color"`
-	HairColor string   `json:"hair-color"`
-}
-type Work struct {
-	Occupation string `json:"occupation"`
-	Base       string `json:"base"`
-}
-type Connections struct {
-	GroupAffiliation string `json:"group-affiliation"`
-	Relatives        string `json:"relatives"`
-}
-type Image struct {
-	URL string `json:"url"`
-}
 
 func main() {
 	e := echo.New()
-	e.GET("/ping", Ping)
-	e.POST("/api", Post)
-	e.PUT("/api/:name", Put)
-	e.DELETE("/api/:name", Delete)
-	e.GET("/api/:name", Get)
-	e.GET("/api/:name/:fatia", Get)
-
-	e.Logger.SetLevel(log.INFO)
-	e.Start("0.0.0.0:8080")
-}
-
-func Ping(c echo.Context) (err error) {
-	return c.JSON(http.StatusCreated, Response{
-		Msg: `ping😍`,
+	e.GET("/v1/api", func(c echo.Context) error {
+		return c.String(http.StatusOK, "GETTING...")
 	})
 
-}
-
-func Post(c echo.Context) (err error) {
-	var zh ZeroHero
-	if err := c.Bind(&zh); err != nil {
-		return err
-	}
-	return c.JSON(http.StatusCreated, &zh)
-}
-
-func Put(c echo.Context) (err error) {
-	return c.JSON(http.StatusCreated, Response{
-		Msg: `put`,
+    e.POST("/v1/api", func(c echo.Context) error {
+		return c.String(http.StatusOK, "POSTING...")
 	})
+
+    e.PUT("/v1/api", func(c echo.Context) error {
+		return c.String(http.StatusOK, "PUTTING...")
+	})
+
+    e.DELETE("/v1/api", func(c echo.Context) error {
+		return c.String(http.StatusOK, "DELETING...")
+	})
+	e.Logger.Fatal(e.Start(":8000"))
 }
 
-func Delete(c echo.Context) (err error) {
-	return c.JSON(http.StatusCreated, Response{
-		Msg: `delete`,
-	})
-}
-
-func Get(c echo.Context) (err error) {
-	name := c.Param("name")
-	fatia := c.Param("fatia")
-	println("name:", name, " fatia:", fatia)
-	return c.JSON(http.StatusCreated, Response{
-		Msg: `get`,
-	})
-}
                         </code></pre>
                     </div>
                 </div>

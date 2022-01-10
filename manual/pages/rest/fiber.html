@@ -91,27 +91,38 @@
 
                 <div class="col-12 col-lg-6 column-text px-0">
 
-                    <div class="code-filename">Exemplo Server Go: apirest.go</div>
+                    <div class="code-filename">fiber.go</div>
                     
                     <div class="content-height">
                         <pre><code class="language-go">
 package main
 
 import (
-  "github.com/gofiber/fiber/v2"
+    "log"
+
+    "github.com/gofiber/fiber/v2"
 )
 
 func main() {
-  app := fiber.New(
-    fiber.Config{
-      BodyLimit: 10 * 1024 * 1024,
+    app := fiber.New()
+
+    app.Get("/v1/api", func (c *fiber.Ctx) error {
+        return c.SendString("GETTING...")
     })
 
-  app.Get("/ping", func(c *fiber.Ctx) error {
-        return c.Status(200).SendString("pong")
-  })
+    app.Post("/v1/api", func (c *fiber.Ctx) error {
+        return c.SendString("POSTING...")
+    })
 
-  app.Listen("0.0.0.0:8080")
+    app.Delete("/v1/api", func (c *fiber.Ctx) error {
+        return c.SendString("DELETING...")
+    })
+
+    app.Put("/v1/api", func (c *fiber.Ctx) error {
+        return c.SendString("PUTTING...")
+    })
+
+    log.Fatal(app.Listen(":8000"))
 }
                         </code></pre>
                     </div>
