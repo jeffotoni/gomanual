@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Controladores de Estruturas - Return</title>
+    <title>Go Bootcamp - Erros - Recover</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,31 +58,33 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Controladores de Estruturas - Return</div>
+                    <div class="main-title">Erros - Recover</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Uma instrução de encerramento impede a execução de todas as instruções que 
-                            aparecem lexicalmente depois dela no mesmo bloco. As seguintes declarações são de encerramento:
+                            Go possibilita a recuperação de um pânico, usando a função interna de 
+                            recuperação. Uma recuperação pode impedir um pânico de abortar o programa 
+                            e deixá-lo continuar com a execução.
                         </p>
-                        <pre><code class="language-go">
-return      goto
-                        </code></pre>
+                        <p>
+                            Um exemplo de onde isso pode ser útil: um servidor não gostaria de travar 
+                            se uma das conexões do cliente apresentar um erro crítico. Em vez disso, 
+                            o servidor deseja fechar essa conexão e continuar atendendo a outros clientes.
+                        </p>
+
                     </div>
-
-
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="../language_introduction/types/error.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Introdução à Linguagem - Error</span>
+                        <a class="pages-menu-link link-back" href="panic.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Erros - Panic</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="goto.html">
-                            <span>Controladores de Estruturas - Goto</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="../date_hour/date.html">
+                            <span>Data e Hora - Date</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -93,19 +95,40 @@ return      goto
                 <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">return.go</div>
+                    <div class="code-filename">recover.go</div>
 
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="return.go">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="recover.go">
 package main
 
-func main() {
-    println(Lambda())
-    return
+import (
+    "fmt"
+    "errors"   
+)
+
+//error customizado --> New
+func divide(x int, y int) (int, error) {
+    if y == 0 {
+    return -1, errors.New("Divisão por 0!")
+    }
+    return x/y, nil
 }
 
-func Lambda() string {
-    return "Lambda"
-}				
+func main() {
+    defer func() {
+        if r := recover(); r != nil {
+
+	
+
+            fmt.Println("Recovered. Error:\n", r)
+        }
+    }()
+
+    answer, err := divide(5,0)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Println(answer)
+}                
                     </textarea>
 
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
