@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - API REST - Fiber</title>
+    <title>Go Bootcamp - Generics - Introdução</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,33 +58,50 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">API REST - Fiber</div>
+                    <div class="main-title">Generics - Introdução</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Fiber é uma nova estrutura da web baseada em Go que explodiu em cena e gerou muito interesse 
-                            da comunidade de programação.
+                            Go é uma linguagem tipada, o que significa que cada variável e valor 
+                            em seu programa tem algum tipo específico, como int ou string. Quando 
+                            escrevemos funções, precisamos especificar o tipo de seus parâmetros no 
+                            que é chamado de assinatura da função.
                         </p>
                         <p>
-                            Para criar uma nova instância da sua aplicação, use a função fiber.New. Esta 
-                            função recebe opcionalmente a estrutura fiber.Config (https://docs.gofiber.io/api/fiber#config)
+                            Aqui, o parâmetro s é do tipo string. Podemos imaginar escrever versões 
+                            semelhantes dessa função que recebam um int, um float64, um tipo struct 
+                            arbitrário e assim por diante. Mas isso seria inconveniente para mais do 
+                            que um punhado de tipos específicos, e embora às vezes possamos usar 
+                            interfaces para resolver esse problema (como descrito no tutorial 
+                            map[string]interface, por exemplo), essa abordagem tem muitas limitações.
                         </p>
-
-
+                        <p>
+                            Em vez disso, gostaríamos de declarar uma função genérica — vamos chamá-la 
+                            de PrintAnything — que recebe um argumento de qualquer tipo arbitrário 
+                            (vamos chamá-lo de T) e faz algo com ele.
+                        </p>
+                        <p>
+                            Veja o exemplo ao lado.
+                        </p>
+                        <p>
+                            O any indica que T pode ser de qualquer tipo. Estamos dizendo que para 
+                            qualquer tipo T, PrintAnything recebe um parâmetro do tipo T.
+                        </p>
                     </div>
+
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="frameworks_restfull.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>API REST - Frameworks RESTfull</span>
+                        <a class="pages-menu-link link-back" href="../goroutines/web_crawler.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Goroutines - Web Crawler</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="gin.html">
-                            <span>API REST - Gin</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="type_approx.html">
+                            <span>Generics - Type Approximation</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -92,51 +109,32 @@
                 </div>
                 <!--- Coluna Esquerda Fim --->
 
-                <div class="col-12 col-lg-6 column-text px-0">
+                <!--- Coluna Direita --->
+                <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">fiber.go</div>
-                    
-                    <div class="content-height">
-                        <pre><code class="language-go">
+                    <div class="code-filename">generics.go</div>
+
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="generics.go">
 package main
 
-import (
-    "log"
+import "fmt"
 
-    "github.com/gofiber/fiber/v2"
-)
+func PrintAnything[T any](thing T) {
+    fmt.Println(thing)
+}
 
 func main() {
-    app := fiber.New(fiber.Config{
-    Prefork:       true,
-    CaseSensitive: true,
-    StrictRouting: true,
-    ServerHeader:  "Fiber",
-    AppName: "Test App v1.0.1"
-})
-
-    app.Get("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("GETTING...")
-    })
-
-    app.Post("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("POSTING...")
-    })
-
-    app.Delete("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("DELETING...")
-    })
-
-    app.Put("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("PUTTING...")
-    })
-
-    log.Fatal(app.Listen(":8000"))
+    PrintAnything("Hello!")
+    PrintAnything(42)
+    PrintAnything(true)
 }
-                        </code></pre>
-                    </div>
+                    </textarea>
+
+                    <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
+
                 </div>
                 <!--- Coluna Direita Fim --->
+
             </div>
         </div>
     </main>

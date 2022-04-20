@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - API REST - Fiber</title>
+    <title>Go Bootcamp - Generics - Constraints</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,33 +58,42 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">API REST - Fiber</div>
+                    <div class="main-title">Generics - Constraints</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Fiber é uma nova estrutura da web baseada em Go que explodiu em cena e gerou muito interesse 
-                            da comunidade de programação.
+                            O novo identificador pré-declarado any é um alias para a interface vazia. 
+                            Pode ser usado ao invés de interface{}.
                         </p>
                         <p>
-                            Para criar uma nova instância da sua aplicação, use a função fiber.New. Esta 
-                            função recebe opcionalmente a estrutura fiber.Config (https://docs.gofiber.io/api/fiber#config)
+                            O novo identificador pré-declarado comparável é uma interface que denota 
+                            o conjunto de todos os tipos que podem ser comparados usando == ou !=. 
+                            Ele só pode ser usado como (ou incorporado) uma type constraint.
                         </p>
-
-
+                        <p>
+                            Os seguintes pacotes com contraints e funções úteis para generics foram 
+                            adicionador também:
+                        </p>
+                        <li>
+                            <ul>golang.org/x/exp/constraints</ul>
+                            <ul>golang.org/x/exp/slices</ul>
+                            <ul>golang.org/x/exp/maps</ul>
+                        </li>
                     </div>
+
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="frameworks_restfull.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>API REST - Frameworks RESTfull</span>
+                        <a class="pages-menu-link link-back" href="type_approx.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Generics - Type Approximation</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="gin.html">
-                            <span>API REST - Gin</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="generic_types.html">
+                            <span>Generics - Generic Types</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -92,51 +101,40 @@
                 </div>
                 <!--- Coluna Esquerda Fim --->
 
-                <div class="col-12 col-lg-6 column-text px-0">
+                <!--- Coluna Direita --->
+                <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">fiber.go</div>
-                    
-                    <div class="content-height">
-                        <pre><code class="language-go">
+                    <div class="code-filename">constraints.go</div>
+
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="constraints.go">
 package main
 
 import (
-    "log"
-
-    "github.com/gofiber/fiber/v2"
+    "fmt"
+    "golang.org/x/exp/slices"
 )
 
-func main() {
-    app := fiber.New(fiber.Config{
-    Prefork:       true,
-    CaseSensitive: true,
-    StrictRouting: true,
-    ServerHeader:  "Fiber",
-    AppName: "Test App v1.0.1"
-})
-
-    app.Get("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("GETTING...")
-    })
-
-    app.Post("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("POSTING...")
-    })
-
-    app.Delete("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("DELETING...")
-    })
-
-    app.Put("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("PUTTING...")
-    })
-
-    log.Fatal(app.Listen(":8000"))
+func Contains[E comparable](s []E, v E) bool {
+    for _, w := range s {
+        if w == v {
+            return true
+        }
+    }
+    return false
 }
-                        </code></pre>
-                    </div>
+
+func main() {
+    s := []int{1, 2, 3, 4, 5}
+    fmt.Println(Contains(s, 4))
+    fmt.Println(slices.Compare(s, []int{1, 2, 3, 4, 5}))
+}
+                    </textarea>
+
+                    <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
+
                 </div>
                 <!--- Coluna Direita Fim --->
+
             </div>
         </div>
     </main>

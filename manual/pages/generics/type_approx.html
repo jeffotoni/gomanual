@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - API REST - Fiber</title>
+    <title>Go Bootcamp - Generics - Type Approximation</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,33 +58,35 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">API REST - Fiber</div>
+                    <div class="main-title">Generics - Type Approximation</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Fiber é uma nova estrutura da web baseada em Go que explodiu em cena e gerou muito interesse 
-                            da comunidade de programação.
+                            Uma aproximação de tipo corresponde não apenas ao próprio tipo, 
+                            como seria de esperar, mas também a qualquer tipo derivado.
                         </p>
                         <p>
-                            Para criar uma nova instância da sua aplicação, use a função fiber.New. Esta 
-                            função recebe opcionalmente a estrutura fiber.Config (https://docs.gofiber.io/api/fiber#config)
+                            Cada tipo T tem um tipo subjacente: se T for um dos tipos booleanos, 
+                            numéricos ou de string pré-declarados, ou um tipo literal, o tipo 
+                            subjacente correspondente será o próprio T. Caso contrário, o tipo 
+                            subjacente de T é o tipo subjacente do tipo ao qual T se refere em 
+                            sua declaração de tipo.
                         </p>
-
-
                     </div>
+
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="frameworks_restfull.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>API REST - Frameworks RESTfull</span>
+                        <a class="pages-menu-link link-back" href="index.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Generics - Introdução</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="gin.html">
-                            <span>API REST - Gin</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="constraints.html">
+                            <span>Generics - Constraints</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -92,51 +94,37 @@
                 </div>
                 <!--- Coluna Esquerda Fim --->
 
-                <div class="col-12 col-lg-6 column-text px-0">
+                <!--- Coluna Direita --->
+                <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">fiber.go</div>
-                    
-                    <div class="content-height">
-                        <pre><code class="language-go">
+                    <div class="code-filename">type_approx.go</div>
+
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="type_approx.go">
 package main
 
-import (
-    "log"
+import "fmt"
 
-    "github.com/gofiber/fiber/v2"
-)
+type MyInt int
+
+func Sum[T ~int | ~int8 | ~int16 | ~int32 | ~int64](nums ...T) T {
+    var s T
+    for _, v := range nums {
+        s += v
+    }
+    return s
+}
 
 func main() {
-    app := fiber.New(fiber.Config{
-    Prefork:       true,
-    CaseSensitive: true,
-    StrictRouting: true,
-    ServerHeader:  "Fiber",
-    AppName: "Test App v1.0.1"
-})
-
-    app.Get("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("GETTING...")
-    })
-
-    app.Post("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("POSTING...")
-    })
-
-    app.Delete("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("DELETING...")
-    })
-
-    app.Put("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("PUTTING...")
-    })
-
-    log.Fatal(app.Listen(":8000"))
+    sum := Sum(1, MyInt(259), 3069, 4304954)
+    fmt.Println(sum)
 }
-                        </code></pre>
-                    </div>
+                    </textarea>
+
+                    <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
+
                 </div>
                 <!--- Coluna Direita Fim --->
+
             </div>
         </div>
     </main>

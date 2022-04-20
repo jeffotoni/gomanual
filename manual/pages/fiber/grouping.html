@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - API REST - Fiber</title>
+    <title>Go Bootcamp - Fiber - Grouping</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,27 +58,29 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">API REST - Fiber</div>
+                    <div class="main-title">Fiber - Grouping</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Fiber é uma nova estrutura da web baseada em Go que explodiu em cena e gerou muito interesse 
-                            da comunidade de programação.
+                            Com groups, você pode criar cadeias de handlers e paths, sem ter que definí-los
+                            para cada endpoint manualmente.
                         </p>
                         <p>
-                            Para criar uma nova instância da sua aplicação, use a função fiber.New. Esta 
-                            função recebe opcionalmente a estrutura fiber.Config (https://docs.gofiber.io/api/fiber#config)
+                            Os group handlers também podem ser usados, 
+                            mas devem executar a função Next para que o fluxo possa continuar.
                         </p>
-
-
+                        <p>
+                            Para mais informações sobre Grouping em Fiber, clique 
+                            <a href="https://docs.gofiber.io/guide/grouping">aqui</a>
+                        </p>
                     </div>
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="frameworks_restfull.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>API REST - Frameworks RESTfull</span>
+                        <a class="pages-menu-link link-back" href="routing.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Fiber - Routing</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
@@ -98,40 +100,26 @@
                     
                     <div class="content-height">
                         <pre><code class="language-go">
-package main
-
-import (
-    "log"
-
-    "github.com/gofiber/fiber/v2"
-)
-
 func main() {
-    app := fiber.New(fiber.Config{
-    Prefork:       true,
-    CaseSensitive: true,
-    StrictRouting: true,
-    ServerHeader:  "Fiber",
-    AppName: "Test App v1.0.1"
-})
+    app := fiber.New()
 
-    app.Get("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("GETTING...")
+    handler := func(c *fiber.Ctx) error {
+        return c.SendStatus(fiber.StatusOK)
+    }
+    api := app.Group("/api") // /api
+
+    v1 := api.Group("/v1", func(c *fiber.Ctx) error { // middleware for /api/v1
+        c.Set("Version", "v1")
+        return c.Next()
     })
+    v1.Get("/list", handler) // /api/v1/list
+    v1.Get("/user", handler) // /api/v1/user
 
-    app.Post("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("POSTING...")
-    })
+    v2 := api.Group("/v2")        // /api/v2
+    v2.Get("/list", handler)      // /api/v2/list
+    v2.Get("/user", handler)      // /api/v2/user
 
-    app.Delete("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("DELETING...")
-    })
-
-    app.Put("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("PUTTING...")
-    })
-
-    log.Fatal(app.Listen(":8000"))
+    log.Fatal(app.Listen(":3000"))
 }
                         </code></pre>
                     </div>

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - API REST - Fiber</title>
+    <title>Go Bootcamp - Fiber - Routing</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,33 +58,54 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">API REST - Fiber</div>
+                    <div class="main-title">Fiber - Routing</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Fiber é uma nova estrutura da web baseada em Go que explodiu em cena e gerou muito interesse 
-                            da comunidade de programação.
+                            Roteamento refere-se a determinar como um aplicativo responde a uma 
+                            solicitação de cliente para um determinado endpoint, que é um URI 
+                            (ou caminho) e um método de solicitação HTTP específico (GET, PUT, POST 
+                            e assim por diante).
                         </p>
                         <p>
-                            Para criar uma nova instância da sua aplicação, use a função fiber.New. Esta 
-                            função recebe opcionalmente a estrutura fiber.Config (https://docs.gofiber.io/api/fiber#config)
+                            Cada rota pode ter vários handlers, que são executados 
+                            quando a rota é chamada.
                         </p>
-
-
+                        <pre><code class="language-go">
+// Function signature
+app.Method(path string, ...func(*fiber.Ctx) error)
+                        </code></pre>
+                        <ul>
+                            <li>'app' é uma instância de Fiber</li>
+                            <li>'Method' é um método de requisição HTTP</li>
+                            <li>'path' é o caminho virtual no servidor</li>
+                            <li>
+                                'func(*fiber.Ctx) error' é uma função de callback contendo o Context
+                                da chamada
+                            </li>
+                        </ul>
+                        <p>
+                            Quando usar um path contendo url parameters, use a função c.Params para 
+                            recuperá-los.
+                        </p>
+                        <p>
+                            Para mais informações sobre Routing em Fiber, clique 
+                            <a href="https://docs.gofiber.io/guide/routing">aqui</a>
+                        </p>
                     </div>
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="frameworks_restfull.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>API REST - Frameworks RESTfull</span>
+                        <a class="pages-menu-link link-back" href="index.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Fiber - Introdução</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="gin.html">
-                            <span>API REST - Gin</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="grouping.html">
+                            <span>Fiber - Grouping</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -98,41 +119,25 @@
                     
                     <div class="content-height">
                         <pre><code class="language-go">
-package main
+// ...
 
-import (
-    "log"
-
-    "github.com/gofiber/fiber/v2"
-)
-
-func main() {
-    app := fiber.New(fiber.Config{
-    Prefork:       true,
-    CaseSensitive: true,
-    StrictRouting: true,
-    ServerHeader:  "Fiber",
-    AppName: "Test App v1.0.1"
+app.Get("/v1/api/person/:id", func (c *fiber.Ctx) error {
+    return c.SendString("GETTING ID " + c.Params("id"))
 })
 
-    app.Get("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("GETTING...")
-    })
+app.Post("/v1/api/person/", func (c *fiber.Ctx) error {
+    return c.SendString("POSTING...")
+})
 
-    app.Post("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("POSTING...")
-    })
+app.Delete("/v1/api/person/:id", func (c *fiber.Ctx) error {
+    return c.SendString("DELETING ID " + c.Params("id"))
+})
 
-    app.Delete("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("DELETING...")
-    })
+app.Put("/v1/api/person/:id", func (c *fiber.Ctx) error {
+    return c.SendString("PUTTING ID " + c.Params("id"))
+})
 
-    app.Put("/v1/api", func (c *fiber.Ctx) error {
-        return c.SendString("PUTTING...")
-    })
-
-    log.Fatal(app.Listen(":8000"))
-}
+// ...
                         </code></pre>
                     </div>
                 </div>
