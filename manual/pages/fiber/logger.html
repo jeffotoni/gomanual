@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - API REST - Introdução</title>
+    <title>Go Bootcamp - Fiber - Logger</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,48 +58,31 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">API REST - Introdução</div>
+                    <div class="main-title">Fiber - Logger</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
-                        <p>A história da APIs é um pouco antiga. O termo aparece pela primeira vez no artigo de Ira W. Cotton <i>“Estruturas e técnicas de dados para computação remota”</i> publicado em 1968.
-                            Dá para imaginar a quantidade de tipos e formas de APIs existentes que foram surgindo ao longo destas décadas.</p>
-
-                        <p>Nosso contexto para discussão são APIs utilizando protocolo HTTP <i>(Hypertext Transfer Protocol)</i> e utilizando o famigerado REST <i>"Transferência de Estado Representacional" (Representational State Transfer)</i> que é o design de arquitetura
-                            de software construído para servir aplicações em rede.</p>
-
-                        <p>A aplicação mais comum de REST é a própria World Wide Web, que utilizou REST como base para o desenvolvimento do <b>HTTP 1.1</b>. REST foi mencionado pela primeira vez no ano 2000 por Roy Fielding em sua tese de doutoramento na qual ele
-                            descreve um design de arquitetura de software construído para servir aplicações em rede. </p>
-                        <pre><code class="language-go">
-http.Handle("/one", fooHandler)
-
-http.HandleFunc("/two", func(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
-})
-log.Fatal(http.ListenAndServe(":8080", nil))
-                        </code></pre>
-                        <p>Meados de 2000 ao ano de 2014 podemos dizer que tivemos a primeira geração de APIs sendo aplicadas em grande escala em diversos cenários e setores da tecnologia. Em 2009 estava nascendo uma das mais populares ferramentas para organização
-                            e gerenciamento de APIs, nasceu como um Hub unificado e em 2015 finalmente foi lançado o projeto de código aberto chamado <b>Kong</b> e em 2019 ela adquiriu nada mais, nada menos que a plataforma de testes de APIs Insomnia.
+                        <p>
+                            Fiber também possui seu middleware integrado para registrar detalhes de
+                            solicitação/resposta HTTP e exibir resultados no console.
                         </p>
-                        <p>Com a evolução do protocolo HTTP/1.1 para HTTP/2.0 e HTTP/3.0 temos hoje uma diversidade muito grande quando o assunto é APIs para Web.
-
-                        </p>
-                        <p>REST não é um protocolo ou padrão, mas sim um conjunto de restrições de arquitetura. Os desenvolvedores de API podem implementar a arquitetura REST de maneiras variadas.
+                        <p>
+                            Para mais informações sobre o middleware Logger, clique
+                            <a href="https://github.com/gofiber/fiber/tree/master/middleware/logger">aqui</a>
                         </p>
                     </div>
 
-
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="../fiber/cache.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Fiber - Cache</span>
+                        <a class="pages-menu-link link-back" href="csrf.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Fiber - CSRF</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="crud_zerohero.html">
-                            <span>API REST - ZeroHero</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="cache.html">
+                            <span>Fiber - Cache</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -109,40 +92,41 @@ log.Fatal(http.ListenAndServe(":8080", nil))
 
                 <div class="col-12 col-lg-6 column-text px-0">
 
-                    <div class="code-filename">api_rest.go</div>
-
+                    <div class="code-filename">fiber.go</div>
+                    
                     <div class="content-height">
                         <pre><code class="language-go">
+package main
+
+import (
+  "github.com/gofiber/fiber/v2"
+  "github.com/gofiber/fiber/v2/middleware/logger"
+)
+
 func main() {
-    mux := http.NewServeMux() // server mux
+    app := fiber.New()
 
-    mux.HandleFunc("/ping",
-        func(w http.ResponseWriter, r *http.Request) {
-            // middleware
-            log.Println("ping [success]")
-            w.WriteHeader(http.StatusOK)
-            w.Write([]byte("pong😍"))
-        })  // route ping
-
-    // rotas Methods => PUT,POST,GET,DELETE
-    mux.HandleFunc("/", 
-        func (w http.ResponseWriter, r *http.Request){
-            w.WriteHeader(http.StatusNotFound)
-        })
-    mux.HandleFunc("/api/one", One)
-    mux.HandleFunc("/api/two", Two)
-    mux.HandleFunc("/api/three", Three)
-
-    s := &http.Server{
-        Addr:         "0.0.0.0:8080",
-        Handler:      mux,
-        ReadTimeout:  10 * time.Second,
-        WriteTimeout: 1 * time.Second,
-        MaxHeaderBytes: 1024,
+    // Define file to logs
+    file, err := os.OpenFile("./my_logs.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+    if err != nil {
+      log.Fatalf("error opening file: %v", err)
     }
-    s.ListenAndServe()
+    defer file.Close()
+
+    // Set config for logger
+    loggerConfig := logger.Config{
+      Output: file, // add file to save output
+    }
+
+    app.Use(logger.New(loggerConfig))
+
+    app.Get("/", func(c *fiber.Ctx) error {
+      return c.SendString("Welcome!")
+    })
+
+    app.Listen(":3000")
 }
-                        </pre></code>
+                        </code></pre>
                     </div>
                 </div>
                 <!--- Coluna Direita Fim --->
