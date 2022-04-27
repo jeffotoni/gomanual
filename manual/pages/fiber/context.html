@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Fiber - Cache</title>
+    <title>Go Bootcamp - Fiber - Context</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,32 +58,44 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Fiber - Cache</div>
+                    <div class="main-title">Fiber - Context</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            O middleware Cache foi projetado para interceptar respostas e armazená-las
-                            em cache. Este middleware irá armazenar em cache o Body, Content-Type e StatusCode
-                            usando o c.Path() (ou uma string retornada pela função Key) como identificador exclusivo.
+                            A struct Ctx representa o Context que contém a solicitação e a resposta HTTP.
+                            Ele tem métodos para a request query string, parameters, body, HTTP headers
+                            e assim por diante.
                         </p>
                         <p>
-                            Para mais informações sobre o middleware Cache, clique
-                            <a href="https://github.com/gofiber/fiber/tree/master/middleware/cache">aqui</a>
+                            Alguns métodos interessantes:
+                        </p>
+                        <ul>
+                            <li><a href="https://docs.gofiber.io/api/ctx#app">func (c *Ctx) App() *App</a></li>
+                            <li><a href="https://docs.gofiber.io/api/ctx#body">func (c *Ctx) Body() []byte</a></li>
+                            <li><a href="https://docs.gofiber.io/api/ctx#bodyparser">func (c *Ctx) BodyParser(out interface{}) error</a></li>
+                            <li><a href="https://docs.gofiber.io/api/ctx#cookie">func (c *Ctx) Cookie(cookie *Cookie)</a></li>
+                            <li><a href="https://docs.gofiber.io/api/ctx#download">func (c *Ctx) Download(file string, filename ...string) error</a></li>
+                            <li><a href="https://docs.gofiber.io/api/ctx#json">func (c *Ctx) JSON(data interface{}) error</a></li>
+                            <li><a href="https://docs.gofiber.io/api/ctx#locals">func (c *Ctx) Locals(key string, value ...interface{}) interface{}</a></li>
+                        </ul>
+                        <p>
+                            Uma lista completa com todos os métodos que essa struct implementa pode ser
+                            encontrada <a href="https://docs.gofiber.io/api/ctx">clicando aqui</a>.
                         </p>
                     </div>
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="logger.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Fiber - Logger</span>
+                        <a class="pages-menu-link link-back" href="templates.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Fiber - Templates</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="error_handling.html">
-                            <span>Fiber - Error Handling</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="../rest/index.html">
+                            <span>API REST - Introdução</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -100,26 +112,29 @@
 package main
 
 import (
-  "github.com/gofiber/fiber/v2"
-  "github.com/gofiber/fiber/v2/middleware/cache"
+    "log"
+    "github.com/gofiber/fiber/v2"
 )
 
 func main() {
-    app := fiber.New()
-
-    app.Use(cache.New(cache.Config{
-        Next: func(c *fiber.Ctx) bool {
-            return c.Query("refresh") == "true"
-        },
-        Expiration: 30 * time.Minute,
-        CacheControl: true,
-    }))
-
-    app.Get("/", func(c *fiber.Ctx) error {
-      return c.SendString("Welcome!")
+    app := fiber.New(fiber.Config{
+        Views: engine,
     })
 
-    app.Listen(":3000")
+    app.Use(func(c *fiber.Ctx) error {
+      c.Locals("user", "admin")
+      return c.Next()
+    })
+
+    app.Get("/admin", func(c *fiber.Ctx) error {
+      if c.Locals("user") == "admin" {
+        return c.Status(fiber.StatusOK).SendString("Welcome, admin!")
+      }
+      return c.SendStatus(fiber.StatusForbidden)
+
+    })
+
+    log.Fatal(app.Listen(":3000"))
 }
                         </code></pre>
                     </div>

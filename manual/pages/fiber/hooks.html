@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Fiber - Cache</title>
+    <title>Go Bootcamp - Fiber - Hooks</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,32 +58,39 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Fiber - Cache</div>
+                    <div class="main-title">Fiber - Hooks</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            O middleware Cache foi projetado para interceptar respostas e armazená-las
-                            em cache. Este middleware irá armazenar em cache o Body, Content-Type e StatusCode
-                            usando o c.Path() (ou uma string retornada pela função Key) como identificador exclusivo.
+                            Com o Fiber v2.30.0, você pode executar funções personalizadas ao
+                            executar alguns métodos. Aqui está uma lista desses hooks:
                         </p>
+                        <ul>
+                            <li><a href="https://docs.gofiber.io/guide/hooks#onroute">OnRoute</a></li>
+                            <li><a href="https://docs.gofiber.io/guide/hooks#onname">OnName</a></li>
+                            <li><a href="https://docs.gofiber.io/guide/hooks#ongroup">OnGroup</a></li>
+                            <li><a href="https://docs.gofiber.io/guide/hooks#ongroupname">OnGroupName</a></li>
+                            <li><a href="https://docs.gofiber.io/guide/hooks#onlisten">OnListen</a></li>
+                            <li><a href="https://docs.gofiber.io/guide/hooks#onshutdown">OnShutdown</a></li>
+                        </ul>
                         <p>
-                            Para mais informações sobre o middleware Cache, clique
-                            <a href="https://github.com/gofiber/fiber/tree/master/middleware/cache">aqui</a>
+                            Para mais informações sobre hooks, clique
+                            <a href="https://docs.gofiber.io/guide/hooks">aqui</a>
                         </p>
                     </div>
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="logger.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Fiber - Logger</span>
+                        <a class="pages-menu-link link-back" href="error_handling.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Fiber - Error Handling</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="error_handling.html">
-                            <span>Fiber - Error Handling</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="templates.html">
+                            <span>Fiber - Templates</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -100,26 +107,37 @@
 package main
 
 import (
-  "github.com/gofiber/fiber/v2"
-  "github.com/gofiber/fiber/v2/middleware/cache"
+	"fmt"
+
+	"github.com/gofiber/fiber/v2"
 )
 
 func main() {
-    app := fiber.New()
+	app := fiber.New()
 
-    app.Use(cache.New(cache.Config{
-        Next: func(c *fiber.Ctx) bool {
-            return c.Query("refresh") == "true"
-        },
-        Expiration: 30 * time.Minute,
-        CacheControl: true,
-    }))
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString(c.Route().Name)
+	}).Name("index")
 
-    app.Get("/", func(c *fiber.Ctx) error {
-      return c.SendString("Welcome!")
-    })
+	app.Hooks().OnName(func(r fiber.Route) error {
+		fmt.Print("Name: " + r.Name + ", ")
+		return nil
+	})
 
-    app.Listen(":3000")
+	app.Hooks().OnName(func(r fiber.Route) error {
+		fmt.Print("Method: " + r.Method + "\n")
+		return nil
+	})
+
+	app.Get("/add/user", func(c *fiber.Ctx) error {
+		return c.SendString(c.Route().Name)
+	}).Name("addUser")
+
+	app.Delete("/destroy/user", func(c *fiber.Ctx) error {
+		return c.SendString(c.Route().Name)
+	}).Name("destroyUser")
+
+	app.Listen(":5000")
 }
                         </code></pre>
                     </div>

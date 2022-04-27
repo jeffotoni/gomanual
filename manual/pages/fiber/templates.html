@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Fiber - Cache</title>
+    <title>Go Bootcamp - Fiber - Templates</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,32 +58,50 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Fiber - Cache</div>
+                    <div class="main-title">Fiber - Templates</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            O middleware Cache foi projetado para interceptar respostas e armazená-las
-                            em cache. Este middleware irá armazenar em cache o Body, Content-Type e StatusCode
-                            usando o c.Path() (ou uma string retornada pela função Key) como identificador exclusivo.
+                            Fiber fornece uma interface Views para você fornecer seu próprio mecanismo de templates:
                         </p>
+                        <pre><code class="language-go">
+type Views interface {
+    Load() error
+    Render(io.Writer, string, interface{}, ...string) error
+}
+                        </code></pre>
                         <p>
-                            Para mais informações sobre o middleware Cache, clique
-                            <a href="https://github.com/gofiber/fiber/tree/master/middleware/cache">aqui</a>
+                            A equipe Fiber mantém um pacote de modelos que fornece wrappers para vários
+                            template engines:
+                        </p>
+                        <ul>
+                            <li><a href="https://github.com/gofiber/template/tree/master/html">html</a></li>
+                            <li><a href="https://github.com/gofiber/template/tree/master/ace">ace</a></li>
+                            <li><a href="https://github.com/gofiber/template/tree/master/amber">amber</a></li>
+                            <li><a href="https://github.com/gofiber/template/tree/master/django">django</a></li>
+                            <li><a href="https://github.com/gofiber/template/tree/master/handlebars">handlebars</a></li>
+                            <li><a href="https://github.com/gofiber/template/tree/master/jet">jet</a></li>
+                            <li><a href="https://github.com/gofiber/template/tree/master/mustache">mustache</a></li>
+                            <li><a href="https://github.com/gofiber/template/tree/master/pug">pug</a></li>
+                        </ul>
+                        <p>
+                            Para mais informações sobre templates, clique
+                            <a href="https://docs.gofiber.io/guide/templates">aqui</a>
                         </p>
                     </div>
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="logger.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Fiber - Logger</span>
+                        <a class="pages-menu-link link-back" href="hooks.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Fiber - Hooks</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="error_handling.html">
-                            <span>Fiber - Error Handling</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="context.html">
+                            <span>Fiber - Context</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -100,26 +118,26 @@
 package main
 
 import (
-  "github.com/gofiber/fiber/v2"
-  "github.com/gofiber/fiber/v2/middleware/cache"
+    "log"
+    "github.com/gofiber/fiber/v2"
+    "github.com/gofiber/template/html"
 )
 
 func main() {
-    app := fiber.New()
+    // Initialize standard Go html template engine
+    engine := html.New("./views", ".html")
 
-    app.Use(cache.New(cache.Config{
-        Next: func(c *fiber.Ctx) bool {
-            return c.Query("refresh") == "true"
-        },
-        Expiration: 30 * time.Minute,
-        CacheControl: true,
-    }))
-
+    app := fiber.New(fiber.Config{
+        Views: engine,
+    })
     app.Get("/", func(c *fiber.Ctx) error {
-      return c.SendString("Welcome!")
+        // Render index template
+        return c.Render("index", fiber.Map{
+            "Title": "Hello, World!",
+        })
     })
 
-    app.Listen(":3000")
+    log.Fatal(app.Listen(":3000"))
 }
                         </code></pre>
                     </div>

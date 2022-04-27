@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Fiber - Cache</title>
+    <title>Go Bootcamp - Fiber - Error Handling</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,32 +58,42 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Fiber - Cache</div>
+                    <div class="main-title">Fiber - Error Handling</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            O middleware Cache foi projetado para interceptar respostas e armazená-las
-                            em cache. Este middleware irá armazenar em cache o Body, Content-Type e StatusCode
-                            usando o c.Path() (ou uma string retornada pela função Key) como identificador exclusivo.
+                            É essencial garantir que o Fiber detecte todos os erros que ocorrem durante a
+                            execução de handlers e middlewares. Você deve retorná-los à função
+                            do handler, onde o Fiber os capturará e processará.
                         </p>
                         <p>
-                            Para mais informações sobre o middleware Cache, clique
-                            <a href="https://github.com/gofiber/fiber/tree/master/middleware/cache">aqui</a>
+                            Fiber não lida com panics por padrão. Para recuperar um panic gerado
+                            por qualquer handler na pilha, você precisa incluir o middleware Recover.
+                        </p>
+                        <p>
+                            Você pode usar a estrutura de erro personalizada do Fiber para passar um status
+                            code adicional usando fiber.NewError(). É opcional passar uma mensagem; se
+                            for deixado em branco, o padrão será a mensagem de código de status (Ex: 404 é igual
+                            a "Not Found").
+                        </p>
+                        <p>
+                            Para mais informações sobre error handling, clique
+                            <a href="https://docs.gofiber.io/guide/error-handling">aqui</a>
                         </p>
                     </div>
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="logger.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Fiber - Logger</span>
+                        <a class="pages-menu-link link-back" href="cache.html">
+                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Fiber - Cache</span>
                         </a>
 
                         <img src="../../../img/gopher-docker.png" alt="" />
 
-                        <a class="pages-menu-link link-forward" href="error_handling.html">
-                            <span>Fiber - Error Handling</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a class="pages-menu-link link-forward" href="hooks.html">
+                            <span>Fiber - Hooks</span> &nbsp; <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
@@ -101,22 +111,16 @@ package main
 
 import (
   "github.com/gofiber/fiber/v2"
-  "github.com/gofiber/fiber/v2/middleware/cache"
+  "github.com/gofiber/fiber/v2/middleware/recover"
 )
 
 func main() {
     app := fiber.New()
 
-    app.Use(cache.New(cache.Config{
-        Next: func(c *fiber.Ctx) bool {
-            return c.Query("refresh") == "true"
-        },
-        Expiration: 30 * time.Minute,
-        CacheControl: true,
-    }))
+    app.Use(recover.New())
 
     app.Get("/", func(c *fiber.Ctx) error {
-      return c.SendString("Welcome!")
+      return fiber.NewError(fiber.StatusServiceUnavailable, "Error!")
     })
 
     app.Listen(":3000")
