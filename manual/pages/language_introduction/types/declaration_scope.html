@@ -76,17 +76,6 @@
                             o identificador em branco, não introduz uma nova ligação.
                         </p>
                         <p>
-                            Go tem um escopo léxico usando blocos:
-                        </p>
-                        <pre><code class="language-go">
-O escopo de um identificador pre-declarado é o bloco global.
-O escopo de um identificador denotando uma constane, tipo, variavel ou função (mas não método) declarado fora de qualquer função é o bloco do pacote.
-O escopo do nome do pacote de um pacote importado é o bloco do arquivo contendo a declaração de import.
-O escopo de um identificador denotando um método receptor, parãmetro de função variável resultante é o bloco da função.
-O escopo de uma constante ou de um identificador de uma variável declarado dentro de uma função começa no final do ConstSpec ou VarSpec (ShortVarDecl) e termina do final do bloco mais íntimo.
-O escopo de um identificador de tipo declarado dentro de uma função começa no identificador no TypeSpec e termina no final do bloco mais íntimo.
-                        </code></pre>
-                        <p>
                             Um identificador declarado em um bloco pode ser declarado novamente em um bloco interno. 
                             Embora o identificador da declaração interna esteja no escopo, ele denota a entidade 
                             declarada pela declaração interna.

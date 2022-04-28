@@ -67,15 +67,6 @@
                             Agora podemos fazer nossos projetos sem estar em $GOPATH, podemos, por exemplo, fazer em qualquer diretório.
                         </p>
                         <pre><code class="language-go">
-$ export GOPATH=$HOME/go
-$ mkdir $HOME/2019/project1
-$ mkdir $HOME/2019/project1/my-pkg
-$ mkdir $HOME/2019/project1/my-cmd
-$ mkdir $HOME/2019/project1/my-logs
-$ mkdir $HOME/2019/project1/my-models
-$ mkdir $HOME/2019/project1/my-repo
-$ mkdir $HOME/2019/project1/my-handler
-
 $HOME/
   |-2019
     |-github.com/user/project1/
@@ -116,20 +107,9 @@ $HOME/
                     <div class="code-filename">without_gopath</div>
 
                     <div class="content-height">
-                        <pre><code class="language-go">
-$HOME/
-  |-any-directory
-    |-github.com/user/project1/
-      |-cmd
-        |-main.go
-      |-vendor
-      |-logs
-      |-models
-      |-repo
-      |-handler
-                        </code></pre>
+                        <br>
                         <p>
-                            Para o cenário acima, teremos que usar o go mod em nosso projeto para que todos os 
+                            Para o cenário ao lado, teremos que usar o go mod em nosso projeto para que todos os
                             pacotes externos possam funcionar corretamente, desta forma poderemos gerenciá-los 
                             corretamente e sua versão. Mais informações podem ser encontradas aqui: 
                             <a href="https://github.com/golang/go/wiki/Modules" target="_blank">Wiki Go Modules</a>

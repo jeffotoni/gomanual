@@ -100,7 +100,38 @@ func (c *Client) Post(url, contentType string, body io.Reader) (resp *Response, 
                     <div class="code-filename">post.go</div>
 
                     <textarea class="go-playground-snippet" data-expanded="1" data-title="post.go">
-// Adicionar exemplo
+package main
+
+import (
+	"fmt"
+	"io"
+	"encoding/json"
+	"net/http"
+	"bytes"
+)
+
+type req struct {
+    Content string `json:"content"`
+}
+
+func main() {
+    r := req{"conteudo legal"}
+    data, err := json.Marshal(r)
+    if err != nil {
+        panic(err)
+    }
+    reqBody := bytes.NewBuffer(data)
+	resp, err := http.Post("http://google.com", "encoding/json", reqBody)
+    if err != nil {
+        panic(err)
+    }
+    defer resp.Body.Close()
+    body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(body))
+}
                     </textarea>
 
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />

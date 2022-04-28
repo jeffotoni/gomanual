@@ -64,7 +64,19 @@
 
                     <div class="content-height">
                         <p>
-                            GO CLEAN AQUI
+                            O comando go clean foi criado para remover arquivos de objetos estranhos
+                            que são criados por outras ferramentas ou quando o go build é invocado manualmente.
+                        </p>
+                        <pre><code class="language-go">
+go clean [clean flags] [build flags] [packages]
+                        </code></pre>
+                        <p>
+                            A flag -cache faz com que clean remova todo o cache de compilação go.
+                        </p>
+                        <p>
+                            A flag -modcache faz com que clean remova todo o módulo
+                            cache de download, incluindo código-fonte descompactado de versões e
+                            dependências.
                         </p>
                     </div>
 

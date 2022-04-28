@@ -92,27 +92,27 @@
                             caractere U + 00FF.
                         </p>
 
-                        <pre><code class="language-go">
-`abc`                // mesmo que "abc"
-`\n
-\n`                  // mesmo que "\\n\n\\n"
-"\n"
-"\""                 // mesmo que `"`
-"Hello, world!\n"
-"日本語"
-"\u65e5本\U00008a9e"
-"\xff\u00FF"
-                        </code></pre>
+<!--                        <pre><code class="language-go">-->
+<!--`abc`                // mesmo que "abc"-->
+<!--`\n-->
+<!--\n`                  // mesmo que "\\n\n\\n"-->
+<!--"\n"-->
+<!--"\""                 // mesmo que `"`-->
+<!--"Hello, world!\n"-->
+<!--"日本語"-->
+<!--"\u65e5本\U00008a9e"-->
+<!--"\xff\u00FF"-->
+<!--                        </code></pre>-->
 
-                        <p>Todos estes exemplos representam a mesma string:</p>
+<!--                        <p>Todos estes exemplos representam a mesma string:</p>-->
 
-                        <pre><code class="language-go">
-"日本語"                                 // UTF-8
-`日本語`                                 // UTF-8 na forma de literal bruto
-"\u65e5\u672c\u8a9e"                    // Unicode explícito
-"\U000065e5\U0000672c\U00008a9e"        // Unicode explícito
-"\xe6\x97\xa5\xe6\x9c\xac\xe8\xaa\x9e"  // bytes UTF-8 explícitos
-                        </code></pre>
+<!--                        <pre><code class="language-go">-->
+<!--"日本語"                                 // UTF-8-->
+<!--`日本語`                                 // UTF-8 na forma de literal bruto-->
+<!--"\u65e5\u672c\u8a9e"                    // Unicode explícito-->
+<!--"\U000065e5\U0000672c\U00008a9e"        // Unicode explícito-->
+<!--"\xe6\x97\xa5\xe6\x9c\xac\xe8\xaa\x9e"  // bytes UTF-8 explícitos-->
+<!--                        </code></pre>-->
 
                     </div>
 

@@ -100,29 +100,6 @@ func (p T) Close() { … }
                             métodos e pode, portanto, implementar várias interfaces distintas. Por exemplo, 
                             todos os tipos implementam a interface vazia <i>interface{}</i>.
                         </p>
-                        <p>
-                            Uma interface T pode usar um nome de tipo de interface (possivelmente qualificado) 
-                            no lugar de uma especificação de método. Isso é chamado de interface de incorporação 
-                            E em T; ele adiciona todos os métodos (exportados e não exportados) de E à interface T.
-                        </p>
-                        <pre><code class="language-go">
-type ReadWriter interface {
-  Read(b Buffer) bool
-  Write(b Buffer) bool
-}
-
-type File interface {
-  ReadWriter  // mesmo que adicionar os métodos de ReadWriter
-  Locker      // mesmo que adicionar os métodos de LockedFile
-  Close()
-}
-
-type LockedFile interface {
-  Locker
-  File        // ilegal: Lock, Unlock não únicos
-  Lock()      // ilegal: Lock não único
-}
-                        </code></pre>
 
                     </div>
                     <div class="pages-menu">
