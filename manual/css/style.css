@@ -258,6 +258,28 @@ a {
 	margin: 0 12px;
 }
 
+.column-text {
+	position: relative;
+}
+
+.progress-bar-container {
+	position: absolute;
+	background-color: #b2e9ec;
+	height: 8px;
+	width: 100%;
+	bottom: 0;
+}
+
+.progress-bar {
+	background-color: #0bb6c1;
+	border-radius: 0 4px 4px 0;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+}
+
 
 /* BUTTONS */
 .btn-actions-go {
