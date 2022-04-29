@@ -24,8 +24,8 @@ a {
 /* HEADER */
 
 .main-header {
-	background-color: #41b6d3;
-	padding: .1rem 0;
+	background-color: #00B6C1;
+	padding: .3rem 0;
 	position: relative;
 }
 
@@ -146,7 +146,7 @@ a {
 	font-size: 20px;
 	font-weight: 700;
 	color: #3b454e;
-	border-bottom: 1px solid #f1f1f1;
+	border-bottom: 2px solid #f1f1f1;
 	margin-bottom: 2rem;
 	margin-left: 1.5rem;
 	padding: .5rem 0 .3rem .15rem;
@@ -163,7 +163,7 @@ a {
 }
 
 .content-page .column-code {
-	border-left: 2px solid #ebebeb;
+	border-left: 3px solid #eaeaea;
 	padding-left: 0;
 	position: relative;
 }
@@ -224,7 +224,12 @@ a {
 .pages-menu {
 	margin: 15px auto;
 	text-align: center;
-	font-size: 13.5px !important;
+	font-size: 15px !important;
+}
+
+.pages-menu span {
+	color: gray;
+	margin: 0 5px;
 }
 
 .pages-menu-link {
@@ -264,14 +269,14 @@ a {
 
 .progress-bar-container {
 	position: absolute;
-	background-color: #b2e9ec;
+	background-color: #B2E9EC;
 	height: 8px;
 	width: 100%;
 	bottom: 0;
 }
 
 .progress-bar {
-	background-color: #0bb6c1;
+	background-color: #00B6C1;
 	border-radius: 0 4px 4px 0;
 	height: 100%;
 	position: absolute;
@@ -333,7 +338,7 @@ fieldset[disabled] .btn-actions-go.active {
 /* FOOTER */
 
 .main-footer {
-	background-color: #E0EBF5;
+	background-color: #f3f3f3;
 	color: #8a8a8a;
 	padding: .35rem 0;
 }
