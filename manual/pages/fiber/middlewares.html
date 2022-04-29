@@ -89,16 +89,20 @@ func (app *App) Use(args ...interface{}) Router
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="grouping.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Fiber - Grouping</span>
+                        <a title="Fiber - Grouping" class="pages-menu-link link-back" href="grouping.html">
+                            <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <img src="../../../img/gopher-docker.png" alt="" />
+                        <span>4 / 12</span>
 
-                        <a class="pages-menu-link link-forward" href="helmet.html">
-                            <span>Fiber - Helmet</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a title="Fiber - Helmet" class="pages-menu-link link-forward" href="helmet.html">
+                            <i class="fa fa-chevron-right"></i>
                         </a>
 
+                    </div>
+
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: calc((100% / 12) * 4)"></div>
                     </div>
 
                 </div>

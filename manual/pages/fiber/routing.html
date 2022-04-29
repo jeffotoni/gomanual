@@ -98,16 +98,20 @@ app.Method(path string, ...func(*fiber.Ctx) error)
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="index.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>Fiber - Introdução</span>
+                        <a title="Fiber - Introdução" class="pages-menu-link link-back" href="index.html">
+                            <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <img src="../../../img/gopher-docker.png" alt="" />
+                        <span>2 / 12</span>
 
-                        <a class="pages-menu-link link-forward" href="grouping.html">
-                            <span>Fiber - Grouping</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a title="Fiber - Grouping" class="pages-menu-link link-forward" href="grouping.html">
+                            <i class="fa fa-chevron-right"></i>
                         </a>
 
+                    </div>
+
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: calc((100% / 12) * 2)"></div>
                     </div>
 
                 </div>

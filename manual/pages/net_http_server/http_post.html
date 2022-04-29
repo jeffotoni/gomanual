@@ -80,16 +80,20 @@ func (c *Client) Post(url, contentType string, body io.Reader) (resp *Response, 
 
                     <div class="pages-menu">
 
-                        <a class="pages-menu-link link-back" href="http_get.html">
-                            <i class="fa fa-chevron-left"></i> &nbsp; <span>net/http Client - Get</span>
+                        <a title="net/http Client - Get" class="pages-menu-link link-back" href="http_get.html">
+                            <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <img src="../../../img/gopher-docker.png" alt="" />
+                        <span>3 / 4</span>
 
-                        <a class="pages-menu-link link-forward" href="http_new_request.html">
-                            <span>http/net Client - NewRequest</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                        <a title="http/net Client - NewRequest" class="pages-menu-link link-forward" href="http_new_request.html">
+                            <i class="fa fa-chevron-right"></i>
                         </a>
 
+                    </div>
+
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: calc((100% / 4) * 3)"></div>
                     </div>
 
                 </div>
