@@ -105,7 +105,30 @@
                     <div class="code-filename">client.go</div>
 
                     <textarea class="go-playground-snippet" data-expanded="1" data-title="client.go">
-// Adicionar exemplo
+package main
+import (
+    "fmt"
+    "io/ioutil"
+    "net/http"
+    "time"
+)
+func main() {
+    c := http.Client{Timeout: time.Duration(1) * time.Second}
+    resp, err := c.Get("https://go.dev/")
+    if err != nil {
+        fmt.Printf("Error %s", err)
+        return
+    }
+    defer resp.Body.Close()
+    body, err := ioutil.ReadAll(resp.Body)
+
+    if err != nil {
+        fmt.Printf("Error %s", err)
+        return
+    }
+
+    fmt.Printf("Body : %s", body)
+}
                     </textarea>
 
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />

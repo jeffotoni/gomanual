@@ -64,28 +64,31 @@
 
                     <div class="content-height">
                         <p>
-                            O manipulador não é nada, apenas uma interface com apenas um método e esse método 
-                            possui dois parâmetros: escritor de resposta e um ponteiro de solicitação.
+                            Um handler é um objeto que implementa a interface http.Handler.
+                        </p>
+                        <p>
+                            As funções que servem como handlers recebem um http.ResponseWriter 
+                            e um http.Request como argumentos.
                         </p>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a title="net/http Server - HandleFunc" class="pages-menu-link link-back" href="http_handle_func.html">
+                        <a title="net/http Server - HandleFunc" class="pages-menu-link link-back" href="index.html">
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>4 / 7</span>
+                        <span>2 / 4</span>
 
-                        <a title="http/net Server - HandlerFunc" class="pages-menu-link link-forward" href="http_handler_func.html">
+                        <a title="http/net Server - HandlerFunc" class="pages-menu-link link-forward" href="listen_and_serve.html">
                             <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 7) * 4)"></div>
+                        <div class="progress-bar" style="width: calc((100% / 4) * 2)"></div>
                     </div>
 
                 </div>
@@ -96,19 +99,29 @@
                     <div class="code-filename">handler.go</div>
 
                     <textarea class="go-playground-snippet" data-expanded="1" data-title="handler.go">
-// Execute localmente
-                    
 package main
- 
+
 import (
     "fmt"
     "net/http"
 )
- 
-func main() {
-    type Handler interface {
-        ServeHTTP(ResponseWriter, *Request) 
+
+func hello(w http.ResponseWriter, req *http.Request) {
+    fmt.Fprintf(w, "hello\n")
+}
+
+func headers(w http.ResponseWriter, req *http.Request) {
+    for name, headers := range req.Header {
+        for _, h := range headers {
+            fmt.Fprintf(w, "%v: %v\n", name, h)
+        }
     }
+}
+
+func main() {
+    http.HandleFunc("/hello", hello)
+    http.HandleFunc("/headers", headers)
+    http.ListenAndServe(":8090", nil)
 }
                     </textarea>
 

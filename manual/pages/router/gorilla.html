@@ -72,18 +72,6 @@
                             mux.Router compara solicitações de entrada com uma lista de rotas registradas e chama 
                             um manipulador para a rota que corresponde à URL ou outras condições. 
                         </p>
-                        <p>
-                            Vamos começar a registrar alguns caminhos e manipuladores de URL:
-                        </p>
-                        <pre><code class="language-go">
-func main() {
-    r := mux.NewRouter()
-    r.HandleFunc("/", HomeHandler)
-    r.HandleFunc("/products", ProductsHandler)
-    r.HandleFunc("/articles", ArticlesHandler)
-    http.Handle("/", r)
-}
-                        </code></pre>
                     </div>
 
                     <div class="pages-menu">

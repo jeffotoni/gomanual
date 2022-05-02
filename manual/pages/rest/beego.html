@@ -141,14 +141,6 @@ func (this *MainController) Post() {
     this.Ctx.WriteString("POSTING...")
 }
 
-func (this *MainController) Put() {
-    this.Ctx.WriteString("PUTTING...")
-}
-
-func (this *MainController) Delete() {
-    this.Ctx.WriteString("DELETING...")
-}
-
 func main() {
     web.Router("/v1/api", &MainController{})
     web.Run("localhost:8000")

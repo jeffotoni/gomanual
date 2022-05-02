@@ -24,7 +24,7 @@ a {
 /* HEADER */
 
 .main-header {
-	background-color: #00B6C1;
+	background-color: #007d9c;
 	padding: .3rem 0;
 	position: relative;
 }
@@ -269,14 +269,14 @@ a {
 
 .progress-bar-container {
 	position: absolute;
-	background-color: #B2E9EC;
+	background-color: #d2e2e6;
 	height: 8px;
 	width: 100%;
 	bottom: 0;
 }
 
 .progress-bar {
-	background-color: #00B6C1;
+	background-color: #007d9c;
 	border-radius: 0 4px 4px 0;
 	height: 100%;
 	position: absolute;

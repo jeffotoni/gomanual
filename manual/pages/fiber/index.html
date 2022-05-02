@@ -115,6 +115,19 @@ func main() {
     return c.SendString("Hello, World!")
     })
 
+    app.Post("/post", func(c *fiber.Ctx) error {
+        payload := struct {
+            Name  string `json:"name"`
+            Email string `json:"email"`
+        }{}
+    
+        if err := c.BodyParser(&payload); err != nil {
+            return err
+        }
+    
+        return c.JSON(payload)
+    }
+
     app.Listen(":3000")
 }
                         </code></pre>

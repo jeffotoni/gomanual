@@ -113,14 +113,6 @@ func main() {
 		c.JSON(200, gin.H{"message": "POSTING..."})
 	})
 
-    r.PUT("/v1/api", func(c *gin.Context) {
-		c.JSON(200, gin.H{"message": "PUTTING..."})
-	})
-
-    r.DELETE("/v1/api", func(c *gin.Context) {
-		c.JSON(200, gin.H{"message": "DELETING..."})
-	})
-
 	r.Run("localhost:8000")
 }
                         </code></pre>
