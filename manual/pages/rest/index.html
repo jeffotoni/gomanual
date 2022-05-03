@@ -71,14 +71,6 @@
 
                         <p>A aplicação mais comum de REST é a própria World Wide Web, que utilizou REST como base para o desenvolvimento do <b>HTTP 1.1</b>. REST foi mencionado pela primeira vez no ano 2000 por Roy Fielding em sua tese de doutoramento na qual ele
                             descreve um design de arquitetura de software construído para servir aplicações em rede. </p>
-                        <pre><code class="language-go">
-http.Handle("/one", fooHandler)
-
-http.HandleFunc("/two", func(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
-})
-log.Fatal(http.ListenAndServe(":8080", nil))
-                        </code></pre>
                         <p>Meados de 2000 ao ano de 2014 podemos dizer que tivemos a primeira geração de APIs sendo aplicadas em grande escala em diversos cenários e setores da tecnologia. Em 2009 estava nascendo uma das mais populares ferramentas para organização
                             e gerenciamento de APIs, nasceu como um Hub unificado e em 2015 finalmente foi lançado o projeto de código aberto chamado <b>Kong</b> e em 2019 ela adquiriu nada mais, nada menos que a plataforma de testes de APIs Insomnia.
                         </p>

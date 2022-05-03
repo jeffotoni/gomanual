@@ -88,38 +88,7 @@ ok   compress/gzip 0.033s
                             Cada pacote listado causa a execução de um binário de teste separado. Arquivos cujos nomes 
                             começam com "_" (incluindo "_test.go") ou "." são ignorados.
                         </p>
-                        <p>
-                            Os arquivos de teste que declaram um pacote com o sufixo "_test" serão compilados como um 
-                            pacote separado e, em seguida, vinculados e executados com o binário de teste principal.
-                        </p>
-                        <p>
-                            A ferramenta go irá ignorar um diretório chamado "testdata", tornando-o disponível para 
-                            conter os dados auxiliares necessários para os testes.
-                        </p>
-                        <p>
-                            Como parte da construção de um binário de teste, go test executa go vet no pacote e seus 
-                            arquivos de origem de teste para identificar problemas significativos. Se go vet encontrar 
-                            algum problema, vá testá-los e não executará o binário de teste. Apenas um subconjunto de 
-                            alta confiança das verificações de veterinário padrão é usado. Esse subconjunto é: 'atomic', 
-                            'bool', 'buildtags', 'nilfunc' e 'printf'. Você pode ver a documentação desses e de outros 
-                            testes veterinários em "go doc cmd / vet". Para desativar a execução do go vet, use a sinalização -vet = off.
-                        </p>
-                        <p>
-                            Todas as saídas de teste e linhas de resumo são impressas na saída padrão do comando go, 
-                            mesmo se o teste as imprimiu com seu próprio erro padrão. (O erro padrão do comando go é 
-                            reservado para erros de impressão na construção dos testes.)
-                        </p>
-                        <p>
-                            O teste Go é executado em dois modos diferentes:
-                        </p>
-                        <p>
-                            O primeiro, denominado modo de diretório local, ocorre quando go test é invocado sem argumentos 
-                            de pacote (por exemplo, 'go test' ou 'go test -v'). Nesse modo, go test compila as fontes e testes 
-                            do pacote encontrados no diretório atual e, em seguida, executa o binário de teste resultante. 
-                            Neste modo, o armazenamento em cache (discutido abaixo) é desabilitado. Após a conclusão do teste 
-                            do pacote, go test imprime uma linha de resumo mostrando o status do teste ('ok' ou 'FAIL'), o nome 
-                            do pacote e o tempo decorrido.
-                        </p>
+                    
                     </div>
 
 
@@ -151,16 +120,8 @@ ok   compress/gzip 0.033s
 
 
                     <div class="content-height">
-                        <p>
-                            O segundo, chamado modo de lista de pacotes, ocorre quando go test é invocado com argumentos de 
-                            pacote explícitos (por exemplo 'go test math', 'go test. /...' e até mesmo 'go test.'). Neste modo, 
-                            faça um teste de compilação e teste cada um dos pacotes listados na linha de comando. Se um teste de 
-                            pacote for aprovado, go test imprime apenas a linha de resumo final 'ok'. Se um teste de pacote 
-                            falhar, go test imprime a saída de teste completa. Se chamado com o sinalizador -bench ou -v, go test 
-                            imprime a saída completa mesmo para passar nos testes de pacote, a fim de exibir os resultados de 
-                            benchmark solicitados ou registro detalhado.
-
-                            Além dos sinalizadores de construção, os sinalizadores controlados pelo próprio 'go test' são:
+                        <!-- <p>
+                            Os sinalizadores controlados pelo próprio 'go test' são:
                         </p>
                         <pre><code class="language-go">
 -args
@@ -189,7 +150,20 @@ ok   compress/gzip 0.033s
 -o file
     Compile the test binary to the named file.
     The test still runs (unless -c or -i is specified).
-                        </code></pre>
+                        </code></pre> -->
+
+                        <p>
+                            Os arquivos de teste que declaram um pacote com o sufixo "_test" serão compilados como um 
+                            pacote separado e, em seguida, vinculados e executados com o binário de teste principal.
+                        </p>
+                        <p>
+                            Todas as saídas de teste e linhas de resumo são impressas na saída padrão do comando go, 
+                            mesmo se o teste as imprimiu com seu próprio erro padrão. (O erro padrão do comando go é 
+                            reservado para erros de impressão na construção dos testes.)
+                        </p>
+                        <p>
+                            O teste Go é executado em dois modos diferentes:
+                        </p>
                         <p>
                             Para mais informações sobre sinalizadores de construção, consulte 'go help build'. 
                             Para obter mais informações sobre como especificar pacotes, consulte 'go help packages'.
@@ -201,10 +175,8 @@ ok   compress/gzip 0.033s
                             funções de teste nesses arquivos de teste.
                         </p>
                         <p>
-                            Cada função de teste é uma função pública exportada cujo nome começa com "Teste", aceita 
-                            um ponteiro para um objeto testing.T e não retorna nada. Como isso:
-
-                            Exemplo one/myprog1_test:
+                            Cada função de teste é uma função pública exportada cujo nome começa com "Test", aceita 
+                            um ponteiro para um objeto testing.T e não retorna nada.
                         </p>
                     </div>
                 <!--- Coluna Direita Fim --->

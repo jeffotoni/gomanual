@@ -67,23 +67,6 @@
 func (c * Client) Get (url string) (resp * Response, err error)
                         </code></pre>
                         <p>
-                            Obtenha questões um GET para o URL especificado. Se a resposta for um dos seguintes códigos 
-                            de redirecionamento, Get segue o redirecionamento depois de chamar a função CheckRedirect do cliente:
-                        </p>
-                        <pre><code class="language-go">
-301 (Moved Permanently)
-302 (Found)
-303 (See Other)
-307 (Temporary Redirect)
-308 (Permanent Redirect)
-                        </code></pre>
-                        <p>
-                            Um erro será retornado se a função CheckRedirect do Cliente falhar ou se houver um erro de 
-                            protocolo HTTP. Uma resposta diferente de 2xx não causa erro. Qualquer erro retornado será 
-                            do tipo * url.Error. O método Timeout do valor url.Error relatará verdadeiro se a solicitação 
-                            expirar.
-                        </p>
-                        <p>
                             Quando err é nulo, resp sempre contém um resp.Body não nulo. O chamador deve fechar o 
                             resp.Body quando terminar de ler.
                         </p>

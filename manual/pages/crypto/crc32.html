@@ -64,8 +64,16 @@
 
                     <div class="content-height">
                         <p>
-                            MD5 é uma função hash amplamente utilizada que produz um valor de hash de 
-                            128 bits expresso em 32 caracteres.
+                            A verificação cíclica de redundância 
+                            (do inglês, CRC - Cyclic Redundancy Check) é um método de detecção de 
+                            erros normalmente usada em redes digitais e dispositivos de armazenamento 
+                            para detectar mudança acidental em cadeias de dados. Mensagens de dados 
+                            entrando nesses sistemas recebem um pequeno anexo com um valor de 
+                            verificação baseado no resto de divisão polinomial do seu conteúdo. No 
+                            ato da recuperação do dado o cálculo é refeito e comparado com o valor 
+                            gerado anteriormente. Se os valores não se mostrarem semelhantes podem 
+                            ser aplicadas ações para correção de dados, evitando assim a corrupção 
+                            de dados.
                         </p>
                     </div>
 
@@ -96,7 +104,19 @@
                     <div class="code-filename">crc32.go</div>
 
                     <textarea class="go-playground-snippet" data-expanded="1" data-title="crc32.go">
-// Adicionar exemplo
+package main
+
+import (
+    "hash/crc32"
+    "log"
+)
+
+func main() {
+    table := crc32.MakeTable(crc32.IEEE)
+    checksum := crc32.Checksum([]byte("input1"), table)
+    log.Printf("Checksum in go : %v", checksum)
+}
+                       
                     </textarea>
 
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
