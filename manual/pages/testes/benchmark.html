@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Comandos - Go test</title>
+    <title>Go Bootcamp - Testes - Benchmark</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,70 +58,85 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Comandos - Go test</div>
+                    <div class="main-title">Testes - Benchmark</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Pacotes de teste:
+                            O benchmarking mede o desempenho de uma função ou programa. Isso permite 
+                            comparar implementações e entender o impacto das alterações feitas em seu 
+                            código. Usando essas informações, você pode revelar partes de seu código 
+                            que valem a pena otimizar.
+                        </p>
+                        <p>
+                            Em Go, funções que assumem a forma 'func BenchmarkXxx(*testing.B)' são 
+                            consideradas benchmarks. go test executará esses benchmarks quando você 
+                            fornecer a flag -bench. Os benchmarks são executados sequencialmente.
                         </p>
                         <pre><code class="language-go">
-$ go test [build/test flags] [packages] [build/test flags & test binary flags]
+> go test -bench=.
+
+// Output:
+goos: windows
+goarch: amd64
+pkg: math
+BenchmarkAdd-4          1000000000               1.07 ns/op
+PASS
+ok      ./math 2.074s
                         </code></pre>
                         <p>
-                            O teste Go automatiza o teste dos pacotes nomeados pelos caminhos de importação. 
-                            Ele imprime um resumo dos resultados do teste no formato:
+                            A saída resultante significa que o loop foi executado 10.000.000 vezes a 
+                            uma velocidade de 1,07 nanossegundos por loop.
                         </p>
-                        <pre><code class="language-go">
-ok   archive/tar   0.011s
-FAIL archive/zip   0.022s
-ok   compress/gzip 0.033s
-                        </code></pre>
-                        <p>
-                            Seguido por uma saída detalhada para cada pacote com falha.
-                        </p>
-                        <p>
-                            Os arquivos de teste que declaram um pacote com o sufixo "_test" serão compilados como um 
-                            pacote separado e, em seguida, vinculados e executados com o binário de teste principal.
-                        </p>
-                    
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a title="Comandos - go install" class="pages-menu-link link-back" href="go_install.html">
+                        <a title="Testes - Coverage" class="pages-menu-link link-back" href="coverage.html">
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>5 / 6</span>
+                        <span>5 / 7</span>
 
-                        <a title="Comandos - go mod" class="pages-menu-link link-forward" href="go_mod.html">
+                        <a title="Testes - Examples" class="pages-menu-link link-forward" href="examples.html">
                             <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 6) * 5)"></div>
+                        <div class="progress-bar" style="width: calc((100% / 7) * 5)"></div>
                     </div>
 
                 </div>
                 <!--- Coluna Esquerda Fim --->
 
-                <!--- Coluna Direita --->
-                <div class="col-12 col-lg-6 column-text px-0">
+                <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">go test</div>
+                    <div class="code-filename">math.go</div>
 
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="math.go">
+package math
 
-                    <div class="content-height">
-                        <img src="../../gif/go-test.gif" alt="Golang">
-                        
-                    </div>
+import "testing"
+
+func Add(x, y int) (res int) {
+    return x + y
+}
+
+func BenchmarkAdd(b *testing.B){
+    for i :=0; i < b.N ; i++{
+        Add(4, 6)
+    }
+}
+                    </textarea>
+
+                    <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
+
+                </div>
                 <!--- Coluna Direita Fim --->
-
             </div>
         </div>
     </main>
@@ -152,6 +167,13 @@ ok   compress/gzip 0.033s
 
     <!-- Custom js -->
     <script src="../../../js/custom.js"></script>
+
+    <!-- Go Playground -->
+    <script src="../../../js/go-playground/codemirror.js"></script>
+    <script src="../../../js/go-playground/codemirror-go.js"></script>
+    <script src="../../../js/go-playground/playground.js"></script>
+    <script src="../../../js/go-playground/snippets.js"></script>
+    <script src="../../../js/go-playground/jquery-linedtextarea.js"></script>
 
     <!-- Prism Syntax Highlighting -->
     <script src="../../../plugins/prism/prism.js"></script>

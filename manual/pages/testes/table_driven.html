@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Comandos - Go test</title>
+    <title>Go Bootcamp - Testes - Table-Driven</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,70 +58,89 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Comandos - Go test</div>
+                    <div class="main-title">Testes - Table-Driven</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Pacotes de teste:
+                            Um teste table-driven é como um teste unitário básico, exceto que 
+                            mantém uma tabela de valores e resultados diferentes. O conjunto de testes 
+                            itera sobre esses valores e os envia para o código de teste. Usando essa 
+                            abordagem, podemos testar várias combinações de entradas e suas respectivas 
+                            saídas.
                         </p>
                         <pre><code class="language-go">
-$ go test [build/test flags] [packages] [build/test flags & test binary flags]
+> go test -v
+
+// Output:
+=== RUN   TestAdd
+--- PASS: TestAdd (0.00s)
+PASS
+ok      ./math 1.712s
                         </code></pre>
-                        <p>
-                            O teste Go automatiza o teste dos pacotes nomeados pelos caminhos de importação. 
-                            Ele imprime um resumo dos resultados do teste no formato:
-                        </p>
-                        <pre><code class="language-go">
-ok   archive/tar   0.011s
-FAIL archive/zip   0.022s
-ok   compress/gzip 0.033s
-                        </code></pre>
-                        <p>
-                            Seguido por uma saída detalhada para cada pacote com falha.
-                        </p>
-                        <p>
-                            Os arquivos de teste que declaram um pacote com o sufixo "_test" serão compilados como um 
-                            pacote separado e, em seguida, vinculados e executados com o binário de teste principal.
-                        </p>
-                    
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a title="Comandos - go install" class="pages-menu-link link-back" href="go_install.html">
+                        <a title="Testes - Unitários" class="pages-menu-link link-back" href="unit.html">
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>5 / 6</span>
+                        <span>3 / 7</span>
 
-                        <a title="Comandos - go mod" class="pages-menu-link link-forward" href="go_mod.html">
+                        <a title="Testes - Coverage" class="pages-menu-link link-forward" href="coverage.html">
                             <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 6) * 5)"></div>
+                        <div class="progress-bar" style="width: calc((100% / 7) * 3)"></div>
                     </div>
 
                 </div>
                 <!--- Coluna Esquerda Fim --->
 
-                <!--- Coluna Direita --->
-                <div class="col-12 col-lg-6 column-text px-0">
+                <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">go test</div>
+                    <div class="code-filename">math.go</div>
 
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="math.go">
+package math
 
-                    <div class="content-height">
-                        <img src="../../gif/go-test.gif" alt="Golang">
-                        
-                    </div>
+import "testing"
+
+func Add(x, y int) (res int) {
+    return x + y
+}
+
+type addTest struct {
+    arg1, arg2, expected int
+}
+
+var addTests = []addTest{
+    addTest{2, 3, 5},
+    addTest{4, 8, 12},
+    addTest{6, 9, 15},
+    addTest{3, 10, 13},
+    
+}
+
+func TestAdd(t *testing.T){
+    for _, test := range addTests{
+        if output := Add(test.arg1, test.arg2); output != test.expected {
+            t.Errorf("Output %q not equal to expected %q", output, test.expected)
+        }
+    }
+}
+                    </textarea>
+
+                    <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
+
+                </div>
                 <!--- Coluna Direita Fim --->
-
             </div>
         </div>
     </main>
@@ -152,6 +171,13 @@ ok   compress/gzip 0.033s
 
     <!-- Custom js -->
     <script src="../../../js/custom.js"></script>
+
+    <!-- Go Playground -->
+    <script src="../../../js/go-playground/codemirror.js"></script>
+    <script src="../../../js/go-playground/codemirror-go.js"></script>
+    <script src="../../../js/go-playground/playground.js"></script>
+    <script src="../../../js/go-playground/snippets.js"></script>
+    <script src="../../../js/go-playground/jquery-linedtextarea.js"></script>
 
     <!-- Prism Syntax Highlighting -->
     <script src="../../../plugins/prism/prism.js"></script>

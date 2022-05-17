@@ -76,17 +76,8 @@ go run [build flags] [-exec xprog] package [arguments...]
                             Por padrão, <b>go run</b> executa o binário compilado diretamente: 
                             'a.out arguments ...'. Se o sinalizador <i>-exec</i> for fornecido, <b>go run</b> invoca o binário usando xprog:
                         </p>
-                        <p>
-                            Se o sinalizador <i>-exec</i> não for fornecido, <b>GOOS</b> ou <b>GOARCH</b> é diferente do padrão do sistema, e um programa 
-                            chamado <i>go_ $ GOOS_ $ GOARCH_exec</i> pode ser encontrado no caminho de pesquisa atual, <b>go run</b> invoca o 
-                            binário usando esse programa, por exemplo 'go_nacl_386_exec a.out argumentos ...'. Isso permite a execução 
-                            de programas compilados quando um simulador ou outro método de execução está disponível.
-                        </p>
                         <p>Executando o exemplo ao lado:</p>
-                        <pre><code class="language-go">
-go run main.go
-> Hello, world
-                        </code></pre>
+                        <img src="../../gif/go-run.gif" alt="Golang">
                     </div>
 
 
