@@ -64,30 +64,14 @@
 
                     <div class="content-height">
                         <p>
-                            As 25 palavras chaves abaixo são reservadas e <b>não devem</b> ser
-                            usadas como identificadores em seu código Go.
+                            Go possui vários simbolos e palavras reservadas que não devem ser usadas em seu
+                            código para declarar identificadores. Isso irá causar um panic, que irá encerrar
+                            seu código na hora
                         </p>
-
-                        <pre><code class="language-go">
-break        default      func         interface    select
-case         defer        go           map          struct
-chan         else         goto         package      switch
-const        fallthrough  if           range        type
-continue     for          import       return       var
-                        </code></pre>
-
                         <p>
-                            As seguintes sequências de caracteres representam operadores e pontuação:
+                            A lista de simbolos e palavras reservadas pode ser encontrada
+                            <a href="https://go.dev/ref/spec#Keywords">aqui</a>
                         </p>
-
-                        <pre><code class="language-go" style="font-size:1.1em;">
-+    &     +=    &=     &&    ==    !=    (    )
--    |     -=    |=     ||    <     <=    [    ]
-*    ^     *=    ^=     <-    >     >=    {    }
-/    <<    /=    <<=    ++    =     :=    ,    ;
-%    >>    %=    >>=    --    !     ...   .    :
-     &^          &^=
-                        </code></pre>
 
                     </div>
 
@@ -129,13 +113,9 @@ func main() {
     go := "Gopher, irá gerar um erro!" 
     fmt.Println(go)
     
-    // x := 1
-    // y := 2
-    // if x <= y {
-    //    fmt.Println("X é menor ou igual a Y")
-    // } else {
-    //    fmt.Println("X é maior que Y")
-    // }
+    // Outro erro aqui
+    func := 2 + &&
+    fmt.Println(func)
 }					
                     </textarea>
 

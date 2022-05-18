@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -7,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Instalação - Fora do $GOPATH</title>
+    <title>Go Bootcamp - Instalação - Executando</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,60 +59,14 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Instalação - Fora do $GOPATH</div>
+                    <div class="main-title">Instalação - Executando</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Agora podemos fazer nossos projetos sem estar em $GOPATH, podemos, por exemplo, fazer em qualquer diretório.
-                        </p>
-                        <pre><code class="language-go">
-$HOME/
-  |-2019
-    |-github.com/user/project1/
-      |-cmd
-        |-main.go
-      |-vendor
-      |-logs
-      |-models
-      |-repo
-      |-handler
-                        </code></pre>
-                        <p>
                             Podemos colocar nosso projeto em qualquer diretório agora.
                         </p>
-                    </div>
-
-
-                    <div class="pages-menu">
-
-                        <a title="Instalação - Workspace" class="pages-menu-link link-back" href="workspace.html">
-                            <i class="fa fa-chevron-left"></i>
-                        </a>
-
-                        <span>5 / 6</span>
-
-                        <a title="Instalação - Função Main" class="pages-menu-link link-forward" href="func_main.html">
-                            <i class="fa fa-chevron-right"></i>
-                        </a>
-
-                    </div>
-
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 6) * 5)"></div>
-                    </div>
-
-                </div>
-                <!--- Coluna Esquerda Fim --->
-
-                <!--- Coluna Direita --->
-                <div class="col-12 col-lg-6 column-text px-0">
-
-                    <div class="code-filename">without_gopath</div>
-
-                    <div class="content-height">
-                        <br>
                         <p>
                             Para o cenário ao lado, teremos que usar o go mod em nosso projeto para que todos os
                             pacotes externos possam funcionar corretamente, desta forma poderemos gerenciá-los 
@@ -122,17 +77,56 @@ $HOME/
 $ go mod init github.com/user/project1
                         </code></pre>
                         <p>
-                            Nota: Quando usarmos o mod go em $GOPATH, teremos que habilitar o uso de 
-                            GO111MODULE=on, para que ele possa funcionar dentro da estrutura $GOPATH. 
-                            Portanto, nosso programa pode ser compilado com sucesso.
+                            Crie o arquivo ao lado (chamado hello.go) e execute-o com o seguinte comando:
                         </p>
                         <pre><code class="language-go">
-$ GO111MODULE=on go run cmd/main.go
-$ GO111MODULE=on go build -o project1 cmd/main.go
+$ go run hello.go
+hello, Gophers
                         </code></pre>
                     </div>
-                <!--- Coluna Direita Fim --->
+
+
+                    <div class="pages-menu">
+
+                        <a title="Instalação - Introdução" class="pages-menu-link link-back" href="index.html">
+                            <i class="fa fa-chevron-left"></i>
+                        </a>
+
+                        <span>2 / 2</span>
+
+                        <a title="Editores - Vim" class="pages-menu-link link-forward" href="../editors/vim.html">
+                            <i class="fa fa-chevron-right"></i>
+                        </a>
+
+                    </div>
+
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 100%"></div>
+                    </div>
+
                 </div>
+                <!--- Coluna Esquerda Fim --->
+
+                <!--- Coluna Direita --->
+                <div class="col-12 col-lg-6 column-code">
+
+                    <div class="code-filename">helloword.go</div>
+
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="helloworld.go">
+package main
+
+import "fmt"
+
+func main() {
+  fmt.Println("hello, Gophers")
+}					
+                    </textarea>
+
+                    <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
+
+                </div>
+                <!--- Coluna Direita Fim --->
+
             </div>
         </div>
     </main>
@@ -163,6 +157,13 @@ $ GO111MODULE=on go build -o project1 cmd/main.go
 
     <!-- Custom js -->
     <script src="../../../js/custom.js"></script>
+
+     <!-- Go Playground -->
+     <script src="../../../js/go-playground/codemirror.js"></script>
+     <script src="../../../js/go-playground/codemirror-go.js"></script>
+     <script src="../../../js/go-playground/playground.js"></script>
+     <script src="../../../js/go-playground/snippets.js"></script>
+     <script src="../../../js/go-playground/jquery-linedtextarea.js"></script>
 
     <!-- Prism Syntax Highlighting -->
     <script src="../../../plugins/prism/prism.js"></script>

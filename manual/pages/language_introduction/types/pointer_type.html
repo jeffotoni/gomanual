@@ -77,18 +77,13 @@
                         <p>
                             Para cada tipo declarado, por você ou pela própria linguagem, você obtém 
                             um tipo de ponteiro de complemento que pode ser usado para 
-                            compartilhamento. Já existe um tipo integrado denominado <i>int</i>, portanto, 
-                            existe um tipo de ponteiro de complemento denominado <i>*int</i>.
+                            compartilhamento.
                         </p>
                         <p>
                             Para um operando x do tipo T, a operação de endereço &x gera um ponteiro do 
                             tipo *T para x. O operando deve ser endereçável, ou seja, uma variável, 
                             indireção de ponteiro ou operação de indexação de slice; ou um seletor de 
-                            campo de um operando de estrutura endereçável; ou uma operação de indexação 
-                            de array de um array endereçável. Como uma exceção ao requisito de 
-                            endereçabilidade, x também pode ser um literal composto (possivelmente entre 
-                            parênteses). Se a avaliação de x causaria um pânico em tempo de execução, a 
-                            avaliação de &x também causa.
+                            campo de um operando de estrutura endereçável.
                         </p>
                         <p>
                             Para um operando x do tipo de ponteiro *T, a indireção do ponteiro *x denota 

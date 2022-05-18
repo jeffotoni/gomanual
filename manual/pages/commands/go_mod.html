@@ -66,18 +66,14 @@
                         <p>
                             Um módulo é uma coleção de pacotes Go relacionados. Módulos são a unidade de intercâmbio e 
                             controle de versão do código-fonte. O comando go tem suporte direto para trabalhar com módulos, 
-                            incluindo gravação e resolução de dependências em outros módulos. Os módulos substituem a antiga 
-                            abordagem baseada em GOPATH para especificar quais arquivos de origem são usados em uma determinada construção.
+                            incluindo gravação e resolução de dependências em outros módulos.
                         </p>
                         <pre><code class="language-go">
-go mod <command> [arguments]
+go mod [command] [arguments]
                         </code></pre>
                         <p>
                             Um módulo é definido por uma árvore de arquivos de origem Go com um arquivo go.mod no diretório 
-                            raiz da árvore. O diretório que contém o arquivo go.mod é chamado de raiz do módulo. Normalmente, 
-                            a raiz do módulo também corresponderá a uma raiz do repositório de código-fonte 
-                            (mas em geral não é necessário). O módulo é o conjunto de todos os pacotes Go na raiz do 
-                            módulo e seus subdiretórios, mas excluindo subárvores com seus próprios arquivos go.mod.
+                            raiz da árvore. O diretório que contém o arquivo go.mod é chamado de raiz do módulo. 
                         </p>
                         <p>
                             O <b>caminho do módulo</b> é o prefixo do caminho de importação correspondente à raiz do módulo. 
@@ -86,17 +82,10 @@ go mod <command> [arguments]
                             e versões de módulo.
                         </p>
                         <p>
-                            Por exemplo, este go.mod declara que o diretório que o contém é a raiz do módulo com o caminho 
-                            example.com/m e também declara que o módulo depende de versões específicas de golang.org/x/text e 
-                            gopkg.in /yaml.v2:
+                            Para criar um novo módulo, use o seguinte comando:
                         </p>
                         <pre><code class="language-go">
 go mod init github.com/user/gomyproject
-
-require (
-  golang.org/x/text v0.3.0
-  gopkg.in/yaml.v2 v2.1.0
-)
                         </code></pre>
                     </div>
 
@@ -123,47 +112,17 @@ require (
                 <!--- Coluna Esquerda Fim --->
 
                 <!--- Coluna Direita --->
-                <div class="col-12 col-lg-6 column-text px-0">
+                <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">go doc</div>
+                    <div class="code-filename">go.mod</div>
 
-
-                    <div class="content-height">
-                        <p>
-                            O arquivo go.mod também pode especificar substituições e versões excluídas que se aplicam apenas 
-                            ao construir o módulo diretamente; eles são ignorados quando o módulo é incorporado a uma 
-                            construção maior. Para obter mais informações sobre o arquivo go.mod, consulte 'go help go.mod'.
-                        </p>
-                        <p>
-                            Para iniciar um novo módulo, basta criar um arquivo go.mod na raiz da árvore de diretórios do módulo, 
-                            contendo apenas uma instrução do módulo. O comando 'go mod init' pode ser usado para fazer isso:
-                        </p>
-                        <pre><code class="language-go">
-go mod init github.com/user/gomyproject
-                        </code></pre>
-                        <p>
-                            Em um projeto que já usa uma ferramenta de gerenciamento de dependência existente como godep, 
-                            glide ou dep, 'go mod init' também adicionará instruções de requerimento correspondentes à 
-                            configuração existente.
-
-                            Uma vez que o arquivo go.mod existe, nenhuma etapa adicional é necessária: 
-                            comandos go como <b>go build</b>, <b>go test</b> ou mesmo <b>go list</b> irão adicionar automaticamente 
-                            novas dependências conforme necessário para satisfazer as importações.
-                        </p>
-                        <p>
-                            Os comandos são:
-                        </p>
-                        <pre><code class="language-go">
-download    baixar módulos para o cache local
-edit        edite go.mod a partir de ferramentas ou scripts
-graph       gráfico de requisitos do módulo de impressão
-init        inicializar novo módulo no diretório atual
-tidy        adicionar módulos ausentes e remover módulos não utilizados
-vendor      fazer cópia de dependências vendidas
-verify      verifique se as dependências têm conteúdo esperado
-why         explicar porque os pacotes ou módulos são necessários
-                        </code></pre>
+                    <div class="ratio ratio-16x9 iframe-box">
+                        <iframe src="https://www.youtube.com/embed/5sqUHgduQgY" allowfullscreen></iframe> 
                     </div>
+
+                    <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
+
+                </div>
                 <!--- Coluna Direita Fim --->
 
             </div>
