@@ -65,10 +65,7 @@
                     <div class="content-height">
                         <p>
                             Aqui estão algumas das situações comuns em que você precisará usar um ponteiro em vez de um valor:
-                        </p>
-                        <p>
                             Alterar o estado de um objeto:
-
                             Digamos que você tenha uma estrutura como esta 
                         </p>
                         <pre><code class="language-go">
@@ -92,17 +89,14 @@ func (p *Person) changeName(name string){
                             Permitindo que as variáveis tenham valores nil:
                             Essa é uma pegadinha que leva muitos iniciantes em Go a criar bugs. Uma variável que é 
                             definida, mas não tem um valor atribuído, não é avaliada como nulo, mas sim com seu valor
-                             padrão. Para booleanos, false, para inteiros é 0, para strings é uma string vazia. 
+                             padrão.
                              Mas e se você precisar que seja nulo? Então, você usa um ponteiro!
                         </p>
                         <p>
                             Copiar estrutura com valores muito grandes:
                             Embora a memória não seja um problema tão grande hoje, você ainda pode querer usar uma 
                             referência se o valor do objeto for ridiculamente grande e não houver realmente necessidade 
-                            de repassá-lo o tempo todo. Isso provavelmente melhorará o desempenho e o uso de memória de 
-                            seu aplicativo (embora provavelmente não significativamente). Há uma troca, porque agora o 
-                            coletor de lixo tem mais trabalho a fazer, mas em casos de estruturas muito grandes e complexas, 
-                            usar ponteiros faz mais sentido.
+                            de repassá-lo o tempo todo. 
                         </p>
                     </div>
 

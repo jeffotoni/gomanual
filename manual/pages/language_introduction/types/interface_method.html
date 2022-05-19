@@ -67,12 +67,7 @@
                             Um tipo de interface especifica um conjunto de métodos denominado sua interface. 
                             Uma variável de tipo de interface pode armazenar um valor de qualquer tipo com 
                             um conjunto de métodos que é qualquer superconjunto da interface. Diz-se que 
-                            esse tipo implementa a interface. O valor de uma variável não inicializada do 
-                            tipo de interface é <i>nil</i>.
-                        </p>
-                        <p>
-                            Como acontece com todos os conjuntos de métodos, em um tipo de interface, 
-                            cada método deve ter um nome exclusivo que não esteja em branco. 
+                            esse tipo implementa a interface.
                         </p>
                         <pre><code class="language-go">
 // Interface de um arquivo
@@ -91,15 +86,11 @@ func (p T) Read(b Buffer) bool { return … }
 func (p T) Write(b Buffer) bool { return … }
 func (p T) Close() { … }
                         </code></pre>
-                        <p>
-                            (onde T significa S1 ou S2), então a interface de arquivo é implementada 
-                            por S1 e S2, independentemente de quais outros métodos S1 e S2 possam ter ou compartilhar.
-                        </p>
-                        <p>
+                        <!-- <p>
                             Um tipo implementa qualquer interface que compreende qualquer subconjunto de seus 
                             métodos e pode, portanto, implementar várias interfaces distintas. Por exemplo, 
                             todos os tipos implementam a interface vazia <i>interface{}</i>.
-                        </p>
+                        </p> -->
 
                     </div>
                     <div class="pages-menu">

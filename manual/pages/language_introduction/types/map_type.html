@@ -66,24 +66,19 @@
                         <p>
                             Um <i>map</i> é um grupo não ordenado de elementos de um tipo, denominado tipo de elemento, 
                             indexado por um conjunto de chaves exclusivas de outro tipo, denominado tipo de chave. 
-                            O valor de um <i>map</i> não inicializado é <i>nil</i>.
                         </p>
                         <p>
                             Os operadores de comparação == e != devem ser totalmente definidos para operandos do tipo 
                             de chave; portanto, o tipo de chave não deve ser uma função, <i>map</i> ou <i>slice</i>. Se o tipo de 
                             chave for um tipo de interface, esses operadores de comparação devem ser definidos para os 
-                            valores de chave dinâmicos; a falha causará um pânico em tempo de execução.
+                            valores de chave dinâmicos.
                         </p>
                         <pre><code class="language-go">
 map[string]int
-map[*T]struct{ x, y float64 }
-map[string]interface{}
                         </code></pre>
                         <p>
                             O número de elementos do mapa é chamado de comprimento. Para um mapa M, ele pode ser 
-                            descoberto usando a função interna <i>len()</i> e pode mudar durante a execução. Os elementos 
-                            podem ser adicionados durante a execução usando atribuições e recuperados com expressões 
-                            de índice; eles podem ser removidos com a função interna de exclusão.
+                            descoberto usando a função interna <i>len()</i> e pode mudar durante a execução.
                         </p>
                         <p>
                             Um novo valor de <i>map</i> vazio é criado usando a função integrada <i>make</i>, que leva o tipo de 
@@ -93,11 +88,6 @@ map[string]interface{}
 make(map[string]int)
 make(map[string]int, 100)
                         </code></pre>
-                        <p>
-                            A capacidade inicial não limita seu tamanho: os <i>maps</i> aumentam para acomodar o número de itens 
-                            armazenados neles, com exceção dos <i>maps</i> nulos. Um <i>map</i> nulo é equivalente a um <i>map</i> vazio, 
-                            exceto que nenhum elemento pode ser adicionado.
-                        </p>
 
                     </div>
                     <div class="pages-menu">

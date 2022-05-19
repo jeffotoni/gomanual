@@ -79,16 +79,12 @@
 > go test -fuzz=Fuzz
 
 // Output:
-fuzz: elapsed: 0s, gathering baseline coverage: 0/3 completed
-fuzz: elapsed: 0s, gathering baseline coverage: 3/3 completed, now fuzzing with 8 workers
 fuzz: minimizing 38-byte failing input file...
 --- FAIL: FuzzReverse (0.01s)
     --- FAIL: FuzzReverse (0.00s)
         reverse_test.go:20: Reverse produced invalid UTF-8 string "\x9c\xdd"
 
     Failing input written to testdata/fuzz/FuzzReverse/af69258a12129d6cbba438df5d5f25ba0ec050461c116f777e77ea7c9a0d217a
-    To re-run:
-    go test -run=FuzzReverse/af69258a12129d6cbba438df5d5f25ba0ec050461c116f777e77ea7c9a0d217a
 FAIL
 exit status 1
 FAIL    example/fuzz  0.030s

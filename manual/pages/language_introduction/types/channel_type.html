@@ -73,17 +73,9 @@
                             para enviar ou apenas para receber por conversão ou atribuição.
                         </p>
                         <pre><code class="language-go">
-chan T          // pode ser usado para enviar e receber valores do tipo T
+chan T          // pode ser usado para enviar/receber valores do tipo T
 chan<- float64  // só pode ser usado para enviar float64
 <-chan int      // só pode ser usado para receber int
-                        </code></pre>
-                        <p>
-                            O operador <- associa-se ao <i>channel</i> mais à esquerda possível:
-                        </p>
-                        <pre><code class="language-go">
-chan<- chan int    // mesmo que chan<- (chan int)
-chan<- <-chan int  // mesmo que chan<- (<-chan int)
-<-chan <-chan int  // mesmo que <-chan (<-chan int)
                         </code></pre>
                         <p>
                             Um novo valor de <i>channel</i> inicializado pode ser criado usando a função integrada <i>make()</i>, que leva o 
@@ -97,17 +89,11 @@ make(chan int, 100)
                             for zero ou ausente, o <i>channel</i> está sem buffer e a comunicação é bem-sucedida apenas quando 
                             o emissor e o receptor estão prontos. Caso contrário, o <i>channel</i> é armazenado em buffer e a 
                             comunicação é bem-sucedida sem bloqueio se o buffer não estiver cheio (enviar) ou não estiver 
-                            vazio (receber). Um <i>channel</i> nulo nunca está pronto para comunicação.
+                            vazio (receber).
                         </p>
                         <p>
                             Um <i>channel</i> pode ser fechado com a função embutida <i>close()</i>. A forma de atribuição de vários valores do 
                             operador de recepção relata se um valor recebido foi enviado antes de o <i>channel</i> ser fechado.
-                        </p>
-                        <p>
-                            Um único <i>channel</i> pode ser usado em instruções de envio, operações de recebimento e chamadas para as 
-                            funções integradas <i>cap()</i> e <i>len()</i> por qualquer número de goroutines sem sincronização adicional. 
-                            Os canais atuam como filas primeiro a entrar, primeiro a sair. Por exemplo, se um goroutine 
-                            envia valores em um <i>channel</i> e um segundo goroutine os recebe, os valores são recebidos na ordem de envio.
                         </p>
                     </div>
                     <div class="pages-menu">
