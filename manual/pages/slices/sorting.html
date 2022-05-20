@@ -67,9 +67,7 @@
                             Você pode classificar um slice com a ajuda da função Slice(). Esta função classifica 
                             o slice especificado de acordo com a função less fornecida. O resultado desta função 
                             não é estável. Portanto, para classificação estável, você pode usar SliceStable. E 
-                            essa função entra em pânico se a interface especificada não for do tipo slice. É 
-                            definido no pacote de classificação, portanto, você deve importar o pacote de 
-                            classificação em seu programa para acessar a função Slice.
+                            essa função entra em pânico se a interface especificada não for do tipo slice.
                         </p>
                         <pre><code class="language-go">
 func Slice(a_slice interface{}, less func(p, q int) bool)
@@ -80,12 +78,11 @@ func Slice(a_slice interface{}, less func(p, q int) bool)
                             por mesclagem ou classificação rápida, etc.
                         </p>
                         <pre><code class="language-go">
-sort.Strings // Organiza slice do tipo []string em ordem alfabética
-sort.Sort(sort.Reverse(sort.String(slice))) // Organiza slice do tipo []string em ordem alfabética invertida
-sort.Inst(slice) // Organiza slice do tipo []int em ordem crescente
-sort.Sort(sort.Reverse(sort.IntSlice(slice))) // Organiza slice do tipo []int em ordem decrescente
-sort.Float64s(slice) // Organiza slice do tipo []float64 em ordem crescente
-sort.Sort(sort.Reverse(sort.Float64Slice(arrSlice))) // Organiza slice do tipo []float64 em ordem decrescente
+// Organiza slice do tipo []string em ordem alfabética
+sort.Strings
+
+// Organiza slice do tipo []string em ordem alfabética invertida
+sort.Sort(sort.Reverse(sort.String(slice)))
 
                         </code></pre>
                     </div>

@@ -73,13 +73,7 @@
                             exceto nova linha e aspas duplas sem escape. O texto entre aspas forma o 
                             valor do literal, com escapes de barra invertida interpretados como se 
                             estivessem em <i>rune literals</i> (exceto que aspas simples é ilegal e aspas duplas é legal), com as 
-                            mesmas restrições. O octal de três dígitos (\nnn) e dois escapes hexadecimais 
-                            (\xnn) de dígitos representam bytes individuais da string resultante; todos 
-                            os outros escapes representam a codificação UTF-8 (possivelmente multibyte) 
-                            de caracteres individuais. Assim, dentro de um <i>string literal</i> <i>\377</i> e <i>\xFF</i> 
-                            representam um único byte de valor 0xFF = 255, enquanto <i>ÿ</i>, <i>\u00FF</i>, <i>\U000000FF</i> 
-                            e <i>\xc3</i> <i>\xbf</i> representam os dois bytes 0xc3 0xbf da codificação UTF-8 do 
-                            caractere U + 00FF.
+                            mesmas restrições.
                         </p>
 
 <!--                        <pre><code class="language-go">-->
@@ -113,7 +107,7 @@
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>5 / 11</span>
+                        <span>5 / 10</span>
 
                         <a title="Introdução - Constantes" class="pages-menu-link link-forward" href="constants.html">
                             <i class="fa fa-chevron-right"></i>
@@ -122,7 +116,7 @@
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 11) * 5)"></div>
+                        <div class="progress-bar" style="width: calc((100% / 10) * 5)"></div>
                     </div>
 
                 </div>

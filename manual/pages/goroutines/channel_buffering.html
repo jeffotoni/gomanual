@@ -67,7 +67,10 @@
                             Por padrão, os canais são sem buffer, o que indica que eles só aceitarão envios (chan <-) 
                             se houver um recebimento (<- chan) correspondente que esteja pronto para receber o valor 
                             enviado. Os canais com buffer permitem aceitar um número limitado de valores sem um receptor 
-                            correspondente para esses valores. É possível criar um canal com um buffer. Os canais com 
+                            correspondente para esses valores. 
+                        </p>
+                        <p>
+                            É possível criar um canal com um buffer. Os canais com 
                             buffer são bloqueados apenas quando o buffer está cheio. Da mesma forma, os recebimentos 
                             de um canal com buffer são bloqueados apenas quando o buffer estiver vazio.
                         </p>

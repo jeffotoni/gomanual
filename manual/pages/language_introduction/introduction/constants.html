@@ -69,7 +69,7 @@
                             Rune, integer, floating-point, e complex constants</i> são coletivamente 
                             chamadas <i>numeric constants</i>.
                         </p>
-                        <p>
+                        <!-- <p>
                             Um valor constante é representado por um <i>rune, integer, floating-point, 
                             imaginary ou string literal</i>, um identificador que denota uma constante, 
                             uma expressão constante, uma conversão com um resultado que é uma constante 
@@ -79,11 +79,11 @@
                             Os valores verdadeiros booleanos são representados pelas constantes 
                             pré-declaradas <i>true</i> e <i>false</i>. O identificador pré-declarado <i>iota</i> denota uma 
                             constante inteira.
-                        </p>
-                        <p>
+                        </p> -->
+                        <!-- <p>
                             Em geral, constantes complexas são uma forma de expressões constantes, 
                             assunto discutido na próxima seção.
-                        </p>
+                        </p> -->
 
                     </div>
 
@@ -94,7 +94,7 @@
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>6 / 11</span>
+                        <span>6 / 10</span>
 
                         <a title="Introdução - Iota" class="pages-menu-link link-forward" href="iota.html">
                             <i class="fa fa-chevron-right"></i>
@@ -103,7 +103,7 @@
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 11) * 6)"></div>
+                        <div class="progress-bar" style="width: calc((100% / 10) * 6)"></div>
                     </div>
 
                 </div>
@@ -126,42 +126,22 @@ const (
   DOLLAR      = 3.99
 )
 
-const a = 2 + 3.0        // a == 5.0   (untyped floating-point constant)
-const b = 1 << 3.0       // d == 8     (untyped integer constant)
-const c = "foo" > "bar" // h == true  (untyped boolean constant)
-const d = 'w' + 1       // k == 'x'   (untyped rune constant)
-
+const a = 2        
 const Σ = 1 - 0.707i     //            (untyped complex constant)
 const Φ = iota*1i - 1/1i //            (untyped complex constant)
-const (
-  Sunday = iota
-  Monday
-  Tuesday
-  numberOfDays // essa constante não será exportada
-)
 
 const Pi float64 = 3.14159265358979323846
-const xa, xb, xc = 3, 4, "foo"
 
 func main() {
-
-  fmt.Println(Sunday)
-  fmt.Println(Monday)
-  fmt.Println(Tuesday)
-  fmt.Println(numberOfDays)
-  
   fmt.Println(PATH)
   fmt.Println(KB)
   fmt.Println(MALE)
   fmt.Println(DOLLAR)
   
   fmt.Println(a)
-  fmt.Println(b)
-  fmt.Println(c)
-  fmt.Println(d)
-
   fmt.Println(Σ)
   fmt.Println(Φ)
+  fmt.Println(Pi)
 }				
                     </textarea>
 
