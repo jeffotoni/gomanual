@@ -123,10 +123,6 @@ func (Pessoa) Falar(frases ...interface{}) {
     fmt.Println(frases...)
 }
 
-func (p *Pessoa) FazerAniversario() {
-    p.Idade++
-}
-
 func falar(falador Falador, frases ...interface{}) {
     falador.Falar(frases...)
 }
@@ -135,8 +131,8 @@ func main() {
 	carlos := &Pessoa{"Carlos", 23}
     carlos.Falar("Minha idade é:", carlos.Idade)
 
-    carlos.FazerAniversario()
-    falar(*carlos, "Minha idade é:", carlos.Idade) // Nenhum erro pois Pessoa implementa a interface Falador
+    // Nenhum erro pois Pessoa implementa a interface Falador
+    falar(*carlos, "Minha idade é:", carlos.Idade)
 }
                     </textarea>
 

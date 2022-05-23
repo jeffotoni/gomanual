@@ -120,7 +120,12 @@ func main() {
     urlStr := u.String() // "https://api.com/user/"
 
     client := &http.Client{}
-    r, _ := http.NewRequest(http.MethodPost, urlStr, strings.NewReader(data.Encode())) // URL-encoded payload
+    r, _ := http.NewRequest(
+        http.MethodPost, 
+        urlStr, 
+        strings.NewReader(data.Encode()),
+    ) // URL-encoded payload
+    
     r.Header.Add("Authorization", "auth_token=\"XXXXXXX\"")
     r.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 

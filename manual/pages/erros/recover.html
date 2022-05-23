@@ -73,7 +73,11 @@
                             se uma das conexões do cliente apresentar um erro crítico. Em vez disso, 
                             o servidor deseja fechar essa conexão e continuar atendendo a outros clientes.
                         </p>
-
+                        <pre><code class="language-go">
+if r := recover(); r != nil {
+    // Tratar panic aqui
+}
+                        </code></pre>
                     </div>
                     <div class="pages-menu">
 
@@ -120,9 +124,6 @@ func divide(x int, y int) (int, error) {
 func main() {
     defer func() {
         if r := recover(); r != nil {
-
-	
-
             fmt.Println("Recovered. Error:\n", r)
         }
     }()

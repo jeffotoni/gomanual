@@ -68,6 +68,13 @@
                             Então, ele pode manter um estado único e próprio. O estado então fica isolado à medida 
                             que criamos novas instâncias da função.
                         </p>
+                        <pre><code class="language-go">
+func MinhaFuncao(parametro string) func() string {
+    return func() string {
+        return parametro
+    }
+}
+                        </code></pre>
                     </div>
 
 

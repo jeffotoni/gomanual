@@ -64,8 +64,11 @@
 
                     <div class="content-height">
                         <p>
-                            Go fornece comentários de bloco / * * / estilo C e comentários de linha // estilo C ++. 
-                            Comentários de linha são a norma; os comentários do bloco aparecem principalmente como 
+                            Go fornece comentários de bloco estilo C e comentários de linha estilo C++. 
+                            Comentários de linha são a norma. 
+                        </p>
+                        <p>
+                            Os comentários do bloco aparecem principalmente como 
                             comentários do pacote, mas são úteis dentro de uma expressão ou para desabilitar grandes faixas de código.
                         </p>
 
@@ -97,30 +100,19 @@
                     <div class="code-filename">comments.go</div>
 
                     <textarea class="go-playground-snippet" data-expanded="1" data-title="blank_identifier.go">
-// Go in action
-// @jeffotoni
-// 2019-01-16
-
-/**
 package main
 
-import (
-  "flag"
-  "fmt"
-  "os"
+import "fmt"
 
-  "github.com/aws/aws-sdk-go/aws"
-  "github.com/aws/aws-sdk-go/aws/awserr"
-  "github.com/aws/aws-sdk-go/aws/session"
-  "github.com/aws/aws-sdk-go/service/ec2"
-)
+func main() {
+    // Comantário de linha
+    fmt.Println("Hello", "World ", 2022, " Go!")
 
-// define flags
-var (
-  flagRegion   = flag.String("region", "", "example: us-east-1")
-  flagInstance = flag.String("instance", "", "example: i-05bef719c14d68d10")
-)
-*/
+    /*  Comentário de bloco
+        fmt.Println("Golang")
+        fmt.Println("é legal!")
+    */
+}
                     </textarea>
 
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />

@@ -75,12 +75,22 @@
                             tratamento de erros. Em vez disso, quando algo inesperado acontece, ele 
                             retorna um erro.
                         </p>
-                        <p>
+                        <pre><code class="language-go">
+// Essa struct implementa a interface de erro
+type ErrorPersonalizado struct {
+    msg string
+}
+
+func (e ErrorPersonalizado) Error() string {
+    return msg
+}
+                        </code></pre>
+                        <!-- <p>
                             Usamos a interface de erro para representar a condição de erro. Um valor 
                             nulo significa que não ocorreu nenhum erro.
                             Para gerar erros personalizados, podemos implementar a interface de erro 
                             em uma estrutura, conforme nossos requisitos.
-                        </p>
+                        </p> -->
 
                     </div>
                     <div class="pages-menu">

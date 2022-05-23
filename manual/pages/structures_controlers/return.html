@@ -67,6 +67,14 @@
                             Uma instrução de encerramento impede a execução de todas as instruções que 
                             aparecem lexicalmente depois dela no mesmo bloco. 
                         </p>
+                        <pre><code class="language-go">
+func A() string {
+    return "Hello"
+
+    // Esse segundo valor não será retornado
+    return "World"
+}
+                        </code></pre>
                     </div>
 
 

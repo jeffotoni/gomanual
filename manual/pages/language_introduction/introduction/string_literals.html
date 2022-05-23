@@ -75,6 +75,10 @@
                             estivessem em <i>rune literals</i> (exceto que aspas simples é ilegal e aspas duplas é legal), com as 
                             mesmas restrições.
                         </p>
+                        <pre><code class="language-go">
+fmt.Println('Hello, World')
+// Gerará um erro, pois aspas simples indicam runes, não strings
+                        </code></pre>
 
 <!--                        <pre><code class="language-go">-->
 <!--`abc`                // mesmo que "abc"-->

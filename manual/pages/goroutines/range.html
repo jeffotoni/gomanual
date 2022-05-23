@@ -64,10 +64,17 @@
 
                     <div class="content-height">
                         <p>
-                            Fechar é uma função embutida que pode ser usada para fechar um canal. O fechamento 
-                            de um canal significa que não podemos mais enviar dados para o canal. O canal é 
-                            geralmente fechado quando todos os dados foram enviados e não há mais dados para enviar.
+                            Range itera sobre cada elemento enviado ao channel à medida que é 
+                            recebido da 
+                            fila.
                         </p>
+                        <p>
+                            O range vai parar de iterar no momento em que o channel for fechado, usando
+                            a função Close().
+                        </p>
+                        <pre><code class="language-go">
+for value := range meuCanal {...}
+                        </code></pre>
                     </div>
 
 
@@ -97,26 +104,24 @@
                     <div class="code-filename">range.go</div>
 
                     <textarea class="go-playground-snippet" data-expanded="1" data-title="range.go">
-package main
-
 import (
     "fmt"
+    "time"
 )
 
 func main() {
     ch := make(chan int)
-    go sum(ch, 3)
-    ch <- 2
+    go sum(ch)
     ch <- 2
     ch <- 2
     close(ch)
-    ch <- 2 // error
+    time.Sleep(time.Second * 2)
 }
-
-func sum(ch chan int, len int) {
+    
+func sum(ch chan int) {
     sum := 0
-    for i := 0; i < len; i++ {
-        sum += <-ch
+    for n := range ch {
+        sum += n
     }
     fmt.Printf("Sum: %d\n", sum)
 }
