@@ -64,21 +64,36 @@
 
                     <div class="content-height">
                         <p>
-                            Um tipo determina um conjunto de valores junto com operações e 
-                            métodos específicos para esses valores. Um tipo pode ser denotado 
-                            pelo nome de um tipo, se tiver um, ou especificado usando <i>literal type</i>, 
+                            Um <b>tipo</b> determina um conjunto de valores junto com operações e 
+                            métodos específicos para esses valores. 
+                        </p>
+                        <p>
+                            Um tipo pode ser denotado 
+                            pelo nome de um tipo, se tiver um, ou especificado usando <b>literal type</b>, 
                             que compõe um tipo a partir de tipos existentes.
                         </p>
                         <p>
                             A linguagem pré-declara certos nomes de tipo. Outros são introduzidos 
-                            com declarações de tipo. Tipos compostos - <i>array, struct, pointer, 
-                            func, interface, slice, map e chan</i> - podem ser construídos 
-                            usando <i>type literals</i>.
+                            com declarações de tipo. Tipos compostos, como:
                         </p>
-                        <pre><code class="language-go">
+                        <ul>
+                            <li>array</li>
+                            <li>struct</li>
+                            <li>pointer</li>
+                            <li>func</li>
+                            <li>interface</li>
+                            <li>slice</li>
+                            <li>map</li>
+                            <li>chan</li>
+                        </ul>
+                        <p>
+                            podem ser construídos 
+                            usando <b>type literals</b>.
+                        </p>
+                        <!-- <pre><code class="language-go">
 // Este é um tipo que não é pré-declarado.
 type Pessoa struct {}
-                        </code></pre>
+                        </code></pre> -->
                         <p>
                             Uma lista completa com todos os tipos pré-declarados pode ser encontrada 
                             <a href="https://go.dev/ref/spec#Types">aqui</a>.

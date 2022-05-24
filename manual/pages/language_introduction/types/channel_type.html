@@ -64,13 +64,12 @@
 
                     <div class="content-height">
                         <p>
-                            Um <i>channel</i> fornece um mecanismo para funções de execução simultânea para se comunicar, enviando 
-                            e recebendo valores de um tipo de elemento especificado. O valor de um <i>channel</i> não inicializado é <i>nil</i>.
+                            Um <b>channel</b> fornece um mecanismo para funções de execução simultânea para se comunicar, enviando 
+                            e recebendo valores de um tipo de elemento especificado. O valor de um <b>channel</b> não inicializado é <b>nil</b>.
                         </p>
                         <p>
-                            O operador opcional <- especifica a direção do <i>channel</i>, envio ou recebimento. Se nenhuma 
-                            direção for fornecida, o <i>channel</i> é bidirecional. Um <i>channel</i> pode ser restringido apenas 
-                            para enviar ou apenas para receber por conversão ou atribuição.
+                            O operador opcional <- especifica a direção do <b>channel</b>, envio ou recebimento. Se nenhuma 
+                            direção for fornecida, o channel é bidirecional.
                         </p>
                         <pre><code class="language-go">
 chan T          // pode ser usado para enviar/receber valores do tipo T
@@ -78,8 +77,8 @@ chan<- float64  // só pode ser usado para enviar float64
 <-chan int      // só pode ser usado para receber int
                         </code></pre>
                         <p>
-                            Um novo valor de <i>channel</i> inicializado pode ser criado usando a função integrada <i>make()</i>, que leva o 
-                            tipo de <i>channel</i> e uma capacidade opcional como argumentos:
+                            Um novo valor de channel inicializado pode ser criado usando a função integrada <b>make()</b>, que leva o 
+                            tipo de channel e uma capacidade opcional como argumentos:
                         </p>
                         <pre><code class="language-go">
 make(chan int, 100)
@@ -123,65 +122,18 @@ make(chan int, 100)
                     <div class="code-filename">channel.go</div>
 
                     <textarea class="go-playground-snippet" data-expanded="1" data-title="channel.go">
-
 package main
 
-import (
-  "fmt"
-  "os"
-  "time"
-)
-
-type Promise struct {
-  Result chan string
-  Error  chan error
-}
-
-var (
-  ch1  = make(chan *Promise)  // recebe um ponteiro para a struct
-  ch2  = make(chan string, 1) // permite somente 1 canal
-  ch3  = make(chan int, 2)    // permite somente 2 canais
-  ch4  = make(chan float64)   // pode receber livremente
-  ch5  = make(chan []byte)    // por padrão, capacidade de 0
-  ch6  = make(chan bool, 1)   // capacidade não-zero
-  ch7  = make(chan time.Time, 2)
-  ch8  = make(chan struct{}, 2)
-  ch9  = make(chan struct{})
-  ch10 = make(map[string](chan int)) // map channel
-  ch11 = make(chan error)
-  ch12 = make(chan error, 2)
-  // receives a zero struct
-  ch14 <-chan struct{}
-  ch15 = make(<-chan bool)          // só pode ler
-  ch16 = make(chan<- []os.FileInfo) // só pode escrever
-  // holds another channel as its value
-  ch17 = make(chan<- chan bool) // pode ler e escrever
-)
+import "fmt"
 
 func main() {
 
-  ch2 <- "okay"
-  defer close(ch2)
-  fmt.Println(ch2, &ch2, <-ch2)
+    messages := make(chan string)
 
-  ch7 <- time.Now()
-  ch7 <- time.Now()
-  fmt.Println(ch7, &ch7, <-ch7)
-  fmt.Println(ch7, &ch7, <-ch7)
-  defer close(ch7)
+    go func() { messages <- "ping" }()
 
-  ch3 <- 1 // okay
-  ch3 <- 2 // okay
-  // deadlock
-  // ch3 <- 3 // aqui, não aceita mais valores
-  defer close(ch3)
-  fmt.Println(ch3, &ch3, <-ch3)
-  fmt.Println(ch3, &ch3, <-ch3)
-
-  ch10["lambda"] = make(chan int, 2)
-  ch10["lambda"] <- 100
-  defer close(ch10["lambda"])
-  fmt.Println(<-ch10["lambda"])
+    msg := <-messages
+    fmt.Println(msg)
 }
                     </textarea>
 

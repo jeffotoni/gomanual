@@ -64,18 +64,22 @@
 
                     <div class="content-height">
                         <p>
-                            Uma <i>rune literal</i> representa uma <i>rune constant</i>, um valor 
+                            Uma <b>rune literal</b> representa uma <b>rune constant</b>, um valor 
                             inteiro que identifica um ponto de código Unicode.
                         </p>
                         <p>
                             Como o texto de origem do Go são caracteres Unicode codificados em UTF-8, 
                             vários bytes codificados em UTF-8 podem representar um único valor 
-                            inteiro. Por exemplo, o literal 'a' contém um único byte que representa 
+                            inteiro. 
+                        </p>
+                        <p>
+                            Por exemplo, o literal 'a' contém um único byte que representa 
                             um literal a, Unicode U + 0061, valor 0x61, enquanto 'ä' contém dois 
-                            bytes (0xc3 0xa4) que representa uma a-diérese literal, U + 00E4, valor 0xe4.
+                            bytes (0xc3 0xa4).
                         </p>
                         <pre><code class="language-go">
-fmt.Println('\n', "olá")
+fmt.Println('ä')
+// Out: 228
                         </code></pre>
                         <!-- <p>
                             Vários escapes de barra invertida permitem que valores arbitrários 

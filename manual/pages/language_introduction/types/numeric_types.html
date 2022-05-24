@@ -64,19 +64,21 @@
 
                     <div class="content-height">
                         <p>
-                            Um tipo numérico representa um conjuntos de valores inteiros ou de ponto 
-                            flutuante.
+                            Um tipo numérico representa um conjuntos de valores <b>inteiros</b> ou 
+                            de <b>ponto flutuante</b>.
                         </p>
+                        <p>
+                            Ponto flutuante é o nome dado às <b>frações</b> numéricas.
+                        </p>
+                        <pre><code class="language-go">
+var a int = 1 // Inteiro
+var b float32 = 3.1415 // Ponto flutuante
+c := 3.0
+                        </code></pre>
                         <p>
                             Uma lista com todos os tipos numéricos pode ser encontrada 
                             <a href="https://go.dev/ref/spec#Numeric_types">aqui</a>.
                         </p>
-                        <pre><code class="language-go">
-var a int = 1
-var b = 2
-c := 3
-                        </code></pre>
-
                     </div>
                     <div class="pages-menu">
 
@@ -107,14 +109,24 @@ c := 3
                     <textarea class="go-playground-snippet" data-expanded="1" data-title="numeric_types.go">
 package main
 
+import "fmt"
+
 func main() {
     var ui8 uint8
     var i8 int8
     var i int
 
-    ui8 = -10 // isto gerará um erro, pois uint8 só aceita valores entre 0 e 255
-    i8 = 128  // isto também gerará um erro, pois int8 só aceita valores entre -128 e 127
+    // isto gerará um erro, 
+    // pois uint8 só aceita valores entre 0 e 255
+    ui8 = -10
+
+    // isto também gerará um erro, 
+    //pois int8 só aceita valores entre -128 e 127
+    i8 = 128 
+
     i = 31415
+
+    fmt.Println(ui8, i8, i)
 }
                     </textarea>
 
