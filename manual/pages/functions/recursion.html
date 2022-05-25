@@ -64,14 +64,21 @@
 
                     <div class="content-height">
                         <p>
-                            Uma função é classificada como recursiva quando ela chama a si mesma.
+                            Uma função é classificada como <b>recursiva</b> quando ela chama a si mesma.
                             Existem alguns tipos de funções recursivas, entre eles: finita e infinita
                         </p>
                         <p>
-                            Uma função recursiva é classificada como finita se ela possuir uma condição de parada. Se não, é
-                            classificada como infinita.
+                            Uma função recursiva é classificada como <b>finita</b> se ela possuir uma 
+                            condição de parada. Se não, é
+                            classificada como <b>infinita</b>.
                         </p>
-                        
+                        <pre><code class="language-go">
+// Aqui, MinhaFuncao irá executar "infinitamente",
+// pois ela sempre chama a si mesma.
+func MinhaFuncao(parametro string) {
+    MinhaFuncao(parametro)
+}
+                        </code></pre>
                     </div>
 
 
@@ -112,11 +119,9 @@ func main() {
 
 func contagemRegressiva(v int) {
     fmt.Println(v)
-    
     if v == 0 {
         return
     }
-
     contagemRegressiva(v-1)
 }
                     </textarea>

@@ -64,11 +64,13 @@
 
                     <div class="content-height">
                         <p>
-                            Uma função pode ser executada de forma assíncrona quando é precedida pelo statement <i>go</i>,
+                            Uma função pode ser executada de forma <b>assíncrona</b> 
+                            quando é precedida pelo statement <b>go</b>,
                             que indica que uma função é executada como uma goroutine.
                         </p>
                         <p>
-                            A função <i>main()</i> é executada como uma goroutine por padrão, portanto, todo programa possui ao menos
+                            A função <b>main()</b> é executada como uma goroutine por 
+                            padrão, portanto, todo programa possui ao menos
                             uma goroutine rodando.
                         </p>
                         <p>
@@ -118,10 +120,15 @@ import (
 func main() {
     go dizer("Olá") // Cria uma nova goroutine
     dizer("Mundo") // Função executada na goroutine atual
+
+    // Aqui, é necessário pausar o programa
+    // brevemente para que a goroutine criada
+    // tenha tempo de ser executada antes
+    // da função main retornar.
+    time.Sleep(time.Second * 2)
 }
 
 func dizer(texto string) {
-    time.Sleep(time.Second * 2)
     fmt.Println(texto)
 }
                     </textarea>

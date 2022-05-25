@@ -64,10 +64,16 @@
 
                     <div class="content-height">
                         <p>
-                            A desvantagem de um array em Go é que eles possuem a restrição ter um comprimento fixo. 
+                            A desvantagem de um array em Go é que eles possuem a restrição ter um <b>comprimento fixo</b>. 
                             Portanto, é impossível aumentar o comprimento de um array, pois isso implicaria em 
                             alterar o seu tipo. 
                         </p>
+                        <pre><code class="language-go">
+[2]int != [3]int
+// Essa diferença acontece porque 
+// o comprimento do array faz parte
+// do seu tipo.
+                        </code></pre>
                         <p>
                             Porém, Go oferece uma forma de criar listas dinâmicas de dados, chamados slices.
                         </p>

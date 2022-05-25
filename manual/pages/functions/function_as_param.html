@@ -64,12 +64,27 @@
 
                     <div class="content-height">
                         <p>
-                            Em GO, a função também é um tipo. Duas funções são do mesmo tipo se tiverem os mesmos argumentos 
-                            e os mesmos valores de retorno. Ao passar uma função como um argumento para outra função, a 
+                            Em GO, a <b>função</b> também é um <b>tipo</b>. Duas funções são do mesmo tipo se tiverem os mesmos argumentos 
+                            e os mesmos valores de retorno. 
+                        </p>
+                        <p>
+                            Ao passar uma função como um argumento para outra função, a 
                             assinatura exata da função deve ser especificada na lista de argumentos.
                         </p>
                         <pre><code class="language-go">
-func (int, int) int
+// Aqui, a função Aritmetica recebe
+// como argumento uma função que
+// deve ter a forma de func(int, int) int.
+func Aritmetica(x, y int, f func(int, int) int) int {
+    return f(x, y)
+}
+
+// A função Somar pode ser
+// passada para a função Aritmetica,
+// pois ela tem a forma, ou assinatura, requerida.
+func Somar(x, y int) int {
+    return x + y
+}
                         </code></pre>
                     </div>
 

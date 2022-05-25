@@ -64,12 +64,22 @@
 
                     <div class="content-height">
                         <p>
-                            Funções variádicas são funções que aceitam um número indeterminado de parâmetros.
-                            O símbolo <i>...</i> seguido de um identificador indica que o parâmetro irá encapsular todos os valores
+                            Funções <b>variádicas</b> são funções que aceitam um número indeterminado de parâmetros.
+                            O símbolo <b>...</b> seguido de um identificador indica que o parâmetro irá encapsular todos os valores
                             passados para a função que não correspondem a um parâmetro respectivo.
                         </p>
                         <pre><code class="language-go">
-func [nome]([pA], [pB], [pN] ...)
+// Um parametro variadico vai se tornar
+// um slice do seu tipo.
+// Neste exemplo, ...int
+// vai se tornar []int.
+func Somar(numeros ...int) int {
+    var res int
+    for _, v := range numeros {
+        res += v
+    }
+    return res
+}
                         </code></pre>
                     </div>
 

@@ -64,10 +64,22 @@
 
                     <div class="content-height">
                         <p>
-                            Defer faz com que uma função seja programada para ser executada antes do retorno ou do fim da função em que fora chamada.
+                            <b>Defer</b> faz com que uma função seja executada quando a função onde o defer foi
+                            chamada for retornada.
+                        </p>
+                        <p>
+                            Você pode chamar o defer mais de uma vez dentro de uma função. Assim, as funções
+                            irão ser <b>empilhadas</b>, e essa será a ordem de execução delas antes do <b>return</b> principal.
                         </p>
                         <pre><code class="language-go">
-defer [função]([parâmetros])
+func Somar(x, y int) int {
+    // A função de print será chamada
+    // logo antes do return
+    defer fmt.Println(x, "+", y)
+
+    resultado := x + y
+    return resultado
+}
                         </code></pre>
                     </div>
 
@@ -104,7 +116,10 @@ package main
 import "fmt"
 
 func main() {
-    defer fmt.Println("World") // Será executado no final da função main()
+    // Será executado no final da função main()  
+    defer fmt.Println("Golang is cool!")
+    defer fmt.Println("World")
+
     fmt.Println("Hello")
 }
                     </textarea>

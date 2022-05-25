@@ -64,13 +64,21 @@
 
                     <div class="content-height">
                         <p>
-                            A expressão à direita na cláusula <i>range</i> é chamada de expressão de intervalo, 
-                            que pode ser um <i>array</i>, um ponteiro para um <i>array</i>, um <i>slice</i>, uma string, um 
-                            <i>map</i> ou um canal que permite operações de recebimento. Assim como em uma atribuição, 
+                            A expressão à direita na cláusula <b>range</b> é chamada de expressão de intervalo, 
+                            que pode ser um <i>array</i>, um ponteiro para um <b>array</b>, um <b>slice</b>, uma string, um 
+                            <b>map</b> ou um canal que permite operações de recebimento. 
+                        </p>
+                        <p>
+                            Assim como em uma atribuição, 
                             se estiverem presentes, os operandos à esquerda devem ser endereçáveis ou expressões de 
-                            índice de <i>map</i>; eles denotam as variáveis de iteração. Se a expressão de intervalo for um 
+                            índice de <b>map</b>; eles denotam as variáveis de iteração. 
+                        </p>
+                        <p>
+                            Se a expressão de intervalo for um 
                             canal, no máximo uma variável de iteração é permitida, caso contrário, pode haver até duas. 
-                            Se a última variável de iteração for o identificador em branco, a cláusula <i>range</i> é equivalente 
+                        </p>
+                        <p>
+                            Se a última variável de iteração for o identificador em branco, a cláusula <b>range</b> é equivalente 
                             à mesma cláusula sem esse identificador.
                         </p>
                         <pre><code class="language-go">

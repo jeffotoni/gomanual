@@ -64,18 +64,20 @@
 
                     <div class="content-height">
                         <p>
-                            Você pode classificar um slice com a ajuda da função Slice(). Esta função classifica 
+                            Você pode <b>ordenar</b> um slice com a ajuda da função <b>Slice()</b>. Esta função classifica 
                             o slice especificado de acordo com a função less fornecida. O resultado desta função 
-                            não é estável. Portanto, para classificação estável, você pode usar SliceStable. E 
+                            não é estável. 
+                        </p>
+                        <p>
+                            Portanto, para ordenação estável, você pode usar <b>SliceStable</b>. E 
                             essa função entra em pânico se a interface especificada não for do tipo slice.
                         </p>
                         <pre><code class="language-go">
 func Slice(a_slice interface{}, less func(p, q int) bool)
                         </code></pre>
                         <p>
-                            Além disso, podemos usar o pacote de sort embutido para classificar um slice ao
-                            invés de escrever manualmente quaisquer algoritmos de classificação como classificação 
-                            por mesclagem ou classificação rápida, etc.
+                            Além disso, podemos usar o pacote de <b>sort</b> embutido para ordenar um slice ao
+                            invés de escrever manualmente quaisquer algoritmos de ordenação.
                         </p>
                         <pre><code class="language-go">
 // Organiza slice do tipo []string em ordem alfabética
@@ -94,7 +96,7 @@ sort.Sort(sort.Reverse(sort.String(slice)))
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>7 / 7</span>
+                        <span>6 / 6</span>
 
                         <a title="Structs - Introdução" class="pages-menu-link link-forward" href="../structs/index.html">
                             <i class="fa fa-chevron-right"></i>
