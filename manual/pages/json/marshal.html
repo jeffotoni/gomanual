@@ -64,8 +64,8 @@
 
                     <div class="content-height">
                         <p>
-                            Marshal() recebe um valor como entrada e retorna o JSON codificado como um
-                            slice de bytes em caso de sucesso ou um erro se algo der errado.
+                            <b>Marshal()</b> recebe um valor como entrada e retorna o JSON codificado como um
+                            <b>slice de bytes</b> em caso de sucesso ou um erro se algo der errado.
                         </p>
                         <pre><code class="language-go">
 func Marshal(v interface{}) ([]byte, error)
@@ -118,7 +118,13 @@ type Livro struct {
 }
  
 func main() {
-    domQuixote := Livro{"Dom Quixote", Pessoa{"Miguel de Cervantes", 44}}
+    domQuixote := Livro{
+        "Dom Quixote", 
+        Pessoa{
+            "Miguel de Cervantes", 
+            44,
+        },
+    }
     res, err := json.Marshal(domQuixote)
      
     if err != nil {

@@ -64,7 +64,7 @@
 
                     <div class="content-height">
                         <p>
-                            interface é um tipo personalizado usado para especificar um conjunto de uma ou mais 
+                            <b>interface</b> é um tipo personalizado usado para especificar um conjunto de uma ou mais 
                             assinaturas de método e a interface é abstrata, portanto, você não tem permissão para 
                             criar uma instância da interface. 
                         </p>
@@ -72,8 +72,21 @@
                             Mas você tem permissão para criar uma variável de um 
                             tipo de interface e essa variável pode ser atribuída com um valor de tipo concreto que 
                             possui os métodos que a interface requer. Ou, em outras palavras, a interface é uma 
-                            coleção de métodos, além de ser um tipo personalizado.
+                            <b>coleção de métodos</b>, além de ser um tipo personalizado.
                         </p>
+                        <pre><code class="language-go">
+type Falador interface {
+    Falar(string) // método
+}
+
+type Papagaio struct{}
+
+// Papagaio implementa a interface Falador,
+// Pois possui todos os métodos que ela pede.
+func (Papagaio) Falar(palavra string) {
+    fmt.Println(palavra)
+}
+                        </code></pre>
                     </div>
 
 

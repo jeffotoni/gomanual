@@ -75,9 +75,12 @@ a <- data // escreve no canal a
                         </p>
                         <p>
                             Envios e recebimentos em um canal são bloqueados por padrão. O que isto significa? 
-                            Quando os dados são enviados para um canal, o controle é bloqueado na instrução de 
-                            envio até que algum outro Goroutine leia daquele canal. Da mesma forma, quando os 
-                            dados são lidos de um canal, a leitura é bloqueada até que algum Goroutine grave dados nesse canal.
+                            Quando os dados são <b>enviados</b> para um canal, o controle é <b>bloqueado</b> na instrução de 
+                            envio até que algum outro Goroutine leia daquele canal. 
+                        </p>
+                        <p>
+                            Da mesma forma, quando os 
+                            dados são <b>lidos</b> de um canal, a leitura é bloqueada até que algum Goroutine <b>grave</b> dados nesse canal.
                         </p>
                         <p>
                             Esta propriedade de canais é o que ajuda Goroutines a se comunicarem efetivamente sem o uso de 
@@ -119,8 +122,8 @@ a <- data // escreve no canal a
                         </p>
                         <p>
                             Um canal que só pode receber dados ou um canal que só pode enviar dados é o 
-                            canal unidirecional. O canal unidirecional também pode criar com a ajuda da 
-                            função make () conforme mostrado abaixo:
+                            canal <b>unidirecional</b>. O canal unidirecional também pode criar com a ajuda da 
+                            função <b>make()</b> conforme mostrado abaixo:
                         </p>
                         <pre><code class="language-go">
 // Só permite ler dados

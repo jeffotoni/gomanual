@@ -64,7 +64,7 @@
 
                     <div class="content-height">
                         <p>
-                            a função json.Unmarshal() pega alguns dados JSON codificados e um ponteiro para um 
+                            a função <b>json.Unmarshal()</b> pega alguns dados JSON codificados e um ponteiro para um 
                             valor onde o JSON codificado deve ser escrito e retorna um erro se algo der errado.
                         </p>
                         <pre><code class="language-go">
@@ -119,7 +119,13 @@ type Livro struct {
  
 func main() {
     // Marshal
-    domQuixote := Livro{"Dom Quixote", Pessoa{"Miguel de Cervantes", 44}}
+    domQuixote := Livro{
+        "Dom Quixote", 
+        Pessoa{
+            "Miguel de Cervantes", 
+            44,
+        },
+    }
     res, err := json.Marshal(domQuixote)
      
     if err != nil {

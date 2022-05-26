@@ -64,20 +64,19 @@
 
                     <div class="content-height">
                         <p>
-                            Os canais podem ser considerados tubos através dos quais os Goroutines se comunicam. 
+                            Os <b>canais</b> podem ser considerados tubos através dos quais os <b>Goroutines</b> se comunicam. 
+                        </p>
+                        <p>
                             Semelhante a como a água flui de uma extremidade a outra em um tubo, os dados podem 
                             ser enviados de uma extremidade e recebidos da outra extremidade usando canais.
                         </p>
                         <p>
-                            Declarando canais
-                        </p>
-                        <p>
-                            Cada canal possui um tipo associado a ele. Este tipo é o tipo de dados que o canal tem 
+                            Cada canal possui um tipo associado a ele. Este tipo é o <b>tipo de dados</b> que o canal tem 
                             permissão para transportar. Nenhum outro tipo pode ser transportado usando o canal.
                         </p>
                         <p>
-                            O valor zero de um canal é nil. Canais nulos não têm nenhuma utilidade e, portanto, o 
-                            canal deve ser definido usando make, similar a maps e slice.
+                            O valor zero de um canal é <b>nil</b>. Canais nulos não têm nenhuma utilidade e, portanto, o 
+                            canal deve ser definido usando <b>make</b>, similar a maps e slice.
                         </p>
                         <pre><code class="language-go">
 channel := make(chan int) // transporta dados do tipo int
