@@ -64,19 +64,27 @@
 
                     <div class="content-height">
                         <p>
-                            Selecione esperas em vários canais. Isso pode ser combinado com goroutines. 
-                            Select é como a instrução switch, mas para canais.
+                            <b>Select</b> esperas em vários canais. Isso pode ser combinado com goroutines. 
+                            Select é como a instrução <b>switch</b>, mas para <b>canais</b>.
+                        </p>
+                        <pre><code class="language-go">
+select {
+case msg1 := <- ch1:
+    // ...
+case <- ch2:
+    // ...
+}
+
+                        </code></pre>
+                        <p>
+                            Por exemplo, duas rotinas são iniciadas simultaneamente e cada uma grava dados em um canal.
                         </p>
                         <p>
-                            Exemplo:
+                            Por ser executado simultaneamente, pode acontecer que uma tarefa seja concluída <b>antes</b> da outra.
                         </p>
                         <p>
-                            Duas rotinas são iniciadas simultaneamente e cada uma grava dados em um canal.
-                        </p>
-                        <p>
-                            Por ser executado simultaneamente, pode acontecer que uma tarefa seja concluída antes da outra.
-                            A instrução select fará com que o programa espere que ambas as tarefas sejam concluídas, 
-                            mas isso não significa que ambas as tarefas sejam sempre concluídas em ordem cronológica.
+                            A instrução select fará com que o programa <b>espere</b> que ambas as tarefas sejam concluídas, 
+                            mas isso não significa que ambas as tarefas sejam sempre concluídas em ordem <b>cronológica</b>.
                         </p>
                     </div>
 
@@ -87,7 +95,7 @@
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>6 / 13</span>
+                        <span>6 / 12</span>
 
                         <a title="Goroutines - Timeout" class="pages-menu-link link-forward" href="timeout.html">
                             <i class="fa fa-chevron-right"></i>
@@ -96,7 +104,7 @@
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 13) * 6)"></div>
+                        <div class="progress-bar" style="width: calc((100% / 12) * 6)"></div>
                     </div>
 
                 </div>

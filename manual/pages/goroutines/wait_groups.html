@@ -65,14 +65,35 @@
                     <div class="content-height">
                         <p>
                             Um WaitGroup é usado para esperar que uma coleção de Goroutines termine a execução. 
-                            O controle é bloqueado até que todos os Goroutines terminem de ser executados. Digamos 
-                            que temos 3 Goroutines em execução simultânea, gerados a partir do Goroutine principal. 
-                            Os Goroutines principais precisam esperar que os outros 3 Goroutines terminem antes de 
-                            terminar.
+                            O controle é bloqueado até que todos os Goroutines terminem de ser executados. 
                         </p>
                         <pre><code class="language-go">
 var wg sync.WaitGroup
+
+// Incrementa o contador do WaitGroup
+// em 1, para que espere a goroutine que
+// será chamada a seguir.
+wg.Add(1)
+
+go func() {
+    fmt.Println("Go1")
+    
+    // Decrementa o contador do WaitGroup
+    // em 1, confirmando assim a finalização
+    // deste goroutine.
+    wg.Done()
+}()
+
+// Trava o fluxo da goroutine atual (função main)
+// até que o contador do waitGroup zere.
+wg.Wait()
                         </code></pre>
+                        <!-- <p>
+                            Digamos 
+                            que temos 3 Goroutines em execução simultânea, gerados a partir do Goroutine principal. 
+                            Os Goroutines principais precisam esperar que os outros 3 Goroutines terminem antes de 
+                            terminar.
+                        </p> -->
                     </div>
 
 
@@ -82,16 +103,16 @@ var wg sync.WaitGroup
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>12 / 13</span>
+                        <span>12 / 12</span>
 
-                        <a title="Goroutines - Web Crawler" class="pages-menu-link link-forward" href="web_crawler.html">
+                        <a title="Goroutines - Web Crawler" class="pages-menu-link link-forward" href="../generics/index.html">
                             <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 13) * 12)"></div>
+                        <div class="progress-bar" style="width: 100%"></div>
                     </div>
 
                 </div>

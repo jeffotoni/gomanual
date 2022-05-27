@@ -64,21 +64,23 @@
 
                     <div class="content-height">
                         <p>
-                            Generic structs funcionam da mesma forma que qualquer outro generic type.
+                            Generic <b>structs</b> funcionam da mesma forma que qualquer outro generic type.
                             Sendo assim, quando instanciada, deve-se passar os tipos que a struct vai usar:
                         </p>
-                        <p>
-                            modelInt := Model[int]{Data: []int{1, 2, 3}}
-                        </p>
+                        <pre><code class="language-go">
+modelInt := Model[int]{
+    Data: []int{1, 2, 3},
+}
+                        </code></pre>
                         <p>
                             Se você declarar métodos em um tipo genérico, deverá repetir a declaração do 
-                            parâmetro de tipo no receptor, mesmo que os parâmetros de tipo não sejam 
+                            parâmetro de tipo no <b>receptor</b>, mesmo que os parâmetros de tipo não sejam 
                             usados no escopo do método — nesse caso, você pode usar o identificador 
-                            _ para torná-lo óbvio
+                            <b>_</b> para torná-lo óbvio
                         </p>
                         <p>
                             Um detalhe importante é que — diferentemente das funções —, os tipos 
-                            genéricos devem sempre fornecer todos os parâmetros de tipo na instanciação.
+                            genéricos <b>devem</b> sempre fornecer todos os parâmetros de tipo na instanciação.
                         </p>
                     </div>
 

@@ -64,19 +64,22 @@
 
                     <div class="content-height">
                         <p>
-                            Por padrão, os canais são sem buffer, o que indica que eles só aceitarão envios (chan <-) 
+                            Por padrão, os canais são sem <b>buffer</b>, o que indica que eles só aceitarão envios (chan <-) 
                             se houver um recebimento (<- chan) correspondente que esteja pronto para receber o valor 
-                            enviado. Os canais com buffer permitem aceitar um número limitado de valores sem um receptor 
+                            enviado. 
+                        </p>
+                        <p>
+                            Os canais com buffer permitem aceitar um número limitado de valores <b>sem um receptor</b> 
                             correspondente para esses valores. 
                         </p>
                         <p>
                             É possível criar um canal com um buffer. Os canais com 
-                            buffer são bloqueados apenas quando o buffer está cheio. Da mesma forma, os recebimentos 
+                            buffer são bloqueados apenas quando o buffer está <b>cheio</b>. Da mesma forma, os recebimentos 
                             de um canal com buffer são bloqueados apenas quando o buffer estiver vazio.
                         </p>
                         <p>
                             Canais com buffer podem ser criados passando um parâmetro de capacidade adicional para 
-                            a função make() que especifica o tamanho do buffer.
+                            a função <b>make()</b> que especifica o tamanho do buffer.
                         </p>
                         <pre><code class="language-go">
 ch := make(chan type, capacity)
@@ -94,7 +97,7 @@ ch := make(chan type, capacity)
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>4 / 13</span>
+                        <span>4 / 12</span>
 
                         <a title="Goroutines - Channel Syncronization" class="pages-menu-link link-forward" href="channel_syncronization.html">
                             <i class="fa fa-chevron-right"></i>
@@ -103,7 +106,7 @@ ch := make(chan type, capacity)
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 13) * 4)"></div>
+                        <div class="progress-bar" style="width: calc((100% / 12) * 4)"></div>
                     </div>
 
                 </div>

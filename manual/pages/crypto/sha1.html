@@ -64,13 +64,16 @@
 
                     <div class="content-height">
                         <p>
-                            Hashes SHA1 são freqüentemente usados para calcular identidades curtas para blobs 
-                            binários ou de texto. Por exemplo, o sistema de controle de revisão git usa SHA1s 
+                            Hashes <b>SHA1</b> são freqüentemente usados para calcular identidades curtas para blobs 
+                            binários ou de texto. 
+                        </p>
+                        <p>
+                            Por exemplo, o sistema de controle de revisão git usa SHA1s 
                             extensivamente para identificar arquivos e diretórios com versão.
                         </p>
                         <p>
-                            O padrão para gerar um hash é sha1.New (), sha1.Write (bytes) e, em seguida, 
-                            sha1.Sum ([] byte {}).
+                            Para uma explicaçã técnica dessa hash, clique 
+                            <a href="https://pt.wikipedia.org/wiki/SHA-1">aqui</a>.
                         </p>
                     </div>
 
@@ -112,9 +115,7 @@ func main() {
     s := "texto maneiro"
 
     h := sha1.New()
-
     h.Write([]byte(s))
-
     bs := h.Sum(nil)
 
     fmt.Println(s)

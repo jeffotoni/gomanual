@@ -64,16 +64,26 @@
 
                     <div class="content-height">
                         <p>
-                            Uma aproximação de tipo corresponde não apenas ao próprio tipo, 
-                            como seria de esperar, mas também a qualquer tipo derivado.
+                            Uma <b>type approximation</b> corresponde não apenas ao próprio tipo, 
+                            como seria de esperar, mas também a qualquer tipo <b>derivado</b>.
                         </p>
                         <p>
-                            Cada tipo T tem um tipo subjacente: se T for um dos tipos booleanos, 
+                            Cada tipo T tem um tipo <b>subjacente</b>: se T for um dos tipos booleanos, 
                             numéricos ou de string pré-declarados, ou um tipo literal, o tipo 
-                            subjacente correspondente será o próprio T. Caso contrário, o tipo 
-                            subjacente de T é o tipo subjacente do tipo ao qual T se refere em 
-                            sua declaração de tipo.
+                            subjacente correspondente será o próprio T. 
                         </p>
+                        <p>
+                            Caso contrário, o tipo 
+                            subjacente de T é o tipo subjacente do tipo ao qual T se refere em 
+                            sua <b>declaração de tipo</b>.
+                        </p>
+                        <pre><code class="language-go">
+type InteiroPersonalizado int
+// O tipo subjacente ao tipo acima é o int
+
+type Pessoa struct{}
+// Já no caso acima, o tipo subjacente é o struct
+                        </code></pre>
                     </div>
 
 

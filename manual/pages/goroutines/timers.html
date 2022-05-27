@@ -65,25 +65,29 @@
                     <div class="content-height">
                         <p>
                             Frequentemente, queremos executar o código Go em algum ponto no futuro ou 
-                            repetidamente em algum intervalo. Os recursos de timers e tickers integrados 
-                            de Go tornam essas duas tarefas fáceis. Veremos primeiro os timers e depois os tickers.
+                            <b>repetidamente</b> em algum <b>intervalo</b>. 
+                            Os recursos de <b>timers</b> e <b>tickers</b> integrados 
+                            de Go tornam essas duas tarefas fáceis. 
                         </p>
                         <p>
-                            Os timers representam um único evento no futuro. Você diz ao timer quanto 
-                            tempo deseja esperar e ele fornece um canal que será notificado naquele momento.
+                            Veremos primeiro os timers e depois os tickers.
                         </p>
                         <p>
-                            O <-timer1.C bloqueia no canal C do timer até enviar um valor indicando que 
-                            o temporizador disparou.
-                        </p>
-                        <p>
-                            Se você apenas quisesse esperar, poderia ter usado a função time.Sleep. Um 
-                            motivo pelo qual um timer pode ser útil é que você pode cancelá-lo antes 
-                            de disparar.
+                            Os timers representam um <b>único evento no futuro</b>. Você diz ao timer quanto 
+                            tempo deseja <b>esperar</b> e ele fornece um canal que será <b>notificado</b> naquele momento.
                         </p>
                         <pre><code class="language-go">
 time.NewTimer(time.Duration)
                         </code></pre>
+                        <p>
+                            O <b><-timer1.C</b> bloqueia no canal C do timer até enviar um valor indicando que 
+                            o temporizador disparou.
+                        </p>
+                        <p>
+                            Se você apenas quisesse esperar, poderia ter usado a função time.Sleep. Um 
+                            motivo pelo qual um timer pode ser útil é que você pode <b>cancelá-lo</b> antes 
+                            de disparar.
+                        </p>
                     </div>
 
 
@@ -93,7 +97,7 @@ time.NewTimer(time.Duration)
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>10 / 13</span>
+                        <span>10 / 12</span>
 
                         <a title="Goroutines - Tickers" class="pages-menu-link link-forward" href="tickers.html">
                             <i class="fa fa-chevron-right"></i>
@@ -102,7 +106,7 @@ time.NewTimer(time.Duration)
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 13) * 10)"></div>
+                        <div class="progress-bar" style="width: calc((100% / 12) * 10)"></div>
                     </div>
 
                 </div>
