@@ -65,16 +65,19 @@
                     <div class="content-height">
                         <p>
                             Sabemos como escrever funções que podem receber argumentos de qualquer tipo. 
-                            Mas e se quisermos criar um tipo que possa conter qualquer tipo? Por exemplo, 
+                            Mas e se quisermos criar um tipo que possa conter <b>qualquer</b> tipo? 
+                        </p>
+                        <p>
+                            Por exemplo, 
                             um slice que contenha qualquer tipo.
                             Veja o exemplo a seguir:
                         </p>
+                        <pre><code class="language-go">
+type Varios[E any] []E
+                        </code></pre>
                         <p>
-                            type Varios[E any] []E
-                        </p>
-                        <p>
-                            Estamos dizendo que para qualquer elemento do tipo E, um 'Varios[E]'' é um slice 
-                            de valores do tipo E. Por exemplo, um 'Varios[int]'' é um slice de ints.
+                            Estamos dizendo que para qualquer elemento do tipo E, um <b>Varios[E]</b> é um slice 
+                            de valores do tipo E. Por exemplo, um <b>Varios[int]</b> é um slice de ints.
                         </p>
                     </div>
 

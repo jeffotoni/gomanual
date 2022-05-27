@@ -64,11 +64,14 @@
 
                     <div class="content-height">
                         <p>
-                            O ioutil.WriteFile() é usado para gravar dados em um arquivo. O método WriteFile() 
-                            aceita 3 parâmetros diferentes, o primeiro é a localização do arquivo que desejamos 
-                            gravar, o segundo é o objeto de dados e o terceiro é o FileMode, que representa o 
+                            O <b>ioutil.WriteFile()</b> é usado para gravar dados em um arquivo. O método WriteFile() 
+                            aceita 3 parâmetros diferentes, o primeiro é a <b>localização</b> do arquivo que desejamos 
+                            gravar, o segundo é o <b>objeto de dados</b> e o terceiro é o <b>FileMode</b>, que representa o 
                             modo do arquivo e os bits de permissão.
                         </p>
+                        <pre><code class="language-go">
+ioutil.WriteFile("path/to/file.txt", []byte("conteudo"), 0644)
+                        </code></pre>
                     </div>
 
 
@@ -109,8 +112,11 @@ import (
  
 func main() {
  
-    s := []byte("This is a string")                // converte string para byte slice
-    ioutil.WriteFile("testfile.txt", s, 0644)      // 0644 é a representação octal do filemode
+    // converte string para byte slice
+    s := []byte("This is a string")   
+    
+    // 0644 é a representação octal do filemode
+    ioutil.WriteFile("testfile.txt", s, 0644)     
 }
                     </textarea>
 

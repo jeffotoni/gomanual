@@ -64,13 +64,16 @@
 
                     <div class="content-height">
                         <p>
-                            A codificação base64 usa uma tabela de símbolos de 64 caracteres que inclui 
-                            A-Z, a-z, 0-9, +, /, =. Um total de 64 caracteres são usados para codificar 
+                            A codificação <b>base64</b> usa uma tabela de símbolos de 64 caracteres
+                            usados para codificar 
                             os dados em uma string contendo esses símbolos.
                         </p>
                         <p>
-                            Para converter uma string em base64, primeiro precisamos convertê-la em uma fatia de byte.
+                            Para converter uma string em base64, primeiro precisamos convertê-la em um <b>slice de byte</b>:
                         </p>
+                        <pre><code class="language-go">
+base64.StdEncoding.EncodeToString([]byte("texto"))
+                        </code></pre>
                     </div>
 
 
@@ -108,9 +111,7 @@ import (
 )
  
 func main() {
- 
     s := "golang é legal"
- 
     se := base64.StdEncoding.EncodeToString([]byte(s))
     fmt.Println(se)                                        
 }

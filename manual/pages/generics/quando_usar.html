@@ -64,18 +64,23 @@
 
                     <div class="content-height">
                         <p>
-                            Um caso é ao escrever funções que operam nos container-types
-                            definidos pela linguagem: slices, maps e channels. Se uma função tiver
+                            Um caso é ao escrever funções que operam nos <b>container-types</b>
+                            definidos pela linguagem: slices, maps e channels. 
+                        </p>
+                        <p>
+                            Se uma função tiver
                             parâmetros com esses tipos e o código da função não fizer nenhuma suposição
-                            específica sobre os tipos dos elementos, pode ser útil usar um type-parameter.
+                            específica sobre os tipos dos elementos, pode ser útil usar um <b>type-parameter</b>.
                         </p>
                         <p>
-                            Outro caso em que os type-parameters podem ser úteis é para estruturas de
-                            dados de uso geral. Uma estrutura de dados de propósito geral é algo como um
-                            slice ou um map, mas que não está embutido na linguagem, como uma linked-list
-                            ou uma árvore binária.
+                            Outro caso em que os type-parameters podem ser úteis é para <b>estruturas de dados</b> de uso geral. 
                         </p>
                         <p>
+                            Uma estrutura de dados de propósito geral é algo como um
+                            slice ou um map, mas que não está embutido na linguagem, como uma <b>linked-list</b>
+                            ou uma <b>árvore binária</b>.
+                        </p>
+                        <!-- <p>
                             Hoje, os programas que precisam dessas estruturas de dados normalmente fazem uma de
                             duas coisas: escrevem com um tipo específico ou usam um interface-type. Substituir
                             um tipo específico por um type-parameter pode
@@ -84,7 +89,7 @@
                             pode permitir que os dados sejam armazenados de forma eficiente,
                             economizando recursos de memória; ele também pode permitir que o código evite
                             declarações de tipo e seja totalmente verificado em tempo de compilação.
-                        </p>
+                        </p> -->
                         <p>
                             Para mais informações sobre quando usar generics, veja um artigo clicando
                             <a href="https://go.dev/blog/when-generics">aqui</a>
