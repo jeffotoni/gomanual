@@ -378,8 +378,8 @@ fieldset[disabled] .btn-actions-go.active {
 /* FOOTER */
 
 .main-footer {
-	background-color: #f3f3f3;
-	color: #8a8a8a;
+	background-color: #e4ebef;
+	color: #7c9aa7;
 	padding: .35rem 0;
 }
 
@@ -390,7 +390,7 @@ fieldset[disabled] .btn-actions-go.active {
 }
 
 .main-footer a {
-	color: #8a8a8a;
+	color: #7c9aa7;
 }
 
 .main-footer a:hover,

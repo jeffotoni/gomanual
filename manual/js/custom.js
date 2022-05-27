@@ -14,6 +14,8 @@ const toggleColumnLeft = function (elButton) {
     if (!isOpen) {
 
         $('.column-text .column-content').show();
+        $('.column-text .column-code-close').show();
+        $('.column-text .column-text-close').show();
         $('.column-text').css('width', '50%');
         $('.column-code').css('width', '50%');
 
@@ -22,6 +24,8 @@ const toggleColumnLeft = function (elButton) {
     } else {
 
         $('.column-text .column-content').hide();
+        $('.column-text .column-text-close').hide();
+        $('.column-text .column-code-close').hide();
         // $('.column-code .column-text-close').hide();
         $('.column-text').css('width', '3%');
         $('.column-code').css('width', '97%');
@@ -41,6 +45,7 @@ const toggleColumnRight = function (elButton) {
     if (!isOpen) {
 
         $('.column-code .column-content').show();
+        $('.column-code .column-code-close').show();
         $('.column-code').css('width', '50%');
         $('.column-text').css('width', '50%');
 
@@ -49,9 +54,10 @@ const toggleColumnRight = function (elButton) {
     } else {
 
         $('.column-code .column-content').hide();
+        $('.column-code .column-code-close').hide();
         // $('.column-code .column-code-close').hide();
-        $('.column-text').css('width', '3%');
-        $('.column-code').css('width', '97%');
+        $('.column-code').css('width', '3%');
+        $('.column-text').css('width', '97%');
 
         elButton.attr('data-open', 'false');
 
