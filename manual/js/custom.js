@@ -1,3 +1,16 @@
+$(function() {
+        
+    $('.list-group-item').on('click', function() {
+
+        $(this).children('span').children('.list-icon-chevron')
+            .toggleClass('fa-chevron-up')
+            .toggleClass('fa-chevron-down');
+
+        $($(this).attr('href'))
+            .toggleClass('show');
+    });
+
+});
 
 $(document).ready(function () {
     renderProgress(35);
@@ -160,4 +173,15 @@ const renderProgress = function (progress) {
     }
 
     $('.text').html(progress + '%');
-}
+};
+
+
+const openPopupContentOverview = function () {
+    $('.shadow-overlay').show();
+    $('.content-overview').show();
+};
+
+const closePopupContentOverview = function () {
+    $('.content-overview').hide();
+    $('.shadow-overlay').hide();
+};
