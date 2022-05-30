@@ -178,10 +178,29 @@ const renderProgress = function (progress) {
 
 const openPopupContentOverview = function () {
     $('.shadow-overlay').show();
+    $('.shadow-overlay').attr('data-popup', 'content-overview');
     $('.content-overview').show();
 };
 
-const closePopupContentOverview = function () {
-    $('.content-overview').hide();
+const closeShadowOverlay = function (elShadow) {
+    const popupClose = elShadow.attr('data-popup');
+
+    if (popupClose == 'content-overview') {
+
+        $('.content-overview').hide();
+
+    } else if (popupClose == 'dropdown-languages') {
+
+        $('.dropdown-languages').hide();
+
+    }
+
+    elShadow.removeAttr('data-popup');
     $('.shadow-overlay').hide();
+};
+
+const toggleLanguageDropdown = function () {
+    $('.shadow-overlay').show();
+    $('.shadow-overlay').attr('data-popup', 'dropdown-languages');
+    $('.dropdown-languages').slideToggle();
 };
