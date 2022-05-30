@@ -63,17 +63,16 @@
 
 
                     <div class="content-height">
+                        <p>
+                            Para fazer uma solicitação com cabeçalhos personalizados, 
+                            use <b>NewRequest</b> e <b>Client.Do</b>.
+                        </p>
                         <pre><code class="language-go">
 func (c * Client) Get (url string) (resp * Response, err error)
                         </code></pre>
                         <p>
-                            Quando err é nulo, resp sempre contém um resp.Body não nulo. O chamador deve fechar o 
-                            resp.Body quando terminar de ler.
-                        </p>
-                        <p>
-                            Para fazer uma solicitação com cabeçalhos personalizados, use NewRequest e Client.Do.
-
-                            Para fazer uma solicitação com um context.Context especificado, use NewRequestWithContext e Client.Do. 
+                            Para fazer uma solicitação com um context.Context especificado, 
+                            use <b>NewRequestWithContext</b> e <b>Client.Do</b>. 
                         </p>
                     </div>
 

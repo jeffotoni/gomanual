@@ -64,11 +64,14 @@
 
                     <div class="content-height">
                         <p>
-                            Um handler é um objeto que implementa a interface http.Handler.
+                            Um <b>handler</b> é um objeto que implementa a interface <b>http.Handler</b>.
                         </p>
+                        <pre><code class="language-go">
+func HandleFunc(pattern string, handler func(ResponseWriter, *Request))
+                        </code></pre>
                         <p>
-                            As funções que servem como handlers recebem um http.ResponseWriter 
-                            e um http.Request como argumentos.
+                            As funções que servem como handlers recebem um <b>http.ResponseWriter</b> 
+                            e um <b>http.Request</b> como argumentos.
                         </p>
                     </div>
 

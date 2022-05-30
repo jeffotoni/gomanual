@@ -64,16 +64,17 @@
 
                     <div class="content-height">
                         <p>
-                            FileServer retorna um manipulador que atende a solicitações HTTP com o conteúdo do 
+                            <b>FileServer</b> retorna um manipulador que atende a 
+                            solicitações <b>HTTP</b> com o conteúdo do 
                             sistema de arquivos enraizado na raiz.
-                        </p>
-                        <p>
-                            Como um caso especial, o servidor de arquivo retornado redireciona qualquer solicitação 
-                            terminando em "/index.html" para o mesmo caminho, sem o "index.html" final. 
                         </p>
                         <pre><code class="language-go">
 func FileServer(root FileSystem) Handler
                         </code></pre>
+                        <p>
+                            Como um caso especial, o servidor de arquivo retornado redireciona qualquer solicitação 
+                            terminando em <b>"/index.html"</b> para o mesmo caminho, sem o <b>"index.html"</b> final. 
+                        </p>
                     </div>
 
 

@@ -64,12 +64,12 @@
 
                     <div class="content-height">
                         <p>
-                            Com groups, você pode criar cadeias de handlers e paths, sem ter que definí-los
-                            para cada endpoint manualmente.
+                            Com <b>groups</b>, você pode criar cadeias de handlers e paths, sem ter que definí-los
+                            para cada endpoint <b>manualmente</b>.
                         </p>
                         <p>
                             Os group handlers também podem ser usados, 
-                            mas devem executar a função Next para que o fluxo possa continuar.
+                            mas devem executar a função <b>Next</b> para que o fluxo possa continuar.
                         </p>
                         <p>
                             Para mais informações sobre Grouping em Fiber, clique 
@@ -112,7 +112,8 @@ func main() {
     }
     api := app.Group("/api") // /api
 
-    v1 := api.Group("/v1", func(c *fiber.Ctx) error { // middleware for /api/v1
+    // middleware for /api/v1
+    v1 := api.Group("/v1", func(c *fiber.Ctx) error { 
         c.Set("Version", "v1")
         return c.Next()
     })

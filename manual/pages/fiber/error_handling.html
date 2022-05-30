@@ -64,17 +64,23 @@
 
                     <div class="content-height">
                         <p>
-                            É essencial garantir que o Fiber detecte todos os erros que ocorrem durante a
-                            execução de handlers e middlewares. Você deve retorná-los à função
+                            É essencial garantir que o Fiber detecte todos os <b>erros</b> que ocorrem durante a
+                            execução de <b>handlers</b> e <b>middlewares</b>. 
+                        </p>
+                        <p>
+                            Você deve retorná-los à função
                             do handler, onde o Fiber os capturará e processará.
                         </p>
                         <p>
                             Fiber não lida com panics por padrão. Para recuperar um panic gerado
-                            por qualquer handler na pilha, você precisa incluir o middleware Recover.
+                            por qualquer handler na pilha, você precisa incluir o middleware <b>Recover</b>.
                         </p>
                         <p>
                             Você pode usar a estrutura de erro personalizada do Fiber para passar um status
-                            code adicional usando fiber.NewError(). É opcional passar uma mensagem; se
+                            code adicional usando <b>fiber.NewError()</b>. 
+                        </p>
+                        <p>
+                            É opcional passar uma mensagem; se
                             for deixado em branco, o padrão será a mensagem de código de status (Ex: 404 é igual
                             a "Not Found").
                         </p>

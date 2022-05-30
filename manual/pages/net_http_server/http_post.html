@@ -64,14 +64,18 @@
 
                     <div class="content-height">
                         <pre><code class="language-go">
-func (c *Client) Post(url, contentType string, body io.Reader) (resp *Response, err error)
+func (c *Client) Post(
+    url, 
+    contentType string, 
+    body io.Reader
+) (resp *Response, err error)
                         </code></pre>
                         <p>
-                            Post emite um POST para o URL especificado.
+                            Post emite um <b>POST</b> para o URL especificado.
 
-                            O chamador deve fechar o resp.Body quando terminar de ler.
+                            O chamador deve fechar o <b>resp.Body</b> quando terminar de ler.
 
-                            Se o corpo fornecido for um io.Closer, ele será fechado após a solicitação.
+                            Se o corpo fornecido for um <b>io.Closer</b>, ele será fechado após a solicitação.
 
                             Para definir cabeçalhos personalizados, use NewRequest e Client.Do.
                         </p>

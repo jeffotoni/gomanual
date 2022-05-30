@@ -64,14 +64,14 @@
 
                     <div class="content-height">
                         <p>
-                            O middleware CSRF fornece proteção contra
+                            O middleware <b>CSRF</b> fornece proteção contra
                             <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery">falsificação de solicitação entre sites</a>
                             passando um token CSRF por meio de cookies.
                         </p>
                         <p>
-                            Esse cookie será usado para comparar com o token CSRF do cliente nas
-                            solicitações POST. Quando o token CSRF for inválido, esse middleware excluirá
-                            o cookie csrf_ e retornará o erro fiber.ErrForbidden.
+                            Esse cookie será usado para comparar com o <b>token CSRF</b> do cliente nas
+                            solicitações <b>POST</b>. Quando o token CSRF for inválido, esse middleware excluirá
+                            o cookie csrf_ e retornará o erro <b>fiber.ErrForbidden</b>.
                         </p>
                         <p>
                             Para mais informações sobre o middleware CSRF, clique

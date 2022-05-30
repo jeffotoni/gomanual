@@ -73,9 +73,13 @@
                             função genérica, você <b>provê</b> o type parameter esperado para aquela execução,
                             e o compilador garante que os parâmetros passados o satisfaçam.
                         </p>
-                        <p>
-                            Veja o exemplo ao lado.
-                        </p>
+                        <pre><code class="language-go">
+// Type parameter implícito
+MinhaFunc(1, 2)
+
+// Instantiation
+MinhaFunc[string]("1", "2")
+                        </code></pre>
                         <p>
                             Para mais informações sobre Instantiation, veja um artigo clicando
                             <a href="https://go.dev/blog/intro-generics#type-parameters">aqui</a>

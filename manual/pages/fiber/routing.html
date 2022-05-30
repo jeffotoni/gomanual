@@ -64,13 +64,13 @@
 
                     <div class="content-height">
                         <p>
-                            Roteamento refere-se a determinar como um aplicativo responde a uma 
-                            solicitação de cliente para um determinado endpoint, que é um URI 
+                            <b>Roteamento</b> refere-se a determinar como um aplicativo responde a uma 
+                            solicitação de cliente para um determinado <b>endpoint</b>, que é um URI 
                             (ou caminho) e um método de solicitação HTTP específico (GET, PUT, POST 
                             e assim por diante).
                         </p>
                         <p>
-                            Cada rota pode ter vários handlers, que são executados 
+                            Cada rota pode ter vários <b>handlers</b>, que são executados 
                             quando a rota é chamada.
                         </p>
                         <pre><code class="language-go">
@@ -87,7 +87,7 @@ app.Method(path string, ...func(*fiber.Ctx) error)
                             </li>
                         </ul>
                         <p>
-                            Quando usar um path contendo url parameters, use a função c.Params para 
+                            Quando usar um path contendo url parameters, use a função <b>c.Params</b> para 
                             recuperá-los.
                         </p>
                         <p>
