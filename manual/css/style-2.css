@@ -148,6 +148,15 @@ a {
 	font-weight: 400;
 }
 
+.page-body .page-title {
+    border-bottom: 1px solid #d7dee2;
+    color: #05192e;
+	font-size: 26px;
+    font-weight: 700;
+    margin: 1rem 0 3rem;
+    padding: 0 0 1rem;
+}
+
 .page-body .main-title {
 	font-size: 22px;
     font-weight: 700;
@@ -1115,11 +1124,11 @@ body {
 	border-radius: 0;
 }
 
-.popup-share-manual .share-manual-social {
+.share-manual-social {
 	text-align: center;
 }
 
-.popup-share-manual .share-manual-social > a {
+.share-manual-social > a {
     background-color: #f9f9f9;
     border: 1px solid #d8d7d8;
     display: inline-block;
@@ -1135,8 +1144,61 @@ body {
     padding: 9px 0;
 }
 
-.popup-share-manual .share-manual-social > a:hover {
+.share-manual-social > a:hover {
 	background-color: #037D9C;
 	border-color: #037D9C;
 	color: #FFF;
+}
+
+/* Page artigos favoritos */
+
+.row-favs .card {
+	border: 0 none;
+	padding: 15px;
+	border-radius: 6px;
+	margin-bottom: 30px;
+}
+
+.row-favs .card .card-header {
+	background-color: #FFF;
+	border-bottom: 0 none;
+}
+
+.row-favs .card .card-header h3 {
+	font-size: 18px;
+	margin: 5px 0;
+	font-weight: bold;
+	color: #05192e;
+}
+
+.row-favs .card .card-header .fa {
+	color: #67808a;
+	font-size: 18px;
+}
+
+.row-favs .card .card-body .card-text {
+	font-size: 15px;
+	color: #898989;
+	line-height: 1.2;
+}
+
+.row-favs .card .card-footer {
+	background-color: #FFF;
+	border-top: 0 none;	
+}
+
+.row-favs .card .card-footer .share-manual-social > a {
+	width: 40px;
+	height: 40px;
+	font-size: 16px;
+	padding: 7px 0;
+}
+
+@media (max-width: 1120px) {
+	.row-favs .card .card-footer .share-manual-social > a {
+		width: 30px;
+		height: 30px;
+		font-size: 14px;
+		padding: 4px 0;
+	}
 }
