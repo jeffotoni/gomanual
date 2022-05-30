@@ -201,6 +201,10 @@ const closeShadowOverlay = function (elShadow) {
 
         $('.popup-share-manual').hide();
 
+    } else if (popupClose == 'dropdown-progress') {
+
+        $('.dropdown-progress').hide();
+
     }
 
     elShadow.removeAttr('data-popup');
@@ -217,6 +221,12 @@ const toggleDotsMenuDropdown = function () {
     $('.shadow-overlay').show();
     $('.shadow-overlay').attr('data-popup', 'dropdown-dots-menu');
     $('.dropdown-dots-menu').show();
+};
+
+const toggleProgressDropdown = function () {
+    $('.shadow-overlay').show();
+    $('.shadow-overlay').attr('data-popup', 'dropdown-progress');
+    $('.dropdown-progress').show();
 };
 
 const openPopupShareManual = function () {

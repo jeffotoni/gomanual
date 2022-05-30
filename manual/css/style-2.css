@@ -232,10 +232,26 @@ a {
 	margin-left: -55px;
 }
 
+.gopher-column-code-footer {
+    width: 70px;
+    display: block;
+    position: absolute;
+    bottom: 35px;
+    left: 75%;
+    margin-left: -55px;
+}
+
 @media (max-width: 768px) {
 	.gopher-column-code {
 		bottom: -5rem;
 		position: relative;
+	}
+
+	.gopher-column-code-footer {
+		width: 70px;
+		bottom: 35px;
+		left: 50%;
+		margin-left: -35px;
 	}
 }
 
@@ -445,6 +461,10 @@ fieldset[disabled] .btn-copiar.active {
 	padding: .35rem 0;
 }
 
+.main-footer-gopher {
+	position: relative;
+}
+
 @media (max-width: 768px) {
 	.main-footer {
 		margin: 5rem 0 0;
@@ -509,6 +529,7 @@ fieldset[disabled] .btn-copiar.active {
     cursor: pointer;
     padding: 3px 0;
     margin: 0 15px;
+    position: relative;
 }
 
 .navbar-toggler {
@@ -1097,13 +1118,6 @@ body {
 	}
 }
 
-.content-overview-title {
-	font-size: 16px;
-	font-weight: bold;
-	color: #05192e;
-	margin-bottom: 20px;
-}
-
 .popup-share-manual .input-group {
 	border-radius: 0;
 	overflow: hidden;
@@ -1151,6 +1165,10 @@ body {
 }
 
 /* Page artigos favoritos */
+
+.row-favs {
+	margin-bottom: 3rem;
+}
 
 .row-favs .card {
 	border: 0 none;
@@ -1201,4 +1219,93 @@ body {
 		font-size: 14px;
 		padding: 4px 0;
 	}
+}
+
+/* Progress dropdown */
+
+.dropdown-progress {
+    position: absolute;
+    top: 100%;
+    right: -5px;
+    width: 350px;
+    z-index: 6;
+    padding: 0;
+    margin-top: 5px;
+    display: none;
+    text-align: left;
+    background-color: #fff;
+    border: 0 none;
+    border-radius: 4px;
+	-webkit-box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
+	-moz-box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
+	box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
+}
+
+@media (max-width: 768px) {
+
+	.dropdown-progress {
+		top: 100px;
+		right: 20px;
+		left: 20px;
+		margin: 0;
+		position: fixed;
+		width: calc(100% - 40px);
+	}
+}
+
+.dropdown-progress-item {
+	color: #67808a;
+	font-size: 14px;
+	cursor: pointer;
+	display: block;
+	padding: 12px;
+	border-bottom: 1px solid #eee;
+	-webkit-transition: color 0.15s ease-in-out 0s;
+	-moz-transition: color 0.15s ease-in-out 0s;
+	-o-transition: color 0.15s ease-in-out 0s;
+	-ms-transition: color 0.15s ease-in-out 0s;
+	transition: color 0.15s ease-in-out 0s;
+}
+
+.dropdown-progress-item .fa,
+.dropdown-progress-item span {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 .5rem;
+}
+
+.dropdown-progress-item:hover {
+	color: #46575e;
+}
+
+.dropdown-progress-title {
+	font-size: 14px;
+	font-weight: bold;
+	color: #05192e;
+	margin-bottom: 20px;
+}
+
+.dropdown-progress .progress {
+    height: 10px;
+    border-radius: 0.5rem;
+    width: 80%;
+    position: relative;
+    background-color: #f4f1b8;
+}
+
+.dropdown-progress .progress .progress-bar {
+	background-color: #f0e759;
+}
+
+.dropdown-progress .btn-popup-progress {
+	background-color: transparent;
+	border-color: #a2b9c3;
+	color: #67808a;
+	font-size: 14px;
+}
+
+.dropdown-progress .btn-popup-progress:hover {
+	background-color: #67808a;
+	border-color: #67808a;
+	color: #fff;
 }
