@@ -64,15 +64,20 @@
 
                     <div class="content-height">
                         <p>
-                            ListenAndServe escuta o endereço de rede TCP addr e então chama o servidor com manipulador 
-                            para lidar com solicitações em conexões de entrada. As conexões aceitas são configuradas 
-                            para habilitar keep-alives TCP.
+                            <b>ListenAndServe</b> escuta o endereço de rede <b>TCP</b> addr 
+                            e então chama o servidor com manipulador 
+                            para lidar com solicitações em conexões de entrada. 
+                            As conexões aceitas são configuradas 
+                            para habilitar <b>keep-alives</b> TCP.
+                        </p>
+                        <pre><code class="language-go">
+func ListenAndServe(addr string, handler Handler) error
+                        </code></pre>
+                        <p>
+                            O manipulador é normalmente <b>nulo</b>, caso em que o <b>DefaultServeMux</b> é usado.
                         </p>
                         <p>
-                            O manipulador é normalmente nulo, caso em que o DefaultServeMux é usado.
-                        </p>
-                        <p>
-                            ListenAndServe sempre retorna um erro não nulo. 
+                            ListenAndServe sempre retorna um <b>erro</b> não nulo. 
                         </p>
                     </div>
 

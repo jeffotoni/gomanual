@@ -64,17 +64,21 @@
 
                     <div class="content-height">
                         <p>
-                            Um cliente é um cliente HTTP. Seu valor zero (DefaultClient) é um cliente utilizável que 
-                            usa DefaultTransport.
+                            Um cliente é um <b>cliente HTTP</b>. Seu valor zero (<b>DefaultClient</b>) é um cliente utilizável que 
+                            usa <b>DefaultTransport</b>.
                         </p>
+                        <pre><code class="language-go">
+type Client struct {
+	Transport RoundTripper
+	CheckRedirect func(req *Request, via []*Request) error
+	Jar CookieJar
+	Timeout time.Duration
+}
+                        </code></pre>
                         <p>
                             O Transporte do Cliente normalmente tem estado interno (conexões TCP em cache), portanto, 
-                            os Clientes devem ser reutilizados em vez de criados conforme necessário. Os clientes estão 
-                            seguros para uso simultâneo por várias goroutines.
-                        </p>
-                        <p>
-                            Um cliente é de nível mais alto do que um RoundTripper (como Transporte) e, adicionalmente, 
-                            lida com detalhes HTTP, como cookies e redirecionamentos. 
+                            os Clientes devem ser <b>reutilizados</b> em vez de criados conforme necessário. Os clientes estão 
+                            seguros para <b>uso simultâneo</b> por várias goroutines.
                         </p>
                     </div>
 

@@ -64,14 +64,14 @@
 
                     <div class="content-height">
                         <p>
-                            O benchmarking mede o desempenho de uma função ou programa. Isso permite 
+                            O <b>benchmarking</b> mede o desempenho de uma função ou programa. Isso permite 
                             comparar implementações e entender o impacto das alterações feitas em seu 
                             código.
                         </p>
                         <p>
                             Em Go, funções que assumem a forma 'func BenchmarkXxx(*testing.B)' são 
-                            consideradas benchmarks. go test executará esses benchmarks quando você 
-                            fornecer a flag -bench. Os benchmarks são executados sequencialmente.
+                            consideradas benchmarks. <b>go test</b> executará esses benchmarks quando você 
+                            fornecer a flag <b>-bench</b>. Os benchmarks são executados sequencialmente.
                         </p>
                         <pre><code class="language-go">
 > go test -bench=.
@@ -85,8 +85,8 @@ PASS
 ok      ./math 2.074s
                         </code></pre>
                         <p>
-                            A saída resultante significa que o loop foi executado 10.000.000 vezes a 
-                            uma velocidade de 1,07 nanossegundos por loop.
+                            A saída resultante significa que o loop foi executado <b>10.000.000</b> vezes a 
+                            uma velocidade de <b>1,07 nanossegundos</b> por loop.
                         </p>
                     </div>
 
