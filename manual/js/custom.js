@@ -193,6 +193,14 @@ const closeShadowOverlay = function (elShadow) {
 
         $('.dropdown-languages').hide();
 
+    } else if (popupClose == 'dropdown-dots-menu') {
+
+        $('.dropdown-dots-menu').hide();
+
+    } else if (popupClose == 'share-manual') {
+
+        $('.popup-share-manual').hide();
+
     }
 
     elShadow.removeAttr('data-popup');
@@ -202,5 +210,34 @@ const closeShadowOverlay = function (elShadow) {
 const toggleLanguageDropdown = function () {
     $('.shadow-overlay').show();
     $('.shadow-overlay').attr('data-popup', 'dropdown-languages');
-    $('.dropdown-languages').slideToggle();
+    $('.dropdown-languages').show();
 };
+
+const toggleDotsMenuDropdown = function () {
+    $('.shadow-overlay').show();
+    $('.shadow-overlay').attr('data-popup', 'dropdown-dots-menu');
+    $('.dropdown-dots-menu').show();
+};
+
+const openPopupShareManual = function () {
+    $('.shadow-overlay').show();
+    $('.shadow-overlay').attr('data-popup', 'share-manual');
+    $('.dropdown-dots-menu').hide();
+    $('.popup-share-manual').show();
+    $('.popup-share-manual .btn-copiar').html('Copiar');
+};
+
+
+const copyShareManualClipboard = function (elButton) {
+    /* Get the text field */
+    var copyText = document.getElementById("shareManualLink");
+
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyText.value);
+
+    elButton.html('Copiado!');
+}

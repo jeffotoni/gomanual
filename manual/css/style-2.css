@@ -381,6 +381,52 @@ fieldset[disabled] .btn-actions-go.active {
 	background-color: #ffffff; 
 }
 
+.btn-copiar { 
+	color: #FFFFFF; 
+	background-color: #037D9C; 
+	border-color: #037D9C; 
+} 
+
+.btn-copiar:hover, 
+.btn-copiar:focus, 
+.btn-copiar:active, 
+.btn-copiar.active, 
+.open .dropdown-toggle.btn-copiar { 
+	color: #FFFFFF; 
+	background-color: #02556a; 
+	border-color: #02556a; 
+} 
+
+.btn-copiar:active, 
+.btn-copiar.active, 
+.open .dropdown-toggle.btn-copiar { 
+	background-image: none; 
+} 
+
+.btn-copiar.disabled, 
+.btn-copiar[disabled], 
+fieldset[disabled] .btn-copiar, 
+.btn-copiar.disabled:hover, 
+.btn-copiar[disabled]:hover, 
+fieldset[disabled] .btn-copiar:hover, 
+.btn-copiar.disabled:focus, 
+.btn-copiar[disabled]:focus, 
+fieldset[disabled] .btn-copiar:focus, 
+.btn-copiar.disabled:active, 
+.btn-copiar[disabled]:active, 
+fieldset[disabled] .btn-copiar:active, 
+.btn-copiar.disabled.active, 
+.btn-copiar[disabled].active, 
+fieldset[disabled] .btn-copiar.active { 
+	background-color: #037D9C; 
+	border-color: #037D9C; 
+} 
+
+.btn-copiar .badge { 
+	color: #037D9C; 
+	background-color: #FFFFFF; 
+}
+
 
 /* FOOTER */
 
@@ -419,7 +465,7 @@ fieldset[disabled] .btn-actions-go.active {
     width: 30px;
     text-align: center;
     height: auto;
-    padding: 3px 0;
+    padding: 7px 0;
 }
 
 .header-menu-flag {
@@ -941,6 +987,7 @@ body {
 	display: none;
 	background-color: #fff;
 	border: 1px solid #b2b7bc;
+	text-align: left;
 	border-radius: 4px;
 	-webkit-box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
 	-moz-box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
@@ -966,4 +1013,130 @@ body {
 
 .dropdown-languages-item.dropdown-languages-item-active {
 	font-weight: bold;
+}
+
+/* Dots menu dropdown */
+
+.dropdown-dots-menu {
+	position: absolute;
+	top: 100%;
+	right: 15px;
+	width: 280px;
+	z-index: 6;
+	margin-top: -5px;
+	display: none;
+	text-align: left;
+	background-color: #fff;
+	border: 1px solid #b2b7bc;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
+	-moz-box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
+	box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
+}
+
+.dropdown-dots-menu-item {
+	color: #67808a;
+	font-size: 14px;
+	cursor: pointer;
+	display: block;
+	padding: 12px;
+	border-bottom: 1px solid #eee;
+	-webkit-transition: color 0.15s ease-in-out 0s;
+	-moz-transition: color 0.15s ease-in-out 0s;
+	-o-transition: color 0.15s ease-in-out 0s;
+	-ms-transition: color 0.15s ease-in-out 0s;
+	transition: color 0.15s ease-in-out 0s;
+}
+
+.dropdown-dots-menu-item .fa,
+.dropdown-dots-menu-item span {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 .5rem;
+}
+
+.dropdown-dots-menu-item:hover {
+	color: #46575e;
+}
+
+/* Popup compartilhar manual */
+
+.popup-share-manual {
+	position: fixed;
+	width: 600px;
+	left: 50%;
+	margin-left: -300px;
+	background-color: #fff;
+	border: 1px solid #9ba1a7;
+	border-radius: 4px;
+	z-index: 6;
+	padding: 30px;
+	top: 15%;
+	display: none;
+	-webkit-box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
+	-moz-box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
+	box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
+}
+
+@media (max-width: 768px) {
+	.popup-share-manual {
+		width: calc(100% - 30px);
+		left: 15px;
+		right: 15px;
+		top: 15px;
+		margin-left: 0;
+	}
+}
+
+.content-overview-title {
+	font-size: 16px;
+	font-weight: bold;
+	color: #05192e;
+	margin-bottom: 20px;
+}
+
+.popup-share-manual .input-group {
+	border-radius: 0;
+	overflow: hidden;
+}
+
+.popup-share-manual .form-control {
+	background-color: #f9f9f9;
+	border-radius: 0;
+	border: 1px solid #ececec;
+	color: #929292;
+    font-size: 14px;
+    padding: 11px;
+    outline: none;
+}
+
+.popup-share-manual .btn-copiar {
+	padding: 10px 15px;
+	border-radius: 0;
+}
+
+.popup-share-manual .share-manual-social {
+	text-align: center;
+}
+
+.popup-share-manual .share-manual-social > a {
+    background-color: #f9f9f9;
+    border: 1px solid #d8d7d8;
+    display: inline-block;
+    vertical-align: middle;
+    color: #67808a;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 0 0.3rem;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 21px;
+    padding: 9px 0;
+}
+
+.popup-share-manual .share-manual-social > a:hover {
+	background-color: #037D9C;
+	border-color: #037D9C;
+	color: #FFF;
 }
