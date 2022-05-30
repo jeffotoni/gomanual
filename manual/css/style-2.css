@@ -402,8 +402,7 @@ fieldset[disabled] .btn-actions-go.active {
 /* Header menu columns */
 
 .header-menu-col {
-	display: inline-block;
-	vertical-align: middle;
+	float: left;
 	color: #FFF;
 }
 
@@ -449,6 +448,47 @@ fieldset[disabled] .btn-actions-go.active {
     margin: 0 15px;
 }
 
+.navbar-toggler {
+	display: none;
+}
+
+.navbar-toggler .fa {
+	color: #fafafa;
+	font-size: 21px;
+}
+
+@media (max-width: 830px) {
+
+	.navbar-collapse-toggle {
+		text-align: center;
+	}
+
+	.navbar-toggler {
+		display: block;
+	    float: right;
+	}
+}
+
+@media (max-width: 768px) {
+	.header-menu-col {
+		display: inline-block;
+		vertical-align: middle;
+		float: none;
+	}
+
+	.main-header-title {
+		font-size: 21px;
+	}
+
+	.main-header-logo {
+		width: 58px;
+	}
+
+	.navbar-collapse-toggle {
+		padding: 0 0 10px;
+	}
+}
+
 /* Round progress */
 
 .main-header-progress {
@@ -462,7 +502,6 @@ fieldset[disabled] .btn-actions-go.active {
     position: relative;
     width: 32px;
     height: 32px;
-    float:left;
     user-select: none;
     box-sizing: border-box;
 }
@@ -579,6 +618,22 @@ body {
 	padding: 0;
 }
 
+.page-body .column-text-hide {
+	width: calc(3% - 10px);
+}
+
+.page-body .column-text-expand {
+	width: 97%;
+}
+
+.page-body .column-code-hide {
+	width: calc(3% - 10px);
+}
+
+.page-body .column-code-expand {
+	width: 97%;
+}
+
 @media (max-width: 768px) {
 
 	.page-body {
@@ -625,12 +680,34 @@ body {
 	margin-left: -5px;
 }
 
-.column-header .column-header-button:not(.fa-star-o) {
+.column-text .column-header-button:not(.fa-star-o,.fa-chevron-right) {
+	border-left: 1px solid #bccbd2;
+}
+
+.column-code .column-header-button:not(.fa-chevron-left) {
 	border-left: 1px solid #bccbd2;
 }
 
 .column-header .column-header-button:hover {
 	background-color: #cbd7dc;
+}
+
+.column-header-actions .column-header-button.fa-chevron-up,
+.column-header-actions .column-header-button.fa-chevron-down {
+	display: none;
+}
+
+@media (max-width: 768px) {
+
+	.column-header-actions .column-header-button.fa-chevron-left,
+	.column-header-actions .column-header-button.fa-chevron-right {
+		display: none;
+	}
+
+	.column-header-actions .column-header-button.fa-chevron-up,
+	.column-header-actions .column-header-button.fa-chevron-down {
+		display: inline-block;
+	}
 }
 
 .column-header .column-header-star {
