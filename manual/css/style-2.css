@@ -498,13 +498,15 @@ fieldset[disabled] .btn-copiar.active {
 }
 
 .header-menu-flag {
-	margin-right: 10px;
+	margin-right: 13px;
 	cursor: pointer;
 	position: relative;
+	margin-top: 7px;
 }
 
 .header-menu-flag > img {
-	width: 26px;
+	width: 28px;
+	border: 1px solid rgba(255, 255, 255, .6);
 }
 
 .header-menu-icon:hover {
@@ -517,11 +519,19 @@ fieldset[disabled] .btn-copiar.active {
     width: 30px;
     text-align: center;
     height: auto;
-    padding: 3px 0;
+    margin-top: 5px;
 }
 
 .header-menu-star:hover {
 	background-color: rgba(255, 255, 255, .1);
+}
+
+.header-menu-star > a {
+	display: block;
+	height: 100%;
+	width: 100%;
+	color: inherit;
+    padding: 3px 0;
 }
 
 .header-menu-text {
@@ -530,6 +540,22 @@ fieldset[disabled] .btn-copiar.active {
     padding: 3px 0;
     margin: 0 15px;
     position: relative;
+}
+
+.header-menu-dots {
+	margin-top: 5px;
+}
+
+.header-menu-avatar > img {
+	width: 38px;
+	border: 2px solid #FFF;
+	border-radius: 50%;
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.header-menu-avatar > img:hover {
+	opacity: 0.95;
 }
 
 .navbar-toggler {
@@ -582,19 +608,25 @@ fieldset[disabled] .btn-copiar.active {
 	margin-right: 10px;
 }
 
-.loader{
+.header-progress-loader {
     position: relative;
-    width: 32px;
-    height: 32px;
+    width: 42px;
+    height: 42px;
     user-select: none;
     box-sizing: border-box;
+	cursor: pointer;
 }
+
+.header-progress-loader:hover {
+	opacity: 0.95;
+}
+
 .loader-bg
 {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 4px solid rgba(255, 255, 255, 0.3);
     box-sizing: border-box;
 }
 .spiner-holder-one
@@ -624,7 +656,7 @@ fieldset[disabled] .btn-copiar.active {
     width: 200%;
     height: 200%;
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 4px solid rgba(255, 255, 255, 1);
     box-sizing: border-box;
 }  
   .animate-0-25-a
@@ -670,10 +702,9 @@ fieldset[disabled] .btn-copiar.active {
 .text
 {
     text-align: center;
-    padding-top: 23%;
-    font-size: 11px;
-    color: rgba(255, 255, 255, 0.6);
-    display: none;
+    padding-top: 8px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 1);
 }
 
 /* Main page layout */
@@ -764,16 +795,23 @@ body {
 	margin-left: -5px;
 }
 
-.column-text .column-header-button:not(.fa-star-o,.fa-chevron-right) {
+.column-text .column-header-button:not(.fa-star-o,.fa-star,.fa-chevron-right) {
 	border-left: 1px solid #bccbd2;
 }
 
-.column-code .column-header-button:not(.fa-chevron-left) {
+.column-code .column-header-button:not(.fa-chevron-left),
+.column-code.column-code-expand .column-header-button:not(.fa-chevron-left) {
 	border-left: 1px solid #bccbd2;
 }
 
-.column-header .column-header-button:hover {
+.column-header .column-header-button:not(.column-star-button):hover {
 	background-color: #cbd7dc;
+}
+
+.column-header .column-star-button {
+    font-size: 27px;
+    padding: 0;
+    margin-right: 14px;
 }
 
 .column-header-actions .column-header-button.fa-chevron-up,
@@ -818,6 +856,38 @@ body {
 	bottom: 0;
 	z-index: 5;
 	display: none;
+}
+
+.popup-close {
+    background-color: #f9f9f9;
+    border: 1px solid #d6d6d6;
+    color: #67808a;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    line-height: 17px;
+    padding: 0px;
+    font-size: 23px;
+}
+
+.popup-close:hover {
+	background-color: #eaeaea;
+	border-color: #ccc;
+}
+
+.popup-close.popup-close-mobile {
+	display: none;
+}
+
+@media (max-width: 768px) {
+	.popup-close.popup-close-mobile {
+		display: block;
+	}
 }
 
 .content-overview,
@@ -1440,7 +1510,7 @@ body {
     width: 350px;
     z-index: 6;
     padding: 0;
-    margin-top: 5px;
+    margin-top: 40px;
     display: none;
     text-align: left;
     background-color: #fff;
@@ -1590,4 +1660,34 @@ body {
 .btn-sidebar-login .fa {
 	margin-right: 15px;
 	font-size: 18px;
+}
+
+/* Code textarea controls */
+
+.play > .input {
+	position: relative;
+}
+
+.code-controls {
+	background-color: rgba(0, 0, 0, .4);
+	padding: 6px 12px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 6;
+	display: none;
+}
+
+.play > .input:hover .code-controls {
+	display: block;
+}
+
+.code-controls .fa {
+	color: #fff;
+	font-size: 15x;
+	cursor: pointer;
+}
+
+.code-controls .fa:hover {
+	color: #e9e9e9;
 }

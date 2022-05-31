@@ -32,6 +32,27 @@ $(document).ready(function () {
 });
 
 
+$(document).on('mouseenter', '.column-header .column-star-button.fa-star-o', function () {
+    $(this).addClass('fa-star');
+    $(this).removeClass('fa-star-o');
+});
+
+$(document).on('mouseleave', '.column-header .column-star-button:not(.column-star-button-active)', function () {
+    $(this).removeClass('fa-star');
+    $(this).addClass('fa-star-o');
+});
+
+$(document).on('click', '.column-header .column-star-button.fa-star', function () {
+    $(this).removeClass('fa-star-o');
+    $(this).addClass('column-star-button-active');
+});
+
+$(document).on('click', '.column-header .column-star-button.column-star-button-active', function () {
+    $(this).addClass('fa-star-o');
+    $(this).removeClass('column-star-button-active');
+});
+
+
 const toggleColumnLeft = function (elButton) {
 
     const isOpen = (elButton.attr('data-open') == 'true');
@@ -46,6 +67,7 @@ const toggleColumnLeft = function (elButton) {
         $('.column-text .column-content').show();
         $('.column-text .column-code-close').show();
         $('.column-text .column-text-close').show();
+        $('.column-code .column-code-button').show();
         $('.column-text').removeClass('column-text-hide');
         $('.column-text').removeClass('column-text-expand');
         $('.column-code').removeClass('column-code-hide');
@@ -57,34 +79,20 @@ const toggleColumnLeft = function (elButton) {
 
         console.log('isOpen ', 2);
 
-        if ($('.column-text').hasClass('column-text-expand')) {
-
-            $('.column-text .column-content').hide();
-            $('.column-text .column-text-close').hide();
-            $('.column-code .column-content').show();
-            $('.column-code .column-code-close').show();
-            $('.column-code').addClass('column-code-expand');
-            $('.column-code').removeClass('column-code-hide');
-            $('.column-text').addClass('column-text-hide');
-            $('.column-text').removeClass('column-text-expand');
-
-        } else {
-
-            $('.column-text .column-content').hide();
-            $('.column-text .column-text-close').hide();
-            $('.column-text .column-code-close').hide();
-            // $('.column-code .column-text-close').hide();
-            $('.column-text').removeClass('column-text-expand');
-            $('.column-text').addClass('column-text-hide');
-            $('.column-code').removeClass('column-code-hide');
-            $('.column-code').addClass('column-code-expand');
-
-        }
+        $('.column-text .column-content').hide();
+        $('.column-text .column-text-close').hide();
+        $('.column-text .column-code-close').hide();
+        $('.column-code .column-code-button').hide();
+        $('.column-text').removeClass('column-text-expand');
+        $('.column-text').addClass('column-text-hide');
+        $('.column-code').removeClass('column-code-hide');
+        $('.column-code').addClass('column-code-expand');
 
         elButton.attr('data-open', 'false');
 
     }
 };
+
 
 const toggleColumnRight = function (elButton) {
 
@@ -99,6 +107,7 @@ const toggleColumnRight = function (elButton) {
 
         $('.column-code .column-content').show();
         $('.column-code .column-code-close').show();
+        $('.column-text .column-text-button').show();
         $('.column-text').removeClass('column-text-hide');
         $('.column-text').removeClass('column-text-expand');
         $('.column-code').removeClass('column-code-hide');
@@ -110,27 +119,13 @@ const toggleColumnRight = function (elButton) {
         
         console.log('isOpen ', 4);
 
-        if ($('.column-code').hasClass('column-code-expand')) {
-
-            $('.column-text .column-content').show();
-            $('.column-code .column-content').hide();
-            $('.column-code .column-code-close').hide();
-            $('.column-code').removeClass('column-code-expand');
-            $('.column-code').addClass('column-code-hide');
-            $('.column-text').removeClass('column-text-hide');
-            $('.column-text').addClass('column-text-expand');
-
-        } else {
-
-            $('.column-code .column-content').hide();
-            $('.column-code .column-code-close').hide();
-            // $('.column-code .column-code-close').hide();
-            $('.column-code').removeClass('column-code-expand');
-            $('.column-code').addClass('column-code-hide');
-            $('.column-text').removeClass('column-text-hide');
-            $('.column-text').addClass('column-text-expand');
-
-        }
+        $('.column-code .column-content').hide();
+        $('.column-code .column-code-close').hide();
+        $('.column-text .column-text-button').hide();
+        $('.column-code').removeClass('column-code-expand');
+        $('.column-code').addClass('column-code-hide');
+        $('.column-text').removeClass('column-text-hide');
+        $('.column-text').addClass('column-text-expand');
 
         elButton.attr('data-open', 'false');
 
@@ -197,7 +192,8 @@ const openPopupContentOverview = function () {
     $('.content-overview').show();
 };
 
-const closeShadowOverlay = function (elShadow) {
+const closeShadowOverlay = function () {
+    const elShadow = $('#shadowOverlay');
     const popupClose = elShadow.attr('data-popup');
 
     if (popupClose == 'content-overview') {
@@ -235,7 +231,7 @@ const closeShadowOverlay = function (elShadow) {
     }
 
     elShadow.removeAttr('data-popup');
-    $('.shadow-overlay').hide();
+    elShadow.hide();
 };
 
 const toggleLanguageDropdown = function () {
@@ -298,6 +294,7 @@ const openPopupReviewManual = function () {
     $('.shadow-overlay').show();
     $('.shadow-overlay').attr('data-popup', 'manual-review');
     $('.popup-manual-review').show();
+    $('.dropdown-dots-menu').hide();
 };
 
 /**
@@ -325,4 +322,10 @@ const resetRatingStars = function () {
     starElements.each(function (i, elem) {
         $(elem).removeClass('fa-star').removeClass('fa-star-o').addClass(currentStarStatusses[i] ? 'fa-star' : 'fa-star-o');
     });
+};
+
+
+
+var changeTheme = function () {
+    $('.CodeMirror').toggleClass('cm-s-juejin cm-s-dracula');
 };

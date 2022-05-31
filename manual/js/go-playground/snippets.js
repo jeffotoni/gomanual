@@ -39,10 +39,11 @@
           'runEl':    $('.run', el),
           'fmtEl':    $('.fmt', el),
           'shareEl':  $('.share', el),
-          'theme':    'juejin',
+          'theme':    'dracula juejin',
           'shareOpenNewWindow': true,
           'shareRedirect': 'https://play.golang.org/p/',
         });
+        $('.CodeMirror').removeClass('cm-s-dracula');
       };
 
       // If example already visible, set up playground now.

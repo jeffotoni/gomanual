@@ -23,6 +23,7 @@
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,9 +40,10 @@
 
 <body class="d-flex flex-column">
 
-    <div class="shadow-overlay" onclick="closeShadowOverlay($(this));"></div>
+    <div class="shadow-overlay" id="shadowOverlay" onclick="closeShadowOverlay();"></div>
 
     <div class="popup-share-manual content-overview-menu">
+        <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
         <div class="content-overview-title">Compartilhar este manual</div>
             
         <div class="input-group mb-4">
@@ -68,21 +70,22 @@
     </div>
 
     <div class="popup-manual-review content-overview-menu">
+        <div class="popup-close popup-close-mobile" onclick="closeShadowOverlay();">&times;</div>
         <div class="manual-review-body">
             <div class="content-overview-title">Avalie este manual</div>
             
             <div class="content-overview-subtitle classifique-subtitle">Classifique</div>
             <div class="rating">
                 <input type="radio" id="star5" name="rate" value="5" />
-                <label for="star5" title="text">5 stars</label>
+                <label for="star5" title="5 stars">5 stars</label>
                 <input type="radio" id="star4" name="rate" value="4" />
-                <label for="star4" title="text">4 stars</label>
+                <label for="star4" title="4 stars">4 stars</label>
                 <input type="radio" id="star3" name="rate" value="3" />
-                <label for="star3" title="text">3 stars</label>
+                <label for="star3" title="3 stars">3 stars</label>
                 <input type="radio" id="star2" name="rate" value="2" />
-                <label for="star2" title="text">2 stars</label>
+                <label for="star2" title="2 stars">2 stars</label>
                 <input type="radio" id="star1" name="rate" value="1" />
-                <label for="star1" title="text">1 star</label>
+                <label for="star1" title="1 star">1 star</label>
                 <div class="clearfix"></div>
             </div>
             <div class="clearfix"></div>
@@ -94,12 +97,13 @@
         </div>
 
         <div class="manual-review-footer">
-            <button type="button" class="btn btn-review btn-review-cancelar" onclick="$('.shadow-overlay').trigger('click');">Cancelar</button>
+            <button type="button" class="btn btn-review btn-review-cancelar" onclick="closeShadowOverlay();">Cancelar</button>
             <button type="button" class="btn btn-review btn-review-enviar">Enviar</button>
         </div>
     </div>
 
     <div class="sidebar-login content-overview-menu">
+        <div class="popup-close popup-close-mobile" onclick="closeShadowOverlay();">&times;</div>
         <div class="sidebar-login-title">Salve seu progresso</div>
         <div class="sidebar-login-buttons">
             <button type="button" class="btn btn-sidebar-login w-100">
@@ -133,7 +137,7 @@
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 navbar-collapse-toggle">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <div class="loader header-menu-col">
+                        <div class="loader header-progress-loader header-menu-col" onclick="toggleProgressDropdown();">
                             <div class="loader-bg">
                                 <div class="text"></div>
                             </div>        
@@ -160,9 +164,6 @@
                         </div>
 
                         <div class="header-menu-col header-menu-text">
-                            <div onclick="toggleProgressDropdown();">
-                                <span>Progresso</span> &nbsp; <i class="fa fa-chevron-down"></i>
-                            </div>
                             <ul class="dropdown-progress">
                                 <li class="dropdown-progress-item">
                                     <div class="dropdown-progress-title">Progresso</div>
@@ -189,6 +190,7 @@
                             </ul>
 
                             <div class="course-overview content-overview-menu">
+                                <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
                                 <div class="content-overview-title">Conte&uacute;do Manual GoBootcamp</div>
 
                                 <div class="course-overview-container">
@@ -324,9 +326,11 @@
                             </div>
                         </div>
                         <div class="header-menu-col header-menu-star">
-                            <i class="fa fa-star" onclick="openPopupReviewManual();"></i>
+                            <a href="../instalation/artigos-favoritos.html" target="_blank">
+                                <i class="fa fa-star"></i>
+                            </a>
                         </div>
-                        <div class="header-menu-col">
+                        <div class="header-menu-col header-menu-dots">
                             <i class="fa fa-ellipsis-v header-menu-icon" onclick="toggleDotsMenuDropdown();"></i>
                             <div class="dropdown-dots-menu">
                                 <a class="dropdown-dots-menu-item" href="#" onclick="openPopupShareManual();">
@@ -341,11 +345,14 @@
                                     <i class="fa fa-print"></i>
                                     <span>Imprimir</span>
                                 </a>
-                                <a class="dropdown-dots-menu-item" href="../instalation/artigos-favoritos.html" target="_blank">
+                                <a class="dropdown-dots-menu-item" href="javascript:void(0)" onclick="openPopupReviewManual();">
                                     <i class="fa fa-star"></i>
-                                    <span>Artigos Favoritos</span>
+                                    <span>Avalie este manual</span>
                                 </a>
                             </div>
+                        </div>
+                        <div class="header-menu-col header-menu-avatar">
+                            <img src="../../img/jeffotoni.png" alt="" />
                         </div>
                         <div class="clearfix"></div>
                     </li>
@@ -366,8 +373,8 @@
                     <i class="fa fa-file-text"></i> &nbsp; <span>Overview Go</span>
                 </div>
                 <div class="column-header-actions">
-                    <i class="fa fa-star-o column-header-button column-text-close"></i>
-                    <i class="fa fa-chevron-left column-header-button" onclick="toggleColumnLeft($(this));" data-open="true"></i>
+                    <i class="fa fa-star-o column-star-button column-header-button column-text-close"></i>
+                    <i class="fa fa-chevron-left column-header-button column-text-button" onclick="toggleColumnLeft($(this));" data-open="true"></i>
                     <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnTextMobile($(this));"></i>
                 </div>
                 <div class="clearfix"></div>
@@ -411,6 +418,7 @@ hello, Gophers
                     <div class="p-relative">
 
                         <div class="content-overview content-overview-menu">
+                            <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
                             <div class="content-overview-title">Conte&uacute;do</div>
 
                             <div class="list-group list-group-root well">
@@ -473,7 +481,8 @@ hello, Gophers
                     <div class="code-filename">helloworld.go</div>
                 </div>
                 <div class="column-header-actions">
-                    <i class="fa fa-chevron-right column-header-button" onclick="toggleColumnRight($(this));" data-open="true"></i>
+                    <i class="fa fa-adjust column-header-button column-code-close" onclick="changeTheme();" title="Light/dark mode"></i>
+                    <i class="fa fa-chevron-right column-header-button column-code-button" onclick="toggleColumnRight($(this));" data-open="true"></i>
                     <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnCodeMobile($(this));"></i>
                 </div>
                 <div class="clearfix"></div>
@@ -491,7 +500,6 @@ func main() {
 }                   
                 </textarea>
 
-                <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
             </div>
         </div>
     </div>
@@ -501,7 +509,10 @@ func main() {
 
     <!-- Rodape -->
     <footer class="footer">
-        <div class="main-footer">
+        <div class="main-footer main-footer-gopher">
+
+            <img class="gopher-column-code-footer" src="../../../img/gopher-docker-cut.png" alt="" />
+
             <div class="container text-center">
 
                 <span>by <a href="https://jeffotoni.com/" 
