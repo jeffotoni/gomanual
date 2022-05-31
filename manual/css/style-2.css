@@ -1362,3 +1362,75 @@ body {
 	border-color: #67808a;
 	color: #fff;
 }
+
+/* Sidebar Login */
+
+.sidebar-login {
+	position: fixed;
+	z-index: 6;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 500px;
+	padding: 35vh 1rem 0;
+	background-color: #FFF;
+	display: none;
+	-webkit-box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
+	-moz-box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
+	box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
+}
+
+.sidebar-login-buttons {
+	text-align: center;
+	width: 75%;
+	margin: 0 auto;
+}
+
+@media (max-width: 550px) {
+	.sidebar-login {
+		width: 100%;
+		left: 0;
+		padding-top: 15vh;
+	}
+
+	.sidebar-login-buttons {
+		width: 90%;
+	}
+}
+
+.sidebar-login-title {
+	color: #67808a;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 5rem;
+	text-align: center;
+}
+
+.btn-sidebar-login {
+	background-color: transparent;
+	border-color: #d9e3e7;
+	color: #67808a;
+
+	margin-bottom: 8px;
+	padding: 12px;
+	font-size: 15px;
+}
+
+.btn-sidebar-login:hover,
+.btn-sidebar-login:active,
+.btn-sidebar-login:focus {
+	background-color: #67808a;
+	border-color: #67808a;
+	color: #FFF;
+}
+
+.btn-sidebar-login .fa,
+.btn-sidebar-login span {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.btn-sidebar-login .fa {
+	margin-right: 15px;
+	font-size: 18px;
+}

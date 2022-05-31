@@ -213,6 +213,10 @@ const closeShadowOverlay = function (elShadow) {
 
         $('.course-overview').hide();
 
+    } else if (popupClose == 'sidebar-login') {
+
+        $('.sidebar-login').hide();
+
     }
 
     elShadow.removeAttr('data-popup');
@@ -266,4 +270,11 @@ const openPopupCourseOverview = function () {
     $('.shadow-overlay').attr('data-popup', 'course-overview');
     $('.dropdown-progress').hide();
     $('.course-overview').show();
+};
+
+const openSidebarLogin = function () {
+    $('.shadow-overlay').show();
+    $('.shadow-overlay').attr('data-popup', 'sidebar-login');
+    $('.dropdown-progress').hide();
+    $('.sidebar-login').show();
 };
