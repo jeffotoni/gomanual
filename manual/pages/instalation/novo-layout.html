@@ -67,6 +67,38 @@
         </div>
     </div>
 
+    <div class="popup-manual-review content-overview-menu">
+        <div class="manual-review-body">
+            <div class="content-overview-title">Avalie este manual</div>
+            
+            <div class="content-overview-subtitle classifique-subtitle">Classifique</div>
+            <div class="rating">
+                <input type="radio" id="star5" name="rate" value="5" />
+                <label for="star5" title="text">5 stars</label>
+                <input type="radio" id="star4" name="rate" value="4" />
+                <label for="star4" title="text">4 stars</label>
+                <input type="radio" id="star3" name="rate" value="3" />
+                <label for="star3" title="text">3 stars</label>
+                <input type="radio" id="star2" name="rate" value="2" />
+                <label for="star2" title="text">2 stars</label>
+                <input type="radio" id="star1" name="rate" value="1" />
+                <label for="star1" title="text">1 star</label>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="content-overview-subtitle">Mensagem</div>
+            <div>
+                <input type="text" class="form-control" id="" value="" />
+            </div>
+        </div>
+
+        <div class="manual-review-footer">
+            <button type="button" class="btn btn-review btn-review-cancelar" onclick="$('.shadow-overlay').trigger('click');">Cancelar</button>
+            <button type="button" class="btn btn-review btn-review-enviar">Enviar</button>
+        </div>
+    </div>
+
     <div class="sidebar-login content-overview-menu">
         <div class="sidebar-login-title">Salve seu progresso</div>
         <div class="sidebar-login-buttons">
@@ -162,7 +194,7 @@
                                 <div class="course-overview-container">
                                     <div class="list-group list-group-root well">
                                         <a href="#item-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
-                                            <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-down list-icon-chevron"></i></span>
+                                            <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
                                             <span class="content-item-progress-text">25%</span>
                                             <div class="content-item-progress progress">
                                                 <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -194,7 +226,7 @@
 
                                     <div class="list-group list-group-root well">
                                         <a href="#item-2" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
-                                            <span class="content-item-description">Instala&ccedil;&atilde;o &nbsp; <i class="fa fa-chevron-down list-icon-chevron"></i></span>
+                                            <span class="content-item-description">Instala&ccedil;&atilde;o &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
                                             <span class="content-item-progress-text">0%</span>
                                             <div class="content-item-progress progress">
                                                 <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
@@ -227,7 +259,7 @@
                                     <div class="list-group list-group-root well">
 
                                         <a href="#item-3" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
-                                            <span class="content-item-description">Editores &nbsp; <i class="fa fa-chevron-down list-icon-chevron"></i></span>
+                                            <span class="content-item-description">Editores &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
                                             <span class="content-item-progress-text">0%</span>
                                             <div class="content-item-progress progress">
                                                 <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
@@ -292,7 +324,7 @@
                             </div>
                         </div>
                         <div class="header-menu-col header-menu-star">
-                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star" onclick="openPopupReviewManual();"></i>
                         </div>
                         <div class="header-menu-col">
                             <i class="fa fa-ellipsis-v header-menu-icon" onclick="toggleDotsMenuDropdown();"></i>
@@ -322,8 +354,6 @@
             </div>
         </div>
     </nav>
-
-
 
 
     <!-- Corpo - pagina -->
@@ -384,8 +414,8 @@ hello, Gophers
                             <div class="content-overview-title">Conte&uacute;do</div>
 
                             <div class="list-group list-group-root well">
-                                <a href="#item-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
-                                    <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-down list-icon-chevron"></i></span>
+                                <a href="#item-category-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
+                                    <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
                                     <div class="content-item-progress progress">
                                         <span>25%</span>
                                         <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -395,8 +425,8 @@ hello, Gophers
                                         <i class="fa fa-book"></i>
                                     </div>
                                 </a>
-                                <div class="list-group collapse show" id="item-1">
-                                    <a href="#item-1-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                <div class="list-group collapse show" id="item-category-1">
+                                    <a href="#item-category-1-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
                                         <span class="content-item-description">Overview on Go</span>
                                         <div class="content-item-progress">&nbsp;</div>
                                         <div class="content-item-time">1min 40sec</div>
@@ -404,7 +434,7 @@ hello, Gophers
                                             <i class="fa fa-book"></i>
                                         </div>
                                     </a>
-                                    <a href="#item-1-2" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <a href="#item-category-1-2" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
                                         <span class="content-item-description">Roadmap</span>
                                         <div class="content-item-progress">&nbsp;</div>
                                         <div class="content-item-time">0min 49sec</div>

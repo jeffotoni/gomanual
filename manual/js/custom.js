@@ -18,6 +18,17 @@ $(function() {
 
 $(document).ready(function () {
     renderProgress(35);
+
+    let currentStarStatusses = [];
+
+    starElements = $('.star-icon');
+
+    starElements.each(function (i, elem) {
+        currentStarStatusses.push($(elem).hasClass('fa-star-o'));
+    });
+    
+    starElements.mouseenter(changeRatingStars);
+    starElements.mouseleave(resetRatingStars);
 });
 
 
@@ -217,6 +228,10 @@ const closeShadowOverlay = function (elShadow) {
 
         $('.sidebar-login').hide();
 
+    } else if (popupClose == 'manual-review') {
+
+        $('.popup-manual-review').hide();
+
     }
 
     elShadow.removeAttr('data-popup');
@@ -277,4 +292,37 @@ const openSidebarLogin = function () {
     $('.shadow-overlay').attr('data-popup', 'sidebar-login');
     $('.dropdown-progress').hide();
     $('.sidebar-login').show();
+};
+
+const openPopupReviewManual = function () {
+    $('.shadow-overlay').show();
+    $('.shadow-overlay').attr('data-popup', 'manual-review');
+    $('.popup-manual-review').show();
+};
+
+/**
+ * Changes the rating star colors when hovering over it.
+ */
+const changeRatingStars = function () {
+    // Current star hovered
+    const star = $(this);
+
+    // Removes all colors first from all stars
+    $('.star-icon').removeClass('fa-star').addClass('fa-star-o');
+
+    // Makes the current hovered star yellow
+    star.removeClass('fa-star-o').addClass('fa-star');
+
+    // Makes the previous stars yellow and the next stars gray
+    star.parent().prevAll().children('.star-icon').addClass('fa-star');
+    star.parent().nextAll().children('.star-icon').addClass('fa-star-o');
+};
+
+/**
+ * Resets the rating star colors when not hovered anymore.
+ */
+const resetRatingStars = function () {
+    starElements.each(function (i, elem) {
+        $(elem).removeClass('fa-star').removeClass('fa-star-o').addClass(currentStarStatusses[i] ? 'fa-star' : 'fa-star-o');
+    });
 };

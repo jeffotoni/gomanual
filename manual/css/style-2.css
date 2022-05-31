@@ -1217,6 +1217,163 @@ body {
 	color: #FFF;
 }
 
+/* Popup avaliar manual */
+
+.popup-manual-review {
+	position: fixed;
+	width: 600px;
+	left: 50%;
+	margin-left: -300px;
+	background-color: #fff;
+	border: 1px solid #9ba1a7;
+	border-radius: 4px;
+	z-index: 6;
+	padding: 0;
+	top: 15%;
+	display: none;
+	-webkit-box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
+	-moz-box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
+	box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
+}
+
+@media (max-width: 768px) {
+	.popup-manual-review {
+		width: calc(100% - 30px);
+		left: 15px;
+		right: 15px;
+		top: 15px;
+		margin-left: 0;
+	}
+}
+
+.content-overview-subtitle {
+    font-size: 14px;
+    font-weight: bold;
+    color: #05192e;
+    margin-bottom: 5px;
+}
+
+.content-overview-subtitle.classifique-subtitle {
+	margin-bottom: -5px;
+}
+
+.popup-manual-review .form-control {
+	background-color: #f9f9f9;
+	border-radius: 0;
+	border: 1px solid #eaeaea;
+	color: #929292;
+    font-size: 14px;
+    padding: 10px 14px;
+}
+
+.popup-manual-review .form-control:hover {
+	background-color: #f6f6f6;
+}
+
+.popup-manual-review .form-control:focus {
+	background-color: #fff;
+	outline-style: none;
+	box-shadow: none;
+}
+
+.popup-manual-review .rating {
+	margin-bottom: 10px;
+}
+
+.popup-manual-review .rating .star-icon {
+    color: #e79b21;
+    font-size: 26px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.popup-manual-review .manual-review-body {
+	padding: 30px;
+}
+
+.popup-manual-review .manual-review-footer {
+	border-top: 1px solid #eaeaea;
+	text-align: right;
+	padding: 10px 30px 10px;
+}
+
+.popup-manual-review .manual-review-footer .btn-review {
+    padding: 10px 25px;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.btn-review-cancelar {
+	background-color: transparent;
+	border-color: #82c0cf;
+	color: #037d9c;
+}
+
+.btn-review-cancelar:hover {
+	boder-color: #02556a;
+	color: #02556a;
+}
+
+.btn-review-enviar {
+	background-color: #037d9c;
+	border-color: #037d9c;
+	color: #fff;
+}
+
+.btn-review-enviar:hover {
+	background-color: #02556a;
+	border-color: #02556a;
+	color: #fff;
+}
+
+.rating {
+    float: left;
+    height: 46px;
+    padding: 0;
+}
+
+.rating:not(:checked) > input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rating:not(:checked) > label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating > input:checked ~ label {
+    color: #ffc700;    
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+.popup-manual-review .btn-copiar {
+	padding: 10px 15px;
+	border-radius: 0;
+}
+
 /* Page artigos favoritos */
 
 .row-favs {
