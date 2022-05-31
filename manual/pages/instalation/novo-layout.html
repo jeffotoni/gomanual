@@ -131,12 +131,140 @@
                                     </button>
                                 </li>
                                 <li class="dropdown-progress-item">
-                                    <button type="button" class="btn btn-popup-progress w-100">
+                                    <button type="button" class="btn btn-popup-progress w-100" onclick="openPopupCourseOverview();">
                                         <i class="fa fa-bars"></i>
                                         <span>Conte&uacute;do do Manual</span>
                                     </button>
                                 </li>
                             </ul>
+
+                            <div class="course-overview content-overview-menu">
+                                <div class="content-overview-title">Conte&uacute;do Manual GoBootcamp</div>
+
+                                <div class="course-overview-container">
+                                    <div class="list-group list-group-root well">
+                                        <a href="#item-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
+                                            <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-down list-icon-chevron"></i></span>
+                                            <span class="content-item-progress-text">25%</span>
+                                            <div class="content-item-progress progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <div class="content-item-time">2m29sec</div>
+                                            <div class="content-item-icon">
+                                                <i class="fa fa-book"></i>
+                                            </div>
+                                        </a>
+                                        <div class="list-group collapse show" id="item-1">
+                                            <a href="#item-1-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                                <span class="content-item-description">Overview on Go</span>
+                                                <div class="content-item-progress">&nbsp;</div>
+                                                <div class="content-item-time">1min 40sec</div>
+                                                <div class="content-item-icon">
+                                                    <i class="fa fa-book"></i>
+                                                </div>
+                                            </a>
+                                            <a href="#item-1-2" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                                <span class="content-item-description">Roadmap</span>
+                                                <div class="content-item-progress">&nbsp;</div>
+                                                <div class="content-item-time">0min 49sec</div>
+                                                <div class="content-item-icon">
+                                                    <i class="fa fa-book"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-group list-group-root well">
+                                        <a href="#item-2" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
+                                            <span class="content-item-description">Instala&ccedil;&atilde;o &nbsp; <i class="fa fa-chevron-down list-icon-chevron"></i></span>
+                                            <span class="content-item-progress-text">0%</span>
+                                            <div class="content-item-progress progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <div class="content-item-time">2m29sec</div>
+                                            <div class="content-item-icon">
+                                                <i class="fa fa-book"></i>
+                                            </div>
+                                        </a>
+                                        <div class="list-group collapse show" id="item-2">
+                                            <a href="#item-2-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                                <span class="content-item-description">Instalando Go</span>
+                                                <div class="content-item-progress">&nbsp;</div>
+                                                <div class="content-item-time">1min 40sec</div>
+                                                <div class="content-item-icon">
+                                                    <i class="fa fa-book"></i>
+                                                </div>
+                                            </a>
+                                            <a href="#item-2-2" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                                <span class="content-item-description">Executando</span>
+                                                <div class="content-item-progress">&nbsp;</div>
+                                                <div class="content-item-time">0min 49sec</div>
+                                                <div class="content-item-icon">
+                                                    <i class="fa fa-book"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-group list-group-root well">
+
+                                        <a href="#item-3" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
+                                            <span class="content-item-description">Editores &nbsp; <i class="fa fa-chevron-down list-icon-chevron"></i></span>
+                                            <span class="content-item-progress-text">0%</span>
+                                            <div class="content-item-progress progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <div class="content-item-time">2m29sec</div>
+                                            <div class="content-item-icon">
+                                                <i class="fa fa-book"></i>
+                                            </div>
+                                        </a>
+                                        <div class="list-group collapse show" id="item-3">
+                                            <a href="#item-3-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                                <span class="content-item-description">Vim</span>
+                                                <div class="content-item-progress">&nbsp;</div>
+                                                <div class="content-item-time">0min 40sec</div>
+                                                <div class="content-item-icon">
+                                                    <i class="fa fa-book"></i>
+                                                </div>
+                                            </a>
+                                            <a href="#item-3-2" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                                <span class="content-item-description">NeoVim</span>
+                                                <div class="content-item-progress">&nbsp;</div>
+                                                <div class="content-item-time">0min 34sec</div>
+                                                <div class="content-item-icon">
+                                                    <i class="fa fa-book"></i>
+                                                </div>
+                                            </a>
+                                            <a href="#item-3-2" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                                <span class="content-item-description">GoLand</span>
+                                                <div class="content-item-progress">&nbsp;</div>
+                                                <div class="content-item-time">0min 27sec</div>
+                                                <div class="content-item-icon">
+                                                    <i class="fa fa-book"></i>
+                                                </div>
+                                            </a>
+                                            <a href="#item-3-2" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                                <span class="content-item-description">VSCode</span>
+                                                <div class="content-item-progress">&nbsp;</div>
+                                                <div class="content-item-time">0min 43sec</div>
+                                                <div class="content-item-icon">
+                                                    <i class="fa fa-book"></i>
+                                                </div>
+                                            </a>
+                                            <a href="#item-3-2" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                                <span class="content-item-description">Sublime</span>
+                                                <div class="content-item-progress">&nbsp;</div>
+                                                <div class="content-item-time">0min 30sec</div>
+                                                <div class="content-item-icon">
+                                                    <i class="fa fa-book"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                         <div class="header-menu-col header-menu-flag">
                             <img src="../../img/flag-brasil.png" alt="" onclick="toggleLanguageDropdown();" />

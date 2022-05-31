@@ -1,6 +1,10 @@
 $(function() {
         
-    $('.list-group-item').on('click', function() {
+    $('.list-group-item-parent').on('click', function (event) {
+        event.preventDefault();
+    });
+
+    $('.list-group-item').on('click', function () {
 
         $(this).children('span').children('.list-icon-chevron')
             .toggleClass('fa-chevron-up')
@@ -205,6 +209,10 @@ const closeShadowOverlay = function (elShadow) {
 
         $('.dropdown-progress').hide();
 
+    } else if (popupClose == 'course-overview') {
+
+        $('.course-overview').hide();
+
     }
 
     elShadow.removeAttr('data-popup');
@@ -250,4 +258,12 @@ const copyShareManualClipboard = function (elButton) {
     navigator.clipboard.writeText(copyText.value);
 
     elButton.html('Copiado!');
-}
+};
+
+
+const openPopupCourseOverview = function () {
+    $('.shadow-overlay').show();
+    $('.shadow-overlay').attr('data-popup', 'course-overview');
+    $('.dropdown-progress').hide();
+    $('.course-overview').show();
+};
