@@ -42,9 +42,11 @@ $(document).on('mouseleave', '.column-header .column-star-button:not(.column-sta
     $(this).addClass('fa-star-o');
 });
 
-$(document).on('click', '.column-header .column-star-button.fa-star', function () {
+$(document).on('click', '.column-header .column-star-button:not(.column-star-button-active)', function () {
     $(this).removeClass('fa-star-o');
     $(this).addClass('column-star-button-active');
+
+    openPopupAddFavoritos();
 });
 
 $(document).on('click', '.column-header .column-star-button.column-star-button-active', function () {
@@ -228,6 +230,10 @@ const closeShadowOverlay = function () {
 
         $('.popup-manual-review').hide();
 
+    } else if (popupClose == 'add-favoritos') {
+
+        $('.popup-add-favoritos').hide();
+
     }
 
     elShadow.removeAttr('data-popup');
@@ -328,4 +334,10 @@ const resetRatingStars = function () {
 
 var changeTheme = function () {
     $('.CodeMirror').toggleClass('cm-s-juejin cm-s-dracula');
+};
+
+const openPopupAddFavoritos = function () {
+    $('.shadow-overlay').show();
+    $('.shadow-overlay').attr('data-popup', 'add-favoritos');
+    $('.popup-add-favoritos').show();
 };

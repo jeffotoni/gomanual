@@ -810,8 +810,8 @@ body {
 
 .column-header .column-star-button {
     font-size: 27px;
-    padding: 0;
-    margin-right: 14px;
+    padding: 9px;
+    margin-right: 3px;
 }
 
 .column-header-actions .column-header-button.fa-chevron-up,
@@ -1287,6 +1287,40 @@ body {
 	color: #FFF;
 }
 
+/* Popup add favoritos */
+
+.popup-add-favoritos {
+	position: fixed;
+	width: 600px;
+	left: 50%;
+	margin-left: -300px;
+	background-color: #fff;
+	border: 1px solid #9ba1a7;
+	border-radius: 4px;
+	z-index: 6;
+	padding: 0;
+	top: 15%;
+	display: none;
+	-webkit-box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
+	-moz-box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
+	box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
+}
+
+.popup-add-favoritos .content-overview-title {
+	padding: 30px;
+}
+
+@media (max-width: 768px) {
+	.popup-add-favoritos {
+		width: calc(100% - 30px);
+		left: 15px;
+		right: 15px;
+		top: 15px;
+		margin-left: 0;
+	}
+}
+
+
 /* Popup avaliar manual */
 
 .popup-manual-review {
@@ -1361,13 +1395,13 @@ body {
 	padding: 30px;
 }
 
-.popup-manual-review .manual-review-footer {
+.manual-review-footer {
 	border-top: 1px solid #eaeaea;
 	text-align: right;
 	padding: 10px 30px 10px;
 }
 
-.popup-manual-review .manual-review-footer .btn-review {
+.manual-review-footer .btn-review {
     padding: 10px 25px;
     border-radius: 3px;
     font-size: 14px;
