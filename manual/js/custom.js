@@ -46,7 +46,7 @@ $(document).on('click', '.column-header .column-star-button:not(.column-star-but
     $(this).removeClass('fa-star-o');
     $(this).addClass('column-star-button-active');
 
-    openPopupAddFavoritos();
+    // openPopupAddFavoritos();
 });
 
 $(document).on('click', '.column-header .column-star-button.column-star-button-active', function () {
@@ -138,6 +138,7 @@ const toggleColumnRight = function (elButton) {
 const toggleColumnTextMobile = function (elButton) {
     elButton.toggleClass('fa-chevron-down fa-chevron-up');
     $('.column-text .column-content').slideToggle();
+    $('.column-text .column-content .pages-menu').slideToggle();
 };
 
 
