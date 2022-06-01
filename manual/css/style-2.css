@@ -298,7 +298,7 @@ a {
 }
 
 .pages-menu-link.link-back:hover {
-	color: #939393;
+	color: #037d9c;
 }
 
 .pages-menu-link.link-forward {
@@ -308,7 +308,7 @@ a {
 }
 
 .pages-menu-link.link-forward:hover {
-	color: #262626;
+	color: #037d9c;
 }
 
 .pages-content-menu {
@@ -1048,7 +1048,7 @@ body {
 }
 
 .list-group.list-group-root .list-group-item-parent:hover .content-item-description {
-	color: #67808a;
+	color: #037d9c;
 }
 
 .list-group.list-group-root .list-group-item-parent:hover .content-item-time,
