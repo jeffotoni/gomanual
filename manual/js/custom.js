@@ -1,3 +1,6 @@
+
+let ARTICLE_DETAILS;
+
 $(function() {
         
     $('.list-group-item-parent').on('click', function (event) {
@@ -17,8 +20,12 @@ $(function() {
 });
 
 $(document).ready(function () {
+
+    // Sets current progress (header)
     renderProgress(35);
 
+
+    // Sets event for review popup stars
     let currentStarStatusses = [];
 
     starElements = $('.star-icon');
@@ -29,7 +36,135 @@ $(document).ready(function () {
     
     starElements.mouseenter(changeRatingStars);
     starElements.mouseleave(resetRatingStars);
+
+
+    // Configuração das mensagens de alerta no topo
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-full-width",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
 });
+
+const AxiosApiPostJson = function(path, params, objHeaders, callback) {
+
+    if (path && params && objHeaders) {
+
+        axios({
+            timeout: 60000,
+            url: path,
+            headers: objHeaders, 
+            data: params,
+            responseType: "json",
+            method: "POST"
+        })
+        .then(function (response) {
+
+            if (response && callback) {
+                callback(response.data, response.status);
+            }
+        })
+        .catch(function (error) {
+
+            if (error.response.data.msg == "token-invalid") {
+                shutdowLogin();
+                return;
+            }
+
+            if (error.code === 'ECONNABORTED' && callback) {
+
+                // E CONN ABORTED -> Timeout
+                // Tratar o timeout em cada chamada 
+                // Esconder loader, destravar botão...
+                callback(error.code, error.response.status);
+
+            } else if (error.response) {
+
+              // The request was made and the server responded with a status code
+              // that falls out of the range of 2xx
+
+              console.log(error.response.status);
+
+            } else if (error.request) {
+
+              // The request was made but no response was received
+              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+              // http.ClientRequest in node.js
+
+              console.log("Request error: ", error.request);
+
+            } else {
+              // Something happened in setting up the request that triggered an Error
+              console.log('Error', error.message);
+            }
+
+            console.log("Error config: ", error.config);
+            console.log("Error response: ", error.response);
+            console.log("Error response: ", error.response.data.message);
+
+            if (callback && error.response.data) {
+                callback(error.response.data, error.response.status);
+            }
+        });
+        
+    }
+};
+
+// LocalStorage and localstorage keys
+// SET | GET | REMOVE
+const LocalStorage = {
+
+    KEY_FAVORITE_ARTICLES: 'gomanual.fav.articles',
+    KEY_SEEN_ARTICLES: 'gomanual.seen.articles',
+
+    set: (keyName, objValue) => {
+        if (keyName && objValue) {
+
+            if (!window.localStorage) {
+                return null;
+            }
+
+            localStorage.setItem(keyName, JSON.stringify(objValue));
+        }
+    },
+
+    get: (keyName) => {
+        if (keyName) {
+
+            if (!window.localStorage) {
+                return null;
+            }
+
+            return JSON.parse(localStorage.getItem(keyName));
+        }
+        return null;
+    },
+    
+    remove: (keyName) => {
+        if (keyName) {
+
+            if (!window.localStorage) {
+                return null;
+            }
+
+            localStorage.removeItem(keyName);
+        }
+        return null;
+    }
+
+};
 
 
 $(document).on('mouseenter', '.column-header .column-star-button.fa-star-o', function () {
@@ -46,12 +181,15 @@ $(document).on('click', '.column-header .column-star-button:not(.column-star-but
     $(this).removeClass('fa-star-o');
     $(this).addClass('column-star-button-active');
 
+    addToFavorites();
     // openPopupAddFavoritos();
 });
 
 $(document).on('click', '.column-header .column-star-button.column-star-button-active', function () {
     $(this).addClass('fa-star-o');
     $(this).removeClass('column-star-button-active');
+
+    removeFromFavorites(null, false);
 });
 
 
@@ -230,6 +368,10 @@ const closeShadowOverlay = function () {
     } else if (popupClose == 'manual-review') {
 
         $('.popup-manual-review').hide();
+        $('#rate_msg').val('');
+        $('#rate').removeAttr('checked');
+        ratingReview = null;
+
 
     } else if (popupClose == 'add-favoritos') {
 
@@ -333,7 +475,7 @@ const resetRatingStars = function () {
 
 
 
-var changeTheme = function () {
+const changeTheme = function () {
     $('.CodeMirror').toggleClass('cm-s-juejin cm-s-dracula');
 };
 
@@ -341,4 +483,188 @@ const openPopupAddFavoritos = function () {
     $('.shadow-overlay').show();
     $('.shadow-overlay').attr('data-popup', 'add-favoritos');
     $('.popup-add-favoritos').show();
+};
+
+
+const addToFavorites = function () {
+    let favArticles = LocalStorage.get(LocalStorage.KEY_FAVORITE_ARTICLES);
+    if (favArticles === null) {
+        favArticles = [];
+    }
+    
+    favArticles.push(ARTICLE_DETAILS);
+
+    LocalStorage.set(LocalStorage.KEY_FAVORITE_ARTICLES, favArticles);
+};
+
+const removeFromFavorites = function (idArticle, reload) {
+    let favArticles = LocalStorage.get(LocalStorage.KEY_FAVORITE_ARTICLES);
+    if (favArticles === null) {
+        return;
+    }
+
+    if (idArticle === null) {
+        idArticle = ARTICLE_DETAILS.id
+    }
+    
+    favArticles = favArticles.filter(function (obj, index) {
+        if (obj.id !== null && obj.id !== undefined && obj.id != idArticle) {
+            return obj;
+        }
+    });
+
+    LocalStorage.set(LocalStorage.KEY_FAVORITE_ARTICLES, favArticles);
+
+    if (reload) {
+        loadFavoriteArticles();
+    }
+};
+
+const checkFavoriteArticle = function () {
+    let favArticles = LocalStorage.get(LocalStorage.KEY_FAVORITE_ARTICLES);
+    if (favArticles === null) {
+        return;
+    }
+    
+    let isFavorite = false;
+    favArticles.map(function (obj, index) {
+        if (obj.id !== null && obj.id !== undefined && obj.id == ARTICLE_DETAILS.id) {
+            isFavorite = true;
+        }
+    });
+
+    if (isFavorite) {
+        $('.column-header .column-star-button').removeClass('fa-star-o');
+        $('.column-header .column-star-button').addClass('fa-star');
+        $('.column-header .column-star-button').addClass('column-star-button-active');
+    }
+};
+
+const loadFavoriteArticles = function () {
+    let pageElement = $('#rowFavArticles');
+
+    let favArticles = LocalStorage.get(LocalStorage.KEY_FAVORITE_ARTICLES);
+    if (favArticles === null || (favArticles !== null && favArticles.length == 0)) {
+        pageElement.html(`
+            <div class="fav-articles-container">
+                <div class="fav-articles-title">Ah, n&atilde;o! Parece que voc&ecirc; ainda n&atilde;o adicionou nenhum artigo aos favoritos.</div>
+                <img class="fav-articles-img" src="../../img/gopher-adventure.png" alt="" />
+                <div class="fav-articles-text">Que tal dar uma olhada no conte&uacute;do do nosso manual?</div>
+                <div class="fav-articles-button">
+                    <a href="/index.html" class="btn btn-lg btn-review-enviar">Explorar Manual Go Bootcamp</a>
+                </div>
+            </div>
+        `);
+
+        return;
+    }
+    
+    let htmlFav = `
+        <div class="container-fluid">
+            <h1 class="page-title">Artigos Favoritos</h1>
+
+            <div class="row row-favs">
+    `;
+
+    favArticles.map(function (obj, index) {
+        
+        htmlFav += `
+            <div class="col-xxl-3 col-lg-4 col-md-6 col-12">
+
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <a href="${obj.link}" target="_blank">
+                            <h3 class="text-truncate">${obj.title}</h3>
+                        </a>
+                        <i class="fa fa-star btn-icon-remove-fav" onclick="removeFromFavorites('${obj.id}', true);" title="Remover dos favoritos"></i>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">${obj.description}</p>
+                    </div>
+                    <div class="card-footer">
+
+                        <div class="share-manual-social">
+                            <a class="btn btn-lg" href="#" role="button">
+                                <i class="fa fa-link"></i>
+                            </a>
+                            <a class="btn btn-lg" href="#" role="button">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                            <a class="btn btn-lg" href="#" role="button">
+                                <i class="fa fa-whatsapp"></i>
+                            </a>
+                            <a class="btn btn-lg" href="#" role="button">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a class="btn btn-lg" href="#" role="button">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        `;
+
+    });
+
+    htmlFav += `
+        </div>
+    </div>
+    `;
+
+    if (htmlFav) {
+        pageElement.html(htmlFav);
+    }
+};
+
+const markAsRead = function () {
+    let favArticles = LocalStorage.get(LocalStorage.KEY_SEEN_ARTICLES);
+    if (favArticles === null) {
+        favArticles = [];
+    }
+    
+    let isSeen = false;
+    favArticles.map(function (obj, index) {
+        if (obj.id !== null && obj.id !== undefined && obj.id == ARTICLE_DETAILS.id) {
+            isSeen = true;
+        }
+    });
+
+    if (!isSeen) {
+        favArticles.push(ARTICLE_DETAILS);
+        LocalStorage.set(LocalStorage.KEY_SEEN_ARTICLES, favArticles);
+    }
+};
+
+let ratingReview;
+const setStarReview = function (valor) {
+    ratingReview = valor;
+};
+
+const sendReview = function () {
+    if (ratingReview) {
+
+        const url = 'http://localhost:8080/review';
+
+        let params = {
+            rating: ratingReview,
+            message: $('#rate_msg').val().trim()
+        }
+
+        const objHeader = {
+            'Content-Type': 'application/json',
+            'accept': 'application/json'
+        };
+
+        AxiosApiPostJson(url, params, objHeader, function (data, status) {
+            console.log('status ', status);
+            console.log('data ', data);
+
+            closeShadowOverlay();
+        });
+
+    } else {
+        toastr.error('Por favor, selecione a classifica&ccedil;&atilde;o para avaliar.');
+    }
 };
