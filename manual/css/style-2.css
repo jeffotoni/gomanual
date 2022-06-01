@@ -803,11 +803,11 @@ body {
 	margin-left: -5px;
 }
 
-.column-text .column-header-button:not(.fa-chevron-right) {
+.column-text .column-header-button:not(.column-star-button,.fa-chevron-right) {
 	border-left: 1px solid #bccbd2;
 }
 
-.column-code .column-header-button:not(.fa-chevron-left),
+.column-code .column-header-button:not(.light-dark-mode-button,.fa-chevron-left),
 .column-code.column-code-expand .column-header-button:not(.fa-chevron-left) {
 	border-left: 1px solid #bccbd2;
 }
