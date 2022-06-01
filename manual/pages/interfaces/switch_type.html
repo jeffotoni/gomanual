@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Structs - New</title>
+    <title>Go Bootcamp - Interfaces - Switch Type</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,45 +58,48 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Structs - New</div>
+                    <div class="main-title">Interfaces - Switch Type</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            <b>new()</b> funciona para todos os tipos de dados (exceto canal, mapa) e aloca espaço <b>dinamicamente</b> 
-                            para uma variável desse tipo e a inicializa com o valor zero desse tipo e retorna um <b>ponteiro</b> para ela.
+                            Um <b>switch de tipo</b> é como uma instrução switch regular, mas os cases
+                            especificam <b>tipos</b> (não valores) que são comparados 
+                            com o tipo do valor mantido pelo valor de interface fornecido.
                         </p>
                         <pre><code class="language-go">
-new(tipo)
+switch v := i.(type) {
+case string:
+    fmt.Println(v)
+case int:
+    fmt.Println(v+2)
+}
                         </code></pre>
                         <p>
-                            Outra forma de inicializar uma estrutura é da seguinte forma:
+                            O type assertion acontece <b>implicitamente</b> para o tipo correto na hora da definição
+                            da variável <b>v</b>. Lembrando que usar a notação <b>i.(type)</b> só é válida dentro
+                            de um switch.
                         </p>
-                        <pre><code class="language-go">
-var minhaStruct tipo
-// ou
-minhaStruct := tipo{}
-                        </code></pre>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a title="Structs - Introdução" class="pages-menu-link link-back" href="index.html">
+                        <a title="Interfaces - Type Assertion" class="pages-menu-link link-back" href="type_assertion.html">
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>2 / 5</span>
+                        <span>5 / 5</span>
 
-                        <a title="Structs - Anônimas" class="pages-menu-link link-forward" href="anonymous_struct.html">
+                        <a title="Erros - Panic" class="pages-menu-link link-forward" href="../erros/panic.html">
                             <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 5) * 2)"></div>
+                        <div class="progress-bar" style="width: 100%"></div>
                     </div>
 
                 </div>
@@ -105,23 +108,39 @@ minhaStruct := tipo{}
                 <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">new.go</div>
+                    <div class="code-filename">structs.go</div>
 
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="new.go">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="anonymous_struct.go">
 package main
 
-import "fmt"
+import (
+    "fmt"
+)
 
 type Pessoa struct {
     Nome string
 }
 
-func main() {
-    ninguemA := new(Pessoa) // Ponteiro
-    var ninguemB Pessoa
+type Papagaio struct {
+    Dono Pessoa
+}
 
-    fmt.Println(ninguemA)
-    fmt.Println(ninguemB)
+
+
+
+func main() {
+    carlito := Pessoa{"Carlito"}
+    jenivaldo := Papagaio{carlito}
+
+    var i interface{} = jenivaldo
+    switch v := i.(type) {
+    case Pessoa:
+        fmt.Println("Pessoa chamada", v.Nome)
+    case Papagaio:
+        fmt.Println("Dono do papagaio é o", v.Dono.Nome)
+    default:
+        fmt.Println("Tipo inválido :/")
+    }
 }
                     </textarea>
 

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Structs - New</title>
+    <title>Go Bootcamp - Interfaces - Definição</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,38 +58,58 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Structs - New</div>
+                    <div class="main-title">Interfaces - Definição</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            <b>new()</b> funciona para todos os tipos de dados (exceto canal, mapa) e aloca espaço <b>dinamicamente</b> 
-                            para uma variável desse tipo e a inicializa com o valor zero desse tipo e retorna um <b>ponteiro</b> para ela.
+                            Uma <b>interface</b> define o comportamento de um tipo. Por comportamento, queremos dizer que
+                            ela define uma <b>"lista" dos métodos</b> que um tipo deve possuir para que se possa considerar
+                            que esse tipo <b>implementa</b> a sua interface.
+                        </p>
+                        <p>
+                            Para exemplificar, observe o seguinte tipo:
                         </p>
                         <pre><code class="language-go">
-new(tipo)
+type Pessoa struct {
+    Nome string
+}
+
+func (p Pessoa) Falar(frase string) {
+    fmt.Printf("%s diz: %s", p.Nome, frase)
+}
                         </code></pre>
                         <p>
-                            Outra forma de inicializar uma estrutura é da seguinte forma:
+                            Observa-se que ele possui o método <b>Falar()</b>. Agora imagine que temos vários <b>tipos diferentes</b>
+                            que possuem esse mesmo método, e queremos chama-lo dentro de uma função que irá receber
+                            qualquer tipo que possua esse método.
+                        </p>
+                        <p>
+                            Para isso, usamos uma interface que peça esse método:
                         </p>
                         <pre><code class="language-go">
-var minhaStruct tipo
-// ou
-minhaStruct := tipo{}
+type Falador interface {
+    Falar(string)
+}
                         </code></pre>
+                        <p>
+                            Com essa interface, podemos agora criar uma função que aceite qualquer tipo que a 
+                            implemente, deixando de lado a necessidade de escrever uma função para cada tipo que 
+                            tivesse o método Falar().
+                        </p>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a title="Structs - Introdução" class="pages-menu-link link-back" href="index.html">
+                        <a title="Interfaces - Introdução" class="pages-menu-link link-back" href="index.html">
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
                         <span>2 / 5</span>
 
-                        <a title="Structs - Anônimas" class="pages-menu-link link-forward" href="anonymous_struct.html">
+                        <a title="Structs - New" class="pages-menu-link link-forward" href="metodos.html">
                             <i class="fa fa-chevron-right"></i>
                         </a>
 
@@ -105,23 +125,43 @@ minhaStruct := tipo{}
                 <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">new.go</div>
+                    <div class="code-filename">structs.go</div>
 
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="new.go">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="anonymous_struct.go">
 package main
 
-import "fmt"
+import (
+    "fmt"
+)
 
 type Pessoa struct {
     Nome string
 }
 
-func main() {
-    ninguemA := new(Pessoa) // Ponteiro
-    var ninguemB Pessoa
+func (p Pessoa) Falar(frase string) {
+    fmt.Printf("%s diz: %s\n", p.Nome, frase)
+}
 
-    fmt.Println(ninguemA)
-    fmt.Println(ninguemB)
+type Papagaio struct {}
+
+func (Papagaio) Falar(frase string) {
+    fmt.Printf("O papagaio diz: %s\n", frase)
+}
+
+type Falador interface {
+    Falar(string)
+}
+
+func FazerFalar(falador Falador, frase string) {
+    falador.Falar(frase)
+}
+
+func main() {
+    carlito := Pessoa{"Carlito"}
+    jeremias := Papagaio{}
+
+    FazerFalar(carlito, "Eu sou um cara legal")
+    FazerFalar(jeremias, "Loro qué biscoito!")
 }
                     </textarea>
 

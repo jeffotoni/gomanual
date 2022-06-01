@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Structs - New</title>
+    <title>Go Bootcamp - Interfaces - Type Assertion</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,45 +58,65 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Structs - New</div>
+                    <div class="main-title">Interfaces - Type Assertion</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            <b>new()</b> funciona para todos os tipos de dados (exceto canal, mapa) e aloca espaço <b>dinamicamente</b> 
-                            para uma variável desse tipo e a inicializa com o valor zero desse tipo e retorna um <b>ponteiro</b> para ela.
+                            Um <b>type assertion</b> fornece acesso ao valor <b>concreto subjacente</b> de um valor de interface.
+                        </p>
+                        <p>
+                            Quando a instância de uma struct é convertida para uma interface, essa <b>instância</b>
+                            continua existindo, porém agora só temos acesso aos métodos que a interface permite.
+                        </p>
+                        <p>
+                            Observe, por exemplo, que quando convertemos uma instância do tipo
+                             Pessoa (veja o exemplo anterios), perdemos
+                            acesso aos campos da struct e aos métodos não definidos pela interface:
                         </p>
                         <pre><code class="language-go">
-new(tipo)
+carlito := Pessoa{"Carlito da Silva"}
+var falador Falador = carlito
+
+// Não temos mais acesso
+fmt.Println(carlito.Nome)
+fmt.Println(carlito.Gritar("Bingo"))
                         </code></pre>
                         <p>
-                            Outra forma de inicializar uma estrutura é da seguinte forma:
+                            Apesar de não termos mais acesso a estes valores, podemos <b>recuperá-los</b> ao convertemos
+                            a interface para o seu <b>tipo original</b>. Isso porque, debaixo dos panos, Go deixa
+                            "guardada" a sua instância original.
                         </p>
                         <pre><code class="language-go">
-var minhaStruct tipo
-// ou
-minhaStruct := tipo{}
+carlitoRecuperado := falador.(Pessoa)
+
+// Agora temos acesso
+fmt.Println(carlitoRecuperado.Nome)
+fmt.Println(carlitoRecuperado.Gritar("Bingo"))
                         </code></pre>
+                        <p>
+                            Mais informações sobre o tema <a href="https://www.geeksforgeeks.org/type-assertions-in-golang/">aqui</a>.
+                        </p>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a title="Structs - Introdução" class="pages-menu-link link-back" href="index.html">
+                        <a title="Interfaces - Métodos" class="pages-menu-link link-back" href="metodos.html">
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>2 / 5</span>
+                        <span>4 / 5</span>
 
-                        <a title="Structs - Anônimas" class="pages-menu-link link-forward" href="anonymous_struct.html">
+                        <a title="Interfaces - Switch Type" class="pages-menu-link link-forward" href="switch_type.html">
                             <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 5) * 2)"></div>
+                        <div class="progress-bar" style="width: calc((100% / 5) * 4)"></div>
                     </div>
 
                 </div>
@@ -105,23 +125,48 @@ minhaStruct := tipo{}
                 <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">new.go</div>
+                    <div class="code-filename">structs.go</div>
 
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="new.go">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="anonymous_struct.go">
 package main
 
-import "fmt"
+import (
+    "fmt"
+)
 
 type Pessoa struct {
     Nome string
 }
 
-func main() {
-    ninguemA := new(Pessoa) // Ponteiro
-    var ninguemB Pessoa
+func (p Pessoa) Falar(frase string) {
+    fmt.Printf("%s diz: %s\n", p.Nome, frase)
+}
 
-    fmt.Println(ninguemA)
-    fmt.Println(ninguemB)
+type Papagaio struct {}
+
+func (Papagaio) Falar(frase string) {
+    fmt.Printf("O papagaio diz: %s\n", frase)
+}
+
+type Falador interface {
+    Falar(string)
+}
+
+func main() {
+    carlito := Pessoa{"Carlito"}
+    var falador Falador = carlito
+    carlitoRecuperado := falador.(Pessoa)
+
+    // Isto irá gerar um panic,
+    // pois o tipo original convertido para Falador
+    // é Pessoa, não Papagaio
+    carlitoPapagaio := falador.(Papagaio)
+
+    // Para evitar um panic,
+    // Podemos verificar se foi possível
+    // realizar o type assertion:
+    carlitoPapagaio, ok := falador.(Papagaio)
+    fmt.Println(ok)
 }
                     </textarea>
 

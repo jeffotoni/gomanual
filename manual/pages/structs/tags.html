@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Structs - New</title>
+    <title>Go Bootcamp - Structs - Tags</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,45 +58,52 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Structs - New</div>
+                    <div class="main-title">Structs - Tags</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            <b>new()</b> funciona para todos os tipos de dados (exceto canal, mapa) e aloca espaço <b>dinamicamente</b> 
-                            para uma variável desse tipo e a inicializa com o valor zero desse tipo e retorna um <b>ponteiro</b> para ela.
+                            Uma <b>tag</b> para um campo permite <b>anexar</b> meta-informações ao campo que podem 
+                            ser adquiridas usando reflection.
+                        </p>
+                        <p>
+                            Geralmente é usado para fornecer informações de <b>transformação</b> sobre como um 
+                            campo é codificado ou decodificado de outro formato.
                         </p>
                         <pre><code class="language-go">
-new(tipo)
+type User struct {
+    Name string `json:"name" xml:"name"`
+}
                         </code></pre>
                         <p>
-                            Outra forma de inicializar uma estrutura é da seguinte forma:
+                            Você pode usá-lo para 
+                            armazenar qualquer <b>meta-informação</b> que desejar, seja destinado a outro pacote 
+                            ou para seu próprio uso.
                         </p>
-                        <pre><code class="language-go">
-var minhaStruct tipo
-// ou
-minhaStruct := tipo{}
-                        </code></pre>
+                        <p>
+                            Para exemplificar, o pacote <b>encoding/json</b> usa as tags para saber qual
+                            o nome equivalente de cada campo no objeto json, como vemos ao lado.
+                        </p>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a title="Structs - Introdução" class="pages-menu-link link-back" href="index.html">
+                        <a title="Structs - Anônimas" class="pages-menu-link link-back" href="anonymous_struct.html">
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>2 / 5</span>
+                        <span>4 / 5</span>
 
-                        <a title="Structs - Anônimas" class="pages-menu-link link-forward" href="anonymous_struct.html">
+                        <a title="Structs - Visibilidade" class="pages-menu-link link-forward" href="visibilidade.html">
                             <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 5) * 2)"></div>
+                        <div class="progress-bar" style="width: calc((100% / 5) * 4)"></div>
                     </div>
 
                 </div>
@@ -105,23 +112,31 @@ minhaStruct := tipo{}
                 <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">new.go</div>
+                    <div class="code-filename">anonymous_struct.go</div>
 
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="new.go">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="anonymous_struct.go">
 package main
 
-import "fmt"
+import (
+    "encoding/json"
+    "fmt"
+)
 
-type Pessoa struct {
-    Nome string
+type Person struct {
+    Name   string      `json:"nome"`
+    Age int `json:"idade"`
 }
 
 func main() {
-    ninguemA := new(Pessoa) // Ponteiro
-    var ninguemB Pessoa
-
-    fmt.Println(ninguemA)
-    fmt.Println(ninguemB)
+    p := &Person{
+        Name:   "Carlito",
+        Age: 28,
+    }
+    myJson, err := json.Marshal(p)
+    if err != nil {
+        fmt.Println(err)
+    }
+    fmt.Println(string(myJson))
 }
                     </textarea>
 

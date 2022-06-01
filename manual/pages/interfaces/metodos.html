@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Structs - New</title>
+    <title>Go Bootcamp - Interfaces - Métodos</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,45 +58,55 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Structs - New</div>
+                    <div class="main-title">Interfaces - Métodos</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            <b>new()</b> funciona para todos os tipos de dados (exceto canal, mapa) e aloca espaço <b>dinamicamente</b> 
-                            para uma variável desse tipo e a inicializa com o valor zero desse tipo e retorna um <b>ponteiro</b> para ela.
+                            No exemplo anterior, vimos que uma função tinha como parâmetro uma interface, porém ela
+                            recebeu como argumento structs. O que aconteceu?
                         </p>
-                        <pre><code class="language-go">
-new(tipo)
-                        </code></pre>
                         <p>
-                            Outra forma de inicializar uma estrutura é da seguinte forma:
+                            Quando uma <b>struct</b> é passada como argumento aonde se espera uma <b>interface</b>, a linguagem
+                            implicitamente <b>converte</b> a sua struct para a interface, ou seja, dentro da função,
+                            nós estamos lidando com uma interface em si. 
                         </p>
-                        <pre><code class="language-go">
-var minhaStruct tipo
-// ou
-minhaStruct := tipo{}
-                        </code></pre>
+                        <p>
+                            Mas como pudemos chamar então um método que
+                            estava definido para as structs?
+                        </p>
+                        <p>
+                            Acontece que quando uma struct é convertida em uma interface, você só terá acesso aos 
+                            <b>métodos</b> que a interface <b>definiu</b>. 
+                        </p>
+                        <p>
+                            Por esse motivo que, se tentarmos
+                            executar um método em uma interface que ela <b>não</b> tenha definido, iremos gerar um <b>panic</b>.
+                        </p>
+                        <p>
+                            Isso acontece <b>mesmo que</b> a struct que foi convertida possuisse esse método. Observe o
+                            exemplo ao lado para entender na prática.
+                        </p>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a title="Structs - Introdução" class="pages-menu-link link-back" href="index.html">
+                        <a title="Interfaces - Definição" class="pages-menu-link link-back" href="definição.html">
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>2 / 5</span>
+                        <span>3 / 5</span>
 
-                        <a title="Structs - Anônimas" class="pages-menu-link link-forward" href="anonymous_struct.html">
+                        <a title="Interfaces - Type Assertion" class="pages-menu-link link-forward" href="type_assertion.html">
                             <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 5) * 2)"></div>
+                        <div class="progress-bar" style="width: calc((100% / 5) * 3)"></div>
                     </div>
 
                 </div>
@@ -105,23 +115,47 @@ minhaStruct := tipo{}
                 <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">new.go</div>
+                    <div class="code-filename">structs.go</div>
 
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="new.go">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="anonymous_struct.go">
 package main
 
-import "fmt"
+import (
+    "fmt"
+)
 
 type Pessoa struct {
     Nome string
 }
 
-func main() {
-    ninguemA := new(Pessoa) // Ponteiro
-    var ninguemB Pessoa
+func (p Pessoa) Falar(frase string) {
+    fmt.Printf("%s diz: %s\n", p.Nome, frase)
+}
 
-    fmt.Println(ninguemA)
-    fmt.Println(ninguemB)
+func (p Pessoa) Gritar(frase string) {
+    fmt.Printf("%s gritou: %s!!!\n", p.Nome, frase)
+}
+
+type Falador interface {
+    Falar(string)
+}
+
+func FazerFalar(falador Falador, frase string) {
+    falador.Falar(frase)
+}
+
+func FazerGritar(falador Falador, frase string) {
+    falador.Gritar(frase)
+}
+
+func main() {
+    carlito := Pessoa{"Carlito"}
+
+    FazerFalar(carlito, "Eu sou um cara legal")
+
+    // Irá gerar um panic, pois a interface Falador
+    // não definiu o método Gritar
+    FazerGritar(carlito, "Palmeiras não tem mundiaaall")
 }
                     </textarea>
 
