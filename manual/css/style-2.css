@@ -1300,12 +1300,12 @@ body {
 	text-align: center;
 }
 
-.share-manual-social > a {
-    background-color: #f9f9f9;
-    border: 1px solid #d8d7d8;
+.share-manual-social .ss-btn {
+    background-color: #f9f9f9 !important;
+    border: 1px solid #d8d7d8 !important;
     display: inline-block;
     vertical-align: middle;
-    color: #67808a;
+    color: #67808a !important;
     cursor: pointer;
     border-radius: 50%;
     margin: 0 0.3rem;
@@ -1316,10 +1316,10 @@ body {
     padding: 9px 0;
 }
 
-.share-manual-social > a:hover {
-	background-color: #037D9C;
-	border-color: #037D9C;
-	color: #FFF;
+.share-manual-social .ss-btn:hover {
+	background-color: #037D9C !important;
+	border-color: #037D9C !important;
+	color: #FFF !important;
 }
 
 /* Popup add favoritos */

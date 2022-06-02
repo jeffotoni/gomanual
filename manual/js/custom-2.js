@@ -49,7 +49,7 @@ $(document).ready(function () {
         "onclick": null,
         "showDuration": "300",
         "hideDuration": "1000",
-        "timeOut": "5000",
+        "timeOut": "3500",
         "extendedTimeOut": "1000",
         "showEasing": "swing",
         "hideEasing": "linear",
@@ -649,26 +649,34 @@ const setStarReview = function (valor) {
 const sendReview = function () {
     if (ratingReview) {
 
-        const url = 'http://localhost:8080/review';
+        // const url = 'http://localhost:8080/review';
 
-        let params = {
-            rating: ratingReview,
-            message: $('#rate_msg').val().trim()
-        }
+        // let params = {
+        //     rating: ratingReview,
+        //     message: $('#rate_msg').val().trim()
+        // }
 
-        const objHeader = {
-            'Content-Type': 'application/json',
-            'accept': 'application/json'
-        };
+        // const objHeader = {
+        //     'Content-Type': 'application/json',
+        //     'accept': 'application/json'
+        // };
 
-        AxiosApiPostJson(url, params, objHeader, function (data, status) {
-            console.log('status ', status);
-            console.log('data ', data);
+        // AxiosApiPostJson(url, params, objHeader, function (data, status) {
+        //     console.log('status ', status);
+        //     console.log('data ', data);
 
-            closeShadowOverlay();
-        });
+        //     showAlertEmDesenvolvimento();
+        //     closeShadowOverlay();
+        // });
+
+        showAlertEmDesenvolvimento();
+        closeShadowOverlay();
 
     } else {
         toastr.error('Por favor, selecione a classifica&ccedil;&atilde;o para avaliar.');
     }
+};
+
+const showAlertEmDesenvolvimento = function () {
+    toastr.info('Em desenvolvimento...');
 };

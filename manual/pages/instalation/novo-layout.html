@@ -19,13 +19,13 @@
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
     <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
-    <link href="../../../css/style-2.css" rel="stylesheet">
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
     <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,30 +66,16 @@
             </div>
         </div>
 
-        <div>
+        <div class="share-manual-social">
             <div id="newShareBox" class="ss-box ss-circle" 
                 data-ss-social="email, whatsapp, facebook, twitter" 
                 data-ss-icon="true"
-                data-ss-icon-class="email:fa fa-envelope,whatsapp:fa fa-whatsapp,facebook:fa fa-facebook-square,twitter:fa fa-twitter"
+                data-ss-icon-class="email:fa fa-envelope,whatsapp:fa fa-whatsapp,facebook:fa fa-facebook,twitter:fa fa-twitter"
                 data-ss-content="false"
+                data-ss-link="https://gobootcamp.jeffotoni.com/"
                 >
             </div>
         </div>
-
-        <!-- <div class="share-manual-social">
-            <a class="btn btn-lg" href="#" role="button">
-                <i class="fa fa-envelope"></i>
-            </a>
-            <a class="btn btn-lg" href="#" role="button">
-                <i class="fa fa-whatsapp"></i>
-            </a>
-            <a class="btn btn-lg" href="#" role="button">
-                <i class="fa fa-facebook"></i>
-            </a>
-            <a class="btn btn-lg" href="#" role="button">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </div> -->
     </div>
 
 
@@ -130,15 +116,15 @@
         <div class="popup-close popup-close-mobile" onclick="closeShadowOverlay();">&times;</div>
         <div class="sidebar-login-title">Salve seu progresso</div>
         <div class="sidebar-login-buttons">
-            <button type="button" class="btn btn-sidebar-login w-100">
+            <button type="button" class="btn btn-sidebar-login w-100" onclick="showAlertEmDesenvolvimento();">
                 <i class="fa fa-google"></i>
                 <span>Continue com Google</span>
             </button>
-            <button type="button" class="btn btn-sidebar-login w-100">
+            <button type="button" class="btn btn-sidebar-login w-100" onclick="showAlertEmDesenvolvimento();">
                 <i class="fa fa-facebook"></i>
                 <span>Continue com Facebook</span>
             </button>
-            <button type="button" class="btn btn-sidebar-login w-100">
+            <button type="button" class="btn btn-sidebar-login w-100" onclick="showAlertEmDesenvolvimento();">
                 <i class="fa fa-github"></i>
                 <span>Continue com GitHub</span>
             </button>
@@ -357,8 +343,8 @@
                         <div class="header-menu-col header-menu-flag">
                             <img src="../../img/flag-brasil.png" alt="" onclick="toggleLanguageDropdown();" />
                             <div class="dropdown-languages">
-                                <a class="dropdown-languages-item" href="#">English</a>
-                                <a class="dropdown-languages-item dropdown-languages-item-active" href="#">Portugu&ecirc;s</a>
+                                <a class="dropdown-languages-item" href="javascript:void(0);" onclick="showAlertEmDesenvolvimento();">English</a>
+                                <a class="dropdown-languages-item dropdown-languages-item-active" href="javascript:void(0);" onclick="$('.shadow-overlay').trigger('click');">Portugu&ecirc;s</a>
                             </div>
                         </div>
 
@@ -373,7 +359,7 @@
                         <div class="header-menu-col header-menu-dots">
                             <i class="fa fa-ellipsis-v header-menu-icon" onclick="toggleDotsMenuDropdown();"></i>
                             <div class="dropdown-dots-menu">
-                                <a class="dropdown-dots-menu-item" href="#" onclick="openPopupShareManual();">
+                                <a class="dropdown-dots-menu-item" href="javascript:void(0)" onclick="openPopupShareManual();">
                                     <i class="fa fa-share"></i>
                                     <span>Compartilhar este artigo</span>
                                 </a>
@@ -381,7 +367,7 @@
                                     <i class="fa fa-star"></i>
                                     <span>Avalie este manual</span>
                                 </a>
-                                <a class="dropdown-dots-menu-item" href="#">
+                                <a class="dropdown-dots-menu-item" href="javascript:void(0)" onclick="showAlertEmDesenvolvimento();">
                                     <i class="fa fa-print"></i>
                                     <span>Imprimir</span>
                                 </a>
