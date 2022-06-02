@@ -56,6 +56,10 @@ $(document).ready(function () {
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     };
+
+
+    // SocialShare.createShareBox(_elements, _link = null, _socials =  null, _showIcon = true, _showContent = true, _clearContainer = true);
+    // SocialShare.createShareBox("#newShareBox", "https://gobootcamp.jeffotoni.com/", "email, whatsapp, facebook, twitter", true, false, true);
 });
 
 const AxiosApiPostJson = function(path, params, objHeaders, callback) {
