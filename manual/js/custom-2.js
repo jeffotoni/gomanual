@@ -49,7 +49,7 @@ $(document).ready(function () {
         "onclick": null,
         "showDuration": "300",
         "hideDuration": "1000",
-        "timeOut": "5000",
+        "timeOut": "3500",
         "extendedTimeOut": "1000",
         "showEasing": "swing",
         "hideEasing": "linear",
@@ -665,10 +665,15 @@ const sendReview = function () {
             console.log('status ', status);
             console.log('data ', data);
 
+            showAlertEmDesenvolvimento();
             closeShadowOverlay();
         });
 
     } else {
         toastr.error('Por favor, selecione a classifica&ccedil;&atilde;o para avaliar.');
     }
+};
+
+const showAlertEmDesenvolvimento = function () {
+    toastr.info('Em desenvolvimento...');
 };
