@@ -67,11 +67,19 @@
                             Um map também pode ser declarado com a palavra-chave var, mas cria um map nulo, pois o 
                             valor zero padrão do mapa é <b>nil</b>. Adicionar qualquer par de valores-chave a esse map causará pânico.
                         </p>
+                        <pre><code class="language-go">
+// A função integrada make 
+// pode ser usada para criar um map. 
+// Ele retorna um map inicializado.
+meuMapa := make(map[string]int)
+                        </code></pre>
                         <p>
-                            A função integrada <b>make</b> pode ser usada para criar um map. Ele retorna um map inicializado.
+                            Para <b>adicionar</b> um valor a esse mapa, usamos a seguinte sintaxe:
                         </p>
                         <pre><code class="language-go">
-make(map[string]int)
+meuMapa["Campo1"] = 1
+meuMapa["Campo2"] = 2
+meuMapa["Campo3"] = 3
                         </code></pre>
                     </div>
 

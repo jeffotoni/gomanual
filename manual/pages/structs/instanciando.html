@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Métodos - Comparação com Funções</title>
+    <title>Go Bootcamp - Structs - Instanciando</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,43 +58,60 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Métodos - Comparação com Funções</div>
+                    <div class="main-title">Structs - Instanciando</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            Os <b>métodos</b> Go são semelhantes à função Go com uma diferença, ou seja, o 
-                            método contém um argumento <b>receptor</b>. Com a ajuda do argumento do receptor, 
-                            o método pode acessar as propriedades do receptor. 
-                        </p>
-                        <p>
-                            Aqui, o receptor pode ser do 
-                            tipo de estrutura ou não. Quando você cria um método em seu código, o 
-                            receptor e o tipo de receptor devem estar presentes no mesmo pacote.
+                            Ao <b>instanciar</b> uma struct, você pode definir o valor de alguns campos.
+                            Se um campo não for definido, seu valor será o <b>zero value</b> do seu tipo.
                         </p>
                         <pre><code class="language-go">
-func (r Receptor) Metodo(param string) {...}
+type Pessoa struct {
+    Nome string
+    Idade int
+}
+
+carlos := Pessoa{
+    Nome: "Carlos",
+}
+
+// Idade tem o valor de 0
+carlos.Idade
                         </code></pre>
+                        <p>
+                            Se a struct só tiver 1 campo, você pode passar o valor dele sem precisar
+                            informar o <b>nome</b> do campo.
+                        </p>
+                        <!-- <p>
+                            Se nenhum campo for passado, <b>todos</b> terão como valor seus zero values.
+                        </p>
+                        <pre><code class="language-go">
+// Instanciando sem passar nenhum campo
+var carlos Pessoa
+// ou
+carlos := Pessoa{}
+                        </code></pre> -->
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a title="Ponteiros - Quando Usar" class="pages-menu-link link-back" href="../pointers/when_use.html">
+                        <a title="Structs - Introdução" class="pages-menu-link link-back" href="index.html">
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>1 / 2</span>
+                        <span>2 / 7</span>
 
-                        <a title="Métodos - Interfaces" class="pages-menu-link link-forward" href="interfaces.html">
+                        <a title="Structs - New" class="pages-menu-link link-forward" href="new.html">
                             <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 2) * 1)"></div>
+                        <div class="progress-bar" style="width: calc((100% / 7) * 2)"></div>
                     </div>
 
                 </div>
@@ -103,34 +120,27 @@ func (r Receptor) Metodo(param string) {...}
                 <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">methods.go</div>
+                    <div class="code-filename">new.go</div>
 
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="methods.go">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="new.go">
 package main
-  
-import (
-    "fmt"
-)
+
+import "fmt"
 
 type Pessoa struct {
     Nome string
     Idade int
 }
 
-func (*Pessoa) Falar(frases ...interface{}) {
-    fmt.Println(frases)
-}
-
-func (p *Pessoa) FazerAniversario() {
-    p.Idade++
-}
-
 func main() {
-    carlos := Pessoa{"Carlos", 23}
-    carlos.Falar("Minha idade é:", carlos.Idade)
+    carlos := Pessoa{
+        Nome: "Carlos",
+    }
+    fmt.Println(carlos.Idade)
 
-    carlos.FazerAniversario()
-    carlos.Falar("Minha idade é:", carlos.Idade)
+    maria := Pessoa{}
+    fmt.Println(maria.Nome)
+    fmt.Println(maria.Idade)
 }
                     </textarea>
 

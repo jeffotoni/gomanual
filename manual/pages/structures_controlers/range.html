@@ -119,49 +119,24 @@ channel        c chan E, <-chan E     element e E
                     <div class="code-filename">range.go</div>
 
                     <textarea class="go-playground-snippet" data-expanded="1" data-title="range.go">
-
 package main
 
 import "fmt"
 
 func main() {
-  var lang = [...]string{"Erlang", "Elixir", "Haskell", "Clojure", "Scala"}
-  fmt.Println(lang)
+	var lang = [...]string{
+		"Erlang",
+		"Elixir",
+		"Haskell",
+		"Clojure",
+		"Scala",
+	}
+	fmt.Println(lang)
 
-  for k, v := range lang {
-    fmt.Println(k, v)
-  }
-
-  countryCapitalMap := map[string]string{"Brasil": "Brasilia", "EUA AMERICA": "Washington, D.C.", "France": "Paris", "Italy": "Roma", "Japan": "Tokyo"}
-  for country, capital := range countryCapitalMap {
-    fmt.Println("Capital of", country, "is", capital)
-  }
-
-  jobs := make(chan int, 3)
-  for j := 1; j <= 3; j++ {
-    jobs <- j
-  }
-  close(jobs)
-
-  a := []struct{ nick string }{{"@devopsbr"}, {"@go_br"}, {"@awsbrasil"}, {"@go_br"}, {"@devopsbh"}}
-  for i, v := range a {
-    fmt.Println(i, v.nick)
-  }
-
-  var testdata *struct {
-    a *[3]int
-  }
-  for i := range testdata.a {
-    fmt.Println(i)
-  }
-
-  var key string
-  var val interface{}
-  m := map[string]int{"mon": 0, "tue": 1, "wed": 2, "thu": 3, "fri": 4, "sat": 5, "sun": 6}
-  for key, val = range m {
-    fmt.Println(key, val)
-  }
-}		
+	for k, v := range lang {
+		fmt.Println(k, v)
+	}
+}	
                     </textarea>
 
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />

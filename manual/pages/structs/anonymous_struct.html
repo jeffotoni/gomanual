@@ -64,13 +64,20 @@
 
                     <div class="content-height">
                         <p>
-                            Uma estrutura <b>anônima</b> é uma estrutura que não contém um nome. É útil quando você deseja criar 
-                            uma estrutura utilizável uma única vez. Você pode criar uma estrutura anônima usando a seguinte sintaxe:
+                            Uma struct <b>anônima</b> é uma estrutura que não contém um nome. É útil quando você deseja criar 
+                            uma estrutura utilizável uma única vez. 
+                        </p>
+                        <p>
+                            Você pode criar uma estrutura anônima usando a seguinte sintaxe:
                         </p>
                         <pre><code class="language-go">
-nome_variavel := struct{
-// campos
-}{// valor dos campos}
+carlinho := struct{
+    Nome string
+    Idade int
+}{
+    "Carlos",
+    43,
+}
                         </code></pre>
                     </div>
 
@@ -81,7 +88,7 @@ nome_variavel := struct{
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>3 / 5</span>
+                        <span>4 / 7</span>
 
                         <a title="Structs - Tags" class="pages-menu-link link-forward" href="tags.html">
                             <i class="fa fa-chevron-right"></i>
@@ -90,7 +97,7 @@ nome_variavel := struct{
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 5) * 3)"></div>
+                        <div class="progress-bar" style="width: calc((100% / 7) * 4)"></div>
                     </div>
 
                 </div>

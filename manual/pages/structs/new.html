@@ -64,30 +64,39 @@
 
                     <div class="content-height">
                         <p>
-                            <b>new()</b> funciona para todos os tipos de dados (exceto canal, mapa) e aloca espaço <b>dinamicamente</b> 
-                            para uma variável desse tipo e a inicializa com o valor zero desse tipo e retorna um <b>ponteiro</b> para ela.
+                            Há <b>outras formas</b> de instanciar uma struct. No post anterior, vimos como 
+                            instanciar e passar valor aos campos. Agora veremos como instanciar 
+                            <b>sem passar</b> valor aos campos.
                         </p>
                         <pre><code class="language-go">
-new(tipo)
+var carlos Pessoa
+// Pessoa{Nome: "", Idade: 0}
+
+carlos := Pessoa{}
+// Pessoa{Nome: "", Idade: 0}
                         </code></pre>
                         <p>
-                            Outra forma de inicializar uma estrutura é da seguinte forma:
+                            Os dois métodos acima são <b>equivalentes</b>. Em ambos, todos os campos terão
+                            os seus respectivos <b>zero values</b>.
+                        </p>
+                        <p>
+                            Outra forma ainda é usando a função embutida <b>new()</b>. Ela irá retornar
+                            um <b>ponteiro</b> para uma instância da sua struct com todos os campos vazios.
                         </p>
                         <pre><code class="language-go">
-var minhaStruct tipo
-// ou
-minhaStruct := tipo{}
+carlos := new(Pessoa)
+// *Pessoa{Nome: "", Idade: 0}
                         </code></pre>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a title="Structs - Introdução" class="pages-menu-link link-back" href="index.html">
+                        <a title="Structs - Instanciando" class="pages-menu-link link-back" href="instanciando.html">
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>2 / 5</span>
+                        <span>3 / 7</span>
 
                         <a title="Structs - Anônimas" class="pages-menu-link link-forward" href="anonymous_struct.html">
                             <i class="fa fa-chevron-right"></i>
@@ -96,7 +105,7 @@ minhaStruct := tipo{}
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 5) * 2)"></div>
+                        <div class="progress-bar" style="width: calc((100% / 7) * 3)"></div>
                     </div>
 
                 </div>
@@ -114,14 +123,28 @@ import "fmt"
 
 type Pessoa struct {
     Nome string
+    Idade int
 }
 
 func main() {
-    ninguemA := new(Pessoa) // Ponteiro
-    var ninguemB Pessoa
+    maria := Pessoa{}
+    fmt.Println(maria)
+    fmt.Println(maria.Nome)
+    fmt.Println(maria.Idade)
 
-    fmt.Println(ninguemA)
-    fmt.Println(ninguemB)
+    fmt.Println("########")
+
+    var carlos Pessoa
+    fmt.Println(carlos)
+    fmt.Println(carlos.Nome)
+    fmt.Println(carlos.Idade)
+
+    fmt.Println("########")
+
+    pedro := new(Pessoa)
+    fmt.Println(pedro)
+    fmt.Println(pedro.Nome)
+    fmt.Println(pedro.Idade)
 }
                     </textarea>
 

@@ -73,7 +73,7 @@
                         </p>
                         <pre><code class="language-go">
 type User struct {
-    Name string `json:"name" xml:"name"`
+    Name string `code:"utf-8"`
 }
                         </code></pre>
                         <p>
@@ -94,7 +94,7 @@ type User struct {
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>4 / 5</span>
+                        <span>5 / 7</span>
 
                         <a title="Structs - Visibilidade" class="pages-menu-link link-forward" href="visibilidade.html">
                             <i class="fa fa-chevron-right"></i>
@@ -103,7 +103,7 @@ type User struct {
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 5) * 4)"></div>
+                        <div class="progress-bar" style="width: calc((100% / 7) * 5)"></div>
                     </div>
 
                 </div>
@@ -118,25 +118,25 @@ type User struct {
 package main
 
 import (
-    "encoding/json"
-    "fmt"
+	"encoding/json"
+	"fmt"
 )
 
 type Person struct {
-    Name   string      `json:"nome"`
-    Age int `json:"idade"`
+	Name string `json:"nome"`
+	Age  int    `json:"idade"`
 }
 
 func main() {
-    p := &Person{
-        Name:   "Carlito",
-        Age: 28,
-    }
-    myJson, err := json.Marshal(p)
-    if err != nil {
-        fmt.Println(err)
-    }
-    fmt.Println(string(myJson))
+	p := &Person{
+		Name: "Carlito",
+		Age:  28,
+	}
+	myJson, err := json.Marshal(p)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(string(myJson))
 }
                     </textarea>
 

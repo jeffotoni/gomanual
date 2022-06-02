@@ -64,12 +64,22 @@
 
                     <div class="content-height">
                         <p>
-                            Para <b>inicializar</b> um array em Go, use a seguinte <b>sintaxe</b>:
+                            Para <b>inicializar</b> um array, você deve colocar todos os elementos que
+                            ele possuirá dentro de colchetes.
                         </p>
                         <pre><code class="language-go">
 var n = [3]int{3, 2, 1}
 // Ou
 n := [3]int{3, 2, 1}
+                        </code></pre>
+                        <p>
+                            Se você colocar menos elementos dentro do colchete do que a quantidade 
+                            indicada no tipo, os elementos restantes serão definidos automaticamente
+                            com o <b>zero value</b> do tipo do array.
+                        </p>
+                        <pre><code class="language-go">
+n := [5]int{3, 2, 1}
+// {3, 2, 1, 0, 0}
                         </code></pre>
                     </div>
 

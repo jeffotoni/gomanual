@@ -64,10 +64,10 @@
 
                     <div class="content-height">
                         <p>
-                            Aqui estão algumas das situações comuns em que você precisará usar um ponteiro em vez de um valor:
+                            Aqui estão algumas das situações comuns em que você precisará <b>usar</b> um ponteiro em vez de um valor:
                         </p>
                         <p>
-                            Alterar o estado de um objeto:
+                            <b>Alterar o estado</b> de um objeto:
                             Digamos que você tenha uma estrutura como esta 
                         </p>
                         <pre><code class="language-go">
@@ -79,8 +79,8 @@ type Person struct {
 }
                         </code></pre>
                         <p>
-                            Agora, você quer um método permita alterar o nome de uma pessoa:
-                            Para isso, um ponteiro é necessário, pois ele da acesso à instância original, não a uma cópia dela:
+                            Agora, você quer um <b>método</b> permita alterar o nome de uma pessoa:
+                            Para isso, um ponteiro é necessário, pois ele da acesso à <b>instância original</b>, não a uma cópia dela:
                         </p>
                         <pre><code class="language-go">
 func (p *Person) changeName(name string){
@@ -111,7 +111,7 @@ func (p *Person) changeName(name string){
 
                         <span>2 / 2</span>
 
-                        <a title="Métodos - Comparação com Funções" class="pages-menu-link link-forward" href="../methods/index.html">
+                        <a title="Structs - Introdução" class="pages-menu-link link-forward" href="../structs/index.html">
                             <i class="fa fa-chevron-right"></i>
                         </a>
 

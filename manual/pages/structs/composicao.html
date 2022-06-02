@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - JSON - Unmarshal</title>
+    <title>Go Bootcamp - Structs - Composição</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,30 +58,51 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">JSON - Unmarshal</div>
+                    <div class="main-title">Structs - Composição</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            a função <b>json.Unmarshal()</b> pega alguns dados JSON codificados e um ponteiro para um 
-                            valor onde o JSON codificado deve ser escrito e retorna um erro se algo der errado.
+                            <b>Composição</b> é um método empregado para escrever segmentos de código 
+                            <b>reutilizáveis</b>. 
+                        </p>
+                        <p>
+                            Isso é obtido quando os objetos são compostos de outros 
+                            objetos <b>menores</b> com comportamentos <b>específicos</b>, 
+                            ou seja, objetos maiores 
+                            com uma funcionalidade mais ampla são <b>incorporados</b> com objetos menores 
+                            com comportamentos específicos.
                         </p>
                         <pre><code class="language-go">
-func Unmarshal(data []byte, v interface{}) error
+type Pessoa struct {
+    Nome string
+    idade int
+}
+
+type Programador struct {
+    Linguagem string
+    Pessoa
+}
                         </code></pre>
+                        <p>
+                            Quando formos <b>instanciar</b> uma struct que possui uma composição, precisamos também
+                            instanciar o <b>tipo</b> que faz a composição. 
+                            Na hora da instância, simplesmente o chamamos pelo seu 
+                            próprio <b>nome de tipo</b>.
+                        </p>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a title="JSON - Marshal" class="pages-menu-link link-back" href="marshal.html">
+                        <a title="Structs - Visibilidade" class="pages-menu-link link-back" href="visibilidade.html">
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>3 / 3</span>
+                        <span>7 / 7</span>
 
-                        <a title="File - Base64" class="pages-menu-link link-forward" href="../file/base64.html">
+                        <a title="Métodos - Receiver" class="pages-menu-link link-forward" href="../methods/receiver.html">
                             <i class="fa fa-chevron-right"></i>
                         </a>
 
@@ -97,50 +118,31 @@ func Unmarshal(data []byte, v interface{}) error
                 <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">unmarshal.go</div>
+                    <div class="code-filename">anonymous_struct.go</div>
 
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="unmarshal.go">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="anonymous_struct.go">
 package main
- 
-import (
-    "fmt"
-    "encoding/json"
-)
+
+import "fmt"
 
 type Pessoa struct {
     Nome string
-    Idade int
+    idade int
 }
 
-type Livro struct {
-    Nome string
-    Autor Pessoa
+type Programador struct {
+    Linguagem string
+    Pessoa
 }
- 
+
 func main() {
-    // Marshal
-    domQuixote := Livro{
-        "Dom Quixote", 
-        Pessoa{
-            "Miguel de Cervantes", 
-            44,
+    carlos := Programador{
+        Linguagem: "Golang S2",
+        Pessoa: Pessoa{
+            Nome: "Carlos Maneiro",
+            Idade: 35,
         },
     }
-    res, err := json.Marshal(domQuixote)
-     
-    if err != nil {
-        fmt.Println(err)
-    }
-     
-    fmt.Println("Marshal", string(res))
-
-    // Unmarshal
-    outroLivro := Livro{}
-    err = json.Unmarshal(res, &outroLivro)
-    if err != nil {
-        fmt.Println(err)
-    }
-    fmt.Println("Unmarshal", outroLivro)
 }
                     </textarea>
 

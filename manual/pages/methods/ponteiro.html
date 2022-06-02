@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - JSON - Unmarshal</title>
+    <title>Go Bootcamp - Métodos - Ponteiro</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,37 +58,57 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">JSON - Unmarshal</div>
+                    <div class="main-title">Métodos - Ponteiro</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            a função <b>json.Unmarshal()</b> pega alguns dados JSON codificados e um ponteiro para um 
-                            valor onde o JSON codificado deve ser escrito e retorna um erro se algo der errado.
+                            Quando queremos que uma <b>função</b> ou <b>método</b> consiga modificar os dados da nossa struct,
+                            precisamos passar para ela um <b>ponteiro</b>, pois se passarmos somente a instância,
+                            a função irá receber uma <b>cópia</b> da nossa instância, portanto não conseguindo
+                            modificá-la.
+                        </p>
+                        <p>
+                            A mesma regra se aplica para os receptores de métodos.
                         </p>
                         <pre><code class="language-go">
-func Unmarshal(data []byte, v interface{}) error
+// Essa função só fará a modificação dentro
+// do próprio escopo.
+func MudarNome(p Pessoa, nome string) {
+    p.Nome = nome
+}
+
+// Já essa, modificará a instância em si,
+// pois tem acesso ao seu endereço na memória.
+func MudarNome(p *Pessoa, nome string) {
+    p.Nome = nome
+}
+
+// Este também, pois o receptor é um ponteiro.
+func (p *Pessoa) MudarNome(nome string) {
+    p.Nome = nome
+}
                         </code></pre>
                     </div>
 
 
                     <div class="pages-menu">
 
-                        <a title="JSON - Marshal" class="pages-menu-link link-back" href="marshal.html">
+                        <a title="Métodos - Receiver" class="pages-menu-link link-back" href="receiver.html">
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>3 / 3</span>
+                        <span>2 / 3</span>
 
-                        <a title="File - Base64" class="pages-menu-link link-forward" href="../file/base64.html">
+                        <a title="Métodos - Interfaces" class="pages-menu-link link-forward" href="interfaces.html">
                             <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: 100%"></div>
+                        <div class="progress-bar" style="width: calc((100% / 3) * 2)"></div>
                     </div>
 
                 </div>
@@ -97,50 +117,48 @@ func Unmarshal(data []byte, v interface{}) error
                 <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">unmarshal.go</div>
+                    <div class="code-filename">anonymous_struct.go</div>
 
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="unmarshal.go">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="anonymous_struct.go">
 package main
- 
-import (
-    "fmt"
-    "encoding/json"
-)
+
+import "fmt"
 
 type Pessoa struct {
     Nome string
-    Idade int
+    idade int
 }
 
-type Livro struct {
-    Nome string
-    Autor Pessoa
+func (p Pessoa) GetIdade() int {
+    return p.idade
 }
- 
+
+func (p Pessoa) setIdade(n int) bool {
+    if p.idade > 99 {
+        return false
+    }
+    return true
+}
+
+func (p Pessoa) Envelhecer(anos int) {
+    p.setIdade(p.idade + anos)
+}
+
 func main() {
-    // Marshal
-    domQuixote := Livro{
-        "Dom Quixote", 
-        Pessoa{
-            "Miguel de Cervantes", 
-            44,
-        },
+    carlinha := Pessoa{
+        Nome: "Carlinha Pereira",
+        idade: 10,
     }
-    res, err := json.Marshal(domQuixote)
-     
-    if err != nil {
-        fmt.Println(err)
-    }
-     
-    fmt.Println("Marshal", string(res))
+    
+    fmt.Println(carlinha.Nome)
+    fmt.Println(carlinha.GetIdade())
+    carlinha.Envelhecer(30)
 
-    // Unmarshal
-    outroLivro := Livro{}
-    err = json.Unmarshal(res, &outroLivro)
-    if err != nil {
-        fmt.Println(err)
-    }
-    fmt.Println("Unmarshal", outroLivro)
+    // Não temos acesso a esse campo
+    fmt.Println(carlinha.idade)
+
+    // Nem a esse método
+    carlinha.setIdade(84)
 }
                     </textarea>
 
