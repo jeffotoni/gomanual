@@ -129,9 +129,9 @@ log.Fatal(http.ListenAndServe(":8080",nil))
 
                     <div class="code-filename">standard_library.go</div>
 
-                    <div class="content-height">
-                        <pre><code class="language-go">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="post.go">
 .....
+
 func main() {
     log.Printf("\nServer run 8080\n")
     err := http.ListenAndServe(":8080",
@@ -140,11 +140,9 @@ func main() {
         }))
     log.Fatal(err)
 }
+
 ....
-                        </code></pre>
-                        
-                        <pre><code class="language-go">
-.....
+
 tr := &http.Transport{
 	MaxIdleConns:       10,
 	IdleConnTimeout:    30 * time.Second,
@@ -152,11 +150,9 @@ tr := &http.Transport{
 }
 client := &http.Client{Transport: tr}
 resp, err := client.Get("https://example.com")
+
 ....
-                        </code></pre>
-                        
-                        <pre><code class="language-go">
-.....
+
 s := &http.Server{
 	Addr:           ":8080",
 	Handler:        myHandler,
@@ -165,9 +161,10 @@ s := &http.Server{
 	MaxHeaderBytes: 1 << 20,
 }
 log.Fatal(s.ListenAndServe())
+
 ....
-                        </code></pre>
-                    </div>
+                    </textarea>
+                    <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
                 </div>
                 <!--- Coluna Direita Fim --->
             </div>

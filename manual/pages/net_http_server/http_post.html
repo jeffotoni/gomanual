@@ -129,7 +129,11 @@ func main() {
         panic(err)
     }
     reqBody := bytes.NewBuffer(data)
-	resp, err := http.Post("http://google.com", "encoding/json", reqBody)
+	resp, err := http.Post(
+        "http://google.com", 
+        "encoding/json", 
+        reqBody,
+    )
     if err != nil {
         panic(err)
     }

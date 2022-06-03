@@ -108,9 +108,9 @@ ok      ./math   0.442s
 
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">math.go</div>
+                    <div class="code-filename">examples.go</div>
 
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="math.go">
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="examples.go">
 package math
 
 import (
@@ -136,8 +136,13 @@ var addTests = []addTest{
 func TestAdd(t *testing.T) {
 
     for _, test := range addTests {
-        if output := Add(test.arg1, test.arg2); output != test.expected {
-            t.Errorf("Output %q not equal to expected %q", output, test.expected)
+        output := Add(test.arg1, test.arg2)
+        if output != test.expected {
+            t.Errorf(
+                "Output %q not equal to expected %q", 
+                output, 
+                test.expected,
+            )
         }
     }
 }

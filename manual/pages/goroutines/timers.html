@@ -134,7 +134,8 @@ func main() {
     timer2 := time.NewTimer(time.Second)
     go func() {
         <-timer2.C
-        fmt.Println("Timer 2 terminou") // Não executa pois timer2 é cancelado posteriormente
+        // Não executa pois timer2 é cancelado posteriormente
+        fmt.Println("Timer 2 terminou")
     }()
     stop2 := timer2.Stop()
     if stop2 {

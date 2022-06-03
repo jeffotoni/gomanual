@@ -64,11 +64,27 @@
 
                     <div class="content-height">
                         <p>
-                            <b>Marshal()</b> recebe um valor como entrada e retorna o JSON codificado como um
-                            <b>slice de bytes</b> em caso de sucesso ou um erro se algo der errado.
+                            Podemos <b>codificar</b> efetivamente qualquer tipo e obteremos um 
+                            <b>[]byte</b> como saída e um erro se houver 
+                            algum durante o empacotamento do json.
                         </p>
                         <pre><code class="language-go">
 func Marshal(v interface{}) ([]byte, error)
+                        </code></pre>
+                        <p>
+                            As <b>struct</b> Go serão empacotados em objetos JSON, onde o <b>nome</b>
+                            do campo se torna a <b>chave</b> do objeto, e o seu <b>valor</b>, o valor da 
+                            respectiva chave.
+                        </p>
+                        <p>
+                            É possível definir um nome <b>personalizado</b> para a futura conversão do campo 
+                            em JSON usando <b>tags</b>, da seguinte forma:
+                        </p>
+                        <pre><code class="language-go">
+type Pessoa struct {
+    Nome string `json:"nome_completo"`
+    Idade int
+}
                         </code></pre>
                     </div>
 

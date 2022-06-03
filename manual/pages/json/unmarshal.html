@@ -64,12 +64,17 @@
 
                     <div class="content-height">
                         <p>
-                            a função <b>json.Unmarshal()</b> pega alguns dados JSON codificados e um ponteiro para um 
-                            valor onde o JSON codificado deve ser escrito e retorna um erro se algo der errado.
+                            Para <b>converter</b> JSON, usamos a função <b>Unmarshal</b>  
+                            para <b>decodificar</b> os dados de JSON 
+                            para um struct.
                         </p>
                         <pre><code class="language-go">
 func Unmarshal(data []byte, v interface{}) error
                         </code></pre>
+                        <p>
+                            Unmarshal analisa os dados codificados em JSON e <b>armazena</b> 
+                            o resultado em v, que deve ser um <b>ponteiro</b>.
+                        </p>
                     </div>
 
 
@@ -118,25 +123,9 @@ type Livro struct {
 }
  
 func main() {
-    // Marshal
-    domQuixote := Livro{
-        "Dom Quixote", 
-        Pessoa{
-            "Miguel de Cervantes", 
-            44,
-        },
-    }
-    res, err := json.Marshal(domQuixote)
-     
-    if err != nil {
-        fmt.Println(err)
-    }
-     
-    fmt.Println("Marshal", string(res))
-
-    // Unmarshal
+    j := "{\"Nome\":\"Dom Quixote\",\"Autor\":{\"Nome\":\"Miguel de Cervantes\",\"Idade\":44}}"
     outroLivro := Livro{}
-    err = json.Unmarshal(res, &outroLivro)
+    err := json.Unmarshal(j, &outroLivro)
     if err != nil {
         fmt.Println(err)
     }

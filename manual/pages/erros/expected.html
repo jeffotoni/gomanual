@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Fiber - CSRF</title>
+    <title>Go Bootcamp - Erros - Expected</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,82 +58,93 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Fiber - CSRF</div>
+                    <div class="main-title">Erros - Expected</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            O middleware <b>CSRF</b> fornece proteção contra
-                            <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery">falsificação de solicitação entre sites</a>
-                            passando um token CSRF por meio de cookies.
+                            Outra técnica importante em Go é definir <b>erros esperados</b> para que 
+                            possam ser <b>verificados</b> explicitamente em outras partes do código.
                         </p>
+                        <pre><code class="language-go">
+switch {
+case errors.Is(err, ErrDivideByZero):
+    fmt.Println("divisão por zero")
+default:
+    fmt.Printf("erro inesperado: %s\n", err)
+}
+                        </code></pre>
                         <p>
-                            Esse cookie será usado para comparar com o <b>token CSRF</b> do cliente nas
-                            solicitações <b>POST</b>. Quando o token CSRF for inválido, esse middleware excluirá
-                            o cookie csrf_ e retornará o erro <b>fiber.ErrForbidden</b>.
-                        </p>
-                        <p>
-                            Para mais informações sobre o middleware CSRF, clique
-                            <a href="https://github.com/gofiber/fiber/tree/master/middleware/csrf">aqui</a>
+                            Isso se torna útil quando você precisa executar uma <b>ramificação</b> de 
+                            código diferente se um determinado tipo de erro <b>for encontrado</b>.
                         </p>
                     </div>
-
                     <div class="pages-menu">
 
-                        <a title="Fiber - Helmet" class="pages-menu-link link-back" href="helmet.html">
+                        <a title="Erros - Criando" class="pages-menu-link link-back" href="criando.html">
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>6 / 12</span>
+                        <span>3 / 5</span>
 
-                        <a title="Fiber - Logger" class="pages-menu-link link-forward" href="logger.html">
+                        <a title="Erros - Panic" class="pages-menu-link link-forward" href="panic.html">
                             <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 12) * 6)"></div>
+                        <div class="progress-bar" style="width: calc((100% / 5) * 3)"></div>
                     </div>
 
                 </div>
                 <!--- Coluna Esquerda Fim --->
 
+                <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">fiber.go</div>
-                    
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="post.go">
+                    <div class="code-filename">expected.go</div>
+
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="expected.go">
 package main
 
 import (
-  "github.com/gofiber/fiber/v2"
-  "github.com/gofiber/fiber/v2/middleware/crsf"
+    "errors"
+    "fmt"
 )
 
-func main() {
-  app := fiber.New()
+var ErrDivideByZero = errors.New("divisão por zero")
 
-  app.Use(csrf.New(csrf.Config{
-    KeyLookup:      "header:X-Csrf-Token",
-    CookieName:     "csrf_",
-    CookieSameSite: "Lax",
-    Expiration:     1 * time.Hour,
-    KeyGenerator:   utils.UUID,
-  }))
-
-  app.Get("/", func(c *fiber.Ctx) error {
-    return c.SendString("Welcome!")
-  })
-
-  app.Listen(":3000")
+func Divide(a, b int) (int, error) {
+    if b == 0 {
+        return 0, ErrDivideByZero
+    }
+    return a / b, nil
 }
+
+func main() {
+    a, b := 10, 0
+    result, err := Divide(a, b)
+    if err != nil {
+        switch {
+        case errors.Is(err, ErrDivideByZero):
+            fmt.Println("divisão por zero recebida")
+        default:
+            fmt.Printf("erro inesperado: %s\n", err)
+        }
+        return
+    }
+
+    fmt.Printf("%d / %d = %d\n", a, b, result)
+}                
                     </textarea>
+
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
-                    </div>
+
                 </div>
                 <!--- Coluna Direita Fim --->
+
             </div>
         </div>
     </main>

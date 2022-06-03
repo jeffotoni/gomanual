@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Fiber - CSRF</title>
+    <title>Go Bootcamp - Erros - Introdução</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -58,82 +58,87 @@
                 <div class="col-12 col-lg-6 column-text px-0">
 
                     <!--- Page title --->
-                    <div class="main-title">Fiber - CSRF</div>
+                    <div class="main-title">Erros - Introdução</div>
                     <!--- Page title Fim --->
 
 
                     <div class="content-height">
                         <p>
-                            O middleware <b>CSRF</b> fornece proteção contra
-                            <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery">falsificação de solicitação entre sites</a>
-                            passando um token CSRF por meio de cookies.
+                            O <b>tratamento de erros</b> em Go é um pouco <b>diferente</b> de outras linguagens 
+                            de programação convencionais.
                         </p>
                         <p>
-                            Esse cookie será usado para comparar com o <b>token CSRF</b> do cliente nas
-                            solicitações <b>POST</b>. Quando o token CSRF for inválido, esse middleware excluirá
-                            o cookie csrf_ e retornará o erro <b>fiber.ErrForbidden</b>.
+                            Os erros internos do Go não contêm rastreamentos de pilha, nem 
+                            suportam <b>try/catch</b> convencional.
                         </p>
                         <p>
-                            Para mais informações sobre o middleware CSRF, clique
-                            <a href="https://github.com/gofiber/fiber/tree/master/middleware/csrf">aqui</a>
+                            Em vez disso, erros em Go são apenas <b>valores</b> retornados por funções 
+                            e podem ser tratados da mesma maneira que qualquer outro <b>tipo</b> de dados.
+                        </p>
+                        <pre><code class="language-go">
+type error interface {
+    Error() string
+}
+                        </code></pre>
+                        <p>
+                            O tipo de erro em Go é implementado pela <b>interface</b> acima.
                         </p>
                     </div>
-
                     <div class="pages-menu">
 
-                        <a title="Fiber - Helmet" class="pages-menu-link link-back" href="helmet.html">
+                        <a title="Interfaces - Switch Type" class="pages-menu-link link-back" href="../interfaces/switch_type.html">
                             <i class="fa fa-chevron-left"></i>
                         </a>
 
-                        <span>6 / 12</span>
+                        <span>1 / 5</span>
 
-                        <a title="Fiber - Logger" class="pages-menu-link link-forward" href="logger.html">
+                        <a title="Erros - Criando" class="pages-menu-link link-forward" href="criando.html">
                             <i class="fa fa-chevron-right"></i>
                         </a>
 
                     </div>
 
                     <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: calc((100% / 12) * 6)"></div>
+                        <div class="progress-bar" style="width: calc((100% / 5) * 1)"></div>
                     </div>
 
                 </div>
                 <!--- Coluna Esquerda Fim --->
 
+                <!--- Coluna Direita --->
                 <div class="col-12 col-lg-6 column-code">
 
-                    <div class="code-filename">fiber.go</div>
-                    
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="post.go">
+                    <div class="code-filename">err.go</div>
+
+                    <textarea class="go-playground-snippet" data-expanded="1" data-title="err.go">
 package main
 
 import (
-  "github.com/gofiber/fiber/v2"
-  "github.com/gofiber/fiber/v2/middleware/crsf"
+    "fmt"
+    "errors"   
 )
 
-func main() {
-  app := fiber.New()
-
-  app.Use(csrf.New(csrf.Config{
-    KeyLookup:      "header:X-Csrf-Token",
-    CookieName:     "csrf_",
-    CookieSameSite: "Lax",
-    Expiration:     1 * time.Hour,
-    KeyGenerator:   utils.UUID,
-  }))
-
-  app.Get("/", func(c *fiber.Ctx) error {
-    return c.SendString("Welcome!")
-  })
-
-  app.Listen(":3000")
+func Dividir(x, y int) (int, error) {
+    if y == 0 {
+        return 0, errors.New("Division by zero!")
+    }
+    return x/y, nil
 }
+
+func main() {
+    answer, err := Dividir(5, 0)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Println(answer)
+}                
                     </textarea>
+
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
-                    </div>
+
                 </div>
                 <!--- Coluna Direita Fim --->
+
             </div>
         </div>
     </main>
