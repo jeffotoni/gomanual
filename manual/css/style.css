@@ -4,6 +4,11 @@ html, body {
 	text-align: justify;
 }
 
+body {
+	padding-top: 55px;
+	padding-bottom: 35px;
+}
+
 a {
 	text-decoration: none;
 }
@@ -18,7 +23,7 @@ a {
 .content-page,
 .content-page .container-fluid,
 .content-page .container-fluid .row {
-	min-height: calc(100vh - 80px);
+	min-height: calc(100vh - 90px);
 }
 
 .row {
@@ -28,9 +33,13 @@ a {
 /* HEADER */
 
 .main-header {
-	background-color: #007d9c;
-	padding: .3rem 0;
-	position: relative;
+    background-color: #007d9c;
+    padding: 0.3rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 7;
 }
 
 .main-header-logo {
@@ -223,7 +232,7 @@ a {
 
 @media (max-width: 768px) {
 	.gopher-column-code {
-		bottom: -5rem;
+		bottom: 0;
 		position: relative;
 	}
 }
@@ -357,9 +366,14 @@ fieldset[disabled] .btn-actions-go.active {
 /* FOOTER */
 
 .main-footer {
-	background-color: #f3f3f3;
-	color: #8a8a8a;
-	padding: .35rem 0;
+    background-color: #f3f3f3;
+    color: #8a8a8a;
+    padding: 0.35rem 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 7;
 }
 
 @media (max-width: 768px) {
