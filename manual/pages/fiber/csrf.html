@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,13 +69,10 @@
                     <div class="content-height">
                         <p>
                             O middleware <b>CSRF</b> fornece proteção contra
-                            <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery">falsificação de solicitação entre sites</a>
-                            passando um token CSRF por meio de cookies.
+                            <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery">falsificação de solicitação entre sites</a> passando um token CSRF por meio de cookies.
                         </p>
                         <p>
-                            Esse cookie será usado para comparar com o <b>token CSRF</b> do cliente nas
-                            solicitações <b>POST</b>. Quando o token CSRF for inválido, esse middleware excluirá
-                            o cookie csrf_ e retornará o erro <b>fiber.ErrForbidden</b>.
+                            Esse cookie será usado para comparar com o <b>token CSRF</b> do cliente nas solicitações <b>POST</b>. Quando o token CSRF for inválido, esse middleware excluirá o cookie csrf_ e retornará o erro <b>fiber.ErrForbidden</b>.
                         </p>
                         <p>
                             Para mais informações sobre o middleware CSRF, clique
@@ -103,7 +104,7 @@
                 <div class="col-12 col-lg-6 column-code">
 
                     <div class="code-filename">fiber.go</div>
-                    
+
                     <div class="content-height">
                         <pre><code class="language-go">
 package main

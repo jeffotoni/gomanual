@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,9 +68,8 @@
 
                     <div class="content-height">
                         <p>
-                            A partir do Go 1.8, há um novo sistema de plug-in Go. Este recurso permite que os programadores 
-                            criem programas modulares fracamente acoplados usando pacotes compilados como bibliotecas de objetos 
-                            compartilhados que podem ser carregados e vinculados dinamicamente em tempo de execução.
+                            A partir do Go 1.8, há um novo sistema de plug-in Go. Este recurso permite que os programadores criem programas modulares fracamente acoplados usando pacotes compilados como bibliotecas de objetos compartilhados que podem ser carregados e vinculados dinamicamente
+                            em tempo de execução.
                         </p>
                         <p>
                             Você pode conferir aqui alguns comentários:
@@ -99,10 +102,7 @@ $ go run main.go
 @jeffotoni/lambdaman
                         </code></pre>
                         <p>
-                            Vamos discutir objetos compartilhados em Go nos próximos tópicos, é um assunto interessante para 
-                            entender como criar libs usando Go, mas usando -buildmode = shared-linksshared.
-
-                            Seria algo assim:
+                            Vamos discutir objetos compartilhados em Go nos próximos tópicos, é um assunto interessante para entender como criar libs usando Go, mas usando -buildmode = shared-linksshared. Seria algo assim:
                         </p>
                         <pre><code class="language-go">
 $ go install -buildmode=shared -linkshared github.com/user/dso/lib
@@ -218,7 +218,7 @@ func main() {
     <!-- Custom js -->
     <script src="../../../js/custom.js"></script>
 
-        <!-- Go Playground -->
+    <!-- Go Playground -->
     <script src="../../../js/go-playground/codemirror.js"></script>
     <script src="../../../js/go-playground/codemirror-go.js"></script>
     <script src="../../../js/go-playground/playground.js"></script>

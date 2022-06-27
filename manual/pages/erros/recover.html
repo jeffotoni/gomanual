@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,14 +68,11 @@
 
                     <div class="content-height">
                         <p>
-                            Go possibilita a recuperação de um pânico, usando a função interna de 
-                            <b>recuperação</b>. Uma recuperação pode impedir um pânico de <b>abortar</b> o programa 
-                            e deixá-lo continuar com a execução.
+                            Go possibilita a recuperação de um pânico, usando a função interna de
+                            <b>recuperação</b>. Uma recuperação pode impedir um pânico de <b>abortar</b> o programa e deixá-lo continuar com a execução.
                         </p>
                         <p>
-                            Um exemplo de onde isso pode ser útil: um servidor não gostaria de travar 
-                            se uma das conexões do cliente apresentar um erro crítico. Em vez disso, 
-                            o servidor deseja fechar essa conexão e continuar atendendo a outros clientes.
+                            Um exemplo de onde isso pode ser útil: um servidor não gostaria de travar se uma das conexões do cliente apresentar um erro crítico. Em vez disso, o servidor deseja fechar essa conexão e continuar atendendo a outros clientes.
                         </p>
                         <pre><code class="language-go">
 if r := recover(); r != nil {

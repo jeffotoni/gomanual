@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,14 +68,11 @@
 
                     <div class="content-height">
                         <p>
-                            <b>Roteamento</b> refere-se a determinar como um aplicativo responde a uma 
-                            solicitação de cliente para um determinado <b>endpoint</b>, que é um URI 
-                            (ou caminho) e um método de solicitação HTTP específico (GET, PUT, POST 
-                            e assim por diante).
+                            <b>Roteamento</b> refere-se a determinar como um aplicativo responde a uma solicitação de cliente para um determinado <b>endpoint</b>, que é um URI (ou caminho) e um método de solicitação HTTP específico (GET, PUT, POST e assim
+                            por diante).
                         </p>
                         <p>
-                            Cada rota pode ter vários <b>handlers</b>, que são executados 
-                            quando a rota é chamada.
+                            Cada rota pode ter vários <b>handlers</b>, que são executados quando a rota é chamada.
                         </p>
                         <pre><code class="language-go">
 // Function signature
@@ -82,16 +83,14 @@ app.Method(path string, ...func(*fiber.Ctx) error)
                             <li>'Method' é um método de requisição HTTP</li>
                             <li>'path' é o caminho virtual no servidor</li>
                             <li>
-                                'func(*fiber.Ctx) error' é uma função de callback contendo o Context
-                                da chamada
+                                'func(*fiber.Ctx) error' é uma função de callback contendo o Context da chamada
                             </li>
                         </ul>
                         <p>
-                            Quando usar um path contendo url parameters, use a função <b>c.Params</b> para 
-                            recuperá-los.
+                            Quando usar um path contendo url parameters, use a função <b>c.Params</b> para recuperá-los.
                         </p>
                         <p>
-                            Para mais informações sobre Routing em Fiber, clique 
+                            Para mais informações sobre Routing em Fiber, clique
                             <a href="https://docs.gofiber.io/guide/routing">aqui</a>
                         </p>
                     </div>
@@ -120,7 +119,7 @@ app.Method(path string, ...func(*fiber.Ctx) error)
                 <div class="col-12 col-lg-6 column-code">
 
                     <div class="code-filename">fiber.go</div>
-                    
+
                     <div class="content-height">
                         <pre><code class="language-go">
 // ...

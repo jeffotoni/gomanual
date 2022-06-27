@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,11 +68,7 @@
 
                     <div class="content-height">
                         <p>
-                            <b>ListenAndServe</b> escuta o endereço de rede <b>TCP</b> addr 
-                            e então chama o servidor com manipulador 
-                            para lidar com solicitações em conexões de entrada. 
-                            As conexões aceitas são configuradas 
-                            para habilitar <b>keep-alives</b> TCP.
+                            <b>ListenAndServe</b> escuta o endereço de rede <b>TCP</b> addr e então chama o servidor com manipulador para lidar com solicitações em conexões de entrada. As conexões aceitas são configuradas para habilitar <b>keep-alives</b>                            TCP.
                         </p>
                         <pre><code class="language-go">
 func ListenAndServe(addr string, handler Handler) error
@@ -77,7 +77,7 @@ func ListenAndServe(addr string, handler Handler) error
                             O manipulador é normalmente <b>nulo</b>, caso em que o <b>DefaultServeMux</b> é usado.
                         </p>
                         <p>
-                            ListenAndServe sempre retorna um <b>erro</b> não nulo. 
+                            ListenAndServe sempre retorna um <b>erro</b> não nulo.
                         </p>
                     </div>
 

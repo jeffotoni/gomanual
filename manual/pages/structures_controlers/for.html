@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,12 +77,10 @@
                             <li>Uma instrução <b>break</b> termina a execução da instrução <b>for</b>, <b>switch</b> ou <b>select</b> mais interna dentro da mesma </li>
                         </ul>
                         <p>
-                            Uma instrução <b>for</b> com uma cláusula <b>range</b> itera por meio de todas as 
-                            entradas de um array, slice, string ou map, ou valores recebidos em um canal. 
+                            Uma instrução <b>for</b> com uma cláusula <b>range</b> itera por meio de todas as entradas de um array, slice, string ou map, ou valores recebidos em um canal.
                         </p>
                         <p>
-                            Para cada entrada, ele atribui valores de iteração às variáveis de iteração 
-                            correspondentes, se presentes, e então executa o bloco. 
+                            Para cada entrada, ele atribui valores de iteração às variáveis de iteração correspondentes, se presentes, e então executa o bloco.
                         </p>
                         <pre><code class="language-go">
 for indice, valor := range meuArray {...}

@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,8 +68,7 @@
 
                     <div class="content-height">
                         <p>
-                            Compilando para rodar na plataforma AWS, lambda.
-                            Código ao lado ->
+                            Compilando para rodar na plataforma AWS, lambda. Código ao lado ->
                         </p>
                         <pre><code class="language-go">
 $ GOOS=linux GOARCH=amd64 go build -o lambda lambda.go
@@ -123,8 +126,7 @@ func main() {
 $ go build -ldflags "-X main.version=0.0.1 -X main.date=2019-01-18" version.go
                         </code></pre>
                         <p>
-                            Você pode omitir as informações de depuração passando o sinalizador '-w' para o vinculador e 
-                            pode omitir a tabela de símbolos passando '-s'
+                            Você pode omitir as informações de depuração passando o sinalizador '-w' para o vinculador e pode omitir a tabela de símbolos passando '-s'
                         </p>
                         <pre><code class="language-go">
 package main
@@ -244,7 +246,7 @@ func main() {
     <!-- Custom js -->
     <script src="../../../js/custom.js"></script>
 
-        <!-- Go Playground -->
+    <!-- Go Playground -->
     <script src="../../../js/go-playground/codemirror.js"></script>
     <script src="../../../js/go-playground/codemirror-go.js"></script>
     <script src="../../../js/go-playground/playground.js"></script>

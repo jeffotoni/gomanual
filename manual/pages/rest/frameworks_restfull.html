@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,7 +68,7 @@
 
                     <div class="content-height">
                         <p>
-                            Quando nos referiamos a <b>frameworks</b> RESTfull em Go estamos nos referindo a um conjunto de 
+                            Quando nos referiamos a <b>frameworks</b> RESTfull em Go estamos nos referindo a um conjunto de
                             <b>libs externas</b> construídas para nos ajudar na construção de apis REST.
                         </p>
                         <p>
@@ -97,8 +101,7 @@
                             </li>
                         </ul>
                         <p>
-                            Existem ainda os frameworks para microservices para resolver problemas específicos para este 
-                            universo.
+                            Existem ainda os frameworks para microservices para resolver problemas específicos para este universo.
                         </p>
                         <p>
                             <a href="https://github.com/smallnest/go-web-framework-benchmark" target="_blank">Benchmarks comparandos as frameworks web</a>
@@ -141,7 +144,7 @@
                 <div class="col-12 col-lg-6 column-code">
 
                     <div class="code-filename">frameworks_restfull.go</div>
-                    
+
                     <div class="content-height">
                         <pre><code class="language-go">
 r := gin.Default()

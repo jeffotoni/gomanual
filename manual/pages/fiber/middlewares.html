@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,12 +68,10 @@
 
                     <div class="content-height">
                         <p>
-                            As funções projetadas para fazer alterações na solicitação ou resposta são
-                            chamadas <b>middlewares</b>.
+                            As funções projetadas para fazer alterações na solicitação ou resposta são chamadas <b>middlewares</b>.
                         </p>
                         <p>
-                            O método <b>Use()</b> registra uma rota de
-                            middleware que corresponderá a solicitações com o
+                            O método <b>Use()</b> registra uma rota de middleware que corresponderá a solicitações com o
                             <b>prefixo</b> fornecido (que é opcional e o padrão é "/").
                         </p>
                         <pre><code class="language-go">
@@ -81,8 +83,7 @@ func (app *App) Use(args ...interface{}) Router
                             <a href="https://docs.gofiber.io/api/middleware">aqui</a>
                         </p>
                         <p>
-                            Nas próximas páginas, vamos listar alguns middlewares prontos que o Fiber
-                            provê. Como existem muitos, clique
+                            Nas próximas páginas, vamos listar alguns middlewares prontos que o Fiber provê. Como existem muitos, clique
                             <a href="https://github.com/gofiber/awesome-fiber">aqui</a> para ver uma lista completa.
                         </p>
                     </div>
@@ -111,7 +112,7 @@ func (app *App) Use(args ...interface{}) Router
                 <div class="col-12 col-lg-6 column-code">
 
                     <div class="code-filename">fiber.go</div>
-                    
+
                     <div class="content-height">
                         <pre><code class="language-go">
 func main() {

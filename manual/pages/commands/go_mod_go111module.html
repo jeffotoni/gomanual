@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,31 +68,20 @@
 
                     <div class="content-height">
                         <p>
-                            Go 1.11 inclui suporte preliminar para módulos Go, incluindo um novo comando 'go get' com reconhecimento 
-                            de módulo. Pretendemos continuar revisando este suporte, preservando a compatibilidade, até que ele possa 
-                            ser declarado oficial (não mais preliminar), e então, em um ponto posterior, podemos remover o suporte 
-                            para trabalho no GOPATH e o antigo comando 'go get'.
+                            Go 1.11 inclui suporte preliminar para módulos Go, incluindo um novo comando 'go get' com reconhecimento de módulo. Pretendemos continuar revisando este suporte, preservando a compatibilidade, até que ele possa ser declarado oficial (não mais preliminar),
+                            e então, em um ponto posterior, podemos remover o suporte para trabalho no GOPATH e o antigo comando 'go get'.
                         </p>
                         <p>
-                            A maneira mais rápida de aproveitar as vantagens do novo suporte do módulo Go 1.11 é verificar seu 
-                            repositório em um diretório fora de GOPATH/src, criar um arquivo go.mod (descrito na próxima seção) 
-                            e executar comandos go de dentro desse arquivo árvore.
+                            A maneira mais rápida de aproveitar as vantagens do novo suporte do módulo Go 1.11 é verificar seu repositório em um diretório fora de GOPATH/src, criar um arquivo go.mod (descrito na próxima seção) e executar comandos go de dentro desse arquivo árvore.
                         </p>
                         <p>
-                            Para um controle mais refinado, o suporte do módulo no Go 1.11 respeita uma variável de ambiente temporária, 
-                            GO111MODULE, que pode ser definida como um dos três valores de string: off, on ou auto (o padrão). Se 
-                            GO111MODULE = off, o comando go nunca usa o novo suporte do módulo. Em vez disso, ele procura nos 
-                            diretórios do fornecedor e no GOPATH para encontrar dependências; agora nos referimos a isso como 
-                            "modo GOPATH". Se GO111MODULE = ativado, o comando go requer o uso de módulos, nunca consultando GOPATH. 
-                            Referimo-nos a isso como o comando que reconhece o módulo ou é executado no "modo ciente do módulo". Se 
-                            GO111MODULE = auto ou não estiver definido, o comando go habilita ou desabilita o suporte do módulo com 
-                            base no diretório atual. O suporte ao módulo é habilitado apenas quando o diretório atual está fora de 
-                            GOPATH/src e contém um arquivo go.mod ou está abaixo de um diretório contendo um arquivo go.mod.
+                            Para um controle mais refinado, o suporte do módulo no Go 1.11 respeita uma variável de ambiente temporária, GO111MODULE, que pode ser definida como um dos três valores de string: off, on ou auto (o padrão). Se GO111MODULE = off, o comando go nunca usa
+                            o novo suporte do módulo. Em vez disso, ele procura nos diretórios do fornecedor e no GOPATH para encontrar dependências; agora nos referimos a isso como "modo GOPATH". Se GO111MODULE = ativado, o comando go requer o uso de
+                            módulos, nunca consultando GOPATH. Referimo-nos a isso como o comando que reconhece o módulo ou é executado no "modo ciente do módulo". Se GO111MODULE = auto ou não estiver definido, o comando go habilita ou desabilita o suporte
+                            do módulo com base no diretório atual. O suporte ao módulo é habilitado apenas quando o diretório atual está fora de GOPATH/src e contém um arquivo go.mod ou está abaixo de um diretório contendo um arquivo go.mod.
                         </p>
                         <p>
-                            No modo de reconhecimento de módulo, GOPATH não define mais o significado das importações durante uma 
-                            construção, mas ainda armazena dependências baixadas (em GOPATH/pkg/mod) e comandos instalados 
-                            (em GOPATH/bin, a menos que GOBIN esteja definido).
+                            No modo de reconhecimento de módulo, GOPATH não define mais o significado das importações durante uma construção, mas ainda armazena dependências baixadas (em GOPATH/pkg/mod) e comandos instalados (em GOPATH/bin, a menos que GOBIN esteja definido).
                         </p>
                     </div>
 

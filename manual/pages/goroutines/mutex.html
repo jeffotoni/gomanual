@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,12 +71,10 @@
                             Vimos como os canais são ótimos para a comunicação entre as goroutines.
                         </p>
                         <p>
-                            Mas e se não precisarmos de comunicação? E se quisermos apenas ter certeza de que apenas 
-                            uma goroutine pode acessar uma variável por vez para evitar conflitos?
+                            Mas e se não precisarmos de comunicação? E se quisermos apenas ter certeza de que apenas uma goroutine pode acessar uma variável por vez para evitar conflitos?
                         </p>
                         <p>
-                            Esse conceito é chamado de exclusão mútua e o nome convencional para a 
-                            estrutura de dados que o fornece é mutex.
+                            Esse conceito é chamado de exclusão mútua e o nome convencional para a estrutura de dados que o fornece é mutex.
                         </p>
                         <p>
                             A biblioteca padrão de Go fornece exclusão mútua com sync.Mutex e seus dois métodos:
@@ -82,8 +84,7 @@ Lock()
 Unlock()
                         </code></pre>
                         <p>
-                            Podemos definir um bloco de código a ser executado em exclusão mútua circundando-o 
-                            com uma chamada para Lock and Unlock.
+                            Podemos definir um bloco de código a ser executado em exclusão mútua circundando-o com uma chamada para Lock and Unlock.
 
                         </p>
                     </div>

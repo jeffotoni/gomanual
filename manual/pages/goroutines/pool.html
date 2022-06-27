@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,21 +68,17 @@
 
                     <div class="content-height">
                         <p>
-                            Sync.Pool pode ser usado para armazenar objetos em cache, pois o uso frequente de 
-                            memória heap pode causar muito trabalho para o GC.
+                            Sync.Pool pode ser usado para armazenar objetos em cache, pois o uso frequente de memória heap pode causar muito trabalho para o GC.
                         </p>
                         <p>
                             sync.Pool pode ser recuperado sem aviso prévio para aliviar a pressão do GC.
                         </p>
                         <p>
-                            Para inicializar o pool, a única coisa que você precisa é configurar a função New 
-                            para que quando o método Get for chamado, se o pool tiver um objeto em cache, ele 
-                            retorne o objeto em cache diretamente e, se não tiver, a função New é chamado para 
-                            criar um novo objeto. 
+                            Para inicializar o pool, a única coisa que você precisa é configurar a função New para que quando o método Get for chamado, se o pool tiver um objeto em cache, ele retorne o objeto em cache diretamente e, se não tiver, a função New é chamado para criar
+                            um novo objeto.
                         </p>
                         <p>
-                            Os pools são adequados para cenários em que há muita memória e muita simultaneidade, 
-                            mas quando há pouca memória e pouca simultaneidade, o uso de pools é contraproducente.
+                            Os pools são adequados para cenários em que há muita memória e muita simultaneidade, mas quando há pouca memória e pouca simultaneidade, o uso de pools é contraproducente.
                         </p>
                     </div>
 

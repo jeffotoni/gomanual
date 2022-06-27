@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,13 +71,10 @@
                             Um <b>type assertion</b> fornece acesso ao valor <b>concreto subjacente</b> de um valor de interface.
                         </p>
                         <p>
-                            Quando a instância de uma struct é convertida para uma interface, essa <b>instância</b>
-                            continua existindo, porém agora só temos acesso aos métodos que a interface permite.
+                            Quando a instância de uma struct é convertida para uma interface, essa <b>instância</b> continua existindo, porém agora só temos acesso aos métodos que a interface permite.
                         </p>
                         <p>
-                            Observe, por exemplo, que quando convertemos uma instância do tipo
-                             Pessoa (veja o exemplo anterios), perdemos
-                            acesso aos campos da struct e aos métodos não definidos pela interface:
+                            Observe, por exemplo, que quando convertemos uma instância do tipo Pessoa (veja o exemplo anterios), perdemos acesso aos campos da struct e aos métodos não definidos pela interface:
                         </p>
                         <pre><code class="language-go">
 carlito := Pessoa{"Carlito da Silva"}
@@ -84,9 +85,7 @@ fmt.Println(carlito.Nome)
 fmt.Println(carlito.Gritar("Bingo"))
                         </code></pre>
                         <p>
-                            Apesar de não termos mais acesso a estes valores, podemos <b>recuperá-los</b> ao convertemos
-                            a interface para o seu <b>tipo original</b>. Isso porque, debaixo dos panos, Go deixa
-                            "guardada" a sua instância original.
+                            Apesar de não termos mais acesso a estes valores, podemos <b>recuperá-los</b> ao convertemos a interface para o seu <b>tipo original</b>. Isso porque, debaixo dos panos, Go deixa "guardada" a sua instância original.
                         </p>
                         <pre><code class="language-go">
 carlitoRecuperado := falador.(Pessoa)

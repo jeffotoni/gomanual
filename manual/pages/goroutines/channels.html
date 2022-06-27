@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,19 +68,16 @@
 
                     <div class="content-height">
                         <p>
-                            Os <b>canais</b> podem ser considerados tubos através dos quais os <b>Goroutines</b> se comunicam. 
+                            Os <b>canais</b> podem ser considerados tubos através dos quais os <b>Goroutines</b> se comunicam.
                         </p>
                         <p>
-                            Semelhante a como a água flui de uma extremidade a outra em um tubo, os dados podem 
-                            ser enviados de uma extremidade e recebidos da outra extremidade usando canais.
+                            Semelhante a como a água flui de uma extremidade a outra em um tubo, os dados podem ser enviados de uma extremidade e recebidos da outra extremidade usando canais.
                         </p>
                         <p>
-                            Cada canal possui um tipo associado a ele. Este tipo é o <b>tipo de dados</b> que o canal tem 
-                            permissão para transportar. Nenhum outro tipo pode ser transportado usando o canal.
+                            Cada canal possui um tipo associado a ele. Este tipo é o <b>tipo de dados</b> que o canal tem permissão para transportar. Nenhum outro tipo pode ser transportado usando o canal.
                         </p>
                         <p>
-                            O valor zero de um canal é <b>nil</b>. Canais nulos não têm nenhuma utilidade e, portanto, o 
-                            canal deve ser definido usando <b>make</b>, similar a maps e slice.
+                            O valor zero de um canal é <b>nil</b>. Canais nulos não têm nenhuma utilidade e, portanto, o canal deve ser definido usando <b>make</b>, similar a maps e slice.
                         </p>
                         <pre><code class="language-go">
 channel := make(chan int) // transporta dados do tipo int

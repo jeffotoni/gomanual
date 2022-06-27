@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,22 +68,19 @@
 
                     <div class="content-height">
                         <p>
-                            Para criar um <b>slice vazio</b> com comprimento diferente de zero, use a função embutida <b>make()</b>, que
-                            aloca e inicializa um slice do tipo e tamanho especificados.
+                            Para criar um <b>slice vazio</b> com comprimento diferente de zero, use a função embutida <b>make()</b>, que aloca e inicializa um slice do tipo e tamanho especificados.
                         </p>
                         <pre><code class="language-go">
 func make(t Type, size ...IntegerType) Type
                         </code></pre>
                         <p>
-                            Size especifica o comprimento. A <b>capacidade</b> do slice é igual ao seu comprimento. 
+                            Size especifica o comprimento. A <b>capacidade</b> do slice é igual ao seu comprimento.
                         </p>
                         <p>
-                            Um segundo argumento inteiro pode ser fornecido para especificar uma <b>capacidade</b> diferente; 
-                            não deve ser menor que o comprimento.
+                            Um segundo argumento inteiro pode ser fornecido para especificar uma <b>capacidade</b> diferente; não deve ser menor que o comprimento.
                         </p>
                         <p>
-                            Por exemplo, <b>make([]int, 0, 10)</b> aloca um array subjacente de tamanho 10 e retorna um slice de 
-                            comprimento 0 e capacidade 10 que é apoiada por este <b>array subjacente</b>.
+                            Por exemplo, <b>make([]int, 0, 10)</b> aloca um array subjacente de tamanho 10 e retorna um slice de comprimento 0 e capacidade 10 que é apoiada por este <b>array subjacente</b>.
                         </p>
                     </div>
 

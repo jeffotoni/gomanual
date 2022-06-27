@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,8 +68,7 @@
 
                     <div class="content-height">
                         <p>
-                            Fiber fornece uma interface <b>Views</b> para 
-                            você fornecer seu próprio mecanismo de <b>templates</b>:
+                            Fiber fornece uma interface <b>Views</b> para você fornecer seu próprio mecanismo de <b>templates</b>:
                         </p>
                         <pre><code class="language-go">
 type Views interface {
@@ -74,8 +77,7 @@ type Views interface {
 }
                         </code></pre>
                         <p>
-                            A equipe Fiber mantém um pacote de modelos que fornece wrappers para vários
-                            template engines:
+                            A equipe Fiber mantém um pacote de modelos que fornece wrappers para vários template engines:
                         </p>
                         <ul>
                             <li><a href="https://github.com/gofiber/template/tree/master/html">html</a></li>
@@ -117,7 +119,7 @@ type Views interface {
                 <div class="col-12 col-lg-6 column-code">
 
                     <div class="code-filename">fiber.go</div>
-                    
+
                     <div class="content-height">
                         <pre><code class="language-go">
 package main

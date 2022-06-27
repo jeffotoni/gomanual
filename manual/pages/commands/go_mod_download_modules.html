@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,19 +71,13 @@
 go mod download [-json] [modules]
                         </code></pre>
                         <p>
-                            O download baixa os módulos nomeados, que podem ser padrões de módulo selecionando dependências 
-                            do módulo principal ou consultas de módulo do caminho de formulário@versão. Sem argumentos, 
-                            o download se aplica a todas as dependências do módulo principal.
+                            O download baixa os módulos nomeados, que podem ser padrões de módulo selecionando dependências do módulo principal ou consultas de módulo do caminho de formulário@versão. Sem argumentos, o download se aplica a todas as dependências do módulo principal.
                         </p>
                         <p>
-                            O comando go baixará automaticamente os módulos conforme necessário durante a execução normal. 
-                            O comando "go mod download" é útil principalmente para pré-preencher o cache local ou para 
-                            calcular as respostas para um proxy de módulo Go.
+                            O comando go baixará automaticamente os módulos conforme necessário durante a execução normal. O comando "go mod download" é útil principalmente para pré-preencher o cache local ou para calcular as respostas para um proxy de módulo Go.
                         </p>
                         <p>
-                            Por padrão, o download relata erros para erro padrão, mas é silencioso. A sinalização -json faz 
-                            com que o download imprima uma sequência de objetos JSON na saída padrão, descrevendo cada módulo 
-                            baixado (ou falha), correspondendo a esta estrutura Go:
+                            Por padrão, o download relata erros para erro padrão, mas é silencioso. A sinalização -json faz com que o download imprima uma sequência de objetos JSON na saída padrão, descrevendo cada módulo baixado (ou falha), correspondendo a esta estrutura Go:
                         </p>
                         <pre><code class="language-go">
 type Module struct {

@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,30 +68,22 @@
 
                     <div class="content-height">
                         <p>
-                            Os <b>timeouts</b> são importantes para programas que se conectam a recursos externos ou que, 
-                            de outra forma, precisam <b>limitar</b> o tempo de execução. 
+                            Os <b>timeouts</b> são importantes para programas que se conectam a recursos externos ou que, de outra forma, precisam <b>limitar</b> o tempo de execução.
                         </p>
                         <p>
-                            Implementar timeouts no Go é 
-                            fácil e elegante graças aos <b>canais</b> e <b>select</b>.
+                            Implementar timeouts no Go é fácil e elegante graças aos <b>canais</b> e <b>select</b>.
                         </p>
                         <p>
-                            Para o nosso exemplo, suponha que estejamos executando uma chamada externa que retorna seu 
-                            resultado em um canal c1 após 2s. Observe que o canal é armazenado em <b>buffer</b>, portanto, o 
-                            envio na goroutine não é bloqueador. 
+                            Para o nosso exemplo, suponha que estejamos executando uma chamada externa que retorna seu resultado em um canal c1 após 2s. Observe que o canal é armazenado em <b>buffer</b>, portanto, o envio na goroutine não é bloqueador.
                         </p>
                         <p>
-                            Este é um padrão comum para evitar vazamentos de 
-                            goroutine caso o canal nunca seja lido.
+                            Este é um padrão comum para evitar vazamentos de goroutine caso o canal nunca seja lido.
                         </p>
                         <p>
-                            Aqui está a seleção de implementação de um tempo limite. <b>res := <-c1</b> aguarda o resultado 
-                            e <b><-time.After</b> aguarda um valor a ser enviado após o tempo limite de 1s. 
+                            Aqui está a seleção de implementação de um tempo limite. <b>res := <-c1</b> aguarda o resultado e <b><-time.After</b> aguarda um valor a ser enviado após o tempo limite de 1s.
                         </p>
                         <p>
-                            Como a seleção 
-                            continua com o primeiro recebimento que está pronto, usaremos o caso de tempo limite se a 
-                            operação levar mais do que os 1s permitidos.
+                            Como a seleção continua com o primeiro recebimento que está pronto, usaremos o caso de tempo limite se a operação levar mais do que os 1s permitidos.
                         </p>
                     </div>
 

@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,12 +68,10 @@
 
                     <div class="content-height">
                         <p>
-                            Uma <b>tag</b> para um campo permite <b>anexar</b> meta-informações ao campo que podem 
-                            ser adquiridas usando reflection.
+                            Uma <b>tag</b> para um campo permite <b>anexar</b> meta-informações ao campo que podem ser adquiridas usando reflection.
                         </p>
                         <p>
-                            Geralmente é usado para fornecer informações de <b>transformação</b> sobre como um 
-                            campo é codificado ou decodificado de outro formato.
+                            Geralmente é usado para fornecer informações de <b>transformação</b> sobre como um campo é codificado ou decodificado de outro formato.
                         </p>
                         <pre><code class="language-go">
 type User struct {
@@ -77,13 +79,10 @@ type User struct {
 }
                         </code></pre>
                         <p>
-                            Você pode usá-lo para 
-                            armazenar qualquer <b>meta-informação</b> que desejar, seja destinado a outro pacote 
-                            ou para seu próprio uso.
+                            Você pode usá-lo para armazenar qualquer <b>meta-informação</b> que desejar, seja destinado a outro pacote ou para seu próprio uso.
                         </p>
                         <p>
-                            Para exemplificar, o pacote <b>encoding/json</b> usa as tags para saber qual
-                            o nome equivalente de cada campo no objeto json, como vemos ao lado.
+                            Para exemplificar, o pacote <b>encoding/json</b> usa as tags para saber qual o nome equivalente de cada campo no objeto json, como vemos ao lado.
                         </p>
                     </div>
 

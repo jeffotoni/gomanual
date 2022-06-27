@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,9 +68,7 @@
 
                     <div class="content-height">
                         <p>
-                            Um <b>switch de tipo</b> é como uma instrução switch regular, mas os cases
-                            especificam <b>tipos</b> (não valores) que são comparados 
-                            com o tipo do valor mantido pelo valor de interface fornecido.
+                            Um <b>switch de tipo</b> é como uma instrução switch regular, mas os cases especificam <b>tipos</b> (não valores) que são comparados com o tipo do valor mantido pelo valor de interface fornecido.
                         </p>
                         <pre><code class="language-go">
 switch v := i.(type) {
@@ -77,9 +79,7 @@ case int:
 }
                         </code></pre>
                         <p>
-                            O type assertion acontece <b>implicitamente</b> para o tipo correto na hora da definição
-                            da variável <b>v</b>. Lembrando que usar a notação <b>i.(type)</b> só é válida dentro
-                            de um switch.
+                            O type assertion acontece <b>implicitamente</b> para o tipo correto na hora da definição da variável <b>v</b>. Lembrando que usar a notação <b>i.(type)</b> só é válida dentro de um switch.
                         </p>
                     </div>
 

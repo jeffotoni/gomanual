@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,16 +68,13 @@
 
                     <div class="content-height">
                         <p>
-                            <b>FileServer</b> retorna um manipulador que atende a 
-                            solicitações <b>HTTP</b> com o conteúdo do 
-                            sistema de arquivos enraizado na raiz.
+                            <b>FileServer</b> retorna um manipulador que atende a solicitações <b>HTTP</b> com o conteúdo do sistema de arquivos enraizado na raiz.
                         </p>
                         <pre><code class="language-go">
 func FileServer(root FileSystem) Handler
                         </code></pre>
                         <p>
-                            Como um caso especial, o servidor de arquivo retornado redireciona qualquer solicitação 
-                            terminando em <b>"/index.html"</b> para o mesmo caminho, sem o <b>"index.html"</b> final. 
+                            Como um caso especial, o servidor de arquivo retornado redireciona qualquer solicitação terminando em <b>"/index.html"</b> para o mesmo caminho, sem o <b>"index.html"</b> final.
                         </p>
                     </div>
 

@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,19 +71,12 @@
 go mod why [-m] [-vendor] packages...
                         </code></pre>
                         <p>
-                            Por que mostra um caminho mais curto no gráfico de importação do módulo principal para cada 
-                            um dos pacotes listados. Se o sinalizador -m for fornecido, o porque trata os argumentos como 
-                            uma lista de módulos e encontra um caminho para qualquer pacote em cada um dos módulos.
-
-                            Por padrão, por que consulta o gráfico de pacotes correspondidos por "go list all", que inclui 
-                            testes para pacotes alcançáveis. O sinalizador -vendor explica por que excluir testes de dependências.
+                            Por que mostra um caminho mais curto no gráfico de importação do módulo principal para cada um dos pacotes listados. Se o sinalizador -m for fornecido, o porque trata os argumentos como uma lista de módulos e encontra um caminho para qualquer pacote em
+                            cada um dos módulos. Por padrão, por que consulta o gráfico de pacotes correspondidos por "go list all", que inclui testes para pacotes alcançáveis. O sinalizador -vendor explica por que excluir testes de dependências.
                         </p>
                         <p>
-                            A saída é uma sequência de estrofes, uma para cada nome de pacote ou módulo na linha de comando, 
-                            separados por linhas em branco. Cada estrofe começa com uma linha de comentário "# pacote" ou 
-                            "# módulo" fornecendo o pacote ou módulo de destino. As linhas subsequentes fornecem um caminho 
-                            através do gráfico de importação, um pacote por linha. Se o pacote ou módulo não for referenciado 
-                            no módulo principal, a estrofe exibirá uma única nota entre parênteses indicando esse fato.
+                            A saída é uma sequência de estrofes, uma para cada nome de pacote ou módulo na linha de comando, separados por linhas em branco. Cada estrofe começa com uma linha de comentário "# pacote" ou "# módulo" fornecendo o pacote ou módulo de destino. As linhas
+                            subsequentes fornecem um caminho através do gráfico de importação, um pacote por linha. Se o pacote ou módulo não for referenciado no módulo principal, a estrofe exibirá uma única nota entre parênteses indicando esse fato.
                         </p>
                         <p>
                             Por exemplo:

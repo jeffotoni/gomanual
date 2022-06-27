@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,12 +69,10 @@
                     <div class="content-height">
                         <p>
                             Há casos em que queremos deixar campos ou métodos de nossas structs <b>privadas</b> ou
-                            <b>públicas</b>. Quando privadas, <b>somente</b> os métodos da própria struct podem acessar
-                            determinado valor.
+                            <b>públicas</b>. Quando privadas, <b>somente</b> os métodos da própria struct podem acessar determinado valor.
                         </p>
                         <p>
-                            Para isso, seguimos a mesma ideia de como deixar alguma função ou variável visível
-                            para outros pacotes que importem o nosso pacote.
+                            Para isso, seguimos a mesma ideia de como deixar alguma função ou variável visível para outros pacotes que importem o nosso pacote.
                         </p>
                         <p>
                             Se queremos deixar público, a primeira letra do identificador deve ser <b>maiúscula</b>.
@@ -85,8 +87,7 @@ type Pessoa struct {
 }
                         </code></pre>
                         <p>
-                            Podemos usar isso para <b>restringir</b> o acesso a campos e métodos <b>restringir</b>, e para criar
-                            métodos que se comportem como <b>getters</b> e <b>setters</b> de campos privados.
+                            Podemos usar isso para <b>restringir</b> o acesso a campos e métodos <b>restringir</b>, e para criar métodos que se comportem como <b>getters</b> e <b>setters</b> de campos privados.
                         </p>
                     </div>
 

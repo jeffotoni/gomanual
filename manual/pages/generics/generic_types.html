@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,20 +68,16 @@
 
                     <div class="content-height">
                         <p>
-                            Sabemos como escrever funções que podem receber argumentos de qualquer tipo. 
-                            Mas e se quisermos criar um tipo que possa conter <b>qualquer</b> tipo? 
+                            Sabemos como escrever funções que podem receber argumentos de qualquer tipo. Mas e se quisermos criar um tipo que possa conter <b>qualquer</b> tipo?
                         </p>
                         <p>
-                            Por exemplo, 
-                            um slice que contenha qualquer tipo.
-                            Veja o exemplo a seguir:
+                            Por exemplo, um slice que contenha qualquer tipo. Veja o exemplo a seguir:
                         </p>
                         <pre><code class="language-go">
 type Varios[E any] []E
                         </code></pre>
                         <p>
-                            Estamos dizendo que para qualquer elemento do tipo E, um <b>Varios[E]</b> é um slice 
-                            de valores do tipo E. Por exemplo, um <b>Varios[int]</b> é um slice de ints.
+                            Estamos dizendo que para qualquer elemento do tipo E, um <b>Varios[E]</b> é um slice de valores do tipo E. Por exemplo, um <b>Varios[int]</b> é um slice de ints.
                         </p>
                     </div>
 

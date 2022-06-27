@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,26 +68,19 @@
 
                     <div class="content-height">
                         <p>
-                            A limitação de taxa é um mecanismo importante para controlar a utilização de 
-                            recursos e manter a qualidade do serviço. Go suporta elegantemente a limitação 
-                            de taxa com goroutines, channels e tickers.
+                            A limitação de taxa é um mecanismo importante para controlar a utilização de recursos e manter a qualidade do serviço. Go suporta elegantemente a limitação de taxa com goroutines, channels e tickers.
                         </p>
                         <p>
-                            Suponha que desejamos limitar nosso tratamento de solicitações recebidas. 
-                            Atenderemos essas solicitações em um canal com o mesmo nome. 
+                            Suponha que desejamos limitar nosso tratamento de solicitações recebidas. Atenderemos essas solicitações em um canal com o mesmo nome.
                         </p>
                         <p>
-                            Este canal limitador receberá um valor a cada 200 milissegundos. 
-                            Este é o regulador em nosso esquema de limitação de taxa.
+                            Este canal limitador receberá um valor a cada 200 milissegundos. Este é o regulador em nosso esquema de limitação de taxa.
                         </p>
                         <p>
-                            Ao bloquear uma recepção do canal limitador antes de atender a 
-                            cada solicitação, nos limitamos a 1 solicitação a cada 200 milissegundos.
+                            Ao bloquear uma recepção do canal limitador antes de atender a cada solicitação, nos limitamos a 1 solicitação a cada 200 milissegundos.
                         </p>
                         <p>
-                            Podemos permitir pequenas rajadas de solicitações em nosso esquema de limitação de taxa, 
-                            preservando o limite de taxa geral. Podemos fazer isso armazenando em buffer nosso canal 
-                            limitador. Este canal burstyLimiter permitirá bursts de até 3 eventos.
+                            Podemos permitir pequenas rajadas de solicitações em nosso esquema de limitação de taxa, preservando o limite de taxa geral. Podemos fazer isso armazenando em buffer nosso canal limitador. Este canal burstyLimiter permitirá bursts de até 3 eventos.
                         </p>
                     </div>
 

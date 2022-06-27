@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,8 +71,7 @@
                             Aqui estão algumas das situações comuns em que você precisará usar um ponteiro em vez de um valor:
                         </p>
                         <p>
-                            Alterar o estado de um objeto:
-                            Digamos que você tenha uma estrutura como esta 
+                            Alterar o estado de um objeto: Digamos que você tenha uma estrutura como esta
                         </p>
                         <pre><code class="language-go">
 type Person struct {
@@ -79,8 +82,7 @@ type Person struct {
 }
                         </code></pre>
                         <p>
-                            Agora, você quer um método permita alterar o nome de uma pessoa:
-                            Para isso, um ponteiro é necessário, pois ele da acesso à instância original, não a uma cópia dela:
+                            Agora, você quer um método permita alterar o nome de uma pessoa: Para isso, um ponteiro é necessário, pois ele da acesso à instância original, não a uma cópia dela:
                         </p>
                         <pre><code class="language-go">
 func (p *Person) changeName(name string){

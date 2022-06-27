@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,9 +68,7 @@
 
                     <div class="content-height">
                         <p>
-                            Uma <b>closure</b> ocorre quando uma <b>função anônima</b> em Go tem acesso aos seus arredores. 
-                            Então, ele pode manter um estado único e próprio. O estado então fica isolado à medida 
-                            que criamos novas instâncias da função.
+                            Uma <b>closure</b> ocorre quando uma <b>função anônima</b> em Go tem acesso aos seus arredores. Então, ele pode manter um estado único e próprio. O estado então fica isolado à medida que criamos novas instâncias da função.
                         </p>
                         <pre><code class="language-go">
 func MinhaFuncao(parametro string) func() string {

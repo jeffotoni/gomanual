@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,25 +68,19 @@
 
                     <div class="content-height">
                         <p>
-                            É essencial garantir que o Fiber detecte todos os <b>erros</b> que ocorrem durante a
-                            execução de <b>handlers</b> e <b>middlewares</b>. 
+                            É essencial garantir que o Fiber detecte todos os <b>erros</b> que ocorrem durante a execução de <b>handlers</b> e <b>middlewares</b>.
                         </p>
                         <p>
-                            Você deve retorná-los à função
-                            do handler, onde o Fiber os capturará e processará.
+                            Você deve retorná-los à função do handler, onde o Fiber os capturará e processará.
                         </p>
                         <p>
-                            Fiber não lida com panics por padrão. Para recuperar um panic gerado
-                            por qualquer handler na pilha, você precisa incluir o middleware <b>Recover</b>.
+                            Fiber não lida com panics por padrão. Para recuperar um panic gerado por qualquer handler na pilha, você precisa incluir o middleware <b>Recover</b>.
                         </p>
                         <p>
-                            Você pode usar a estrutura de erro personalizada do Fiber para passar um status
-                            code adicional usando <b>fiber.NewError()</b>. 
+                            Você pode usar a estrutura de erro personalizada do Fiber para passar um status code adicional usando <b>fiber.NewError()</b>.
                         </p>
                         <p>
-                            É opcional passar uma mensagem; se
-                            for deixado em branco, o padrão será a mensagem de código de status (Ex: 404 é igual
-                            a "Not Found").
+                            É opcional passar uma mensagem; se for deixado em branco, o padrão será a mensagem de código de status (Ex: 404 é igual a "Not Found").
                         </p>
                         <p>
                             Para mais informações sobre error handling, clique
@@ -114,7 +112,7 @@
                 <div class="col-12 col-lg-6 column-code">
 
                     <div class="code-filename">fiber.go</div>
-                    
+
                     <div class="content-height">
                         <pre><code class="language-go">
 package main

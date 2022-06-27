@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,9 +68,8 @@
 
                     <div class="content-height">
                         <p>
-                            Uma <b>interface</b> define o comportamento de um tipo. Por comportamento, queremos dizer que
-                            ela define uma <b>"lista" dos métodos</b> que um tipo deve possuir para que se possa considerar
-                            que esse tipo <b>implementa</b> a sua interface.
+                            Uma <b>interface</b> define o comportamento de um tipo. Por comportamento, queremos dizer que ela define uma <b>"lista" dos métodos</b> que um tipo deve possuir para que se possa considerar que esse tipo <b>implementa</b> a
+                            sua interface.
                         </p>
                         <p>
                             Para exemplificar, observe o seguinte tipo:
@@ -81,9 +84,8 @@ func (p Pessoa) Falar(frase string) {
 }
                         </code></pre>
                         <p>
-                            Observa-se que ele possui o método <b>Falar()</b>. Agora imagine que temos vários <b>tipos diferentes</b>
-                            que possuem esse mesmo método, e queremos chama-lo dentro de uma função que irá receber
-                            qualquer tipo que possua esse método.
+                            Observa-se que ele possui o método <b>Falar()</b>. Agora imagine que temos vários <b>tipos diferentes</b> que possuem esse mesmo método, e queremos chama-lo dentro de uma função que irá receber qualquer tipo que possua esse
+                            método.
                         </p>
                         <p>
                             Para isso, usamos uma interface que peça esse método:
@@ -94,9 +96,7 @@ type Falador interface {
 }
                         </code></pre>
                         <p>
-                            Com essa interface, podemos agora criar uma função que aceite qualquer tipo que a 
-                            implemente, deixando de lado a necessidade de escrever uma função para cada tipo que 
-                            tivesse o método Falar().
+                            Com essa interface, podemos agora criar uma função que aceite qualquer tipo que a implemente, deixando de lado a necessidade de escrever uma função para cada tipo que tivesse o método Falar().
                         </p>
                     </div>
 

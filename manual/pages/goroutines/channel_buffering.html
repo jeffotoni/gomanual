@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,30 +68,24 @@
 
                     <div class="content-height">
                         <p>
-                            Por padrão, os canais são sem <b>buffer</b>, o que indica que eles só aceitarão envios (chan <-) 
-                            se houver um recebimento (<- chan) correspondente que esteja pronto para receber o valor 
-                            enviado. 
-                        </p>
-                        <p>
-                            Os canais com buffer permitem aceitar um número limitado de valores <b>sem um receptor</b> 
-                            correspondente para esses valores. 
-                        </p>
-                        <p>
-                            É possível criar um canal com um buffer. Os canais com 
-                            buffer são bloqueados apenas quando o buffer está <b>cheio</b>. Da mesma forma, os recebimentos 
-                            de um canal com buffer são bloqueados apenas quando o buffer estiver vazio.
-                        </p>
-                        <p>
-                            Canais com buffer podem ser criados passando um parâmetro de capacidade adicional para 
-                            a função <b>make()</b> que especifica o tamanho do buffer.
-                        </p>
-                        <pre><code class="language-go">
+                            Por padrão, os canais são sem <b>buffer</b>, o que indica que eles só aceitarão envios (chan
+                            <-) se houver um recebimento (<- chan) correspondente que esteja pronto para receber o valor enviado. </p>
+                                <p>
+                                    Os canais com buffer permitem aceitar um número limitado de valores <b>sem um receptor</b> correspondente para esses valores.
+                                </p>
+                                <p>
+                                    É possível criar um canal com um buffer. Os canais com buffer são bloqueados apenas quando o buffer está <b>cheio</b>. Da mesma forma, os recebimentos de um canal com buffer são bloqueados apenas quando o buffer estiver
+                                    vazio.
+                                </p>
+                                <p>
+                                    Canais com buffer podem ser criados passando um parâmetro de capacidade adicional para a função <b>make()</b> que especifica o tamanho do buffer.
+                                </p>
+                                <pre><code class="language-go">
 ch := make(chan type, capacity)
                         </code></pre>
-                        <p>
-                            Aqui, a capacidade na sintaxe acima deve ser maior que 0 para um canal ter um buffer. 
-                            A capacidade de um canal sem buffer é 0 por padrão e, portanto, omite o parâmetro de capacidade.
-                        </p>
+                                <p>
+                                    Aqui, a capacidade na sintaxe acima deve ser maior que 0 para um canal ter um buffer. A capacidade de um canal sem buffer é 0 por padrão e, portanto, omite o parâmetro de capacidade.
+                                </p>
                     </div>
 
 

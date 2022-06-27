@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,8 +84,7 @@
                         </p>
                         <!--<div class="main-title">Standard Library net/http</div>-->
                         <p>
-                            Quando construímos APIs REST utilizando <b>Standard Library Go</b> estamos simplesmente implementando
-                            de forma nativa nossa api utilizando o pkg.
+                            Quando construímos APIs REST utilizando <b>Standard Library Go</b> estamos simplesmente implementando de forma nativa nossa api utilizando o pkg.
                             <a href="https://pkg.go.dev/net/http" target="_blank">net/http</a>😍.
                         </p>
                         <p>
@@ -99,8 +102,7 @@ log.Fatal(http.ListenAndServe(":8080",nil))
 .....
                         </code></pre>
                         <p>
-                            Standard Library Go é muito poderosa, é tão poderosa que a maioria dos Frameworks rESTFull são desenvolvidas
-                            usando net/http.
+                            Standard Library Go é muito poderosa, é tão poderosa que a maioria dos Frameworks rESTFull são desenvolvidas usando net/http.
                         </p>
                     </div>
 
@@ -142,7 +144,7 @@ func main() {
 }
 ....
                         </code></pre>
-                        
+
                         <pre><code class="language-go">
 .....
 tr := &http.Transport{
@@ -154,7 +156,7 @@ client := &http.Client{Transport: tr}
 resp, err := client.Get("https://example.com")
 ....
                         </code></pre>
-                        
+
                         <pre><code class="language-go">
 .....
 s := &http.Server{

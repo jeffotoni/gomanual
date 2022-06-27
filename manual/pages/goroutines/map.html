@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,16 +78,13 @@ Range(f func(key, value interface{}) bool)
 LoadOrStore(key, value interface{}) (actual interface{}, loaded bool)
                         </code></pre>
                         <p>
-                            Isso cobre todos os casos de uso de mapas - inserir, ler, excluir, iterar. Também existe o 
-                            método de bônus LoadOrStore, que permite definir o valor por chave se o valor não for definido antes.
+                            Isso cobre todos os casos de uso de mapas - inserir, ler, excluir, iterar. Também existe o método de bônus LoadOrStore, que permite definir o valor por chave se o valor não for definido antes.
                         </p>
                         <p>
-                            Para executar a iteração, existe uma função de recebimento de intervalo que é chamada em cada 
-                            elemento do mapa. Se essa função retornar falso, a iteração será interrompida.
+                            Para executar a iteração, existe uma função de recebimento de intervalo que é chamada em cada elemento do mapa. Se essa função retornar falso, a iteração será interrompida.
                         </p>
                         <p>
-                            Ao ver o nome sync.Map, pode-se imaginar que sync.Map é um map simples com alguns recursos 
-                            do pacote de sincronização. Mas, na verdade, sync.Map é muito mais complexo. 
+                            Ao ver o nome sync.Map, pode-se imaginar que sync.Map é um map simples com alguns recursos do pacote de sincronização. Mas, na verdade, sync.Map é muito mais complexo.
                         </p>
                         <p>
                             A estrutura sync.Map tem a seguinte aparência:
@@ -103,12 +104,9 @@ type readOnly struct {
 }
                         </code></pre>
                         <p>
-                            sync.Map é uma estrutura complexa, geralmente composta por dois mapas - um para leitura e outro 
-                            para novos elementos. sync.Map não está apenas perto de map + sync.RWMutex nas métricas de 
-                            velocidade, mas também pode ser o melhor no caso de leitura. Quando houver leitura e atualização, 
-                            o sync.Map terá o elemento read e dirty. Nesse caso, sync.Map tem desempenho pior do que 
-                            map + sync.RWMutex devido à leitura de dois mapas internos. Também existe um contador 
-                            que precisa ser atualizado ao acessar o dirty.
+                            sync.Map é uma estrutura complexa, geralmente composta por dois mapas - um para leitura e outro para novos elementos. sync.Map não está apenas perto de map + sync.RWMutex nas métricas de velocidade, mas também pode ser o melhor no caso de leitura. Quando
+                            houver leitura e atualização, o sync.Map terá o elemento read e dirty. Nesse caso, sync.Map tem desempenho pior do que map + sync.RWMutex devido à leitura de dois mapas internos. Também existe um contador que precisa ser atualizado
+                            ao acessar o dirty.
                         </p>
                     </div>
 

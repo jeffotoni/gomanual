@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,9 +68,7 @@
 
                     <div class="content-height">
                         <p>
-                            A struct <b>Ctx</b> representa o <b>Context</b> que contém a solicitação e a resposta HTTP.
-                            Ele tem métodos para a request query string, parameters, body, HTTP headers
-                            e assim por diante.
+                            A struct <b>Ctx</b> representa o <b>Context</b> que contém a solicitação e a resposta HTTP. Ele tem métodos para a request query string, parameters, body, HTTP headers e assim por diante.
                         </p>
                         <p>
                             Alguns métodos interessantes:
@@ -81,8 +83,7 @@
                             <li><a href="https://docs.gofiber.io/api/ctx#locals">func (c *Ctx) Locals(key string, value ...interface{}) interface{}</a></li>
                         </ul>
                         <p>
-                            Uma lista completa com todos os métodos que essa struct implementa pode ser
-                            encontrada <a href="https://docs.gofiber.io/api/ctx">clicando aqui</a>.
+                            Uma lista completa com todos os métodos que essa struct implementa pode ser encontrada <a href="https://docs.gofiber.io/api/ctx">clicando aqui</a>.
                         </p>
                     </div>
 
@@ -110,7 +111,7 @@
                 <div class="col-12 col-lg-6 column-code">
 
                     <div class="code-filename">fiber.go</div>
-                    
+
                     <div class="content-height">
                         <pre><code class="language-go">
 package main

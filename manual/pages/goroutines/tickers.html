@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,9 +68,8 @@
 
                     <div class="content-height">
                         <p>
-                            Os timers são para quando você deseja fazer algo uma vez no futuro - os 
-                            <b>tickers</b> são para quando você deseja fazer algo <b>repetidamente</b>
-                             em intervalos regulares.
+                            Os timers são para quando você deseja fazer algo uma vez no futuro - os
+                            <b>tickers</b> são para quando você deseja fazer algo <b>repetidamente</b> em intervalos regulares.
                         </p>
                         <p>
                             Os tickers usam um mecanismo semelhante aos timers: um <b>canal</b> que envia valores.
@@ -75,8 +78,7 @@
 time.NewTicker(time.Duration)
                         </code></pre>
                         <p>
-                            Os tickers podem ser <b>interrompidos</b> como temporizadores. Uma vez que um ticker é interrompido, 
-                            ele não receberá mais nenhum valor em seu canal.
+                            Os tickers podem ser <b>interrompidos</b> como temporizadores. Uma vez que um ticker é interrompido, ele não receberá mais nenhum valor em seu canal.
                         </p>
                     </div>
 

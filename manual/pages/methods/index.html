@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,14 +68,10 @@
 
                     <div class="content-height">
                         <p>
-                            Os <b>métodos</b> Go são semelhantes à função Go com uma diferença, ou seja, o 
-                            método contém um argumento <b>receptor</b>. Com a ajuda do argumento do receptor, 
-                            o método pode acessar as propriedades do receptor. 
+                            Os <b>métodos</b> Go são semelhantes à função Go com uma diferença, ou seja, o método contém um argumento <b>receptor</b>. Com a ajuda do argumento do receptor, o método pode acessar as propriedades do receptor.
                         </p>
                         <p>
-                            Aqui, o receptor pode ser do 
-                            tipo de estrutura ou não. Quando você cria um método em seu código, o 
-                            receptor e o tipo de receptor devem estar presentes no mesmo pacote.
+                            Aqui, o receptor pode ser do tipo de estrutura ou não. Quando você cria um método em seu código, o receptor e o tipo de receptor devem estar presentes no mesmo pacote.
                         </p>
                         <pre><code class="language-go">
 func (r Receptor) Metodo(param string) {...}

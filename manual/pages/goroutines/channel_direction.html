@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,18 +78,14 @@ a <- data // escreve no canal a
                             A direção da seta em relação ao canal especifica se os dados são enviados ou recebidos.
                         </p>
                         <p>
-                            Envios e recebimentos em um canal são bloqueados por padrão. O que isto significa? 
-                            Quando os dados são <b>enviados</b> para um canal, o controle é <b>bloqueado</b> na instrução de 
-                            envio até que algum outro Goroutine leia daquele canal. 
+                            Envios e recebimentos em um canal são bloqueados por padrão. O que isto significa? Quando os dados são <b>enviados</b> para um canal, o controle é <b>bloqueado</b> na instrução de envio até que algum outro Goroutine leia daquele
+                            canal.
                         </p>
                         <p>
-                            Da mesma forma, quando os 
-                            dados são <b>lidos</b> de um canal, a leitura é bloqueada até que algum Goroutine <b>grave</b> dados nesse canal.
+                            Da mesma forma, quando os dados são <b>lidos</b> de um canal, a leitura é bloqueada até que algum Goroutine <b>grave</b> dados nesse canal.
                         </p>
                         <p>
-                            Esta propriedade de canais é o que ajuda Goroutines a se comunicarem efetivamente sem o uso de 
-                            bloqueios explícitos ou variáveis condicionais que são bastante comuns em outras linguagens de 
-                            programação. 
+                            Esta propriedade de canais é o que ajuda Goroutines a se comunicarem efetivamente sem o uso de bloqueios explícitos ou variáveis condicionais que são bastante comuns em outras linguagens de programação.
                         </p>
                     </div>
 
@@ -119,9 +119,7 @@ a <- data // escreve no canal a
                     <div class="content-height">
                         <br>
                         <p>
-                            Um canal que só pode receber dados ou um canal que só pode enviar dados é o 
-                            canal <b>unidirecional</b>. O canal unidirecional também pode criar com a ajuda da 
-                            função <b>make()</b> conforme mostrado abaixo:
+                            Um canal que só pode receber dados ou um canal que só pode enviar dados é o canal <b>unidirecional</b>. O canal unidirecional também pode criar com a ajuda da função <b>make()</b> conforme mostrado abaixo:
                         </p>
                         <pre><code class="language-go">
 // Só permite ler dados

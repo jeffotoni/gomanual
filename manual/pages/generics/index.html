@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,13 +68,10 @@
 
                     <div class="content-height">
                         <p>
-                            Go é uma linguagem <b>tipada</b>, o que significa que cada variável e valor 
-                            em seu programa tem algum tipo <b>específico</b>. 
+                            Go é uma linguagem <b>tipada</b>, o que significa que cada variável e valor em seu programa tem algum tipo <b>específico</b>.
                         </p>
                         <p>
-                            Quando 
-                            escrevemos funções, precisamos especificar o tipo de seus parâmetros no 
-                            que é chamado de assinatura da função.
+                            Quando escrevemos funções, precisamos especificar o tipo de seus parâmetros no que é chamado de assinatura da função.
                         </p>
                         <pre><code class="language-go">
 func Somar(x, y float32) float32 {
@@ -78,17 +79,13 @@ func Somar(x, y float32) float32 {
 }
                         </code></pre>
                         <p>
-                            Tendo em vista a função acima, imagina como seria repetitivo <b>redeclarar</b> a mesma
-                            função para todos os <b>tipos</b> numéricos disponíveis.
+                            Tendo em vista a função acima, imagina como seria repetitivo <b>redeclarar</b> a mesma função para todos os <b>tipos</b> numéricos disponíveis.
                         </p>
                         <p>
-                            E se quisessemos declarar uma função que especifica um <b>grupo</b> de tipos possíveis
-                            para um argumento, e deixarmos o compilador "converter" esse tipo <b>genérico</b>
-                            para o tipo que usarmos na chamada da função?
+                            E se quisessemos declarar uma função que especifica um <b>grupo</b> de tipos possíveis para um argumento, e deixarmos o compilador "converter" esse tipo <b>genérico</b> para o tipo que usarmos na chamada da função?
                         </p>
                         <p>
-                            Isso é possível usando os generics, que veremos em mais detalhes nas 
-                            próximas páginas.
+                            Isso é possível usando os generics, que veremos em mais detalhes nas próximas páginas.
                         </p>
                     </div>
 

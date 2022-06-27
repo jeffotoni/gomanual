@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,29 +68,24 @@
 
                     <div class="content-height">
                         <p>
-                            No exemplo anterior, vimos que uma função tinha como parâmetro uma interface, porém ela
-                            recebeu como argumento structs. O que aconteceu?
+                            No exemplo anterior, vimos que uma função tinha como parâmetro uma interface, porém ela recebeu como argumento structs. O que aconteceu?
                         </p>
                         <p>
-                            Quando uma <b>struct</b> é passada como argumento aonde se espera uma <b>interface</b>, a linguagem
-                            implicitamente <b>converte</b> a sua struct para a interface, ou seja, dentro da função,
-                            nós estamos lidando com uma interface em si. 
+                            Quando uma <b>struct</b> é passada como argumento aonde se espera uma <b>interface</b>, a linguagem implicitamente <b>converte</b> a sua struct para a interface, ou seja, dentro da função, nós estamos lidando com uma interface
+                            em si.
                         </p>
                         <p>
-                            Mas como pudemos chamar então um método que
-                            estava definido para as structs?
+                            Mas como pudemos chamar então um método que estava definido para as structs?
                         </p>
                         <p>
-                            Acontece que quando uma struct é convertida em uma interface, você só terá acesso aos 
-                            <b>métodos</b> que a interface <b>definiu</b>. 
+                            Acontece que quando uma struct é convertida em uma interface, você só terá acesso aos
+                            <b>métodos</b> que a interface <b>definiu</b>.
                         </p>
                         <p>
-                            Por esse motivo que, se tentarmos
-                            executar um método em uma interface que ela <b>não</b> tenha definido, iremos gerar um <b>panic</b>.
+                            Por esse motivo que, se tentarmos executar um método em uma interface que ela <b>não</b> tenha definido, iremos gerar um <b>panic</b>.
                         </p>
                         <p>
-                            Isso acontece <b>mesmo que</b> a struct que foi convertida possuisse esse método. Observe o
-                            exemplo ao lado para entender na prática.
+                            Isso acontece <b>mesmo que</b> a struct que foi convertida possuisse esse método. Observe o exemplo ao lado para entender na prática.
                         </p>
                     </div>
 

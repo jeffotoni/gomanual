@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,8 +74,7 @@
 $ go test [test flags] [packages] [test flags & test binary flags]
                         </code></pre>
                         <p>
-                            O teste Go automatiza o teste dos pacotes nomeados pelos caminhos de importação. 
-                            Ele imprime um resumo dos resultados do teste no formato:
+                            O teste Go automatiza o teste dos pacotes nomeados pelos caminhos de importação. Ele imprime um resumo dos resultados do teste no formato:
                         </p>
                         <pre><code class="language-go">
 ok   archive/tar   0.011s
@@ -82,10 +85,9 @@ ok   compress/gzip 0.033s
                             Seguido por uma saída detalhada para cada pacote com falha.
                         </p>
                         <p>
-                            Os arquivos de teste que declaram um pacote com o sufixo "_test" serão compilados como um 
-                            pacote separado e, em seguida, vinculados e executados com o binário de teste principal.
+                            Os arquivos de teste que declaram um pacote com o sufixo "_test" serão compilados como um pacote separado e, em seguida, vinculados e executados com o binário de teste principal.
                         </p>
-                    
+
                     </div>
 
 
@@ -116,7 +118,7 @@ ok   compress/gzip 0.033s
                     <div class="code-filename">main.go</div>
 
                     <div class="ratio ratio-16x9 iframe-box">
-                        <iframe src="https://www.youtube.com/embed/WERRMOcnX1c" allowfullscreen></iframe> 
+                        <iframe src="https://www.youtube.com/embed/WERRMOcnX1c" allowfullscreen></iframe>
                     </div>
 
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />

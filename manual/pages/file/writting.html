@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,10 +68,7 @@
 
                     <div class="content-height">
                         <p>
-                            O <b>ioutil.WriteFile()</b> é usado para gravar dados em um arquivo. O método WriteFile() 
-                            aceita 3 parâmetros diferentes, o primeiro é a <b>localização</b> do arquivo que desejamos 
-                            gravar, o segundo é o <b>objeto de dados</b> e o terceiro é o <b>FileMode</b>, que representa o 
-                            modo do arquivo e os bits de permissão.
+                            O <b>ioutil.WriteFile()</b> é usado para gravar dados em um arquivo. O método WriteFile() aceita 3 parâmetros diferentes, o primeiro é a <b>localização</b> do arquivo que desejamos gravar, o segundo é o <b>objeto de dados</b>                            e o terceiro é o <b>FileMode</b>, que representa o modo do arquivo e os bits de permissão.
                         </p>
                         <pre><code class="language-go">
 ioutil.WriteFile("path/to/file.txt", []byte("conteudo"), 0644)

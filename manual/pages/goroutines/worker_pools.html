@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,22 +68,17 @@
 
                     <div class="content-height">
                         <p>
-                            Em geral, um worker pool é uma coleção de threads que aguardam que tarefas sejam 
-                            atribuídas a eles. Assim que concluem a tarefa atribuída, eles se colocam novamente 
-                            à disposição para a próxima tarefa.
+                            Em geral, um worker pool é uma coleção de threads que aguardam que tarefas sejam atribuídas a eles. Assim que concluem a tarefa atribuída, eles se colocam novamente à disposição para a próxima tarefa.
                         </p>
                         <p>
-                            Implementaremos um worker pool usando canais em buffer. Nosso worker pool 
-                            realizará a tarefa de encontrar a soma de alguns dígitos do número de entrada. Por 
-                            exemplo, se 234 for passado, a saída será 9.
+                            Implementaremos um worker pool usando canais em buffer. Nosso worker pool realizará a tarefa de encontrar a soma de alguns dígitos do número de entrada. Por exemplo, se 234 for passado, a saída será 9.
                         </p>
                         <p>
                             A seguir estão as principais funcionalidades do nosso workers pool:
                         </p>
                         <ul>
                             <li>
-                                Criação de um pool de Goroutines que escutam em um canal com buffer de 
-                                entrada esperando que as tarefas sejam atribuídas
+                                Criação de um pool de Goroutines que escutam em um canal com buffer de entrada esperando que as tarefas sejam atribuídas
                             </li>
                             <li>
                                 Adição de trabalhos ao canal com buffer de entrada
@@ -88,7 +87,7 @@
                                 Gravar resultados em um canal com buffer de saída após a conclusão do trabalho
                             </li>
                             <li>
-                                Leia e imprima os resultados do canal com buffer de saída 
+                                Leia e imprima os resultados do canal com buffer de saída
                             </li>
                         </ul>
                     </div>

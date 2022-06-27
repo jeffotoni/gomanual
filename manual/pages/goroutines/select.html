@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,8 +68,7 @@
 
                     <div class="content-height">
                         <p>
-                            <b>Select</b> esperas em vários canais. Isso pode ser combinado com goroutines. 
-                            Select é como a instrução <b>switch</b>, mas para <b>canais</b>.
+                            <b>Select</b> esperas em vários canais. Isso pode ser combinado com goroutines. Select é como a instrução <b>switch</b>, mas para <b>canais</b>.
                         </p>
                         <pre><code class="language-go">
 select {
@@ -83,8 +86,7 @@ case <- ch2:
                             Por ser executado simultaneamente, pode acontecer que uma tarefa seja concluída <b>antes</b> da outra.
                         </p>
                         <p>
-                            A instrução select fará com que o programa <b>espere</b> que ambas as tarefas sejam concluídas, 
-                            mas isso não significa que ambas as tarefas sejam sempre concluídas em ordem <b>cronológica</b>.
+                            A instrução select fará com que o programa <b>espere</b> que ambas as tarefas sejam concluídas, mas isso não significa que ambas as tarefas sejam sempre concluídas em ordem <b>cronológica</b>.
                         </p>
                     </div>
 

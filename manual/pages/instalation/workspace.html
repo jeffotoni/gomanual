@@ -17,10 +17,14 @@
 
     <!-- Custom CSS -->
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- <link href="../../../css/style.css" rel="stylesheet"> -->
     <link href="../../../plugins/prism/prism.css" rel="stylesheet">
+    <link href="../../../plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror.css" rel="stylesheet">
     <link href="../../../css/go-playground/codemirror-juejin.css" rel="stylesheet">
+    <link href="../../../css/go-playground/codemirror-dracula.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css" rel="stylesheet">
+    <link href="../../../css/style-2.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,25 +68,23 @@
 
                     <div class="content-height">
                         <p>
-                            O workspace é o nosso local de trabalho, onde organizaremos os nossos diretórios 
-                            com os nossos projetos. Conforme mostrado acima, até a versão 1.11 do Go, éramos forçados 
-                            a fazer tudo na área de trabalho.
+                            O workspace é o nosso local de trabalho, onde organizaremos os nossos diretórios com os nossos projetos. Conforme mostrado acima, até a versão 1.11 do Go, éramos forçados a fazer tudo na área de trabalho.
                         </p>
                         <p>
                             Exemplo de Hello World:
                         </p>
-<!--                        <pre><code class="language-go">-->
-<!--$ export GOPATH=$HOME/go-->
-<!--$ mkdir $HOME/go-->
-<!--$ mkdir $HOME/go/src-->
-<!--$ mkdir $HOME/go/src/hello-->
-<!--$ vim $HOME/go/src/hello/hello.go-->
+                        <!--                        <pre><code class="language-go">-->
+                        <!--$ export GOPATH=$HOME/go-->
+                        <!--$ mkdir $HOME/go-->
+                        <!--$ mkdir $HOME/go/src-->
+                        <!--$ mkdir $HOME/go/src/hello-->
+                        <!--$ vim $HOME/go/src/hello/hello.go-->
 
-<!--$GOPATH/-->
-<!--  |-src-->
-<!--    |-hello-->
-<!--      |-hello.go-->
-<!--                        </code></pre>-->
+                        <!--$GOPATH/-->
+                        <!--  |-src-->
+                        <!--    |-hello-->
+                        <!--      |-hello.go-->
+                        <!--                        </code></pre>-->
                         <p>
                             A variável de ambiente $GOPATH informa à ferramenta Go onde está localizada sua área de trabalho.
                         </p>
@@ -90,9 +92,7 @@
 $ go get github.com/user/project1
                         </code></pre>
                         <p>
-                            O comando go get busca repositórios de código-fonte na Internet e os coloca em sua área de 
-                            trabalho. Os caminhos dos pacotes são importantes para a ferramenta Go. 
-                            Usar "github.com/..." significa que a ferramenta sabe como buscar seu repositório.
+                            O comando go get busca repositórios de código-fonte na Internet e os coloca em sua área de trabalho. Os caminhos dos pacotes são importantes para a ferramenta Go. Usar "github.com/..." significa que a ferramenta sabe como buscar seu repositório.
                         </p>
                     </div>
 
