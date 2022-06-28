@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Comandos - Go build</title>
+    <title>Go Bootcamp - Métodos - Comparação com Funções</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -388,7 +388,7 @@
 
             <div class="column-header">
                 <div class="column-header-text column-text-close">
-                    <i class="fa fa-file-text"></i> &nbsp; <span>Comandos - Go build</span>
+                    <i class="fa fa-file-text"></i> &nbsp; <span>Arrays - Acessando Elementos</span>
                 </div>
 
                 <div class="column-header-actions">
@@ -399,43 +399,40 @@
                 <div class="clearfix"></div>
             </div>
 
+            <!--- Page title --->
+            <div class="main-title">Métodos - Comparação com Funções</div>
+            <!--- Page title Fim --->
+
 
             <div class="content-height">
                 <p>
-                    O comando <i>build</i> compila os pacotes nomeados pelos caminhos de importação, junto com suas dependências, mas não instala os resultados. Ao compilar pacotes, o build ignora os arquivos que terminam em '_test.go'.
+                    Os <b>métodos</b> Go são semelhantes à função Go com uma diferença, ou seja, o método contém um argumento <b>receptor</b>. Com a ajuda do argumento do receptor, o método pode acessar as propriedades do receptor.
+                </p>
+                <p>
+                    Aqui, o receptor pode ser do tipo de estrutura ou não. Quando você cria um método em seu código, o receptor e o tipo de receptor devem estar presentes no mesmo pacote.
                 </p>
                 <pre><code class="language-go">
-$ go build [-o output] [-i] [build flags] [packages]
+func (r Receptor) Metodo(param string) {...}
                         </code></pre>
-                <p>
-                    O sinalizador <b>-o</b>, permitido apenas ao compilar um único pacote, força o build a gravar o executável ou objeto resultante no arquivo de saída nomeado, em vez do comportamento padrão descrito nos dois últimos parágrafos.
-                </p>
-                <p>
-                    O sinalizador <b>-i</b> instala os pacotes que são dependências do destino.
-                </p>
-                <!-- <p>
-                            Os sinalizadores de compilação são compartilhados pelos comandos <i>build</i>, <i>clean</i>, <i>get</i>, <i>install</i>, <i>list</i>,
-                            <i>run</i> e <i>test</i>.
-                        </p> -->
             </div>
 
 
             <div class="pages-menu">
 
-                <a title="Comandos - go run" class="pages-menu-link link-back" href="go_run.html">
+                <a title="Ponteiros - Quando Usar" class="pages-menu-link link-back" href="../pointers/when_use.html">
                     <i class="fa fa-chevron-left"></i>
                 </a>
 
-                <span>3 / 6</span>
+                <span>1 / 2</span>
 
-                <a title="Comandos - go install" class="pages-menu-link link-forward" href="go_install.html">
+                <a title="Métodos - Interfaces" class="pages-menu-link link-forward" href="interfaces.html">
                     <i class="fa fa-chevron-right"></i>
                 </a>
 
             </div>
 
             <div class="progress-bar-container">
-                <div class="progress-bar" style="width: calc((100% / 6) * 3)"></div>
+                <div class="progress-bar" style="width: calc((100% / 2) * 1)"></div>
             </div>
 
         </div>
@@ -444,15 +441,42 @@ $ go build [-o output] [-i] [build flags] [packages]
         <!--- Coluna Direita --->
         <div class="col-12 col-lg-6 column-code">
 
-            <div class="code-filename">build</div>
+            <div class="code-filename">methods.go</div>
 
-            <!-- <img src="../../gif/go-help.gif" alt="Golang"> -->
-            <div class="ratio ratio-16x9 iframe-box">
-                <iframe src="https://www.youtube.com/embed/CrTX5zB1Lvo" allowfullscreen></iframe>
-            </div>
+            <textarea class="go-playground-snippet" data-expanded="1" data-title="methods.go">
+package main
+  
+import (
+    "fmt"
+)
+
+type Pessoa struct {
+    Nome string
+    Idade int
+}
+
+func (*Pessoa) Falar(frases ...interface{}) {
+    fmt.Println(frases)
+}
+
+func (p *Pessoa) FazerAniversario() {
+    p.Idade++
+}
+
+func main() {
+    carlos := Pessoa{"Carlos", 23}
+    carlos.Falar("Minha idade é:", carlos.Idade)
+
+    carlos.FazerAniversario()
+    carlos.Falar("Minha idade é:", carlos.Idade)
+}
+                    </textarea>
 
             <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
+
         </div>
+        <!--- Coluna Direita Fim --->
+
     </div>
     </div>
     </main>
