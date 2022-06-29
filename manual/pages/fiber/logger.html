@@ -382,6 +382,7 @@
     </nav>
 
     <div class="page-body">
+<<<<<<< HEAD
 
         <!-- Coluna esquerda -->
         <div class="column-text">
@@ -478,6 +479,63 @@
             <div class="content-height">
                 <pre><code class="language-go">
 >>>>>>> main
+=======
+
+        <!-- Coluna esquerda -->
+        <div class="column-text">
+
+            <div class="column-header">
+                <div class="column-header-text column-text-close">
+                    <i class="fa fa-file-text"></i> &nbsp; <span>Fiber - Logger</span>
+                </div>
+
+                <div class="column-header-actions">
+                    <i class="fa fa-star-o column-star-button column-header-button column-text-close"></i>
+                    <i class="fa fa-chevron-left column-header-button column-text-button" onclick="toggleColumnLeft($(this));" data-open="true"></i>
+                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnTextMobile($(this));"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+
+            <div class="content-height">
+                <p>
+                    Fiber também possui seu middleware integrado para <b>registrar</b> detalhes de solicitação/resposta HTTP e exibir resultados no console.
+                </p>
+                <p>
+                    Para mais informações sobre o middleware Logger, clique
+                    <a href="https://github.com/gofiber/fiber/tree/master/middleware/logger">aqui</a>
+                </p>
+            </div>
+
+            <div class="pages-menu">
+
+                <a title="Fiber - CSRF" class="pages-menu-link link-back" href="csrf.html">
+                    <i class="fa fa-chevron-left"></i>
+                </a>
+
+                <span>7 / 12</span>
+
+                <a title="Fiber - Cache" class="pages-menu-link link-forward" href="cache.html">
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+
+            </div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: calc((100% / 12) * 7)"></div>
+            </div>
+
+        </div>
+        <!--- Coluna Esquerda Fim --->
+
+        <div class="col-12 col-lg-6 column-code">
+
+            <div class="code-filename">fiber.go</div>
+
+            <div class="content-height">
+                <pre><code class="language-go">
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 package main
 
 import (
@@ -489,11 +547,7 @@ func main() {
     app := fiber.New()
 
     // Define file to logs
-    file, err := os.OpenFile(
-        "./my_logs.log", 
-        os.O_RDWR|os.O_CREATE|os.O_APPEND, 
-        0666,
-    )
+    file, err := os.OpenFile("./my_logs.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
     if err != nil {
       log.Fatalf("error opening file: %v", err)
     }
@@ -513,6 +567,7 @@ func main() {
     app.Listen(":3000")
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
                     </textarea>
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
                     </div>
@@ -521,6 +576,9 @@ func main() {
 =======
                         </code></pre>
 >>>>>>> main
+=======
+                        </code></pre>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
             </div>
         </div>
         <!--- Coluna Direita Fim --->

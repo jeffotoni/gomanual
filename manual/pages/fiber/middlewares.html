@@ -421,6 +421,7 @@ func (app *App) Use(args ...interface{}) Router
                     <a href="https://github.com/gofiber/awesome-fiber">aqui</a> para ver uma lista completa.
                 </p>
             </div>
+<<<<<<< HEAD
 
             <div class="pages-menu">
                 <div class="content-overview content-overview-menu">
@@ -490,6 +491,36 @@ func (app *App) Use(args ...interface{}) Router
             <div class="content-height">
                 <pre><code class="language-go">
 >>>>>>> main
+=======
+
+            <div class="pages-menu">
+
+                <a title="Fiber - Grouping" class="pages-menu-link link-back" href="grouping.html">
+                    <i class="fa fa-chevron-left"></i>
+                </a>
+
+                <span>4 / 12</span>
+
+                <a title="Fiber - Helmet" class="pages-menu-link link-forward" href="helmet.html">
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+
+            </div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: calc((100% / 12) * 4)"></div>
+            </div>
+
+        </div>
+        <!--- Coluna Esquerda Fim --->
+
+        <div class="col-12 col-lg-6 column-code">
+
+            <div class="code-filename">fiber.go</div>
+
+            <div class="content-height">
+                <pre><code class="language-go">
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 func main() {
     app := fiber.New()
 
@@ -506,18 +537,15 @@ func main() {
     }
 
     api := app.Group("/api") // /api
-    // Middleware aplicado para todas 
-    //as rotas que serão criadas em /api/
-    api.Use(md1)
+    api.Use(md1) // Middleware aplicado para todas as rotas que serão criadas em /api/
 
     v1 := api.Group("/v1")
-    // Middleware aplicado para todas 
-    // as rotas que serão criadas em /api/v1/
-    v1.Use(md2)
+    v1.Use(md2) // Middleware aplicado para todas as rotas que serão criadas em /api/v1/
     v1.Get("/user", handler) // /api/v1/user
 
     log.Fatal(app.Listen(":3000"))
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
                     </textarea>
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
@@ -527,6 +555,9 @@ func main() {
 =======
                         </code></pre>
 >>>>>>> main
+=======
+                        </code></pre>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
             </div>
         </div>
         <!--- Coluna Direita Fim --->

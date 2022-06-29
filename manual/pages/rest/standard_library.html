@@ -443,6 +443,7 @@ log.Fatal(http.ListenAndServe(":8080",nil))
                     Standard Library Go é muito poderosa, é tão poderosa que a maioria dos Frameworks rESTFull são desenvolvidas usando net/http.
                 </p>
             </div>
+<<<<<<< HEAD
 
             <div class="pages-menu">
                 <div class="content-overview content-overview-menu">
@@ -481,11 +482,20 @@ log.Fatal(http.ListenAndServe(":8080",nil))
                         </div>
                     </div>
                 </div>
+=======
+
+            <div class="pages-menu">
+
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
                 <a title="API REST - ZeroHero" class="pages-menu-link link-back" href="crud_zerohero.html">
                     <i class="fa fa-chevron-left"></i>
                 </a>
 
+<<<<<<< HEAD
                 <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
+=======
+                <span>3 / 11</span>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 
                 <a title="API REST - Frameworks RESTfull" class="pages-menu-link link-forward" href="frameworks_restfull.html">
                     <i class="fa fa-chevron-right"></i>
@@ -505,13 +515,17 @@ log.Fatal(http.ListenAndServe(":8080",nil))
             <div class="code-filename">standard_library.go</div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <textarea class="go-playground-snippet" data-expanded="1" data-title="post.go">
 =======
             <div class="content-height">
                 <pre><code class="language-go">
 >>>>>>> main
+=======
+            <div class="content-height">
+                <pre><code class="language-go">
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 .....
-
 func main() {
     log.Printf("\nServer run 8080\n")
     err := http.ListenAndServe(":8080",
@@ -520,8 +534,8 @@ func main() {
         }))
     log.Fatal(err)
 }
-
 ....
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
@@ -530,6 +544,12 @@ func main() {
                 <pre><code class="language-go">
 .....
 >>>>>>> main
+=======
+                        </code></pre>
+
+                <pre><code class="language-go">
+.....
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 tr := &http.Transport{
 	MaxIdleConns:       10,
 	IdleConnTimeout:    30 * time.Second,
@@ -537,8 +557,8 @@ tr := &http.Transport{
 }
 client := &http.Client{Transport: tr}
 resp, err := client.Get("https://example.com")
-
 ....
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
@@ -547,6 +567,12 @@ resp, err := client.Get("https://example.com")
                 <pre><code class="language-go">
 .....
 >>>>>>> main
+=======
+                        </code></pre>
+
+                <pre><code class="language-go">
+.....
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 s := &http.Server{
 	Addr:           ":8080",
 	Handler:        myHandler,
@@ -555,8 +581,8 @@ s := &http.Server{
 	MaxHeaderBytes: 1 << 20,
 }
 log.Fatal(s.ListenAndServe())
-
 ....
+<<<<<<< HEAD
 <<<<<<< HEAD
                     </textarea>
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
@@ -565,6 +591,9 @@ log.Fatal(s.ListenAndServe())
 =======
                         </code></pre>
 >>>>>>> main
+=======
+                        </code></pre>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
             </div>
         </div>
         <!--- Coluna Direita Fim --->

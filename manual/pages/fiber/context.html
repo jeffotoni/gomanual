@@ -389,6 +389,7 @@
             <div class="column-header">
                 <div class="column-header-text column-text-close">
                     <i class="fa fa-file-text"></i> &nbsp; <span>Fiber - Context</span>
+<<<<<<< HEAD
                 </div>
 
                 <div class="column-header-actions">
@@ -470,15 +471,66 @@
 
             </div>
 
+=======
+                </div>
+
+                <div class="column-header-actions">
+                    <i class="fa fa-star-o column-star-button column-header-button column-text-close"></i>
+                    <i class="fa fa-chevron-left column-header-button column-text-button" onclick="toggleColumnLeft($(this));" data-open="true"></i>
+                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnTextMobile($(this));"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+
+            <div class="content-height">
+                <p>
+                    A struct <b>Ctx</b> representa o <b>Context</b> que contém a solicitação e a resposta HTTP. Ele tem métodos para a request query string, parameters, body, HTTP headers e assim por diante.
+                </p>
+                <p>
+                    Alguns métodos interessantes:
+                </p>
+                <ul>
+                    <li><a href="https://docs.gofiber.io/api/ctx#app">func (c *Ctx) App() *App</a></li>
+                    <li><a href="https://docs.gofiber.io/api/ctx#body">func (c *Ctx) Body() []byte</a></li>
+                    <li><a href="https://docs.gofiber.io/api/ctx#bodyparser">func (c *Ctx) BodyParser(out interface{}) error</a></li>
+                    <li><a href="https://docs.gofiber.io/api/ctx#cookie">func (c *Ctx) Cookie(cookie *Cookie)</a></li>
+                    <li><a href="https://docs.gofiber.io/api/ctx#download">func (c *Ctx) Download(file string, filename ...string) error</a></li>
+                    <li><a href="https://docs.gofiber.io/api/ctx#json">func (c *Ctx) JSON(data interface{}) error</a></li>
+                    <li><a href="https://docs.gofiber.io/api/ctx#locals">func (c *Ctx) Locals(key string, value ...interface{}) interface{}</a></li>
+                </ul>
+                <p>
+                    Uma lista completa com todos os métodos que essa struct implementa pode ser encontrada <a href="https://docs.gofiber.io/api/ctx">clicando aqui</a>.
+                </p>
+            </div>
+
+            <div class="pages-menu">
+
+                <a title="Fiber - Templates" class="pages-menu-link link-back" href="templates.html">
+                    <i class="fa fa-chevron-left"></i>
+                </a>
+
+                <span>12 / 12</span>
+
+                <a title="API REST - Introdução" class="pages-menu-link link-forward" href="../rest/index.html">
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+
+            </div>
+
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
             <div class="progress-bar-container">
                 <div class="progress-bar" style="width: 100%"></div>
             </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <div class="code-filename">fiber.go</div>
                     
                     <textarea class="go-playground-snippet" data-expanded="1" data-title="post.go">
 =======
+=======
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
         </div>
         <!--- Coluna Esquerda Fim --->
 
@@ -488,7 +540,10 @@
 
             <div class="content-height">
                 <pre><code class="language-go">
+<<<<<<< HEAD
 >>>>>>> main
+=======
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 package main
 
 import (
@@ -517,6 +572,7 @@ func main() {
     log.Fatal(app.Listen(":3000"))
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
                     </textarea>
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
                     </div>
@@ -525,6 +581,9 @@ func main() {
 =======
                         </code></pre>
 >>>>>>> main
+=======
+                        </code></pre>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
             </div>
         </div>
         <!--- Coluna Direita Fim --->

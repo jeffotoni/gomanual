@@ -382,6 +382,7 @@
     </nav>
 
     <div class="page-body">
+<<<<<<< HEAD
 
         <!-- Coluna esquerda -->
         <div class="column-text">
@@ -402,8 +403,30 @@
             <!--- Page title --->
             <div class="main-title">JSON - Marshal</div>
             <!--- Page title Fim --->
+=======
 
+        <!-- Coluna esquerda -->
+        <div class="column-text">
 
+            <div class="column-header">
+                <div class="column-header-text column-text-close">
+                    <i class="fa fa-file-text"></i> &nbsp; <span>Arrays - Acessando Elementos</span>
+                </div>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
+
+                <div class="column-header-actions">
+                    <i class="fa fa-star-o column-star-button column-header-button column-text-close"></i>
+                    <i class="fa fa-chevron-left column-header-button column-text-button" onclick="toggleColumnLeft($(this));" data-open="true"></i>
+                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnTextMobile($(this));"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <!--- Page title --->
+            <div class="main-title">JSON - Marshal</div>
+            <!--- Page title Fim --->
+
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <div class="content-height">
                         <p>
@@ -412,25 +435,20 @@
                             algum durante o empacotamento do json.
                         </p>
                         <pre><code class="language-go">
+=======
+
+            <div class="content-height">
+                <p>
+                    <b>Marshal()</b> recebe um valor como entrada e retorna o JSON codificado como um
+                    <b>slice de bytes</b> em caso de sucesso ou um erro se algo der errado.
+                </p>
+                <pre><code class="language-go">
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 func Marshal(v interface{}) ([]byte, error)
                         </code></pre>
-                        <p>
-                            As <b>struct</b> Go serão empacotados em objetos JSON, onde o <b>nome</b>
-                            do campo se torna a <b>chave</b> do objeto, e o seu <b>valor</b>, o valor da 
-                            respectiva chave.
-                        </p>
-                        <p>
-                            É possível definir um nome <b>personalizado</b> para a futura conversão do campo 
-                            em JSON usando <b>tags</b>, da seguinte forma:
-                        </p>
-                        <pre><code class="language-go">
-type Pessoa struct {
-    Nome string `json:"nome_completo"`
-    Idade int
-}
-                        </code></pre>
-                    </div>
+            </div>
 
+<<<<<<< HEAD
 =======
             <div class="content-height">
                 <p>
@@ -481,11 +499,20 @@ func Marshal(v interface{}) ([]byte, error)
                         </div>
                     </div>
                 </div>
+=======
+
+            <div class="pages-menu">
+
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
                 <a title="JSON - Introdução" class="pages-menu-link link-back" href="index.html">
                     <i class="fa fa-chevron-left"></i>
                 </a>
 
+<<<<<<< HEAD
                 <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
+=======
+                <span>2 / 3</span>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 
                 <a title="JSON - Unmarshal" class="pages-menu-link link-forward" href="unmarshal.html">
                     <i class="fa fa-chevron-right"></i>

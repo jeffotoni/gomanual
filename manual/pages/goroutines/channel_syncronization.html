@@ -382,10 +382,48 @@
     </nav>
 
     <div class="page-body">
+<<<<<<< HEAD
+=======
 
         <!-- Coluna esquerda -->
         <div class="column-text">
 
+            <div class="column-header">
+                <div class="column-header-text column-text-close">
+                    <i class="fa fa-file-text"></i> &nbsp; <span>Arrays - Acessando Elementos</span>
+                </div>
+
+                <div class="column-header-actions">
+                    <i class="fa fa-star-o column-star-button column-header-button column-text-close"></i>
+                    <i class="fa fa-chevron-left column-header-button column-text-button" onclick="toggleColumnLeft($(this));" data-open="true"></i>
+                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnTextMobile($(this));"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <!--- Page title --->
+            <div class="main-title">Goroutines - Channel Syncronization</div>
+            <!--- Page title Fim --->
+
+
+            <div class="content-height">
+                <p>
+                    Podemos fazer uso de canais se quisermos <b>sincronizar</b> goroutines. Ao sincronizar, queremos fazer com que as goroutines funcionem de uma maneira definida, por exemplo, não iniciando a próxima goroutine até que a anterior tenha
+                    <b>finalizado</b> sua execução.
+                </p>
+                <p>
+                    Os canais ajudam a fazer isso, pois podem ser usados para bloquear o processo e, em seguida, também podem ser usados para <b>notificar</b> a segunda <b>goroutine</b> de que a anterior terminou seu trabalho.
+                </p>
+                <p>
+                    Vamos considerar um exemplo muito básico de sincronização de canais, onde veremos como podemos fazer isso com a ajuda de um canal em buffer.
+                </p>
+            </div>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
+
+        <!-- Coluna esquerda -->
+        <div class="column-text">
+
+<<<<<<< HEAD
             <div class="column-header">
                 <div class="column-header-text column-text-close">
                     <i class="fa fa-file-text"></i> &nbsp; <span>Arrays - Acessando Elementos</span>
@@ -478,6 +516,33 @@
 
             <div class="code-filename">syncronization.go</div>
 
+=======
+            <div class="pages-menu">
+
+                <a title="Goroutines - Channel Buffering" class="pages-menu-link link-back" href="channel_buffering.html">
+                    <i class="fa fa-chevron-left"></i>
+                </a>
+
+                <span>5 / 12</span>
+
+                <a title="Goroutines - Select" class="pages-menu-link link-forward" href="select.html">
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+
+            </div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: calc((100% / 12) * 5)"></div>
+            </div>
+
+        </div>
+        <!--- Coluna Esquerda Fim --->
+
+        <div class="col-12 col-lg-6 column-code">
+
+            <div class="code-filename">syncronization.go</div>
+
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
             <textarea class="go-playground-snippet" data-expanded="1" data-title="syncronization.go">
 package main 
 import ( 

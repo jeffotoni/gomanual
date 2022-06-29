@@ -382,6 +382,7 @@
     </nav>
 
     <div class="page-body">
+<<<<<<< HEAD
 
         <!-- Coluna esquerda -->
         <div class="column-text">
@@ -482,6 +483,67 @@
             <div class="content-height">
                 <pre><code class="language-go">
 >>>>>>> main
+=======
+
+        <!-- Coluna esquerda -->
+        <div class="column-text">
+
+            <div class="column-header">
+                <div class="column-header-text column-text-close">
+                    <i class="fa fa-file-text"></i> &nbsp; <span>Fiber - CSRF</span>
+                </div>
+
+                <div class="column-header-actions">
+                    <i class="fa fa-star-o column-star-button column-header-button column-text-close"></i>
+                    <i class="fa fa-chevron-left column-header-button column-text-button" onclick="toggleColumnLeft($(this));" data-open="true"></i>
+                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnTextMobile($(this));"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+
+            <div class="content-height">
+                <p>
+                    O middleware <b>CSRF</b> fornece proteção contra
+                    <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery">falsificação de solicitação entre sites</a> passando um token CSRF por meio de cookies.
+                </p>
+                <p>
+                    Esse cookie será usado para comparar com o <b>token CSRF</b> do cliente nas solicitações <b>POST</b>. Quando o token CSRF for inválido, esse middleware excluirá o cookie csrf_ e retornará o erro <b>fiber.ErrForbidden</b>.
+                </p>
+                <p>
+                    Para mais informações sobre o middleware CSRF, clique
+                    <a href="https://github.com/gofiber/fiber/tree/master/middleware/csrf">aqui</a>
+                </p>
+            </div>
+
+            <div class="pages-menu">
+
+                <a title="Fiber - Helmet" class="pages-menu-link link-back" href="helmet.html">
+                    <i class="fa fa-chevron-left"></i>
+                </a>
+
+                <span>6 / 12</span>
+
+                <a title="Fiber - Logger" class="pages-menu-link link-forward" href="logger.html">
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+
+            </div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: calc((100% / 12) * 6)"></div>
+            </div>
+
+        </div>
+        <!--- Coluna Esquerda Fim --->
+
+        <div class="col-12 col-lg-6 column-code">
+
+            <div class="code-filename">fiber.go</div>
+
+            <div class="content-height">
+                <pre><code class="language-go">
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 package main
 
 import (
@@ -507,6 +569,7 @@ func main() {
   app.Listen(":3000")
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
                     </textarea>
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
                     </div>
@@ -515,6 +578,9 @@ func main() {
 =======
                         </code></pre>
 >>>>>>> main
+=======
+                        </code></pre>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
             </div>
         </div>
         <!--- Coluna Direita Fim --->

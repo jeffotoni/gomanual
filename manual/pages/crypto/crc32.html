@@ -382,10 +382,42 @@
     </nav>
 
     <div class="page-body">
+<<<<<<< HEAD
+=======
 
         <!-- Coluna esquerda -->
         <div class="column-text">
 
+            <div class="column-header">
+                <div class="column-header-text column-text-close">
+                    <i class="fa fa-file-text"></i> &nbsp; <span>Criptografia - CRC32</span>
+                </div>
+
+                <div class="column-header-actions">
+                    <i class="fa fa-star-o column-star-button column-header-button column-text-close"></i>
+                    <i class="fa fa-chevron-left column-header-button column-text-button" onclick="toggleColumnLeft($(this));" data-open="true"></i>
+                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnTextMobile($(this));"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+
+            <div class="content-height">
+                <p>
+                    A verificação cíclica de redundância (do inglês, CRC - <b>Cyclic Redundancy Check</b>) é um método de detecção de erros normalmente usada em <b>redes</b> digitais e dispositivos de <b>armazenamento</b> para detectar mudança acidental
+                    em cadeias de dados.
+                </p>
+                <p>
+                    Para uma explicaçã técnica dessa hash, clique
+                    <a href="https://pt.wikipedia.org/wiki/CRC">aqui</a>.
+                </p>
+            </div>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
+
+        <!-- Coluna esquerda -->
+        <div class="column-text">
+
+<<<<<<< HEAD
             <div class="column-header">
                 <div class="column-header-text column-text-close">
                     <i class="fa fa-file-text"></i> &nbsp; <span>Criptografia - CRC32</span>
@@ -472,6 +504,33 @@
 
             <div class="code-filename">crc32.go</div>
 
+=======
+            <div class="pages-menu">
+
+                <a title="Criptografia - MD5" class="pages-menu-link link-back" href="md5.html">
+                    <i class="fa fa-chevron-left"></i>
+                </a>
+
+                <span>3 / 3</span>
+
+                <a title="Testes - Introdução" class="pages-menu-link link-forward" href="../testes/index.html">
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+
+            </div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 100%"></div>
+            </div>
+
+        </div>
+        <!--- Coluna Esquerda Fim --->
+
+        <div class="col-12 col-lg-6 column-code">
+
+            <div class="code-filename">crc32.go</div>
+
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
             <textarea class="go-playground-snippet" data-expanded="1" data-title="crc32.go">
 package main
 

@@ -389,6 +389,7 @@
             <div class="column-header">
                 <div class="column-header-text column-text-close">
                     <i class="fa fa-file-text"></i> &nbsp; <span>Arrays - Acessando Elementos</span>
+<<<<<<< HEAD
                 </div>
 
                 <div class="column-header-actions">
@@ -485,6 +486,69 @@
 
         <div class="col-12 col-lg-6 column-code">
 
+=======
+                </div>
+
+                <div class="column-header-actions">
+                    <i class="fa fa-star-o column-star-button column-header-button column-text-close"></i>
+                    <i class="fa fa-chevron-left column-header-button column-text-button" onclick="toggleColumnLeft($(this));" data-open="true"></i>
+                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnTextMobile($(this));"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <!--- Page title --->
+            <div class="main-title">Goroutines - Worker Pools</div>
+            <!--- Page title Fim --->
+
+
+            <div class="content-height">
+                <p>
+                    Em geral, um worker pool é uma coleção de threads que aguardam que tarefas sejam atribuídas a eles. Assim que concluem a tarefa atribuída, eles se colocam novamente à disposição para a próxima tarefa.
+                </p>
+                <p>
+                    Implementaremos um worker pool usando canais em buffer. Nosso worker pool realizará a tarefa de encontrar a soma de alguns dígitos do número de entrada. Por exemplo, se 234 for passado, a saída será 9.
+                </p>
+                <p>
+                    A seguir estão as principais funcionalidades do nosso workers pool:
+                </p>
+                <ul>
+                    <li>
+                        Criação de um pool de Goroutines que escutam em um canal com buffer de entrada esperando que as tarefas sejam atribuídas
+                    </li>
+                    <li>
+                        Adição de trabalhos ao canal com buffer de entrada
+                    </li>
+                    <li>
+                        Gravar resultados em um canal com buffer de saída após a conclusão do trabalho
+                    </li>
+                    <li>
+                        Leia e imprima os resultados do canal com buffer de saída
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="pages-menu">
+
+                <a class="pages-menu-link link-back" href="tickers.html">
+                    <i class="fa fa-chevron-left"></i> &nbsp; <span>Goroutines - Tickers</span>
+                </a>
+
+                <img src="../../../img/gopher-docker.png" alt="" />
+
+                <a class="pages-menu-link link-forward" href="wait_groups.html">
+                    <span>Goroutines - Wait Groups</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+        <!--- Coluna Esquerda Fim --->
+
+        <div class="col-12 col-lg-6 column-code">
+
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
             <div class="code-filename">worker_pools.go</div>
 
             <textarea class="go-playground-snippet" data-expanded="1" data-title="worker_pools.go">

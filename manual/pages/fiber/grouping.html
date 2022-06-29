@@ -382,6 +382,7 @@
     </nav>
 
     <div class="page-body">
+<<<<<<< HEAD
 
         <!-- Coluna esquerda -->
         <div class="column-text">
@@ -481,6 +482,66 @@
             <div class="content-height">
                 <pre><code class="language-go">
 >>>>>>> main
+=======
+
+        <!-- Coluna esquerda -->
+        <div class="column-text">
+
+            <div class="column-header">
+                <div class="column-header-text column-text-close">
+                    <i class="fa fa-file-text"></i> &nbsp; <span>Fiber - Grouping</span>
+                </div>
+
+                <div class="column-header-actions">
+                    <i class="fa fa-star-o column-star-button column-header-button column-text-close"></i>
+                    <i class="fa fa-chevron-left column-header-button column-text-button" onclick="toggleColumnLeft($(this));" data-open="true"></i>
+                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnTextMobile($(this));"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+
+            <div class="content-height">
+                <p>
+                    Com <b>groups</b>, você pode criar cadeias de handlers e paths, sem ter que definí-los para cada endpoint <b>manualmente</b>.
+                </p>
+                <p>
+                    Os group handlers também podem ser usados, mas devem executar a função <b>Next</b> para que o fluxo possa continuar.
+                </p>
+                <p>
+                    Para mais informações sobre Grouping em Fiber, clique
+                    <a href="https://docs.gofiber.io/guide/grouping">aqui</a>
+                </p>
+            </div>
+
+            <div class="pages-menu">
+
+                <a title="Fiber - Routing" class="pages-menu-link link-back" href="routing.html">
+                    <i class="fa fa-chevron-left"></i>
+                </a>
+
+                <span>3 / 12</span>
+
+                <a title="Fiber - Middlewares" class="pages-menu-link link-forward" href="middlewares.html">
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+
+            </div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: calc((100% / 12) * 3)"></div>
+            </div>
+
+        </div>
+        <!--- Coluna Esquerda Fim --->
+
+        <div class="col-12 col-lg-6 column-code">
+
+            <div class="code-filename">fiber.go</div>
+
+            <div class="content-height">
+                <pre><code class="language-go">
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 func main() {
     app := fiber.New()
 
@@ -504,6 +565,7 @@ func main() {
     log.Fatal(app.Listen(":3000"))
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
                     </textarea>
                     <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
                     </div>
@@ -512,6 +574,9 @@ func main() {
 =======
                         </code></pre>
 >>>>>>> main
+=======
+                        </code></pre>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
             </div>
         </div>
         <!--- Coluna Direita Fim --->

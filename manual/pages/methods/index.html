@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="go, golang, Engineering, jeffotoni golang, lambda">
     <meta name="author" content="jeffotoni">
-    <title>Go Bootcamp - Comandos - Go run</title>
+    <title>Go Bootcamp - Métodos - Comparação com Funções</title>
 
     <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
@@ -388,7 +388,7 @@
 
             <div class="column-header">
                 <div class="column-header-text column-text-close">
-                    <i class="fa fa-file-text"></i> &nbsp; <span>Comandos - Go run</span>
+                    <i class="fa fa-file-text"></i> &nbsp; <span>Arrays - Acessando Elementos</span>
                 </div>
 
                 <div class="column-header-actions">
@@ -399,90 +399,40 @@
                 <div class="clearfix"></div>
             </div>
 
+            <!--- Page title --->
+            <div class="main-title">Métodos - Comparação com Funções</div>
+            <!--- Page title Fim --->
+
 
             <div class="content-height">
-                <pre><code class="language-go">
-go run [build flags] [-exec xprog] package [arguments...]
-                        </code></pre>
-                <!-- <p>
-                            <i>run</i> compila e executa o pacote Go principal nomeado. Normalmente, o pacote é especificado 
-                            como uma lista de arquivos de origem .go, mas também pode ser um caminho de importação, caminho do 
-                            sistema de arquivos ou padrão que corresponda a um único pacote conhecido, como em <b>go run</b>. ou 
-                            'go run meu/cmd'.
-                        </p> -->
                 <p>
-                    Por padrão, <b>go run</b> executa o binário compilado diretamente. Se o sinalizador <i>-exec</i> for fornecido, <b>go run</b> invoca o binário usando xprog:
+                    Os <b>métodos</b> Go são semelhantes à função Go com uma diferença, ou seja, o método contém um argumento <b>receptor</b>. Com a ajuda do argumento do receptor, o método pode acessar as propriedades do receptor.
                 </p>
-                <p>Executando o exemplo ao lado:</p>
-                <!-- <img src="../../gif/go-run.gif" alt="Golang"> -->
-                <div class="ratio ratio-16x9 iframe-box">
-                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe>
-                </div>
+                <p>
+                    Aqui, o receptor pode ser do tipo de estrutura ou não. Quando você cria um método em seu código, o receptor e o tipo de receptor devem estar presentes no mesmo pacote.
+                </p>
+                <pre><code class="language-go">
+func (r Receptor) Metodo(param string) {...}
+                        </code></pre>
             </div>
-<<<<<<< HEAD
-
-
-            <div class="pages-menu">
-                <div class="content-overview content-overview-menu">
-                    <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
-                    <div class="content-overview-title">Conte&uacute;do</div>
-
-                    <div class="list-group list-group-root well">
-                        <a href="#item-category-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
-                            <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
-                            <span class="content-item-progress-text">25%</span>
-                            <div class="content-item-progress progress">
-                                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="content-item-time">2m29sec</div>
-                            <div class="content-item-icon">
-                                <i class="fa fa-book"></i>
-                            </div>
-                        </a>
-                        <div class="list-group collapse show" id="item-category-1">
-                            <a href="../index.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                <span class="content-item-description">Overview on Go</span>
-                                <div class="content-item-progress">&nbsp;</div>
-                                <div class="content-item-time">1min 40sec</div>
-                                <div class="content-item-icon">
-                                    <i class="fa fa-book"></i>
-                                </div>
-                            </a>
-                            <a href="../groadmap.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                <span class="content-item-description">Roadmap</span>
-                                <div class="content-item-progress">&nbsp;</div>
-                                <div class="content-item-time">0min 49sec</div>
-                                <div class="content-item-icon">
-                                    <i class="fa fa-book"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-=======
 
 
             <div class="pages-menu">
 
->>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
-                <a title="Comandos - Introdução" class="pages-menu-link link-back" href="index.html">
+                <a title="Ponteiros - Quando Usar" class="pages-menu-link link-back" href="../pointers/when_use.html">
                     <i class="fa fa-chevron-left"></i>
                 </a>
 
-<<<<<<< HEAD
-                <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
-=======
-                <span>2 / 6</span>
->>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
+                <span>1 / 2</span>
 
-                <a title="Comandos - go build" class="pages-menu-link link-forward" href="go_build.html">
+                <a title="Métodos - Interfaces" class="pages-menu-link link-forward" href="interfaces.html">
                     <i class="fa fa-chevron-right"></i>
                 </a>
 
             </div>
 
             <div class="progress-bar-container">
-                <div class="progress-bar" style="width: calc((100% / 6) * 2)"></div>
+                <div class="progress-bar" style="width: calc((100% / 2) * 1)"></div>
             </div>
 
         </div>
@@ -491,13 +441,34 @@ go run [build flags] [-exec xprog] package [arguments...]
         <!--- Coluna Direita --->
         <div class="col-12 col-lg-6 column-code">
 
-            <div class="code-filename">main.go</div>
+            <div class="code-filename">methods.go</div>
 
-            <textarea class="go-playground-snippet" data-expanded="1" data-title="main.go">
+            <textarea class="go-playground-snippet" data-expanded="1" data-title="methods.go">
 package main
+  
+import (
+    "fmt"
+)
+
+type Pessoa struct {
+    Nome string
+    Idade int
+}
+
+func (*Pessoa) Falar(frases ...interface{}) {
+    fmt.Println(frases)
+}
+
+func (p *Pessoa) FazerAniversario() {
+    p.Idade++
+}
 
 func main() {
-   println("Hello, world")
+    carlos := Pessoa{"Carlos", 23}
+    carlos.Falar("Minha idade é:", carlos.Idade)
+
+    carlos.FazerAniversario()
+    carlos.Falar("Minha idade é:", carlos.Idade)
 }
                     </textarea>
 

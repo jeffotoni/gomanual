@@ -425,6 +425,7 @@ time.NewTimer(time.Duration)
                     Se você apenas quisesse esperar, poderia ter usado a função time.Sleep. Um motivo pelo qual um timer pode ser útil é que você pode <b>cancelá-lo</b> antes de disparar.
                 </p>
             </div>
+<<<<<<< HEAD
 
 
             <div class="pages-menu">
@@ -464,11 +465,21 @@ time.NewTimer(time.Duration)
                         </div>
                     </div>
                 </div>
+=======
+
+
+            <div class="pages-menu">
+
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
                 <a title="Goroutines - Range" class="pages-menu-link link-back" href="range.html">
                     <i class="fa fa-chevron-left"></i>
                 </a>
 
+<<<<<<< HEAD
                 <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
+=======
+                <span>10 / 12</span>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 
                 <a title="Goroutines - Tickers" class="pages-menu-link link-forward" href="tickers.html">
                     <i class="fa fa-chevron-right"></i>
@@ -505,8 +516,7 @@ func main() {
     timer2 := time.NewTimer(time.Second)
     go func() {
         <-timer2.C
-        // Não executa pois timer2 é cancelado posteriormente
-        fmt.Println("Timer 2 terminou")
+        fmt.Println("Timer 2 terminou") // Não executa pois timer2 é cancelado posteriormente
     }()
     stop2 := timer2.Stop()
     if stop2 {

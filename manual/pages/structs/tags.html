@@ -413,7 +413,7 @@
                 </p>
                 <pre><code class="language-go">
 type User struct {
-    Name string `code:"utf-8"`
+    Name string `json:"name" xml:"name"`
 }
                         </code></pre>
                 <p>
@@ -423,6 +423,7 @@ type User struct {
                     Para exemplificar, o pacote <b>encoding/json</b> usa as tags para saber qual o nome equivalente de cada campo no objeto json, como vemos ao lado.
                 </p>
             </div>
+<<<<<<< HEAD
 
 
             <div class="pages-menu">
@@ -462,15 +463,25 @@ type User struct {
                         </div>
                     </div>
                 </div>
+=======
+
+
+            <div class="pages-menu">
+
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
                 <a title="Structs - Anônimas" class="pages-menu-link link-back" href="anonymous_struct.html">
                     <i class="fa fa-chevron-left"></i>
                 </a>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <span>5 / 7</span>
 =======
                 <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
 >>>>>>> main
+=======
+                <span>4 / 5</span>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 
                 <a title="Structs - Visibilidade" class="pages-menu-link link-forward" href="visibilidade.html">
                     <i class="fa fa-chevron-right"></i>
@@ -478,6 +489,7 @@ type User struct {
 
             </div>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <div class="progress-bar-container">
                         <div class="progress-bar" style="width: calc((100% / 7) * 5)"></div>
@@ -487,6 +499,11 @@ type User struct {
                 <div class="progress-bar" style="width: calc((100% / 5) * 4)"></div>
             </div>
 >>>>>>> main
+=======
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: calc((100% / 5) * 4)"></div>
+            </div>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 
         </div>
         <!--- Coluna Esquerda Fim --->
@@ -494,6 +511,7 @@ type User struct {
         <!--- Coluna Direita --->
         <div class="col-12 col-lg-6 column-code">
 
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <div class="code-filename">tags.go</div>
 
@@ -503,28 +521,33 @@ type User struct {
 
             <textarea class="go-playground-snippet" data-expanded="1" data-title="anonymous_struct.go">
 >>>>>>> main
+=======
+            <div class="code-filename">anonymous_struct.go</div>
+
+            <textarea class="go-playground-snippet" data-expanded="1" data-title="anonymous_struct.go">
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 package main
 
 import (
-	"encoding/json"
-	"fmt"
+    "encoding/json"
+    "fmt"
 )
 
 type Person struct {
-	Name string `json:"nome"`
-	Age  int    `json:"idade"`
+    Name   string      `json:"nome"`
+    Age int `json:"idade"`
 }
 
 func main() {
-	p := &Person{
-		Name: "Carlito",
-		Age:  28,
-	}
-	myJson, err := json.Marshal(p)
-	if err != nil {
-		fmt.Println(err)
-	}
-	fmt.Println(string(myJson))
+    p := &Person{
+        Name:   "Carlito",
+        Age: 28,
+    }
+    myJson, err := json.Marshal(p)
+    if err != nil {
+        fmt.Println(err)
+    }
+    fmt.Println(string(myJson))
 }
                     </textarea>
 

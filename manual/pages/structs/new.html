@@ -382,6 +382,7 @@
     </nav>
 
     <div class="page-body">
+<<<<<<< HEAD
 
         <!-- Coluna esquerda -->
         <div class="column-text">
@@ -402,8 +403,30 @@
             <!--- Page title --->
             <div class="main-title">Structs - New</div>
             <!--- Page title Fim --->
+=======
 
+        <!-- Coluna esquerda -->
+        <div class="column-text">
 
+            <div class="column-header">
+                <div class="column-header-text column-text-close">
+                    <i class="fa fa-file-text"></i> &nbsp; <span>Arrays - Acessando Elementos</span>
+                </div>
+
+                <div class="column-header-actions">
+                    <i class="fa fa-star-o column-star-button column-header-button column-text-close"></i>
+                    <i class="fa fa-chevron-left column-header-button column-text-button" onclick="toggleColumnLeft($(this));" data-open="true"></i>
+                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnTextMobile($(this));"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
+
+            <!--- Page title --->
+            <div class="main-title">Structs - New</div>
+            <!--- Page title Fim --->
+
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <div class="content-height">
                         <p>
@@ -414,10 +437,17 @@
                         <pre><code class="language-go">
 var carlos Pessoa
 // Pessoa{Nome: "", Idade: 0}
+=======
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 
-carlos := Pessoa{}
-// Pessoa{Nome: "", Idade: 0}
+            <div class="content-height">
+                <p>
+                    <b>new()</b> funciona para todos os tipos de dados (exceto canal, mapa) e aloca espaço <b>dinamicamente</b> para uma variável desse tipo e a inicializa com o valor zero desse tipo e retorna um <b>ponteiro</b> para ela.
+                </p>
+                <pre><code class="language-go">
+new(tipo)
                         </code></pre>
+<<<<<<< HEAD
                         <p>
                             Os dois métodos acima são <b>equivalentes</b>. Em ambos, todos os campos terão
                             os seus respectivos <b>zero values</b>.
@@ -491,15 +521,34 @@ minhaStruct := tipo{}
                         </div>
                     </div>
                 </div>
+=======
+                <p>
+                    Outra forma de inicializar uma estrutura é da seguinte forma:
+                </p>
+                <pre><code class="language-go">
+var minhaStruct tipo
+// ou
+minhaStruct := tipo{}
+                        </code></pre>
+            </div>
+
+
+            <div class="pages-menu">
+
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
                 <a title="Structs - Introdução" class="pages-menu-link link-back" href="index.html">
                     <i class="fa fa-chevron-left"></i>
                 </a>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <span>3 / 7</span>
 =======
                 <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
 >>>>>>> main
+=======
+                <span>2 / 5</span>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 
                 <a title="Structs - Anônimas" class="pages-menu-link link-forward" href="anonymous_struct.html">
                     <i class="fa fa-chevron-right"></i>
@@ -507,6 +556,7 @@ minhaStruct := tipo{}
 
             </div>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <div class="progress-bar-container">
                         <div class="progress-bar" style="width: calc((100% / 7) * 3)"></div>
@@ -516,6 +566,11 @@ minhaStruct := tipo{}
                 <div class="progress-bar" style="width: calc((100% / 5) * 2)"></div>
             </div>
 >>>>>>> main
+=======
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: calc((100% / 5) * 2)"></div>
+            </div>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 
         </div>
         <!--- Coluna Esquerda Fim --->
@@ -532,28 +587,14 @@ import "fmt"
 
 type Pessoa struct {
     Nome string
-    Idade int
 }
 
 func main() {
-    maria := Pessoa{}
-    fmt.Println(maria)
-    fmt.Println(maria.Nome)
-    fmt.Println(maria.Idade)
+    ninguemA := new(Pessoa) // Ponteiro
+    var ninguemB Pessoa
 
-    fmt.Println("########")
-
-    var carlos Pessoa
-    fmt.Println(carlos)
-    fmt.Println(carlos.Nome)
-    fmt.Println(carlos.Idade)
-
-    fmt.Println("########")
-
-    pedro := new(Pessoa)
-    fmt.Println(pedro)
-    fmt.Println(pedro.Nome)
-    fmt.Println(pedro.Idade)
+    fmt.Println(ninguemA)
+    fmt.Println(ninguemB)
 }
                     </textarea>
 

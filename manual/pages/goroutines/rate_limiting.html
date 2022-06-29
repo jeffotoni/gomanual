@@ -389,6 +389,7 @@
             <div class="column-header">
                 <div class="column-header-text column-text-close">
                     <i class="fa fa-file-text"></i> &nbsp; <span>Arrays - Acessando Elementos</span>
+<<<<<<< HEAD
                 </div>
 
                 <div class="column-header-actions">
@@ -477,6 +478,61 @@
 
         <div class="col-12 col-lg-6 column-code">
 
+=======
+                </div>
+
+                <div class="column-header-actions">
+                    <i class="fa fa-star-o column-star-button column-header-button column-text-close"></i>
+                    <i class="fa fa-chevron-left column-header-button column-text-button" onclick="toggleColumnLeft($(this));" data-open="true"></i>
+                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnTextMobile($(this));"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <!--- Page title --->
+            <div class="main-title">Goroutines - Rate Limiting</div>
+            <!--- Page title Fim --->
+
+
+            <div class="content-height">
+                <p>
+                    A limitação de taxa é um mecanismo importante para controlar a utilização de recursos e manter a qualidade do serviço. Go suporta elegantemente a limitação de taxa com goroutines, channels e tickers.
+                </p>
+                <p>
+                    Suponha que desejamos limitar nosso tratamento de solicitações recebidas. Atenderemos essas solicitações em um canal com o mesmo nome.
+                </p>
+                <p>
+                    Este canal limitador receberá um valor a cada 200 milissegundos. Este é o regulador em nosso esquema de limitação de taxa.
+                </p>
+                <p>
+                    Ao bloquear uma recepção do canal limitador antes de atender a cada solicitação, nos limitamos a 1 solicitação a cada 200 milissegundos.
+                </p>
+                <p>
+                    Podemos permitir pequenas rajadas de solicitações em nosso esquema de limitação de taxa, preservando o limite de taxa geral. Podemos fazer isso armazenando em buffer nosso canal limitador. Este canal burstyLimiter permitirá bursts de até 3 eventos.
+                </p>
+            </div>
+
+
+            <div class="pages-menu">
+
+                <a class="pages-menu-link link-back" href="wait_groups.html">
+                    <i class="fa fa-chevron-left"></i> &nbsp; <span>Goroutines - Wait Groups</span>
+                </a>
+
+                <img src="../../../img/gopher-docker.png" alt="" />
+
+                <a class="pages-menu-link link-forward" href="mutex.html">
+                    <span>Goroutines - Mutex</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+        <!--- Coluna Esquerda Fim --->
+
+        <div class="col-12 col-lg-6 column-code">
+
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
             <div class="code-filename">rate_limiting.go</div>
 
             <textarea class="go-playground-snippet" data-expanded="1" data-title="rate_limiting.go">

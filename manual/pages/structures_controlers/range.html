@@ -427,6 +427,7 @@ map            m map[K]V              key     k K    m[k]         V
 channel        c chan E, <-chan E     element e E
                         </code></pre>
             </div>
+<<<<<<< HEAD
 
 
             <div class="pages-menu">
@@ -466,11 +467,21 @@ channel        c chan E, <-chan E     element e E
                         </div>
                     </div>
                 </div>
+=======
+
+
+            <div class="pages-menu">
+
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
                 <a title="Estruturas de Controle - Label" class="pages-menu-link link-back" href="label.html">
                     <i class="fa fa-chevron-left"></i>
                 </a>
 
+<<<<<<< HEAD
                 <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
+=======
+                <span>7 / 7</span>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 
                 <a title="Estruturas de Controle - Funções" class="pages-menu-link link-forward" href="../functions/index.html">
                     <i class="fa fa-chevron-right"></i>
@@ -484,6 +495,7 @@ channel        c chan E, <-chan E     element e E
 
         </div>
         <!--- Coluna Esquerda Fim --->
+<<<<<<< HEAD
 
         <!--- Coluna Direita --->
         <div class="col-12 col-lg-6 column-code">
@@ -496,24 +508,58 @@ channel        c chan E, <-chan E     element e E
             <textarea class="go-playground-snippet" data-expanded="1" data-title="range.go">
 
 >>>>>>> main
+=======
+
+        <!--- Coluna Direita --->
+        <div class="col-12 col-lg-6 column-code">
+
+            <div class="code-filename">range.go</div>
+
+            <textarea class="go-playground-snippet" data-expanded="1" data-title="range.go">
+
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 package main
 
 import "fmt"
 
 func main() {
-	var lang = [...]string{
-		"Erlang",
-		"Elixir",
-		"Haskell",
-		"Clojure",
-		"Scala",
-	}
-	fmt.Println(lang)
+  var lang = [...]string{"Erlang", "Elixir", "Haskell", "Clojure", "Scala"}
+  fmt.Println(lang)
 
-	for k, v := range lang {
-		fmt.Println(k, v)
-	}
-}	
+  for k, v := range lang {
+    fmt.Println(k, v)
+  }
+
+  countryCapitalMap := map[string]string{"Brasil": "Brasilia", "EUA AMERICA": "Washington, D.C.", "France": "Paris", "Italy": "Roma", "Japan": "Tokyo"}
+  for country, capital := range countryCapitalMap {
+    fmt.Println("Capital of", country, "is", capital)
+  }
+
+  jobs := make(chan int, 3)
+  for j := 1; j <= 3; j++ {
+    jobs <- j
+  }
+  close(jobs)
+
+  a := []struct{ nick string }{{"@devopsbr"}, {"@go_br"}, {"@awsbrasil"}, {"@go_br"}, {"@devopsbh"}}
+  for i, v := range a {
+    fmt.Println(i, v.nick)
+  }
+
+  var testdata *struct {
+    a *[3]int
+  }
+  for i := range testdata.a {
+    fmt.Println(i)
+  }
+
+  var key string
+  var val interface{}
+  m := map[string]int{"mon": 0, "tue": 1, "wed": 2, "thu": 3, "fri": 4, "sat": 5, "sun": 6}
+  for key, val = range m {
+    fmt.Println(key, val)
+  }
+}		
                     </textarea>
 
             <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />

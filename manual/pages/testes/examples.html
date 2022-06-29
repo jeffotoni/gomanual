@@ -423,6 +423,7 @@ PASS
 ok      ./math   0.442s
                         </code></pre>
             </div>
+<<<<<<< HEAD
 
 
             <div class="pages-menu">
@@ -462,11 +463,21 @@ ok      ./math   0.442s
                         </div>
                     </div>
                 </div>
+=======
+
+
+            <div class="pages-menu">
+
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
                 <a title="Testes - Benchmark" class="pages-menu-link link-back" href="benchmark.html">
                     <i class="fa fa-chevron-left"></i>
                 </a>
 
+<<<<<<< HEAD
                 <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
+=======
+                <span>6 / 7</span>
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 
                 <a title="Testes - Fuzz" class="pages-menu-link link-forward" href="fuzz.html">
                     <i class="fa fa-chevron-right"></i>
@@ -484,6 +495,7 @@ ok      ./math   0.442s
         <div class="col-12 col-lg-6 column-code">
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <div class="code-filename">examples.go</div>
 
                     <textarea class="go-playground-snippet" data-expanded="1" data-title="examples.go">
@@ -492,6 +504,11 @@ ok      ./math   0.442s
 
             <textarea class="go-playground-snippet" data-expanded="1" data-title="math.go">
 >>>>>>> main
+=======
+            <div class="code-filename">math.go</div>
+
+            <textarea class="go-playground-snippet" data-expanded="1" data-title="math.go">
+>>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 package math
 
 import (
@@ -517,13 +534,8 @@ var addTests = []addTest{
 func TestAdd(t *testing.T) {
 
     for _, test := range addTests {
-        output := Add(test.arg1, test.arg2)
-        if output != test.expected {
-            t.Errorf(
-                "Output %q not equal to expected %q", 
-                output, 
-                test.expected,
-            )
+        if output := Add(test.arg1, test.arg2); output != test.expected {
+            t.Errorf("Output %q not equal to expected %q", output, test.expected)
         }
     }
 }
