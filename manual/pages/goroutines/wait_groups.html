@@ -439,12 +439,47 @@ wg.Wait()
 
 
             <div class="pages-menu">
+                <div class="content-overview content-overview-menu">
+                    <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
+                    <div class="content-overview-title">Conte&uacute;do</div>
 
+                    <div class="list-group list-group-root well">
+                        <a href="#item-category-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
+                            <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
+                            <span class="content-item-progress-text">25%</span>
+                            <div class="content-item-progress progress">
+                                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="content-item-time">2m29sec</div>
+                            <div class="content-item-icon">
+                                <i class="fa fa-book"></i>
+                            </div>
+                        </a>
+                        <div class="list-group collapse show" id="item-category-1">
+                            <a href="../index.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                <span class="content-item-description">Overview on Go</span>
+                                <div class="content-item-progress">&nbsp;</div>
+                                <div class="content-item-time">1min 40sec</div>
+                                <div class="content-item-icon">
+                                    <i class="fa fa-book"></i>
+                                </div>
+                            </a>
+                            <a href="../groadmap.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                <span class="content-item-description">Roadmap</span>
+                                <div class="content-item-progress">&nbsp;</div>
+                                <div class="content-item-time">0min 49sec</div>
+                                <div class="content-item-icon">
+                                    <i class="fa fa-book"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <a title="Goroutines - Tickers" class="pages-menu-link link-back" href="tickers.html">
                     <i class="fa fa-chevron-left"></i>
                 </a>
 
-                <span>12 / 12</span>
+                <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
 
                 <a title="Goroutines - Web Crawler" class="pages-menu-link link-forward" href="../generics/index.html">
                     <i class="fa fa-chevron-right"></i>
