@@ -382,16 +382,6 @@
     </nav>
 
     <div class="page-body">
-<<<<<<< HEAD
-
-        <!-- Coluna esquerda -->
-        <div class="column-text">
-
-            <div class="column-header">
-                <div class="column-header-text column-text-close">
-                    <i class="fa fa-file-text"></i> &nbsp; <span>Arrays - Acessando Elementos</span>
-                </div>
-=======
 
         <!-- Coluna esquerda -->
         <div class="column-text">
@@ -412,35 +402,8 @@
             <!--- Page title --->
             <div class="main-title">Ponteiros - Quando Usar?</div>
             <!--- Page title Fim --->
->>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
-
-                <div class="column-header-actions">
-                    <i class="fa fa-star-o column-star-button column-header-button column-text-close"></i>
-                    <i class="fa fa-chevron-left column-header-button column-text-button" onclick="toggleColumnLeft($(this));" data-open="true"></i>
-                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnTextMobile($(this));"></i>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    <div class="content-height">
-                        <p>
-                            Aqui estão algumas das situações comuns em que você precisará <b>usar</b> um ponteiro em vez de um valor:
-                        </p>
-                        <p>
-                            <b>Alterar o estado</b> de um objeto:
-                            Digamos que você tenha uma estrutura como esta 
-                        </p>
-                        <pre><code class="language-go">
-=======
-            <!--- Page title --->
-            <div class="main-title">Ponteiros - Quando Usar?</div>
-            <!--- Page title Fim --->
 
 
-=======
->>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
             <div class="content-height">
                 <p>
                     Aqui estão algumas das situações comuns em que você precisará usar um ponteiro em vez de um valor:
@@ -449,10 +412,6 @@
                     Alterar o estado de um objeto: Digamos que você tenha uma estrutura como esta
                 </p>
                 <pre><code class="language-go">
-<<<<<<< HEAD
->>>>>>> main
-=======
->>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 type Person struct {
     name     string
     age      int
@@ -460,24 +419,10 @@ type Person struct {
 
 }
                         </code></pre>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                        <p>
-                            Agora, você quer um <b>método</b> permita alterar o nome de uma pessoa:
-                            Para isso, um ponteiro é necessário, pois ele da acesso à <b>instância original</b>, não a uma cópia dela:
-                        </p>
-                        <pre><code class="language-go">
-=======
-=======
->>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
                 <p>
                     Agora, você quer um método permita alterar o nome de uma pessoa: Para isso, um ponteiro é necessário, pois ele da acesso à instância original, não a uma cópia dela:
                 </p>
                 <pre><code class="language-go">
-<<<<<<< HEAD
->>>>>>> main
-=======
->>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 func (p *Person) changeName(name string){
     p.name = name
 }
@@ -496,7 +441,6 @@ func (p *Person) changeName(name string){
                             de repassá-lo o tempo todo. 
                         </p> -->
             </div>
-<<<<<<< HEAD
 
 
             <div class="pages-menu">
@@ -536,35 +480,15 @@ func (p *Person) changeName(name string){
                         </div>
                     </div>
                 </div>
-=======
-
-
-            <div class="pages-menu">
-
->>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
                 <a title="Ponteiros - Introdução" class="pages-menu-link link-back" href="index.html">
                     <i class="fa fa-chevron-left"></i><span>1</span>
                 </a>
 
-<<<<<<< HEAD
                 <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
-
-<<<<<<< HEAD
-                        <a title="Structs - Introdução" class="pages-menu-link link-forward" href="../structs/index.html">
-                            <i class="fa fa-chevron-right"></i>
-                        </a>
-=======
-                <a title="Métodos - Comparação com Funções" class="pages-menu-link link-forward" href="../methods/index.html">
-                    <i class="fa fa-chevron-right"></i>
-                </a>
->>>>>>> main
-=======
-                <span>2 / 2</span>
 
                 <a title="Métodos - Comparação com Funções" class="pages-menu-link link-forward" href="../methods/index.html">
                     <span>1</span><i class="fa fa-chevron-right"></i>
                 </a>
->>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 
             </div>
 

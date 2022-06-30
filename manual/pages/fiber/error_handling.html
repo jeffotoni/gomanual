@@ -389,7 +389,6 @@
             <div class="column-header">
                 <div class="column-header-text column-text-close">
                     <i class="fa fa-file-text"></i> &nbsp; <span>Fiber - Error Handling</span>
-<<<<<<< HEAD
                 </div>
 
                 <div class="column-header-actions">
@@ -472,67 +471,10 @@
 
             </div>
 
-=======
-                </div>
-
-                <div class="column-header-actions">
-                    <i class="fa fa-star-o column-star-button column-header-button column-text-close"></i>
-                    <i class="fa fa-chevron-left column-header-button column-text-button" onclick="toggleColumnLeft($(this));" data-open="true"></i>
-                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnTextMobile($(this));"></i>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-
-
-            <div class="content-height">
-                <p>
-                    É essencial garantir que o Fiber detecte todos os <b>erros</b> que ocorrem durante a execução de <b>handlers</b> e <b>middlewares</b>.
-                </p>
-                <p>
-                    Você deve retorná-los à função do handler, onde o Fiber os capturará e processará.
-                </p>
-                <p>
-                    Fiber não lida com panics por padrão. Para recuperar um panic gerado por qualquer handler na pilha, você precisa incluir o middleware <b>Recover</b>.
-                </p>
-                <p>
-                    Você pode usar a estrutura de erro personalizada do Fiber para passar um status code adicional usando <b>fiber.NewError()</b>.
-                </p>
-                <p>
-                    É opcional passar uma mensagem; se for deixado em branco, o padrão será a mensagem de código de status (Ex: 404 é igual a "Not Found").
-                </p>
-                <p>
-                    Para mais informações sobre error handling, clique
-                    <a href="https://docs.gofiber.io/guide/error-handling">aqui</a>
-                </p>
-            </div>
-
-            <div class="pages-menu">
-
-                <a title="Fiber - Cache" class="pages-menu-link link-back" href="cache.html">
-                    <i class="fa fa-chevron-left"></i>
-                </a>
-
-                <span>9 / 12</span>
-
-                <a title="Fiber - Hooks" class="pages-menu-link link-forward" href="hooks.html">
-                    <i class="fa fa-chevron-right"></i>
-                </a>
-
-            </div>
-
->>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
             <div class="progress-bar-container">
                 <div class="progress-bar" style="width: calc((100% / 12) * 9)"></div>
             </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    <div class="code-filename">fiber.go</div>
-                    
-                    <textarea class="go-playground-snippet" data-expanded="1" data-title="post.go">
-=======
-=======
->>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
         </div>
         <!--- Coluna Esquerda Fim --->
 
@@ -546,6 +488,7 @@
 <<<<<<< HEAD
             <div class="content-height">
                 <pre><code class="language-go">
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> main
 =======
@@ -563,6 +506,8 @@
             <div class="column-content">
                 <textarea class="go-playground-snippet" data-expanded="1" data-title="recover.go">
 >>>>>>> main
+=======
+>>>>>>> d498aeb7602859d645499dd5be7adcc2578c1b42
 package main
 
 import (
@@ -581,19 +526,7 @@ func main() {
 
     app.Listen(":3000")
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    </textarea>
-                    <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
-                    </div>
-                </div>
-                <!--- Coluna Direita Fim --->
-=======
                         </code></pre>
->>>>>>> main
-=======
-                        </code></pre>
->>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
             </div>
         </div>
         <!--- Coluna Direita Fim --->

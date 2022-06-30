@@ -385,7 +385,6 @@
 
         <!-- Coluna esquerda -->
         <div class="column-text">
-<<<<<<< HEAD
 
             <div class="column-header">
                 <div class="column-header-text column-text-close">
@@ -476,63 +475,6 @@
 
             </div>
 
-=======
-
-            <div class="column-header">
-                <div class="column-header-text column-text-close">
-                    <i class="fa fa-file-text"></i> &nbsp; <span>Arrays - Acessando Elementos</span>
-                </div>
-
-                <div class="column-header-actions">
-                    <i class="fa fa-star-o column-star-button column-header-button column-text-close"></i>
-                    <i class="fa fa-chevron-left column-header-button column-text-button" onclick="toggleColumnLeft($(this));" data-open="true"></i>
-                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnTextMobile($(this));"></i>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-
-            <!--- Page title --->
-            <div class="main-title">Goroutines - Timeout</div>
-            <!--- Page title Fim --->
-
-
-            <div class="content-height">
-                <p>
-                    Os <b>timeouts</b> são importantes para programas que se conectam a recursos externos ou que, de outra forma, precisam <b>limitar</b> o tempo de execução.
-                </p>
-                <p>
-                    Implementar timeouts no Go é fácil e elegante graças aos <b>canais</b> e <b>select</b>.
-                </p>
-                <p>
-                    Para o nosso exemplo, suponha que estejamos executando uma chamada externa que retorna seu resultado em um canal c1 após 2s. Observe que o canal é armazenado em <b>buffer</b>, portanto, o envio na goroutine não é bloqueador.
-                </p>
-                <p>
-                    Este é um padrão comum para evitar vazamentos de goroutine caso o canal nunca seja lido.
-                </p>
-                <p>
-                    Aqui está a seleção de implementação de um tempo limite. <b>res := <-c1</b> aguarda o resultado e <b><-time.After</b> aguarda um valor a ser enviado após o tempo limite de 1s.
-                </p>
-                <p>
-                    Como a seleção continua com o primeiro recebimento que está pronto, usaremos o caso de tempo limite se a operação levar mais do que os 1s permitidos.
-                </p>
-            </div>
-
-
-            <div class="pages-menu">
-
-                <a title="Goroutines - Select" class="pages-menu-link link-back" href="select.html">
-                    <i class="fa fa-chevron-left"></i>
-                </a>
-
-                <span>7 / 12</span>
-
-                <a title="Goroutines - Close" class="pages-menu-link link-forward" href="closing.html">
-                    <i class="fa fa-chevron-right"></i>
-                </a>
-
-            </div>
-
->>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
             <div class="progress-bar-container">
                 <div class="progress-bar" style="width: calc((100% / 12) * 7)"></div>
             </div>
