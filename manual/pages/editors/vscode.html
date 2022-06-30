@@ -458,13 +458,13 @@
                     </div>
                 </div>
                 <a title="Editores - GoLand" class="pages-menu-link link-back" href="goland.html">
-                    <i class="fa fa-chevron-left"></i>
+                    <i class="fa fa-chevron-left"></i><span>1</span>
                 </a>
 
                 <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
 
                 <a title="Editores - Sublime" class="pages-menu-link link-forward" href="sublime.html">
-                    <i class="fa fa-chevron-right"></i>
+                    <span>1</span><i class="fa fa-chevron-right"></i>
                 </a>
 
             </div>
@@ -477,26 +477,41 @@
         <!--- Coluna Esquerda Fim --->
 
         <!--- Coluna Direita --->
-        <div class="col-12 col-lg-6 column-code">
+        <div class="column-code">
 
-            <div class="code-filename">vscode</div>
+            <div class="column-header">
+                <div class="column-header-text column-code-close">
+                    <div class="code-filename">helloworld.go</div>
+                </div>
 
-            <div class="ratio ratio-16x9 iframe-box">
-                <iframe src="https://www.youtube.com/embed/pvfESSAbbts" allowfullscreen></iframe>
+                <div class="column-header-actions">
+                    <i class="fa fa-adjust column-header-button column-code-close light-dark-mode-button" onclick="changeTheme();" title="Light/dark mode"></i>
+                    <i class="fa fa-chevron-right column-header-button column-code-button" onclick="toggleColumnRight($(this));" data-open="true"></i>
+                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnCodeMobile($(this));"></i>
+                </div>
+
+                <div class="clearfix"></div>
             </div>
+            <div class="column-content">
+                <div class="ratio ratio-16x9 iframe-box">
+                    <iframe src="https://www.youtube.com/embed/pvfESSAbbts" allowfullscreen></iframe>
+                </div>
 
-            <img class="gopher-column-code" src="../../img/gopher-docker-cut.png" alt="" />
+                <img class="gopher-column-code" src="../../img/gopher-docker-cut.png" alt="" />
+
+            </div>
+            <!--- Coluna Direita Fim --->
 
         </div>
-        <!--- Coluna Direita Fim --->
-
-    </div>
     </div>
     </main>
 
     <!-- Rodape -->
     <footer class="footer">
-        <div class="main-footer">
+        <div class="main-footer main-footer-gopher">
+
+            <img class="gopher-column-code-footer" src="../../../img/gopher-docker-cut.png" alt="" />
+
             <div class="container text-center">
 
                 <span>by <a href="https://jeffotoni.com/" 

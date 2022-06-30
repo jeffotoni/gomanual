@@ -64,12 +64,11 @@
 
                     <div class="content-height">
                         <p>
-                            Um <b>channel</b> fornece um mecanismo para funções de execução simultânea para se comunicar, enviando 
-                            e recebendo valores de um tipo de elemento especificado. O valor de um <b>channel</b> não inicializado é <b>nil</b>.
+                            Um <b>channel</b> fornece um mecanismo para funções de execução simultânea para se comunicar, enviando e recebendo valores de um tipo de elemento especificado. O valor de um <b>channel</b> não inicializado é <b>nil</b>.
                         </p>
                         <p>
-                            O operador opcional <- especifica a direção do <b>channel</b>, envio ou recebimento. Se nenhuma 
-                            direção for fornecida, o channel é bidirecional.
+                            O operador opcional
+                            <- especifica a direção do <b>channel</b>, envio ou recebimento. Se nenhuma direção for fornecida, o channel é bidirecional.
                         </p>
                         <pre><code class="language-go">
 chan T          // pode ser usado para enviar/receber valores do tipo T
@@ -77,8 +76,7 @@ chan<- float64  // só pode ser usado para enviar float64
 <-chan int      // só pode ser usado para receber int
                         </code></pre>
                         <p>
-                            Um novo valor de channel inicializado pode ser criado usando a função integrada <b>make()</b>, que leva o 
-                            tipo de channel e uma capacidade opcional como argumentos:
+                            Um novo valor de channel inicializado pode ser criado usando a função integrada <b>make()</b>, que leva o tipo de channel e uma capacidade opcional como argumentos:
                         </p>
                         <pre><code class="language-go">
 make(chan int, 100)
@@ -137,7 +135,7 @@ func main() {
 }
                     </textarea>
 
-                    <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
+
 
                 </div>
                 <!--- Coluna Direita Fim --->
@@ -148,7 +146,10 @@ func main() {
 
     <!-- Rodape -->
     <footer class="footer">
-        <div class="main-footer">
+        <div class="main-footer main-footer-gopher">
+
+            <img class="gopher-column-code-footer" src="../../../img/gopher-docker-cut.png" alt="" />
+
             <div class="container text-center">
 
                 <span>by <a href="https://jeffotoni.com/" 
@@ -170,18 +171,45 @@ func main() {
     <!-- Bootstrap Core JavaScript -->
     <script src="../../../js/bootstrap.min.js"></script>
 
+    <!-- Axios -->
+    <script src="../../../js/axios.min.js"></script>
+
     <!-- Custom js -->
-    <script src="../../../js/custom.js"></script>
+    <script src="../../../js/custom-2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            ARTICLE_DETAILS = {
+                'id': '/pages/instalation/novo-layout',
+                'title': 'Instalação - Instalando Go',
+                'link': '/pages/instalation/novo-layout.html',
+                'description': 'Podemos colocar nosso projeto em qualquer diretório agora. Para o cenário ao lado, teremos que usar o go mod em nosso projeto para que todos os pacotes externos possam funcionar corretamente, desta forma...'
+            };
+
+            // Check if current article is favorite and set star icon checked
+            checkFavoriteArticle();
+
+            // Mark current article as read, for tracking the progress
+            markAsRead();
+        });
+    </script>
 
     <!-- Go Playground -->
     <script src="../../../js/go-playground/codemirror.js"></script>
     <script src="../../../js/go-playground/codemirror-go.js"></script>
     <script src="../../../js/go-playground/playground.js"></script>
-    <script src="../../../js/go-playground/snippets.js"></script>
+    <script src="../../../js/go-playground/snippets-2.js"></script>
     <script src="../../../js/go-playground/jquery-linedtextarea.js"></script>
 
     <!-- Prism Syntax Highlighting -->
     <script src="../../../plugins/prism/prism.js"></script>
+
+    <!-- Toastr -->
+    <script src="../../../plugins/toastr/toastr.min.js"></script>
+
+    <!-- Social Share -->
+    <script src="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.js"></script>
+
 
 </body>
 

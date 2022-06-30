@@ -64,14 +64,12 @@
 
                     <div class="content-height">
                         <p>
-                            Em ciência da computação, <b>boolean</b>, ou lógico, é um tipo de dado primitivo 
-                            que possui dois valores, que podem ser considerados como <b>0</b> ou 
-                            <b>1</b>, <b>falso</b> ou 
-                            <b>verdadeiro</b>. 
+                            Em ciência da computação, <b>boolean</b>, ou lógico, é um tipo de dado primitivo que possui dois valores, que podem ser considerados como <b>0</b> ou
+                            <b>1</b>, <b>falso</b> ou
+                            <b>verdadeiro</b>.
                         </p>
                         <p>
-                            Chamado boolean em homenagem a <b>George Boole</b>, que definiu um sistema de 
-                            lógica algébrica pela primeira vez na metade do século XIX.
+                            Chamado boolean em homenagem a <b>George Boole</b>, que definiu um sistema de lógica algébrica pela primeira vez na metade do século XIX.
                         </p>
                         <p>
                             Em Go, os tipos booleanos são chamados da seguinte forma:
@@ -124,7 +122,7 @@ func main() {
 }
                     </textarea>
 
-                    <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
+
 
                 </div>
                 <!--- Coluna Direita Fim --->
@@ -135,7 +133,10 @@ func main() {
 
     <!-- Rodape -->
     <footer class="footer">
-        <div class="main-footer">
+        <div class="main-footer main-footer-gopher">
+
+            <img class="gopher-column-code-footer" src="../../../img/gopher-docker-cut.png" alt="" />
+
             <div class="container text-center">
 
                 <span>by <a href="https://jeffotoni.com/" 
@@ -157,18 +158,45 @@ func main() {
     <!-- Bootstrap Core JavaScript -->
     <script src="../../../js/bootstrap.min.js"></script>
 
+    <!-- Axios -->
+    <script src="../../../js/axios.min.js"></script>
+
     <!-- Custom js -->
-    <script src="../../../js/custom.js"></script>
+    <script src="../../../js/custom-2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            ARTICLE_DETAILS = {
+                'id': '/pages/instalation/novo-layout',
+                'title': 'Instalação - Instalando Go',
+                'link': '/pages/instalation/novo-layout.html',
+                'description': 'Podemos colocar nosso projeto em qualquer diretório agora. Para o cenário ao lado, teremos que usar o go mod em nosso projeto para que todos os pacotes externos possam funcionar corretamente, desta forma...'
+            };
+
+            // Check if current article is favorite and set star icon checked
+            checkFavoriteArticle();
+
+            // Mark current article as read, for tracking the progress
+            markAsRead();
+        });
+    </script>
 
     <!-- Go Playground -->
     <script src="../../../js/go-playground/codemirror.js"></script>
     <script src="../../../js/go-playground/codemirror-go.js"></script>
     <script src="../../../js/go-playground/playground.js"></script>
-    <script src="../../../js/go-playground/snippets.js"></script>
+    <script src="../../../js/go-playground/snippets-2.js"></script>
     <script src="../../../js/go-playground/jquery-linedtextarea.js"></script>
 
     <!-- Prism Syntax Highlighting -->
     <script src="../../../plugins/prism/prism.js"></script>
+
+    <!-- Toastr -->
+    <script src="../../../plugins/toastr/toastr.min.js"></script>
+
+    <!-- Social Share -->
+    <script src="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.js"></script>
+
 
 </body>
 

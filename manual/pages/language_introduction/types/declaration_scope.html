@@ -64,12 +64,10 @@
 
                     <div class="content-height">
                         <p>
-                            Uma declaração associa um <b>identificador</b> não vazio a uma constante, tipo, variável, 
-                            função, label ou pacote. Cada identificador em um programa deve ser declarado. 
+                            Uma declaração associa um <b>identificador</b> não vazio a uma constante, tipo, variável, função, label ou pacote. Cada identificador em um programa deve ser declarado.
                         </p>
                         <p>
-                            Nenhum identificador pode ser declarado duas vezes no mesmo bloco e nenhum identificador 
-                            pode ser declarado no bloco de arquivo e pacote.
+                            Nenhum identificador pode ser declarado duas vezes no mesmo bloco e nenhum identificador pode ser declarado no bloco de arquivo e pacote.
                         </p>
                         <!-- <p>
                             O identificador em branco pode ser usado como qualquer outro identificador em uma 
@@ -78,9 +76,7 @@
                             o identificador em branco, não introduz uma nova ligação.
                         </p> -->
                         <p>
-                            Um identificador declarado em um bloco pode ser declarado novamente em um bloco interno. 
-                            Embora o identificador da declaração interna esteja no <b>escopo</b>, ele denota a entidade 
-                            declarada pela declaração interna.
+                            Um identificador declarado em um bloco pode ser declarado novamente em um bloco interno. Embora o identificador da declaração interna esteja no <b>escopo</b>, ele denota a entidade declarada pela declaração interna.
                         </p>
                         <!-- <p>
                             A cláusula do pacote não é uma declaração; o nome do pacote não aparece em nenhum escopo. 
@@ -135,7 +131,7 @@ func main() {
 }
                     </textarea>
 
-                    <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
+
 
                 </div>
                 <!--- Coluna Direita Fim --->
@@ -146,7 +142,10 @@ func main() {
 
     <!-- Rodape -->
     <footer class="footer">
-        <div class="main-footer">
+        <div class="main-footer main-footer-gopher">
+
+            <img class="gopher-column-code-footer" src="../../../img/gopher-docker-cut.png" alt="" />
+
             <div class="container text-center">
 
                 <span>by <a href="https://jeffotoni.com/" 
@@ -168,18 +167,45 @@ func main() {
     <!-- Bootstrap Core JavaScript -->
     <script src="../../../js/bootstrap.min.js"></script>
 
+    <!-- Axios -->
+    <script src="../../../js/axios.min.js"></script>
+
     <!-- Custom js -->
-    <script src="../../../js/custom.js"></script>
+    <script src="../../../js/custom-2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            ARTICLE_DETAILS = {
+                'id': '/pages/instalation/novo-layout',
+                'title': 'Instalação - Instalando Go',
+                'link': '/pages/instalation/novo-layout.html',
+                'description': 'Podemos colocar nosso projeto em qualquer diretório agora. Para o cenário ao lado, teremos que usar o go mod em nosso projeto para que todos os pacotes externos possam funcionar corretamente, desta forma...'
+            };
+
+            // Check if current article is favorite and set star icon checked
+            checkFavoriteArticle();
+
+            // Mark current article as read, for tracking the progress
+            markAsRead();
+        });
+    </script>
 
     <!-- Go Playground -->
     <script src="../../../js/go-playground/codemirror.js"></script>
     <script src="../../../js/go-playground/codemirror-go.js"></script>
     <script src="../../../js/go-playground/playground.js"></script>
-    <script src="../../../js/go-playground/snippets.js"></script>
+    <script src="../../../js/go-playground/snippets-2.js"></script>
     <script src="../../../js/go-playground/jquery-linedtextarea.js"></script>
 
     <!-- Prism Syntax Highlighting -->
     <script src="../../../plugins/prism/prism.js"></script>
+
+    <!-- Toastr -->
+    <script src="../../../plugins/toastr/toastr.min.js"></script>
+
+    <!-- Social Share -->
+    <script src="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.js"></script>
+
 
 </body>
 

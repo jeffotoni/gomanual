@@ -493,24 +493,39 @@ $HOME/
         <!--- Coluna Esquerda Fim --->
 
         <!--- Coluna Direita --->
-        <div class="col-12 col-lg-6 column-code">
+        <div class="column-code">
 
-            <div class="code-filename">samples</div>
+            <div class="column-header">
+                <div class="column-header-text column-code-close">
+                    <div class="code-filename">helloworld.go</div>
+                </div>
 
-            <img src="../../img/samples.png" alt="Exemplos" style="width: 100%">
+                <div class="column-header-actions">
+                    <i class="fa fa-adjust column-header-button column-code-close light-dark-mode-button" onclick="changeTheme();" title="Light/dark mode"></i>
+                    <i class="fa fa-chevron-right column-header-button column-code-button" onclick="toggleColumnRight($(this));" data-open="true"></i>
+                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnCodeMobile($(this));"></i>
+                </div>
 
-            <img class="gopher-column-code" src="../../img/gopher-docker-cut.png" alt="" />
+                <div class="clearfix"></div>
+            </div>
+            <div class="column-content">
+                <img src="../../img/samples.png" alt="Exemplos" style="width: 100%">
+
+                <img class="gopher-column-code" src="../../img/gopher-docker-cut.png" alt="" />
+
+            </div>
+            <!--- Coluna Direita Fim --->
 
         </div>
-        <!--- Coluna Direita Fim --->
-
-    </div>
     </div>
     </main>
 
     <!-- Rodape -->
     <footer class="footer">
-        <div class="main-footer">
+        <div class="main-footer main-footer-gopher">
+
+            <img class="gopher-column-code-footer" src="../../../img/gopher-docker-cut.png" alt="" />
+
             <div class="container text-center">
 
                 <span>by <a href="https://jeffotoni.com/" 
