@@ -64,9 +64,8 @@
 
                     <div class="content-height">
                         <p>
-                            Dois tipos são idênticos ou diferentes. Um tipo definido é sempre diferente de qualquer outro tipo. 
-                            Caso contrário, dois tipos são idênticos se seus literais de tipo subjacentes são estruturalmente 
-                            equivalentes; ou seja, eles têm a mesma estrutura literal e os componentes correspondentes têm tipos idênticos.
+                            Dois tipos são idênticos ou diferentes. Um tipo definido é sempre diferente de qualquer outro tipo. Caso contrário, dois tipos são idênticos se seus literais de tipo subjacentes são estruturalmente equivalentes; ou seja, eles têm a mesma estrutura literal
+                            e os componentes correspondentes têm tipos idênticos.
                         </p>
                         <p>Os seguintes tipos são idênticos:</p>
                         <pre><code class="language-go">
@@ -81,9 +80,7 @@ struct{ a, b *T5 } and struct{ a, b *T5 }
 func(x int, y float64) *[]string, func(int, float64) (result *[]string), and A5
                         </code></pre>
                         <p>
-                            B0 e B1 são diferentes porque são novos tipos criados por definições de tipo distintas; 
-                            func (int, float64) *B0 e func (x int, y float64) *[]string são diferentes porque B0 é 
-                            diferente de *[]string.
+                            B0 e B1 são diferentes porque são novos tipos criados por definições de tipo distintas; func (int, float64) *B0 e func (x int, y float64) *[]string são diferentes porque B0 é diferente de *[]string.
                         </p>
 
                     </div>
@@ -145,7 +142,7 @@ func main() {
 }
                     </textarea>
 
-                    <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
+
 
                 </div>
                 <!--- Coluna Direita Fim --->
@@ -156,7 +153,10 @@ func main() {
 
     <!-- Rodape -->
     <footer class="footer">
-        <div class="main-footer">
+        <div class="main-footer main-footer-gopher">
+
+            <img class="gopher-column-code-footer" src="../../../img/gopher-docker-cut.png" alt="" />
+
             <div class="container text-center">
 
                 <span>by <a href="https://jeffotoni.com/" 
@@ -178,18 +178,45 @@ func main() {
     <!-- Bootstrap Core JavaScript -->
     <script src="../../../js/bootstrap.min.js"></script>
 
+    <!-- Axios -->
+    <script src="../../../js/axios.min.js"></script>
+
     <!-- Custom js -->
-    <script src="../../../js/custom.js"></script>
+    <script src="../../../js/custom-2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            ARTICLE_DETAILS = {
+                'id': '/pages/instalation/novo-layout',
+                'title': 'Instalação - Instalando Go',
+                'link': '/pages/instalation/novo-layout.html',
+                'description': 'Podemos colocar nosso projeto em qualquer diretório agora. Para o cenário ao lado, teremos que usar o go mod em nosso projeto para que todos os pacotes externos possam funcionar corretamente, desta forma...'
+            };
+
+            // Check if current article is favorite and set star icon checked
+            checkFavoriteArticle();
+
+            // Mark current article as read, for tracking the progress
+            markAsRead();
+        });
+    </script>
 
     <!-- Go Playground -->
     <script src="../../../js/go-playground/codemirror.js"></script>
     <script src="../../../js/go-playground/codemirror-go.js"></script>
     <script src="../../../js/go-playground/playground.js"></script>
-    <script src="../../../js/go-playground/snippets.js"></script>
+    <script src="../../../js/go-playground/snippets-2.js"></script>
     <script src="../../../js/go-playground/jquery-linedtextarea.js"></script>
 
     <!-- Prism Syntax Highlighting -->
     <script src="../../../plugins/prism/prism.js"></script>
+
+    <!-- Toastr -->
+    <script src="../../../plugins/toastr/toastr.min.js"></script>
+
+    <!-- Social Share -->
+    <script src="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.js"></script>
+
 
 </body>
 

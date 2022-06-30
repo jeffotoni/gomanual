@@ -63,32 +63,26 @@
 
 
                     <div class="content-height">
-                        
+
                         <!-- <p>
                             Um <i>array</i> tem um tamanho fixo. Um <i>slice</i>, por outro lado, é uma visão 
                             flexível e de tamanho dinâmico dos elementos de um <i>array</i>. Na prática, os 
                             <i>slices</i> são muito mais comuns do que os <i>arrays</i>.
                         </p> -->
                         <p>
-                            Um <i>slice</i> é formado especificando dois índices, um limite inferior e um 
-                            limite superior, separados por dois pontos:
+                            Um <i>slice</i> é formado especificando dois índices, um limite inferior e um limite superior, separados por dois pontos:
                         </p>
                         <pre><code class="language-go">
 a[primeiro:último]
                         </code></pre>
                         <p>
-                            Isso seleciona um intervalo semi-aberto que inclui o primeiro elemento, 
-                            mas exclui o último.
+                            Isso seleciona um intervalo semi-aberto que inclui o primeiro elemento, mas exclui o último.
                         </p>
                         <p>
-                            Um novo valor de <b>slice</b> inicializado para um determinado tipo de elemento T é 
-                            feito usando a função embutida make, que pega um tipo de <b>slice</b> e parâmetros 
-                            especificando o comprimento e, opcionalmente, a capacidade. 
+                            Um novo valor de <b>slice</b> inicializado para um determinado tipo de elemento T é feito usando a função embutida make, que pega um tipo de <b>slice</b> e parâmetros especificando o comprimento e, opcionalmente, a capacidade.
                         </p>
                         <p>
-                            Um <b>slice</b> criado 
-                            com make sempre aloca um novo <b>array</b> oculto ao qual o valor do <b>slice</b> retornado 
-                            se refere.
+                            Um <b>slice</b> criado com make sempre aloca um novo <b>array</b> oculto ao qual o valor do <b>slice</b> retornado se refere.
                         </p>
                         <pre><code class="language-go">
 make([]T, length, capacity)
@@ -144,7 +138,7 @@ func main() {
 }
                     </textarea>
 
-                    <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
+
 
                 </div>
                 <!--- Coluna Direita Fim --->
@@ -155,7 +149,10 @@ func main() {
 
     <!-- Rodape -->
     <footer class="footer">
-        <div class="main-footer">
+        <div class="main-footer main-footer-gopher">
+
+            <img class="gopher-column-code-footer" src="../../../img/gopher-docker-cut.png" alt="" />
+
             <div class="container text-center">
 
                 <span>by <a href="https://jeffotoni.com/" 
@@ -177,18 +174,45 @@ func main() {
     <!-- Bootstrap Core JavaScript -->
     <script src="../../../js/bootstrap.min.js"></script>
 
+    <!-- Axios -->
+    <script src="../../../js/axios.min.js"></script>
+
     <!-- Custom js -->
-    <script src="../../../js/custom.js"></script>
+    <script src="../../../js/custom-2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            ARTICLE_DETAILS = {
+                'id': '/pages/instalation/novo-layout',
+                'title': 'Instalação - Instalando Go',
+                'link': '/pages/instalation/novo-layout.html',
+                'description': 'Podemos colocar nosso projeto em qualquer diretório agora. Para o cenário ao lado, teremos que usar o go mod em nosso projeto para que todos os pacotes externos possam funcionar corretamente, desta forma...'
+            };
+
+            // Check if current article is favorite and set star icon checked
+            checkFavoriteArticle();
+
+            // Mark current article as read, for tracking the progress
+            markAsRead();
+        });
+    </script>
 
     <!-- Go Playground -->
     <script src="../../../js/go-playground/codemirror.js"></script>
     <script src="../../../js/go-playground/codemirror-go.js"></script>
     <script src="../../../js/go-playground/playground.js"></script>
-    <script src="../../../js/go-playground/snippets.js"></script>
+    <script src="../../../js/go-playground/snippets-2.js"></script>
     <script src="../../../js/go-playground/jquery-linedtextarea.js"></script>
 
     <!-- Prism Syntax Highlighting -->
     <script src="../../../plugins/prism/prism.js"></script>
+
+    <!-- Toastr -->
+    <script src="../../../plugins/toastr/toastr.min.js"></script>
+
+    <!-- Social Share -->
+    <script src="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.js"></script>
+
 
 </body>
 

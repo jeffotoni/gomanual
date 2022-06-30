@@ -478,7 +478,7 @@ go version go1.11.4 linux/amd64
 
 >>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
                 <a title="Instalação - Introdução" class="pages-menu-link link-back" href="index.html">
-                    <i class="fa fa-chevron-left"></i>
+                    <i class="fa fa-chevron-left"></i><span>1</span>
                 </a>
 
 <<<<<<< HEAD
@@ -488,7 +488,7 @@ go version go1.11.4 linux/amd64
 >>>>>>> a4dbfd9269f98ff19fa07bb2b71895976e519434
 
                 <a title="Instalação - Workspace" class="pages-menu-link link-forward" href="workspace.html">
-                    <i class="fa fa-chevron-right"></i>
+                    <span>1</span><i class="fa fa-chevron-right"></i>
                 </a>
 
             </div>
@@ -501,11 +501,23 @@ go version go1.11.4 linux/amd64
         <!--- Coluna Esquerda Fim --->
 
         <!--- Coluna Direita --->
-        <div class="col-12 col-lg-6 column-code">
+        <div class="column-code">
 
-            <div class="code-filename">helloworld.go</div>
+            <div class="column-header">
+                <div class="column-header-text column-code-close">
+                    <div class="code-filename">helloworld.go</div>
+                </div>
 
-            <textarea class="go-playground-snippet" data-expanded="1" data-title="helloworld.go">
+                <div class="column-header-actions">
+                    <i class="fa fa-adjust column-header-button column-code-close light-dark-mode-button" onclick="changeTheme();" title="Light/dark mode"></i>
+                    <i class="fa fa-chevron-right column-header-button column-code-button" onclick="toggleColumnRight($(this));" data-open="true"></i>
+                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnCodeMobile($(this));"></i>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="column-content">
+                <textarea class="go-playground-snippet" data-expanded="1" data-title="helloworld.go">
 package main
 
 import "fmt"
@@ -523,18 +535,21 @@ func main() {
 }					
                     </textarea>
 
-            <img class="gopher-column-code" src="../../img/gopher-docker-cut.png" alt="" />
+                <img class="gopher-column-code" src="../../img/gopher-docker-cut.png" alt="" />
+
+            </div>
+            <!--- Coluna Direita Fim --->
 
         </div>
-        <!--- Coluna Direita Fim --->
-
-    </div>
     </div>
     </main>
 
     <!-- Rodape -->
     <footer class="footer">
-        <div class="main-footer">
+        <div class="main-footer main-footer-gopher">
+
+            <img class="gopher-column-code-footer" src="../../../img/gopher-docker-cut.png" alt="" />
+
             <div class="container text-center">
 
                 <span>by <a href="https://jeffotoni.com/" 
