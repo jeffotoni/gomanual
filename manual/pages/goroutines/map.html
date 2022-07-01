@@ -403,31 +403,31 @@
             <div class="main-title">Goroutines - Map</div>
             <!--- Page title Fim --->
 
-
-            <div class="content-height">
-                <p>
-                    Os seguintes métodos estão disponíveis para trabalhar com sync.Map:
-                </p>
-                <pre><code class="language-go">
+            <div class="column-content">
+                <div class="content-height">
+                    <p>
+                        Os seguintes métodos estão disponíveis para trabalhar com sync.Map:
+                    </p>
+                    <pre><code class="language-go">
 Load(key interface{}) (value interface{}, ok bool)
 Store(key, value interface{})
 Delete(key interface{})
 Range(f func(key, value interface{}) bool)
 LoadOrStore(key, value interface{}) (actual interface{}, loaded bool)
                         </code></pre>
-                <p>
-                    Isso cobre todos os casos de uso de mapas - inserir, ler, excluir, iterar. Também existe o método de bônus LoadOrStore, que permite definir o valor por chave se o valor não for definido antes.
-                </p>
-                <p>
-                    Para executar a iteração, existe uma função de recebimento de intervalo que é chamada em cada elemento do mapa. Se essa função retornar falso, a iteração será interrompida.
-                </p>
-                <p>
-                    Ao ver o nome sync.Map, pode-se imaginar que sync.Map é um map simples com alguns recursos do pacote de sincronização. Mas, na verdade, sync.Map é muito mais complexo.
-                </p>
-                <p>
-                    A estrutura sync.Map tem a seguinte aparência:
-                </p>
-                <pre><code class="language-go">
+                    <p>
+                        Isso cobre todos os casos de uso de mapas - inserir, ler, excluir, iterar. Também existe o método de bônus LoadOrStore, que permite definir o valor por chave se o valor não for definido antes.
+                    </p>
+                    <p>
+                        Para executar a iteração, existe uma função de recebimento de intervalo que é chamada em cada elemento do mapa. Se essa função retornar falso, a iteração será interrompida.
+                    </p>
+                    <p>
+                        Ao ver o nome sync.Map, pode-se imaginar que sync.Map é um map simples com alguns recursos do pacote de sincronização. Mas, na verdade, sync.Map é muito mais complexo.
+                    </p>
+                    <p>
+                        A estrutura sync.Map tem a seguinte aparência:
+                    </p>
+                    <pre><code class="language-go">
 type Map struct {
 	mu sync.Mutex
 
@@ -441,63 +441,63 @@ type readOnly struct {
 	amended bool 
 }
                         </code></pre>
-                <p>
-                    sync.Map é uma estrutura complexa, geralmente composta por dois mapas - um para leitura e outro para novos elementos. sync.Map não está apenas perto de map + sync.RWMutex nas métricas de velocidade, mas também pode ser o melhor no caso de leitura. Quando
-                    houver leitura e atualização, o sync.Map terá o elemento read e dirty. Nesse caso, sync.Map tem desempenho pior do que map + sync.RWMutex devido à leitura de dois mapas internos. Também existe um contador que precisa ser atualizado
-                    ao acessar o dirty.
-                </p>
-            </div>
+                    <p>
+                        sync.Map é uma estrutura complexa, geralmente composta por dois mapas - um para leitura e outro para novos elementos. sync.Map não está apenas perto de map + sync.RWMutex nas métricas de velocidade, mas também pode ser o melhor no caso de leitura. Quando
+                        houver leitura e atualização, o sync.Map terá o elemento read e dirty. Nesse caso, sync.Map tem desempenho pior do que map + sync.RWMutex devido à leitura de dois mapas internos. Também existe um contador que precisa ser atualizado
+                        ao acessar o dirty.
+                    </p>
+                </div>
 
 
-            <div class="pages-menu">
-                <div class="content-overview content-overview-menu">
-                    <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
-                    <div class="content-overview-title">Conte&uacute;do</div>
+                <div class="pages-menu">
+                    <div class="content-overview content-overview-menu">
+                        <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
+                        <div class="content-overview-title">Conte&uacute;do</div>
 
-                    <div class="list-group list-group-root well">
-                        <a href="#item-category-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
-                            <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
-                            <span class="content-item-progress-text">25%</span>
-                            <div class="content-item-progress progress">
-                                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="content-item-time">2m29sec</div>
-                            <div class="content-item-icon">
-                                <i class="fa fa-book"></i>
-                            </div>
-                        </a>
-                        <div class="list-group collapse show" id="item-category-1">
-                            <a href="../index.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                <span class="content-item-description">Overview on Go</span>
-                                <div class="content-item-progress">&nbsp;</div>
-                                <div class="content-item-time">1min 40sec</div>
+                        <div class="list-group list-group-root well">
+                            <a href="#item-category-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
+                                <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
+                                <span class="content-item-progress-text">25%</span>
+                                <div class="content-item-progress progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="content-item-time">2m29sec</div>
                                 <div class="content-item-icon">
                                     <i class="fa fa-book"></i>
                                 </div>
                             </a>
-                            <a href="../groadmap.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                <span class="content-item-description">Roadmap</span>
-                                <div class="content-item-progress">&nbsp;</div>
-                                <div class="content-item-time">0min 49sec</div>
-                                <div class="content-item-icon">
-                                    <i class="fa fa-book"></i>
-                                </div>
-                            </a>
+                            <div class="list-group collapse show" id="item-category-1">
+                                <a href="../index.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">Overview on Go</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">1min 40sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                                <a href="../groadmap.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">Roadmap</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">0min 49sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
+                    <a class="pages-menu-link link-back" href="mutex.html">
+                        <i class="fa fa-chevron-left"></i> &nbsp; <span>Goroutines - Mutex</span>
+                    </a>
+
+                    <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
+
+                    <a class="pages-menu-link link-forward" href="once.html">
+                        <span>Goroutines - Once</span> &nbsp; <i class="fa fa-chevron-right"></i>
+                    </a>
+
                 </div>
-                <a class="pages-menu-link link-back" href="mutex.html">
-                    <i class="fa fa-chevron-left"></i> &nbsp; <span>Goroutines - Mutex</span>
-                </a>
-
-                <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
-
-                <a class="pages-menu-link link-forward" href="once.html">
-                    <span>Goroutines - Once</span> &nbsp; <i class="fa fa-chevron-right"></i>
-                </a>
-
             </div>
-
         </div>
         <!--- Coluna Esquerda Fim --->
         <div class="column-code">

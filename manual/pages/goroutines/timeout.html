@@ -403,82 +403,82 @@
             <div class="main-title">Goroutines - Timeout</div>
             <!--- Page title Fim --->
 
+            <div class="column-content">
+                <div class="content-height">
+                    <p>
+                        Os <b>timeouts</b> são importantes para programas que se conectam a recursos externos ou que, de outra forma, precisam <b>limitar</b> o tempo de execução.
+                    </p>
+                    <p>
+                        Implementar timeouts no Go é fácil e elegante graças aos <b>canais</b> e <b>select</b>.
+                    </p>
+                    <p>
+                        Para o nosso exemplo, suponha que estejamos executando uma chamada externa que retorna seu resultado em um canal c1 após 2s. Observe que o canal é armazenado em <b>buffer</b>, portanto, o envio na goroutine não é bloqueador.
+                    </p>
+                    <p>
+                        Este é um padrão comum para evitar vazamentos de goroutine caso o canal nunca seja lido.
+                    </p>
+                    <p>
+                        Aqui está a seleção de implementação de um tempo limite. <b>res := <-c1</b> aguarda o resultado e <b><-time.After</b> aguarda um valor a ser enviado após o tempo limite de 1s.
+                    </p>
+                    <p>
+                        Como a seleção continua com o primeiro recebimento que está pronto, usaremos o caso de tempo limite se a operação levar mais do que os 1s permitidos.
+                    </p>
+                </div>
 
-            <div class="content-height">
-                <p>
-                    Os <b>timeouts</b> são importantes para programas que se conectam a recursos externos ou que, de outra forma, precisam <b>limitar</b> o tempo de execução.
-                </p>
-                <p>
-                    Implementar timeouts no Go é fácil e elegante graças aos <b>canais</b> e <b>select</b>.
-                </p>
-                <p>
-                    Para o nosso exemplo, suponha que estejamos executando uma chamada externa que retorna seu resultado em um canal c1 após 2s. Observe que o canal é armazenado em <b>buffer</b>, portanto, o envio na goroutine não é bloqueador.
-                </p>
-                <p>
-                    Este é um padrão comum para evitar vazamentos de goroutine caso o canal nunca seja lido.
-                </p>
-                <p>
-                    Aqui está a seleção de implementação de um tempo limite. <b>res := <-c1</b> aguarda o resultado e <b><-time.After</b> aguarda um valor a ser enviado após o tempo limite de 1s.
-                </p>
-                <p>
-                    Como a seleção continua com o primeiro recebimento que está pronto, usaremos o caso de tempo limite se a operação levar mais do que os 1s permitidos.
-                </p>
-            </div>
 
+                <div class="pages-menu">
+                    <div class="content-overview content-overview-menu">
+                        <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
+                        <div class="content-overview-title">Conte&uacute;do</div>
 
-            <div class="pages-menu">
-                <div class="content-overview content-overview-menu">
-                    <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
-                    <div class="content-overview-title">Conte&uacute;do</div>
-
-                    <div class="list-group list-group-root well">
-                        <a href="#item-category-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
-                            <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
-                            <span class="content-item-progress-text">25%</span>
-                            <div class="content-item-progress progress">
-                                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="content-item-time">2m29sec</div>
-                            <div class="content-item-icon">
-                                <i class="fa fa-book"></i>
-                            </div>
-                        </a>
-                        <div class="list-group collapse show" id="item-category-1">
-                            <a href="../index.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                <span class="content-item-description">Overview on Go</span>
-                                <div class="content-item-progress">&nbsp;</div>
-                                <div class="content-item-time">1min 40sec</div>
+                        <div class="list-group list-group-root well">
+                            <a href="#item-category-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
+                                <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
+                                <span class="content-item-progress-text">25%</span>
+                                <div class="content-item-progress progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="content-item-time">2m29sec</div>
                                 <div class="content-item-icon">
                                     <i class="fa fa-book"></i>
                                 </div>
                             </a>
-                            <a href="../groadmap.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                <span class="content-item-description">Roadmap</span>
-                                <div class="content-item-progress">&nbsp;</div>
-                                <div class="content-item-time">0min 49sec</div>
-                                <div class="content-item-icon">
-                                    <i class="fa fa-book"></i>
-                                </div>
-                            </a>
+                            <div class="list-group collapse show" id="item-category-1">
+                                <a href="../index.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">Overview on Go</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">1min 40sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                                <a href="../groadmap.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">Roadmap</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">0min 49sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
+                    <a title="Goroutines - Select" class="pages-menu-link link-back" href="select.html">
+                        <i class="fa fa-chevron-left"></i><span>1</span>
+                    </a>
+
+                    <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
+
+                    <a title="Goroutines - Close" class="pages-menu-link link-forward" href="closing.html">
+                        <span>1</span><i class="fa fa-chevron-right"></i>
+                    </a>
+
                 </div>
-                <a title="Goroutines - Select" class="pages-menu-link link-back" href="select.html">
-                    <i class="fa fa-chevron-left"></i><span>1</span>
-                </a>
 
-                <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
-
-                <a title="Goroutines - Close" class="pages-menu-link link-forward" href="closing.html">
-                    <span>1</span><i class="fa fa-chevron-right"></i>
-                </a>
-
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: calc((100% / 12) * 7)"></div>
+                </div>
             </div>
-
-            <div class="progress-bar-container">
-                <div class="progress-bar" style="width: calc((100% / 12) * 7)"></div>
-            </div>
-
         </div>
         <!--- Coluna Esquerda Fim --->
         <div class="column-code">

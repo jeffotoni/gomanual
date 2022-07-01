@@ -403,19 +403,19 @@
             <div class="main-title">Goroutines - O que são?</div>
             <!--- Page title Fim --->
 
-
-            <div class="content-height">
-                <p>
-                    Goroutines são funções ou métodos executados simultaneamente com outras funções ou métodos. Goroutines podem ser considerados threads leves. O custo de criação de um Goroutine é mínimo quando comparado a um thread. Portanto, é comum que aplicativos Go
-                    tenham milhares de Goroutines em execução simultaneamente.
-                </p>
-                <p>
-                    Como iniciar um Goroutine?
-                </p>
-                <p>
-                    Coloque o prefixo da chamada de função ou método com a palavra-chave <i>go</i> e você terá um novo Goroutine rodando simultaneamente.
-                </p>
-                <pre><code class="language-go">
+            <div class="column-content">
+                <div class="content-height">
+                    <p>
+                        Goroutines são funções ou métodos executados simultaneamente com outras funções ou métodos. Goroutines podem ser considerados threads leves. O custo de criação de um Goroutine é mínimo quando comparado a um thread. Portanto, é comum que aplicativos Go
+                        tenham milhares de Goroutines em execução simultaneamente.
+                    </p>
+                    <p>
+                        Como iniciar um Goroutine?
+                    </p>
+                    <p>
+                        Coloque o prefixo da chamada de função ou método com a palavra-chave <i>go</i> e você terá um novo Goroutine rodando simultaneamente.
+                    </p>
+                    <pre><code class="language-go">
 package main
 
 import (  
@@ -429,61 +429,61 @@ func main() {
     go hello()
     fmt.Println("main function")
                         </code></pre>
-                <p>
-                    Este programa produz apenas a função principal de texto. O que aconteceu com o Goroutine que começamos? Precisamos entender as duas propriedades principais das goroutines para entender por que isso acontece.
-                </p>
-            </div>
+                    <p>
+                        Este programa produz apenas a função principal de texto. O que aconteceu com o Goroutine que começamos? Precisamos entender as duas propriedades principais das goroutines para entender por que isso acontece.
+                    </p>
+                </div>
 
 
-            <div class="pages-menu">
-                <div class="content-overview content-overview-menu">
-                    <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
-                    <div class="content-overview-title">Conte&uacute;do</div>
+                <div class="pages-menu">
+                    <div class="content-overview content-overview-menu">
+                        <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
+                        <div class="content-overview-title">Conte&uacute;do</div>
 
-                    <div class="list-group list-group-root well">
-                        <a href="#item-category-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
-                            <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
-                            <span class="content-item-progress-text">25%</span>
-                            <div class="content-item-progress progress">
-                                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="content-item-time">2m29sec</div>
-                            <div class="content-item-icon">
-                                <i class="fa fa-book"></i>
-                            </div>
-                        </a>
-                        <div class="list-group collapse show" id="item-category-1">
-                            <a href="../index.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                <span class="content-item-description">Overview on Go</span>
-                                <div class="content-item-progress">&nbsp;</div>
-                                <div class="content-item-time">1min 40sec</div>
+                        <div class="list-group list-group-root well">
+                            <a href="#item-category-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
+                                <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
+                                <span class="content-item-progress-text">25%</span>
+                                <div class="content-item-progress progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="content-item-time">2m29sec</div>
                                 <div class="content-item-icon">
                                     <i class="fa fa-book"></i>
                                 </div>
                             </a>
-                            <a href="../groadmap.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                <span class="content-item-description">Roadmap</span>
-                                <div class="content-item-progress">&nbsp;</div>
-                                <div class="content-item-time">0min 49sec</div>
-                                <div class="content-item-icon">
-                                    <i class="fa fa-book"></i>
-                                </div>
-                            </a>
+                            <div class="list-group collapse show" id="item-category-1">
+                                <a href="../index.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">Overview on Go</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">1min 40sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                                <a href="../groadmap.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">Roadmap</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">0min 49sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
+                    <a title="Goroutines - Introdução" class="pages-menu-link link-back" href="index.html">
+                        <i class="fa fa-chevron-left"></i><span>1</span>
+                    </a>
+
+                    <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
+
+                    <a title="Goroutines - Channels" class="pages-menu-link link-forward" href="channels.html">
+                        <span>1</span><i class="fa fa-chevron-right"></i>
+                    </a>
+
                 </div>
-                <a title="Goroutines - Introdução" class="pages-menu-link link-back" href="index.html">
-                    <i class="fa fa-chevron-left"></i><span>1</span>
-                </a>
-
-                <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
-
-                <a title="Goroutines - Channels" class="pages-menu-link link-forward" href="channels.html">
-                    <span>1</span><i class="fa fa-chevron-right"></i>
-                </a>
-
             </div>
-
         </div>
         <!--- Coluna Esquerda Fim --->
 
