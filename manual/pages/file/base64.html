@@ -388,7 +388,7 @@
 
             <div class="column-header">
                 <div class="column-header-text column-text-close">
-                    <i class="fa fa-file-text"></i> &nbsp; <span>File - Base64</span>
+                    <i class="fa fa-file-text"></i> &nbsp; <span>File</span>
                 </div>
 
                 <div class="column-header-actions">
@@ -399,81 +399,94 @@
                 <div class="clearfix"></div>
             </div>
 
-
-            <div class="content-height">
-                <p>
-                    A codificação <b>base64</b> usa uma tabela de símbolos de 64 caracteres usados para codificar os dados em uma string contendo esses símbolos.
-                </p>
-                <p>
-                    Para converter uma string em base64, primeiro precisamos convertê-la em um <b>slice de byte</b>:
-                </p>
-                <pre><code class="language-go">
+            <div class="column-content">
+                <div class="main-title">Base64</div>
+                <div class="content-height">
+                    <p>
+                        A codificação <b>base64</b> usa uma tabela de símbolos de 64 caracteres usados para codificar os dados em uma string contendo esses símbolos.
+                    </p>
+                    <p>
+                        Para converter uma string em base64, primeiro precisamos convertê-la em um <b>slice de byte</b>:
+                    </p>
+                    <pre><code class="language-go">
 base64.StdEncoding.EncodeToString([]byte("texto"))
                         </code></pre>
-            </div>
+                </div>
 
 
-            <div class="pages-menu">
-                <div class="content-overview content-overview-menu">
-                    <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
-                    <div class="content-overview-title">Conte&uacute;do</div>
+                <div class="pages-menu">
+                    <div class="content-overview content-overview-menu">
+                        <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
+                        <div class="content-overview-title">Conte&uacute;do</div>
 
-                    <div class="list-group list-group-root well">
-                        <a href="#item-category-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
-                            <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
-                            <span class="content-item-progress-text">25%</span>
-                            <div class="content-item-progress progress">
-                                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="content-item-time">2m29sec</div>
-                            <div class="content-item-icon">
-                                <i class="fa fa-book"></i>
-                            </div>
-                        </a>
-                        <div class="list-group collapse show" id="item-category-1">
-                            <a href="../index.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                <span class="content-item-description">Overview on Go</span>
-                                <div class="content-item-progress">&nbsp;</div>
-                                <div class="content-item-time">1min 40sec</div>
+                        <div class="list-group list-group-root well">
+                            <a href="#item-category-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
+                                <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
+                                <span class="content-item-progress-text">25%</span>
+                                <div class="content-item-progress progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="content-item-time">2m29sec</div>
                                 <div class="content-item-icon">
                                     <i class="fa fa-book"></i>
                                 </div>
                             </a>
-                            <a href="../groadmap.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                <span class="content-item-description">Roadmap</span>
-                                <div class="content-item-progress">&nbsp;</div>
-                                <div class="content-item-time">0min 49sec</div>
-                                <div class="content-item-icon">
-                                    <i class="fa fa-book"></i>
-                                </div>
-                            </a>
+                            <div class="list-group collapse show" id="item-category-1">
+                                <a href="../index.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">Overview on Go</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">1min 40sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                                <a href="../groadmap.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">Roadmap</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">0min 49sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
+                    <a title="Generics - Quando usar?" class="pages-menu-link link-back" href="../generics/quando_usar.html">
+                        <i class="fa fa-chevron-left"></i><span>1</span>
+                    </a>
+
+                    <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
+
+                    <a title="File - Lendo" class="pages-menu-link link-forward" href="reading.html">
+                        <span>1</span><i class="fa fa-chevron-right"></i>
+                    </a>
+
                 </div>
-                <a title="Generics - Quando usar?" class="pages-menu-link link-back" href="../generics/quando_usar.html">
-                    <i class="fa fa-chevron-left"></i>
-                </a>
 
-                <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
-
-                <a title="File - Lendo" class="pages-menu-link link-forward" href="reading.html">
-                    <i class="fa fa-chevron-right"></i>
-                </a>
-
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: calc((100% / 4) * 1)"></div>
+                </div>
             </div>
-
-            <div class="progress-bar-container">
-                <div class="progress-bar" style="width: calc((100% / 4) * 1)"></div>
-            </div>
-
         </div>
         <!--- Coluna Esquerda Fim --->
 
-        <div class="col-12 col-lg-6 column-code">
+        <div class="column-code">
 
-            <div class="code-filename">base64.go</div>
+            <div class="column-header">
+                <div class="column-header-text column-code-close">
+                    <div class="code-filename">helloworld.go</div>
+                </div>
 
-            <textarea class="go-playground-snippet" data-expanded="1" data-title="base64.go">
+                <div class="column-header-actions">
+                    <i class="fa fa-adjust column-header-button column-code-close light-dark-mode-button" onclick="changeTheme();" title="Light/dark mode"></i>
+                    <i class="fa fa-chevron-right column-header-button column-code-button" onclick="toggleColumnRight($(this));" data-open="true"></i>
+                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnCodeMobile($(this));"></i>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="column-content">
+                <textarea class="go-playground-snippet" data-expanded="1" data-title="base64.go">
 package main
  
 import (
@@ -488,17 +501,20 @@ func main() {
 }
                     </textarea>
 
-            <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
 
+
+            </div>
+            <!--- Coluna Direita Fim --->
         </div>
-        <!--- Coluna Direita Fim --->
-    </div>
     </div>
     </main>
 
     <!-- Rodape -->
     <footer class="footer">
-        <div class="main-footer">
+        <div class="main-footer main-footer-gopher">
+
+            <img class="gopher-column-code-footer" src="../../../img/gopher-docker-cut.png" alt="" />
+
             <div class="container text-center">
 
                 <span>by <a href="https://jeffotoni.com/" 
@@ -520,18 +536,45 @@ func main() {
     <!-- Bootstrap Core JavaScript -->
     <script src="../../../js/bootstrap.min.js"></script>
 
+    <!-- Axios -->
+    <script src="../../../js/axios.min.js"></script>
+
     <!-- Custom js -->
-    <script src="../../../js/custom.js"></script>
+    <script src="../../../js/custom-2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            ARTICLE_DETAILS = {
+                'id': '/pages/instalation/novo-layout',
+                'title': 'Instalação - Instalando Go',
+                'link': '/pages/instalation/novo-layout.html',
+                'description': 'Podemos colocar nosso projeto em qualquer diretório agora. Para o cenário ao lado, teremos que usar o go mod em nosso projeto para que todos os pacotes externos possam funcionar corretamente, desta forma...'
+            };
+
+            // Check if current article is favorite and set star icon checked
+            checkFavoriteArticle();
+
+            // Mark current article as read, for tracking the progress
+            markAsRead();
+        });
+    </script>
 
     <!-- Go Playground -->
     <script src="../../../js/go-playground/codemirror.js"></script>
     <script src="../../../js/go-playground/codemirror-go.js"></script>
     <script src="../../../js/go-playground/playground.js"></script>
-    <script src="../../../js/go-playground/snippets.js"></script>
+    <script src="../../../js/go-playground/snippets-2.js"></script>
     <script src="../../../js/go-playground/jquery-linedtextarea.js"></script>
 
     <!-- Prism Syntax Highlighting -->
     <script src="../../../plugins/prism/prism.js"></script>
+
+    <!-- Toastr -->
+    <script src="../../../plugins/toastr/toastr.min.js"></script>
+
+    <!-- Social Share -->
+    <script src="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.js"></script>
+
 
 </body>
 

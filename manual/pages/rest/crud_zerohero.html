@@ -388,7 +388,7 @@
 
             <div class="column-header">
                 <div class="column-header-text column-text-close">
-                    <i class="fa fa-file-text"></i> &nbsp; <span>Arrays - Acessando Elementos</span>
+                    <i class="fa fa-file-text"></i> &nbsp; <span>API REST</span>
                 </div>
 
                 <div class="column-header-actions">
@@ -399,42 +399,39 @@
                 <div class="clearfix"></div>
             </div>
 
-            <!--- Page title --->
-            <div class="main-title">API REST - ZeroHero</div>
-            <!--- Page title Fim --->
+            <div class="column-content">
+                <div class="main-title">ZeroHero</div>
+                <div class="content-height">
+                    <p>
+                        Este é um simples exemplo que fizemos em um evento online para <b>comunidade</b> de desenvolvedores. Foi criado uma <b>API rEST</b> do zero ao vivo 😍. Legal não é ? 🤗
+                    </p>
+                    <p>
+                        Todo trabalho encontra-se em:
+                    </p>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/jeffotoni/gobootcamp/tree/main/zerohero" target="_blank">github/zerohero</a>
+                        </li>
+                        <li>
+                            <a href="https://zerohero.web.s3apis.com/" target="_blank">zerohero.web.s3apis</a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/watch?v=7HCwOBvp6jA&t=3s" target="_blank">Youtube Live</a>
+                        </li>
+                    </ul>
+                    <p>
+                        Este projeto é meramente didático e prático e foi desenvolvido para o evento do <b>Bootcamp</b>, fiquem a vontade em enviar Pull Request 😍.
+                    </p>
 
-
-            <div class="content-height">
-                <p>
-                    Este é um simples exemplo que fizemos em um evento online para <b>comunidade</b> de desenvolvedores. Foi criado uma <b>API rEST</b> do zero ao vivo 😍. Legal não é ? 🤗
-                </p>
-                <p>
-                    Todo trabalho encontra-se em:
-                </p>
-                <ul>
-                    <li>
-                        <a href="https://github.com/jeffotoni/gobootcamp/tree/main/zerohero" target="_blank">github/zerohero</a>
-                    </li>
-                    <li>
-                        <a href="https://zerohero.web.s3apis.com/" target="_blank">zerohero.web.s3apis</a>
-                    </li>
-                    <li>
-                        <a href="https://www.youtube.com/watch?v=7HCwOBvp6jA&t=3s" target="_blank">Youtube Live</a>
-                    </li>
-                </ul>
-                <p>
-                    Este projeto é meramente didático e prático e foi desenvolvido para o evento do <b>Bootcamp</b>, fiquem a vontade em enviar Pull Request 😍.
-                </p>
-
-                <!-- <p>
+                    <!-- <p>
                             legal não é 😍?. O objetivo é entender a construção de uma API Go usando somente a strand library. Na pasta json temos alguns supererois para que possamos brincar em nossa base. Exemplo de Json do Odin.
                         </p> -->
 
-                <p>
-                    <b>ZeroHero</b> é uma api que carrega uma base com os supereróis e permite pesquisas por biography, powerstats, connections , image, work e appearance.
-                </p>
+                    <p>
+                        <b>ZeroHero</b> é uma api que carrega uma base com os supereróis e permite pesquisas por biography, powerstats, connections , image, work e appearance.
+                    </p>
 
-                <pre><code class="language-go">
+                    <pre><code class="language-go">
 mux := http.NewServeMux()
 mux.HandleFunc("/", Service)
 
@@ -447,67 +444,79 @@ s := &http.Server{
 log.Fatal(s.ListenAndServe())
 .....
                         </code></pre>
-            </div>
+                </div>
 
-            <div class="pages-menu">
-                <div class="content-overview content-overview-menu">
-                    <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
-                    <div class="content-overview-title">Conte&uacute;do</div>
+                <div class="pages-menu">
+                    <div class="content-overview content-overview-menu">
+                        <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
+                        <div class="content-overview-title">Conte&uacute;do</div>
 
-                    <div class="list-group list-group-root well">
-                        <a href="#item-category-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
-                            <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
-                            <span class="content-item-progress-text">25%</span>
-                            <div class="content-item-progress progress">
-                                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="content-item-time">2m29sec</div>
-                            <div class="content-item-icon">
-                                <i class="fa fa-book"></i>
-                            </div>
-                        </a>
-                        <div class="list-group collapse show" id="item-category-1">
-                            <a href="../index.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                <span class="content-item-description">Overview on Go</span>
-                                <div class="content-item-progress">&nbsp;</div>
-                                <div class="content-item-time">1min 40sec</div>
+                        <div class="list-group list-group-root well">
+                            <a href="#item-category-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
+                                <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
+                                <span class="content-item-progress-text">25%</span>
+                                <div class="content-item-progress progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="content-item-time">2m29sec</div>
                                 <div class="content-item-icon">
                                     <i class="fa fa-book"></i>
                                 </div>
                             </a>
-                            <a href="../groadmap.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                <span class="content-item-description">Roadmap</span>
-                                <div class="content-item-progress">&nbsp;</div>
-                                <div class="content-item-time">0min 49sec</div>
-                                <div class="content-item-icon">
-                                    <i class="fa fa-book"></i>
-                                </div>
-                            </a>
+                            <div class="list-group collapse show" id="item-category-1">
+                                <a href="../index.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">Overview on Go</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">1min 40sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                                <a href="../groadmap.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">Roadmap</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">0min 49sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
+                    <a title="API REST - Introdução" class="pages-menu-link link-back" href="index.html">
+                        <i class="fa fa-chevron-left"></i><span>1</span>
+                    </a>
+
+                    <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
+
+                    <a title="API REST - Standard Library" class="pages-menu-link link-forward" href="standard_library.html">
+                        <span>1</span><i class="fa fa-chevron-right"></i>
+                    </a>
+
                 </div>
-                <a title="API REST - Introdução" class="pages-menu-link link-back" href="index.html">
-                    <i class="fa fa-chevron-left"></i>
-                </a>
 
-                <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
-
-                <a title="API REST - Standard Library" class="pages-menu-link link-forward" href="standard_library.html">
-                    <i class="fa fa-chevron-right"></i>
-                </a>
-
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: calc((100% / 11) * 2)"></div>
+                </div>
             </div>
-
-            <div class="progress-bar-container">
-                <div class="progress-bar" style="width: calc((100% / 11) * 2)"></div>
-            </div>
-
         </div>
         <!--- Coluna Esquerda Fim --->
 
-        <div class="col-12 col-lg-6 column-code">
+        <div class="column-code">
 
-            <div class="code-filename">crud_zerohero.go</div>
+            <div class="column-header">
+                <div class="column-header-text column-code-close">
+                    <div class="code-filename">helloworld.go</div>
+                </div>
+
+                <div class="column-header-actions">
+                    <i class="fa fa-adjust column-header-button column-code-close light-dark-mode-button" onclick="changeTheme();" title="Light/dark mode"></i>
+                    <i class="fa fa-chevron-right column-header-button column-code-button" onclick="toggleColumnRight($(this));" data-open="true"></i>
+                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnCodeMobile($(this));"></i>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
 
             <div class="content-height">
                 <p>
@@ -554,7 +563,10 @@ $ curl -i -XGET -H "Content-Type:application/json" https://zerohero.s3apis.com/a
 
     <!-- Rodape -->
     <footer class="footer">
-        <div class="main-footer">
+        <div class="main-footer main-footer-gopher">
+
+            <img class="gopher-column-code-footer" src="../../../img/gopher-docker-cut.png" alt="" />
+
             <div class="container text-center">
 
                 <span>by <a href="https://jeffotoni.com/" 
@@ -576,18 +588,45 @@ $ curl -i -XGET -H "Content-Type:application/json" https://zerohero.s3apis.com/a
     <!-- Bootstrap Core JavaScript -->
     <script src="../../../js/bootstrap.min.js"></script>
 
+    <!-- Axios -->
+    <script src="../../../js/axios.min.js"></script>
+
     <!-- Custom js -->
-    <script src="../../../js/custom.js"></script>
+    <script src="../../../js/custom-2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            ARTICLE_DETAILS = {
+                'id': '/pages/instalation/novo-layout',
+                'title': 'Instalação - Instalando Go',
+                'link': '/pages/instalation/novo-layout.html',
+                'description': 'Podemos colocar nosso projeto em qualquer diretório agora. Para o cenário ao lado, teremos que usar o go mod em nosso projeto para que todos os pacotes externos possam funcionar corretamente, desta forma...'
+            };
+
+            // Check if current article is favorite and set star icon checked
+            checkFavoriteArticle();
+
+            // Mark current article as read, for tracking the progress
+            markAsRead();
+        });
+    </script>
 
     <!-- Go Playground -->
     <script src="../../../js/go-playground/codemirror.js"></script>
     <script src="../../../js/go-playground/codemirror-go.js"></script>
     <script src="../../../js/go-playground/playground.js"></script>
-    <script src="../../../js/go-playground/snippets.js"></script>
+    <script src="../../../js/go-playground/snippets-2.js"></script>
     <script src="../../../js/go-playground/jquery-linedtextarea.js"></script>
 
     <!-- Prism Syntax Highlighting -->
     <script src="../../../plugins/prism/prism.js"></script>
+
+    <!-- Toastr -->
+    <script src="../../../plugins/toastr/toastr.min.js"></script>
+
+    <!-- Social Share -->
+    <script src="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.js"></script>
+
 
 </body>
 

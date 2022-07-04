@@ -388,7 +388,7 @@
 
             <div class="column-header">
                 <div class="column-header-text column-text-close">
-                    <i class="fa fa-file-text"></i> &nbsp; <span>Arrays - Acessando Elementos</span>
+                    <i class="fa fa-file-text"></i> &nbsp; <span>Ponteiros</span>
                 </div>
 
                 <div class="column-header-actions">
@@ -399,19 +399,16 @@
                 <div class="clearfix"></div>
             </div>
 
-            <!--- Page title --->
-            <div class="main-title">Ponteiros - Quando Usar?</div>
-            <!--- Page title Fim --->
-
-
-            <div class="content-height">
-                <p>
-                    Aqui estão algumas das situações comuns em que você precisará usar um ponteiro em vez de um valor:
-                </p>
-                <p>
-                    Alterar o estado de um objeto: Digamos que você tenha uma estrutura como esta
-                </p>
-                <pre><code class="language-go">
+            <div class="column-content">
+                <div class="main-title">Quando Usar?</div>
+                <div class="content-height">
+                    <p>
+                        Aqui estão algumas das situações comuns em que você precisará usar um ponteiro em vez de um valor:
+                    </p>
+                    <p>
+                        Alterar o estado de um objeto: Digamos que você tenha uma estrutura como esta
+                    </p>
+                    <pre><code class="language-go">
 type Person struct {
     name     string
     age      int
@@ -419,15 +416,15 @@ type Person struct {
 
 }
                         </code></pre>
-                <p>
-                    Agora, você quer um método permita alterar o nome de uma pessoa: Para isso, um ponteiro é necessário, pois ele da acesso à instância original, não a uma cópia dela:
-                </p>
-                <pre><code class="language-go">
+                    <p>
+                        Agora, você quer um método permita alterar o nome de uma pessoa: Para isso, um ponteiro é necessário, pois ele da acesso à instância original, não a uma cópia dela:
+                    </p>
+                    <pre><code class="language-go">
 func (p *Person) changeName(name string){
     p.name = name
 }
                         </code></pre>
-                <!-- <p>
+                    <!-- <p>
                             Permitindo que as variáveis tenham valores nil:
                             Essa é uma pegadinha que leva muitos iniciantes em Go a criar bugs. Uma variável que é 
                             definida, mas não tem um valor atribuído, não é avaliada como nulo, mas sim com seu valor
@@ -440,71 +437,83 @@ func (p *Person) changeName(name string){
                             referência se o valor do objeto for ridiculamente grande e não houver realmente necessidade 
                             de repassá-lo o tempo todo. 
                         </p> -->
-            </div>
+                </div>
 
 
-            <div class="pages-menu">
-                <div class="content-overview content-overview-menu">
-                    <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
-                    <div class="content-overview-title">Conte&uacute;do</div>
+                <div class="pages-menu">
+                    <div class="content-overview content-overview-menu">
+                        <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
+                        <div class="content-overview-title">Conte&uacute;do</div>
 
-                    <div class="list-group list-group-root well">
-                        <a href="#item-category-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
-                            <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
-                            <span class="content-item-progress-text">25%</span>
-                            <div class="content-item-progress progress">
-                                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="content-item-time">2m29sec</div>
-                            <div class="content-item-icon">
-                                <i class="fa fa-book"></i>
-                            </div>
-                        </a>
-                        <div class="list-group collapse show" id="item-category-1">
-                            <a href="../index.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                <span class="content-item-description">Overview on Go</span>
-                                <div class="content-item-progress">&nbsp;</div>
-                                <div class="content-item-time">1min 40sec</div>
+                        <div class="list-group list-group-root well">
+                            <a href="#item-category-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
+                                <span class="content-item-description">Overview on Go &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
+                                <span class="content-item-progress-text">25%</span>
+                                <div class="content-item-progress progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="content-item-time">2m29sec</div>
                                 <div class="content-item-icon">
                                     <i class="fa fa-book"></i>
                                 </div>
                             </a>
-                            <a href="../groadmap.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                <span class="content-item-description">Roadmap</span>
-                                <div class="content-item-progress">&nbsp;</div>
-                                <div class="content-item-time">0min 49sec</div>
-                                <div class="content-item-icon">
-                                    <i class="fa fa-book"></i>
-                                </div>
-                            </a>
+                            <div class="list-group collapse show" id="item-category-1">
+                                <a href="../index.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">Overview on Go</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">1min 40sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                                <a href="../groadmap.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">Roadmap</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">0min 49sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
+                    <a title="Ponteiros - Introdução" class="pages-menu-link link-back" href="index.html">
+                        <i class="fa fa-chevron-left"></i><span>1</span>
+                    </a>
+
+                    <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
+
+                    <a title="Métodos - Comparação com Funções" class="pages-menu-link link-forward" href="../methods/index.html">
+                        <span>1</span><i class="fa fa-chevron-right"></i>
+                    </a>
+
                 </div>
-                <a title="Ponteiros - Introdução" class="pages-menu-link link-back" href="index.html">
-                    <i class="fa fa-chevron-left"></i>
-                </a>
 
-                <span class="pages-content-menu" onclick="openPopupContentOverview();">Overview Go &nbsp; <i class="fa fa-bars"></i></span>
-
-                <a title="Métodos - Comparação com Funções" class="pages-menu-link link-forward" href="../methods/index.html">
-                    <i class="fa fa-chevron-right"></i>
-                </a>
-
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: 100%"></div>
+                </div>
             </div>
-
-            <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 100%"></div>
-            </div>
-
         </div>
         <!--- Coluna Esquerda Fim --->
 
         <!--- Coluna Direita --->
-        <div class="col-12 col-lg-6 column-code">
+        <div class="column-code">
 
-            <div class="code-filename">when_use.go</div>
+            <div class="column-header">
+                <div class="column-header-text column-code-close">
+                    <div class="code-filename">helloworld.go</div>
+                </div>
 
-            <textarea class="go-playground-snippet" data-expanded="1" data-title="when_use.go">
+                <div class="column-header-actions">
+                    <i class="fa fa-adjust column-header-button column-code-close light-dark-mode-button" onclick="changeTheme();" title="Light/dark mode"></i>
+                    <i class="fa fa-chevron-right column-header-button column-code-button" onclick="toggleColumnRight($(this));" data-open="true"></i>
+                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnCodeMobile($(this));"></i>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="column-content">
+                <textarea class="go-playground-snippet" data-expanded="1" data-title="when_use.go">
 package main
   
 import (
@@ -535,18 +544,21 @@ func main() {
 }
                     </textarea>
 
-            <img class="gopher-column-code" src="../../../img/gopher-docker-cut.png" alt="" />
+
+
+            </div>
+            <!--- Coluna Direita Fim --->
 
         </div>
-        <!--- Coluna Direita Fim --->
-
-    </div>
     </div>
     </main>
 
     <!-- Rodape -->
     <footer class="footer">
-        <div class="main-footer">
+        <div class="main-footer main-footer-gopher">
+
+            <img class="gopher-column-code-footer" src="../../../img/gopher-docker-cut.png" alt="" />
+
             <div class="container text-center">
 
                 <span>by <a href="https://jeffotoni.com/" 
@@ -568,18 +580,45 @@ func main() {
     <!-- Bootstrap Core JavaScript -->
     <script src="../../../js/bootstrap.min.js"></script>
 
+    <!-- Axios -->
+    <script src="../../../js/axios.min.js"></script>
+
     <!-- Custom js -->
-    <script src="../../../js/custom.js"></script>
+    <script src="../../../js/custom-2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            ARTICLE_DETAILS = {
+                'id': '/pages/instalation/novo-layout',
+                'title': 'Instalação - Instalando Go',
+                'link': '/pages/instalation/novo-layout.html',
+                'description': 'Podemos colocar nosso projeto em qualquer diretório agora. Para o cenário ao lado, teremos que usar o go mod em nosso projeto para que todos os pacotes externos possam funcionar corretamente, desta forma...'
+            };
+
+            // Check if current article is favorite and set star icon checked
+            checkFavoriteArticle();
+
+            // Mark current article as read, for tracking the progress
+            markAsRead();
+        });
+    </script>
 
     <!-- Go Playground -->
     <script src="../../../js/go-playground/codemirror.js"></script>
     <script src="../../../js/go-playground/codemirror-go.js"></script>
     <script src="../../../js/go-playground/playground.js"></script>
-    <script src="../../../js/go-playground/snippets.js"></script>
+    <script src="../../../js/go-playground/snippets-2.js"></script>
     <script src="../../../js/go-playground/jquery-linedtextarea.js"></script>
 
     <!-- Prism Syntax Highlighting -->
     <script src="../../../plugins/prism/prism.js"></script>
+
+    <!-- Toastr -->
+    <script src="../../../plugins/toastr/toastr.min.js"></script>
+
+    <!-- Social Share -->
+    <script src="https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.js"></script>
+
 
 </body>
 
