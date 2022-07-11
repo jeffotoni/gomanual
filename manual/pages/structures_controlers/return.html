@@ -381,24 +381,30 @@
         </div>
     </nav>
 
-    <main class="content-page">
-        <div class="container-fluid">
-            <div class="row">
+    <div class="page-body">
 
-                <!--- Coluna Esquerda --->
-                <div class="col-12 col-lg-6 column-text px-0">
+        <!-- Coluna esquerda -->
+        <div class="column-text">
 
-                    <!--- Page title --->
-                    <div class="main-title">Estruturas de Controle - Return</div>
-                    <!--- Page title Fim --->
+            <div class="column-header">
+                <div class="column-header-text column-text-close">
+                    <i class="fa fa-file-text"></i> &nbsp; <span>Estruturas de Controle</span>
+                </div>
 
-                    <div class="column-content">
-                        <div class="main-title">Instalação - Instalando Go</div>
-                        <div class="content-height">
-                            <p>
-                                O comando <b>return</b> impede a execução de todas as instruções que aparecem depois dela na mesma função.
-                            </p>
-                            <pre><code class="language-go">
+                <div class="column-header-actions">
+                    <i class="fa fa-star-o column-star-button column-header-button column-text-close"></i>
+                    <i class="fa fa-chevron-left column-header-button column-text-button" onclick="toggleColumnLeft($(this));" data-open="true"></i>
+                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnTextMobile($(this));"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="column-content">
+                <div class="main-title">Instalação - Instalando Go</div>
+                <div class="content-height">
+                    <p>
+                        O comando <b>return</b> impede a execução de todas as instruções que aparecem depois dela na mesma função.
+                    </p>
+                    <pre><code class="language-go">
 func A() string {
     return "Hello"
 
@@ -406,119 +412,119 @@ func A() string {
     return "World"
 }
                         </code></pre>
-                        </div>
-
-
-                        <div class="pages-menu">
-                            <div class="content-overview content-overview-menu">
-                                <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
-                                <div class="content-overview-title">Conte&uacute;do</div>
-
-                                <div class="list-group list-group-root well">
-                                    <a href="#item-category-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
-                                        <span class="content-item-description">Controladores de Estruturas &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
-                                        <span class="content-item-progress-text">25%</span>
-                                        <div class="content-item-progress progress">
-                                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        <div class="content-item-time">2m29sec</div>
-                                        <div class="content-item-icon">
-                                            <i class="fa fa-book"></i>
-                                        </div>
-                                    </a>
-                                    <div class="list-group collapse show" id="item-category-1">
-                                        <a href="return.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                            <span class="content-item-description">Return</span>
-                                            <div class="content-item-progress">&nbsp;</div>
-                                            <div class="content-item-time">1min 40sec</div>
-                                            <div class="content-item-icon">
-                                                <i class="fa fa-book"></i>
-                                            </div>
-                                        </a>
-                                        <a href="goto.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                            <span class="content-item-description">Goto</span>
-                                            <div class="content-item-progress">&nbsp;</div>
-                                            <div class="content-item-time">0min 49sec</div>
-                                            <div class="content-item-icon">
-                                                <i class="fa fa-book"></i>
-                                            </div>
-                                        </a>
-                                        <a href="if_else.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                            <span class="content-item-description">If Else</span>
-                                            <div class="content-item-progress">&nbsp;</div>
-                                            <div class="content-item-time">0min 49sec</div>
-                                            <div class="content-item-icon">
-                                                <i class="fa fa-book"></i>
-                                            </div>
-                                        </a>
-                                        <a href="for.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                            <span class="content-item-description">For Loop</span>
-                                            <div class="content-item-progress">&nbsp;</div>
-                                            <div class="content-item-time">0min 49sec</div>
-                                            <div class="content-item-icon">
-                                                <i class="fa fa-book"></i>
-                                            </div>
-                                        </a>
-                                        <a href="switch.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                            <span class="content-item-description">Switch</span>
-                                            <div class="content-item-progress">&nbsp;</div>
-                                            <div class="content-item-time">0min 49sec</div>
-                                            <div class="content-item-icon">
-                                                <i class="fa fa-book"></i>
-                                            </div>
-                                        </a>
-                                        <a href="label.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                            <span class="content-item-description">Label</span>
-                                            <div class="content-item-progress">&nbsp;</div>
-                                            <div class="content-item-time">0min 49sec</div>
-                                            <div class="content-item-icon">
-                                                <i class="fa fa-book"></i>
-                                            </div>
-                                        </a>
-                                        <a href="range.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
-                                            <span class="content-item-description">Range</span>
-                                            <div class="content-item-progress">&nbsp;</div>
-                                            <div class="content-item-time">0min 49sec</div>
-                                            <div class="content-item-icon">
-                                                <i class="fa fa-book"></i>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a title="Introdução à Linguagem - Error" class="pages-menu-link link-back" href="../language_introduction/types/error.html">
-                                <i class="fa fa-chevron-left"></i><span>Introdução à Linguagem - Error</span>
-                            </a>
-
-                            <span class="pages-content-menu" onclick="openPopupContentOverview();">Controladores de estruturas &nbsp; <i class="fa fa-bars"></i></span>
-
-                            <a title="Estruturas de Controle - Goto" class="pages-menu-link link-forward" href="goto.html">
-                                <span>Goto</span><i class="fa fa-chevron-right"></i>
-                            </a>
-
-                        </div>
-                    </div>
                 </div>
-                <!--- Coluna Esquerda Fim --->
 
-                <!--- Coluna Direita --->
-                <div class="column-code">
 
-                    <div class="column-header">
-                        <div class="column-header-text column-code-close">
-                            <div class="code-filename">return.go</div>
+                <div class="pages-menu">
+                    <div class="content-overview content-overview-menu">
+                        <div class="popup-close" onclick="closeShadowOverlay();">&times;</div>
+                        <div class="content-overview-title">Conte&uacute;do</div>
+
+                        <div class="list-group list-group-root well">
+                            <a href="#item-category-1" class="list-group-item d-flex justify-content-between align-items-center list-group-item-parent" data-toggle="collapse">
+                                <span class="content-item-description">Controladores de Estruturas &nbsp; <i class="fa fa-chevron-up list-icon-chevron"></i></span>
+                                <span class="content-item-progress-text">25%</span>
+                                <div class="content-item-progress progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="content-item-time">2m29sec</div>
+                                <div class="content-item-icon">
+                                    <i class="fa fa-book"></i>
+                                </div>
+                            </a>
+                            <div class="list-group collapse show" id="item-category-1">
+                                <a href="return.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">Return</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">1min 40sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                                <a href="goto.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">Goto</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">0min 49sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                                <a href="if_else.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">If Else</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">0min 49sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                                <a href="for.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">For Loop</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">0min 49sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                                <a href="switch.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">Switch</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">0min 49sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                                <a href="label.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">Label</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">0min 49sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                                <a href="range.html" class="list-group-item d-flex justify-content-between align-items-center list-group-item-children" data-toggle="collapse">
+                                    <span class="content-item-description">Range</span>
+                                    <div class="content-item-progress">&nbsp;</div>
+                                    <div class="content-item-time">0min 49sec</div>
+                                    <div class="content-item-icon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-
-                        <div class="column-header-actions">
-                            <i class="fa fa-adjust column-header-button column-code-close light-dark-mode-button" onclick="changeTheme();" title="Light/dark mode"></i>
-                            <i class="fa fa-chevron-right column-header-button column-code-button" onclick="toggleColumnRight($(this));" data-open="true"></i>
-                            <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnCodeMobile($(this));"></i>
-                        </div>
-
-                        <div class="clearfix"></div>
                     </div>
-                    <div class="column-content">
-                        <textarea class="go-playground-snippet" data-expanded="1" data-title="return.go">
+                    <a title="Introdução à Linguagem - Error" class="pages-menu-link link-back" href="../language_introduction/types/error.html">
+                        <i class="fa fa-chevron-left"></i><span>Introdução à Linguagem - Error</span>
+                    </a>
+
+                    <span class="pages-content-menu" onclick="openPopupContentOverview();">Controladores de estruturas &nbsp; <i class="fa fa-bars"></i></span>
+
+                    <a title="Estruturas de Controle - Goto" class="pages-menu-link link-forward" href="goto.html">
+                        <span>Goto</span><i class="fa fa-chevron-right"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <!--- Coluna Esquerda Fim --->
+
+        <!--- Coluna Direita --->
+        <div class="column-code">
+
+            <div class="column-header">
+                <div class="column-header-text column-code-close">
+                    <div class="code-filename">return.go</div>
+                </div>
+
+                <div class="column-header-actions">
+                    <i class="fa fa-adjust column-header-button column-code-close light-dark-mode-button" onclick="changeTheme();" title="Light/dark mode"></i>
+                    <i class="fa fa-chevron-right column-header-button column-code-button" onclick="toggleColumnRight($(this));" data-open="true"></i>
+                    <i class="fa fa-chevron-down column-header-button" onclick="toggleColumnCodeMobile($(this));"></i>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="column-content">
+                <textarea class="go-playground-snippet" data-expanded="1" data-title="return.go">
 package main
 
 func main() {
@@ -533,11 +539,11 @@ func Lambda() string {
 
 
 
-                    </div>
-                    <!--- Coluna Direita Fim --->
-
-                </div>
             </div>
+            <!--- Coluna Direita Fim --->
+
+        </div>
+    </div>
     </main>
 
     <!-- Rodape -->

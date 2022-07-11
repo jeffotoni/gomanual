@@ -419,9 +419,9 @@ a <- data // escreve no canal a
                     <p>
                         Da mesma forma, quando os dados são <b>lidos</b> de um canal, a leitura é bloqueada até que algum Goroutine <b>grave</b> dados nesse canal.
                     </p>
-                    <p>
+                    <!-- <p>
                         Esta propriedade de canais é o que ajuda Goroutines a se comunicarem efetivamente sem o uso de bloqueios explícitos ou variáveis condicionais que são bastante comuns em outras linguagens de programação.
-                    </p>
+                    </p> -->
                 </div>
 
 
@@ -575,7 +575,7 @@ a <- data // escreve no canal a
             </div>
 
             <div class="content-height">
-                <br>
+                <!-- <br>
                 <p>
                     Um canal que só pode receber dados ou um canal que só pode enviar dados é o canal <b>unidirecional</b>. O canal unidirecional também pode criar com a ajuda da função <b>make()</b> conforme mostrado abaixo:
                 </p>
@@ -585,7 +585,7 @@ c1:= make(<- chan bool)
 
 // Só permite escrever dados
 c2:= make(chan<-bool
-                        </code></pre>
+                        </code></pre> -->
                 <img src="../../img/channels.jpg" alt="Channels" style="width: 100%">
             </div>
         </div>

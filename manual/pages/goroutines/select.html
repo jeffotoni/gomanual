@@ -405,6 +405,9 @@
                     <p>
                         <b>Select</b> esperas em vários canais. Isso pode ser combinado com goroutines. Select é como a instrução <b>switch</b>, mas para <b>canais</b>.
                     </p>
+                    <p>
+                        Por exemplo, duas rotinas são iniciadas simultaneamente e cada uma grava dados em um canal. Por ser executado simultaneamente, pode acontecer que uma tarefa seja concluída <b>antes</b> da outra.
+                    </p>
                     <pre><code class="language-go">
 select {
 case msg1 := <- ch1:
@@ -414,12 +417,6 @@ case <- ch2:
 }
 
                         </code></pre>
-                    <p>
-                        Por exemplo, duas rotinas são iniciadas simultaneamente e cada uma grava dados em um canal.
-                    </p>
-                    <p>
-                        Por ser executado simultaneamente, pode acontecer que uma tarefa seja concluída <b>antes</b> da outra.
-                    </p>
                     <p>
                         A instrução select fará com que o programa <b>espere</b> que ambas as tarefas sejam concluídas, mas isso não significa que ambas as tarefas sejam sempre concluídas em ordem <b>cronológica</b>.
                     </p>
@@ -576,8 +573,10 @@ case <- ch2:
                 <textarea class="go-playground-snippet" data-expanded="1" data-title="select.go">
 package main
 
-import "fmt"
-import "time"
+import (
+    "fmt"
+    "time"
+)
 
 func f1(c chan string) {
     time.Sleep(1 * time.Second)

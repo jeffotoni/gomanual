@@ -415,10 +415,6 @@ wg.Add(1)
 
 go func() {
     fmt.Println("Go1")
-    
-    // Decrementa o contador do WaitGroup
-    // em 1, confirmando assim a finalização
-    // deste goroutine.
     wg.Done()
 }()
 
