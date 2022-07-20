@@ -295,7 +295,6 @@ a {
 
 .pages-menu-link.link-back {
     color: #7c9aa7;
-    border-right: 1px solid #7c9aa7;
     padding: 3px;
 }
 
@@ -305,7 +304,6 @@ a {
 
 .pages-menu-link.link-forward {
     color: #7c9aa7;
-    border-left: 1px solid #7c9aa7;
     padding: 3px;
 }
 
@@ -1807,4 +1805,9 @@ body {
 
 .fav-articles-button {
     margin-bottom: 100px;
+}
+
+.overview-table{
+    text-align: center;
+    padding: 10px;
 }
