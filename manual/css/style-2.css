@@ -1806,3 +1806,7 @@ body {
 .fav-articles-button {
     margin-bottom: 100px;
 }
+
+.overview-table{
+    text-align: center;
+}
