@@ -1807,7 +1807,12 @@ body {
     margin-bottom: 100px;
 }
 
+
+/* Tables */
+
 .overview-table{
     text-align: center;
-    padding: 10px;
+    border-width: 1px;
+    background-color: #eaf9f9;
+    border-color: #ffffff;
 }
