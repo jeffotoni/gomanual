@@ -1811,8 +1811,8 @@ body {
 /* Tables */
 
 .overview-table{
-    text-align: center;
+    text-align: left;
     border-width: 1px;
-    background-color: #eaf9f9;
+    background-color: #eef4f7;
     border-color: #ffffff;
 }
