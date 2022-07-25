@@ -183,7 +183,11 @@ table {
   border-spacing: 0;
   border-collapse: collapse;
 }
-td,
+td {
+  border-width: 1px;
+
+
+}
 th {
   padding: 0;
 }
