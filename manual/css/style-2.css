@@ -796,7 +796,7 @@ body {
     margin-left: -5px;
 }
 
-.column-text .column-header-button:not(.column-star-button, .fa-chevron-right) {
+.column-text .column-header-button:not(.column-heart-button, .fa-chevron-right) {
     border-left: 1px solid #bccbd2;
 }
 
@@ -809,8 +809,8 @@ body {
     background-color: #cbd7dc;
 }
 
-.column-header .column-star-button {
-    font-size: 23px;
+.column-header .column-heart-button {
+    font-size: 17px;
     padding: 12px 13px;
 }
 
@@ -830,7 +830,7 @@ body {
     }
 }
 
-.column-header .column-header-star {
+.column-header .column-header-heart {
     float: right;
     padding: 10px 20px;
 }
