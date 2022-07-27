@@ -811,7 +811,7 @@ body {
 
 .column-header .column-heart-button {
     font-size: 17px;
-    padding: 12px 13px;
+    /* padding: 12px 13px; */
 }
 
 .column-header-actions .column-header-button.fa-chevron-up,
