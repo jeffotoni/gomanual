@@ -897,13 +897,14 @@ body {
 .content-overview {
     position: absolute;
     width: 700px;
-    left: 50%;
+    left: 55%;
     margin-left: -350px;
     background-color: #fff;
     border: 1px solid #9ba1a7;
     border-radius: 6px;
     z-index: 8;
     padding: 15px;
+    bottom: : 590px;
     text-align: left;
     display: none;
     -webkit-box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
