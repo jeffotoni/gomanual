@@ -797,7 +797,7 @@ body {
 }
 
 .column-text .column-header-button:not(.column-heart-button, .fa-chevron-right) {
-    border-left: 1px solid #bccbd2;
+    /* border-left: 1px solid #bccbd2; */
 }
 
 .column-code .column-header-button:not(.light-dark-mode-button, .fa-chevron-left),
