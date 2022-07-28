@@ -540,6 +540,69 @@ fieldset[disabled] .btn-copiar.active {
     padding: 3px 0;
 }
 
+.header-menu-share {
+    font-size: 16px;
+    cursor: pointer;
+    width: 30px;
+    text-align: center;
+    height: auto;
+    margin-top: 5px;
+}
+
+.header-menu-share:hover {
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.header-menu-share>a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: inherit;
+    padding: 3px 0;
+}
+
+.header-menu-heart {
+    font-size: 16px;
+    cursor: pointer;
+    width: 30px;
+    text-align: center;
+    height: auto;
+    margin-top: 5px;
+}
+
+.header-menu-heart:hover {
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.header-menu-heart>a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: inherit;
+    padding: 3px 0;
+}
+
+.header-menu-print {
+    font-size: 16px;
+    cursor: pointer;
+    width: 30px;
+    text-align: center;
+    height: auto;
+    margin-top: 5px;
+}
+
+.header-menu-print:hover {
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.header-menu-print>a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: inherit;
+    padding: 3px 0;
+}
+
 .header-menu-text {
     font-size: 14px;
     cursor: pointer;
