@@ -796,7 +796,7 @@ body {
     margin-left: -5px;
 }
 
-.column-text .column-header-button:not(.column-heart-button, .fa-chevron-right) {
+.column-text .column-header-button:not(.column-bars-button, .fa-chevron-right) {
     border-left: 1px solid #bccbd2;
 }
 
@@ -811,7 +811,7 @@ body {
 
 .column-header .column-heart-button {
     font-size: 17px;
-    padding: 12px 13px;
+    /* padding: 12px 13px; */
 }
 
 .column-header-actions .column-header-button.fa-chevron-up,
@@ -897,13 +897,14 @@ body {
 .content-overview {
     position: absolute;
     width: 700px;
-    left: 50%;
+    left: 55%;
     margin-left: -350px;
     background-color: #fff;
     border: 1px solid #9ba1a7;
     border-radius: 6px;
     z-index: 8;
     padding: 15px;
+    bottom: : 590px;
     text-align: left;
     display: none;
     -webkit-box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
