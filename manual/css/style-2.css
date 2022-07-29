@@ -967,7 +967,7 @@ body {
     border-radius: 6px;
     z-index: 8;
     padding: 15px;
-    bottom: : 590px;
+    margin-top: 60px;
     text-align: left;
     display: none;
     -webkit-box-shadow: 0 3px 6px rgba(66, 66, 66, .1), 0 3px 6px rgba(66, 66, 66, .16);
