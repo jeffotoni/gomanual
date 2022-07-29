@@ -184,7 +184,8 @@ table {
   border-collapse: collapse;
 }
 td {
-  border-width: 1px;
+  border-color: inherit;
+  border-style: solid;
 
 
 }
