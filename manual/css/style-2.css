@@ -1875,7 +1875,8 @@ body {
 
 .overview-table{
     text-align: left;
-    border-width: 1px;
+    border-width: 5px;
     background-color: #eef4f7;
     border-color: #ffffff;
+    border-style: solid;
 }
