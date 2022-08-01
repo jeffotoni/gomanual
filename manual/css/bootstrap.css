@@ -183,11 +183,6 @@ table {
   border-spacing: 0;
   border-collapse: collapse;
 }
-td {
-  border-color: inherit;
-  border-style: solid;
-  border-width: 5px;
-}
 th {
   padding: 0;
 }
